@@ -135,7 +135,7 @@ export const deleteUser = createAsyncThunk('appProduct/deleteUser', async (p_id,
 })
 
 export const appUsersSlice = createSlice({
-  name: 'appUsers',
+  name: 'appProduct',
   initialState: {
     data: [],
     total: 1,

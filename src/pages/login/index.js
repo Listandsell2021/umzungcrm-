@@ -170,8 +170,8 @@ const LoginPage = ({crm_data,theme_data}) => {
    
     var config = {
       method: 'POST',
-     // url: "https://umzungcrmtest-listandsell2021.vercel.app/api/read"
-     url: "https://umzungcrmtest-listandsell2021.vercel.app/api/read"
+     // url: "https://umzungcrmtest.vercel.app/api/read"
+     url: "https://umzungcrmtest.vercel.app/api/read"
       ,
       headers: { 
         'Content-Type': 'application/json',
@@ -433,7 +433,7 @@ export async function getServerSideProps() {
 
     var config = {
       method: 'POST',
-      url: "https://umzungcrmtest-listandsell2021.vercel.app/api/CRM_Data"
+      url: "https://umzungcrmtest.vercel.app/api/CRM_Data"
       ,
       headers: { 
         'Content-Type': 'application/json',
@@ -447,7 +447,7 @@ export async function getServerSideProps() {
 
     var config = {
       method: 'POST',
-      url: "https://umzungcrmtest-listandsell2021.vercel.app/api/theme_data"
+      url: "https://umzungcrmtest.vercel.app/api/theme_data"
       ,
       headers: { 
         'Content-Type': 'application/json',

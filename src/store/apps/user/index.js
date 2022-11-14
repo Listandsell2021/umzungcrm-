@@ -7,7 +7,7 @@ import axios from 'axios'
 
 // ** Fetch Users
 export const fetchData = createAsyncThunk('appUsers/fetchData', async params => {
-  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getAdminData', {
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/getAdminData', {
     params
   })
   var test={
@@ -24,7 +24,7 @@ export const fetchData = createAsyncThunk('appUsers/fetchData', async params => 
 // ** Add User
 export const addUser = createAsyncThunk('appUsers/addUser', async (data, { getState, dispatch }) => {
   var datas={"collection":"Admin"}
-  const response1 = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getLastId', {
+  const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
     datas
   })
   //console.log(data)
@@ -43,7 +43,7 @@ export const addUser = createAsyncThunk('appUsers/addUser', async (data, { getSt
 "status":"pending",
 "email":data.email,
 "username":data.username}
-  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/postAdmin', {
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/postAdmin', {
     datanew
   })
   dispatch(fetchData(getState().user.params))

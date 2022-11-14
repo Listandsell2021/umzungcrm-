@@ -220,7 +220,7 @@ const handleChangePerMonthPriceUYearly= e => {
 
 export const getserversideprops = async () => {
   
-  const res1 = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getPackages')
+  const res1 = await axios.post('https://umzungcrmtest.vercel.app/api/getPackages')
   //const apiData = res.data
   var apiData=res1.data
  // console.log(apiData)

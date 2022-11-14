@@ -7,7 +7,7 @@ import axios from 'axios'
 
 // ** Fetch Users
 export const fetchData = createAsyncThunk('appUsers/fetchData', async params => {
-  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getServiceData', {
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/getServiceData', {
     params
   })
   var test={
@@ -25,7 +25,7 @@ export const fetchData = createAsyncThunk('appUsers/fetchData', async params => 
 export const addServices = createAsyncThunk('appUsers/addUser', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Services"}
-  const response1 = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getLastId', {
+  const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
     datas
   })
   console.log(data)
@@ -49,7 +49,7 @@ export const addServices = createAsyncThunk('appUsers/addUser', async (data, { g
 
 
   
-  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/postServices', {
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/postServices', {
     datanew
   })
   dispatch(fetchData(getState().user.params))
@@ -78,7 +78,7 @@ export const updateServices = createAsyncThunk('appUsers/addUser', async (data, 
 
 
   console.log(datanew)
-  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/updateService', {
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateService', {
     datanew
   })
   dispatch(fetchData(getState().user.params))
@@ -91,7 +91,7 @@ export const updateServices = createAsyncThunk('appUsers/addUser', async (data, 
 export const deleteUser = createAsyncThunk('appUsers/deleteUser', async (s_id, { getState, dispatch }) => {
   
  
-  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/deleteService', {
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/deleteService', {
     datanew: s_id
   })
   dispatch(fetchData(getState().user.params))

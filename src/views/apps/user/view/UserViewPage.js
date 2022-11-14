@@ -24,7 +24,7 @@ const UserView = ({ id, invoiceData }) => {
     var ids={id:"a"+id}
     //console.log(id)
    
-    axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getAdminbyId',{ ids })
+    axios.post('https://umzungcrmtest.vercel.app/api/getAdminbyId',{ ids })
       .then(response => {
         setData(response.data[0])
         console.log(response.data[0])

@@ -10,8 +10,8 @@ const awsmobile = {
   oauth: {
     domain: '',
     scope: ['phone', 'email', 'openid', 'profile', 'aws.cognito.signin.user.admin'],
-    redirectSignIn: 'https://umzungcrmtest-listandsell2021.vercel.app/',
-    redirectSignOut: 'https://umzungcrmtest-listandsell2021.vercel.app/login/',
+    redirectSignIn: 'https://umzungcrmtest.vercel.app/',
+    redirectSignOut: 'https://umzungcrmtest.vercel.app/login/',
     responseType: 'code'
   },
   federationTarget: 'COGNITO_USER_POOLS',

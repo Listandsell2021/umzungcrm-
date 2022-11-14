@@ -66,8 +66,8 @@ async function checklogin(data)
    
     var config = {
       method: 'POST',
-      //url: "https://umzungcrmtest-listandsell2021.vercel.app/api/read"
-      url: "https://umzungcrmtest-listandsell2021.vercel.app/api/read"
+      //url: "https://umzungcrmtest.vercel.app/api/read"
+      url: "https://umzungcrmtest.vercel.app/api/read"
       
       ,
       headers: { 
@@ -98,8 +98,8 @@ async function getdeatils(data)
    
     var config = {
       method: 'POST',
-      //url: "https://umzungcrmtest-listandsell2021.vercel.app/api/getDetailSuperAdmin"
-      url: " https://umzungcrmtest-listandsell2021.vercel.app/api/getDetailSuperAdmin"
+      //url: "https://umzungcrmtest.vercel.app/api/getDetailSuperAdmin"
+      url: " https://umzungcrmtest.vercel.app/api/getDetailSuperAdmin"
       ,
       headers: { 
         'Content-Type': 'application/json',

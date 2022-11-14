@@ -62,7 +62,7 @@ const [title,settitle]=useState("")
 
     var config = {
       method: 'POST',
-      url: "https://umzungcrmtest-listandsell2021.vercel.app/api/CRM_Data"
+      url: "https://umzungcrmtest.vercel.app/api/CRM_Data"
       ,
       headers: { 
         'Content-Type': 'application/json',

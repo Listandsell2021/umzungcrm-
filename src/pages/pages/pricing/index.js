@@ -219,7 +219,7 @@ const handleChangePerMonthPriceUYearly= e => {
 }
 
 export const getStaticProps = async () => {
-  const res = await axios.get('/pages/pricing')
+  
   const res1 = await axios.post('https://lscrmlive.vercel.app/api/getPackages')
   //const apiData = res.data
   var apiData=res1.data

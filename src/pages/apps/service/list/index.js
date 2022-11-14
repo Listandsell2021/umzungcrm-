@@ -527,7 +527,7 @@ const UserList = () => {
         <Card>
           <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />
           <DataGrid
-             getRowId={(row) => row.s_id}
+             getRowId={(row) => row.p_id}
             autoHeight
             rows={store.data}
             columns={columns}

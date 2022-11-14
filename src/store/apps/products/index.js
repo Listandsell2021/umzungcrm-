@@ -6,7 +6,7 @@ import axios from 'axios'
 
 
 // ** Fetch Users
-export const fetchData = createAsyncThunk('appUsers/fetchData', async params => {
+export const fetchData = createAsyncThunk('appProduct/fetchData', async params => {
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getProductsData', {
     params
   })
@@ -22,7 +22,7 @@ export const fetchData = createAsyncThunk('appUsers/fetchData', async params => 
 })
 
 // ** Add User
-export const addProducts = createAsyncThunk('appUsers/addProducts', async (data, { getState, dispatch }) => {
+export const addProducts = createAsyncThunk('appProduct/addProducts', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Products"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
@@ -57,7 +57,7 @@ export const addProducts = createAsyncThunk('appUsers/addProducts', async (data,
 
   return response.data
 })
-export const adduser = createAsyncThunk('appUsers/adduser', async (data, { getState, dispatch }) => {
+export const adduser = createAsyncThunk('appProduct/adduser', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Products"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
@@ -92,7 +92,7 @@ export const adduser = createAsyncThunk('appUsers/adduser', async (data, { getSt
 
   return response.data
 })
-export const updateProducts = createAsyncThunk('appUsers/addProducts', async (data, { getState, dispatch }) => {
+export const updateProducts = createAsyncThunk('appProduct/addProducts', async (data, { getState, dispatch }) => {
 
  
  
@@ -122,7 +122,7 @@ export const updateProducts = createAsyncThunk('appUsers/addProducts', async (da
 })
 
 // ** Delete User
-export const deleteUser = createAsyncThunk('appUsers/deleteUser', async (p_id, { getState, dispatch }) => {
+export const deleteUser = createAsyncThunk('appProduct/deleteUser', async (p_id, { getState, dispatch }) => {
    console.log("tesy")
   console.log(p_id)
  

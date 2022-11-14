@@ -36,11 +36,11 @@ import ContentCopy from 'mdi-material-ui/ContentCopy'
 import InformationOutline from 'mdi-material-ui/InformationOutline'
 
 const cardData = [
-  { totalUsers: 2, title: 'Administrator', avatars: ['1.png', '2.png', '3.png', '4.png'] },
-  { totalUsers: 7, title: 'Manager', avatars: ['5.png', '6.png', '7.png', '8.png', '1.png', '2.png', '3.png'] },
-  { totalUsers: 5, title: 'Users', avatars: ['4.png', '5.png', '6.png', '7.png', '8.png'] },
-  { totalUsers: 3, title: 'Support', avatars: ['1.png', '2.png', '3.png'] },
-  { totalUsers: 2, title: 'Restricted User', avatars: ['4.png', '5.png'] }
+  { totalUsers: 2, title: 'Administrator', avatars: [] },
+  { totalUsers: 7, title: 'Manager', avatars: [] },
+  { totalUsers: 5, title: 'Users', avatars: [] },
+  { totalUsers: 3, title: 'Support', avatars: [] },
+  { totalUsers: 2, title: 'Restricted User', avatars: [] }
 ]
 
 const rolesArr = [

@@ -7,7 +7,7 @@ import axios from 'axios'
 
 // ** Fetch Users
 export const fetchData = createAsyncThunk('appUsers/fetchData', async params => {
-  const response = await axios.post('https://lscrmlive.vercel.app/api/getProductsData', {
+  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getProductsData', {
     params
   })
   var test={
@@ -25,7 +25,7 @@ export const fetchData = createAsyncThunk('appUsers/fetchData', async params => 
 export const addProducts = createAsyncThunk('appUsers/addProducts', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Products"}
-  const response1 = await axios.post('https://lscrmlive.vercel.app/api/getLastId', {
+  const response1 = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getLastId', {
     datas
   })
   console.log(data)
@@ -49,7 +49,7 @@ export const addProducts = createAsyncThunk('appUsers/addProducts', async (data,
 
 
   
-  const response = await axios.post('https://lscrmlive.vercel.app/api/postProducts', {
+  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/postProducts', {
     datanew
   })
   dispatch(fetchData(getState().user.params))
@@ -60,7 +60,7 @@ export const addProducts = createAsyncThunk('appUsers/addProducts', async (data,
 export const adduser = createAsyncThunk('appUsers/adduser', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Products"}
-  const response1 = await axios.post('https://lscrmlive.vercel.app/api/getLastId', {
+  const response1 = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getLastId', {
     datas
   })
   console.log(data)
@@ -84,7 +84,7 @@ export const adduser = createAsyncThunk('appUsers/adduser', async (data, { getSt
 
 
   
-  const response = await axios.post('https://lscrmlive.vercel.app/api/postProducts', {
+  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/postProducts', {
     datanew
   })
   dispatch(fetchData(getState().user.params))
@@ -112,7 +112,7 @@ export const updateProducts = createAsyncThunk('appUsers/addProducts', async (da
 
 
   console.log(datanew)
-  const response = await axios.post('https://lscrmlive.vercel.app/api/updateProduct', {
+  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/updateProduct', {
     datanew
   })
   dispatch(fetchData(getState().user.params))
@@ -126,7 +126,7 @@ export const deleteUser = createAsyncThunk('appUsers/deleteUser', async (p_id, {
    console.log("tesy")
   console.log(p_id)
  
-  const response = await axios.post('https://lscrmlive.vercel.app/api/deleteProduct', {
+  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/deleteProduct', {
     datanew: p_id
   })
   dispatch(fetchData(getState().user.params))

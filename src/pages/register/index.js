@@ -141,7 +141,7 @@ const Register = () => {
 async function checkemail(ids,data)
 {
   
-   const response = await axios.post('https://lscrmlive.vercel.app/api/getAdminbyemail', {
+   const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getAdminbyemail', {
     ids
      })
   console.log(response.data)
@@ -158,7 +158,7 @@ async function checkemail(ids,data)
   {
     console.log("empty") 
     
-    const response1 = await axios.post('https://lscrmlive.vercel.app/api/getLastId', {
+    const response1 = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/getLastId', {
   
   })
   //console.log(data)
@@ -187,10 +187,10 @@ async function checkemail(ids,data)
     
   }
 
-  const response = await axios.post('https://lscrmlive.vercel.app/api/postAdmin', {
+  const response = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/postAdmin', {
     datanew
   })
-  const responselogin = await axios.post('https://lscrmlive.vercel.app/api/postLogin', {
+  const responselogin = await axios.post('https://umzungcrmtest-listandsell2021.vercel.app/api/postLogin', {
     logindata
   })
 

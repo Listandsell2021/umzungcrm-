@@ -6,7 +6,7 @@ import axios from 'axios'
 
 
 // ** Fetch Users
-export const fetchData = createAsyncThunk('appServices/fetchData', async params => {
+export const fetchData = createAsyncThunk('appUsers/fetchData', async params => {
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getServiceData', {
     params
   })
@@ -22,7 +22,7 @@ export const fetchData = createAsyncThunk('appServices/fetchData', async params 
 })
 
 // ** Add User
-export const addServices = createAsyncThunk('appServices/addUser', async (data, { getState, dispatch }) => {
+export const addServices = createAsyncThunk('appUsers/addUser', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Services"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
@@ -58,7 +58,7 @@ export const addServices = createAsyncThunk('appServices/addUser', async (data, 
   return response.data
 })
 
-export const updateServices = createAsyncThunk('appServices/addUser', async (data, { getState, dispatch }) => {
+export const updateServices = createAsyncThunk('appUsers/addUser', async (data, { getState, dispatch }) => {
 
  
  
@@ -88,7 +88,7 @@ export const updateServices = createAsyncThunk('appServices/addUser', async (dat
 })
 
 // ** Delete User
-export const deleteUser = createAsyncThunk('appServices/deleteUser', async (s_id, { getState, dispatch }) => {
+export const deleteUser = createAsyncThunk('appUsers/deleteUser', async (s_id, { getState, dispatch }) => {
   
  
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/deleteService', {
@@ -99,8 +99,8 @@ export const deleteUser = createAsyncThunk('appServices/deleteUser', async (s_id
   return response.data 
 })
 
-export const appServicesSlice = createSlice({
-  name: 'appServices',
+export const appUsersSlice = createSlice({
+  name: 'appUsers',
   initialState: {
     data: [],
     total: 1,
@@ -118,4 +118,4 @@ export const appServicesSlice = createSlice({
   }
 })
 
-export default appServicesSlice.reducer
+export default appUsersSlice.reducer

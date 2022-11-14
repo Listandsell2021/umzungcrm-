@@ -57,7 +57,41 @@ export const addProducts = createAsyncThunk('appUsers/addProducts', async (data,
 
   return response.data
 })
+export const adduser = createAsyncThunk('appUsers/adduser', async (data, { getState, dispatch }) => {
 
+  var datas={"collection":"Products"}
+  const response1 = await axios.post('https://lscrmlive.vercel.app/api/getLastId', {
+    datas
+  })
+  console.log(data)
+  console.log("test")
+  console.log(response1.data)
+   console.log(data.title)
+    var datanew={
+            "a_id":"a1",
+            "sa_id":"s1",
+            "tittle":data.tittle,
+              "descriptions ":"test2 desc",
+              "price":data.price,
+            "size":
+          {"length":data.length,
+         "breath":data.breath,
+    "height":data.height,
+    "cubic_meter":data.cubic_meter},
+"p_id":"p"+parseInt(response1.data)+1,
+"avatar":"/images/avatars/4.png",
+"status":"active"}
+
+
+  
+  const response = await axios.post('https://lscrmlive.vercel.app/api/postProducts', {
+    datanew
+  })
+  dispatch(fetchData(getState().user.params))
+  
+
+  return response.data
+})
 export const updateProducts = createAsyncThunk('appUsers/addProducts', async (data, { getState, dispatch }) => {
 
  

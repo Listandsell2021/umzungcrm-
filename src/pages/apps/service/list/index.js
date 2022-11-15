@@ -298,6 +298,7 @@ const columns = [
     field: 'tittle',
     headerName: 'Service tittle',
     renderCell: ({ row }) => {
+       console.log("test row")
       console.log(row)
       const { s_id, tittle, price } = row
       var p_idnew=String(s_id).substring(1);

@@ -176,6 +176,7 @@ const columns = [
     field: 'fullName',
     headerName: 'User',
     renderCell: ({ row }) => {
+    
       const { a_id, full_name, username } = row
       var a_idnew=String(a_id).substring(1);
       return (
@@ -291,6 +292,7 @@ const UserList = () => {
         q: value,
         currentPlan: plan
       })
+      
     )
   }, [dispatch, plan, role, status, value])
 

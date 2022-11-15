@@ -14,7 +14,7 @@ export const fetchData = createAsyncThunk('appService/fetchData', async params =
     "alldata":response.data,
     "params":params,
     "total":1,
-    "users":response.data
+    "service":response.data
   }
 
    console.log(test)

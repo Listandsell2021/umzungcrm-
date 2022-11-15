@@ -35,7 +35,7 @@ export const addProducts = createAsyncThunk('product/addProducts', async (data, 
     var datanew={
             "a_id":"a1",
             "sa_id":"s1",
-            "tittle":data.tittle,
+            "tittle":data.title,
               "descriptions ":"test2 desc",
               "price":data.price,
             "size":

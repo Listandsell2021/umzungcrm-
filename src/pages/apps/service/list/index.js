@@ -419,13 +419,14 @@ const UserList = () => {
   const [value, setValue] = useState('')
   const [status, setStatus] = useState('')
   const [pageSize, setPageSize] = useState(10)
+
   const [addUserOpen, setAddUserOpen] = useState(false)
 
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
   useEffect(() => {
-    console.log(store)
+    
     dispatch(
       fetchData({
         role,

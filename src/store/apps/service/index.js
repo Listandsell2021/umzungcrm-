@@ -6,7 +6,7 @@ import axios from 'axios'
 
 
 // ** Fetch Users
-export const fetchData = createAsyncThunk('appService/fetchData', async params => {
+export const fetchData = createAsyncThunk('appUser/fetchData', async params => {
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getServiceData', {
     params
   })
@@ -22,7 +22,7 @@ export const fetchData = createAsyncThunk('appService/fetchData', async params =
 })
 
 // ** Add User
-export const addServices = createAsyncThunk('appService/addUser', async (data, { getState, dispatch }) => {
+export const addServices = createAsyncThunk('appUser/addUser', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Services"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
@@ -58,7 +58,7 @@ export const addServices = createAsyncThunk('appService/addUser', async (data, {
   return response.data
 })
 
-export const updateServices = createAsyncThunk('appService/addUser', async (data, { getState, dispatch }) => {
+export const updateServices = createAsyncThunk('appUser/addUser', async (data, { getState, dispatch }) => {
 
  
  
@@ -88,7 +88,7 @@ export const updateServices = createAsyncThunk('appService/addUser', async (data
 })
 
 // ** Delete User
-export const deleteUser = createAsyncThunk('appService/deleteUser', async (s_id, { getState, dispatch }) => {
+export const deleteUser = createAsyncThunk('appUser/deleteUser', async (s_id, { getState, dispatch }) => {
   
  
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/deleteService', {
@@ -99,8 +99,8 @@ export const deleteUser = createAsyncThunk('appService/deleteUser', async (s_id,
   return response.data 
 })
 
-export const appServiceSlice = createSlice({
-  name: 'appService',
+export const appUserSlice = createSlice({
+  name: 'appUser',
   initialState: {
     data: [],
     total: 1,
@@ -118,4 +118,4 @@ export const appServiceSlice = createSlice({
   }
 })
 
-export default appServiceSlice.reducer
+export default appUserSlice.reducer

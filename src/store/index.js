@@ -9,12 +9,12 @@ import invoice from 'src/store/apps/invoice'
 import calendar from 'src/store/apps/calendar'
 import permissions from 'src/store/apps/permissions'
 import service from 'src/store/apps/service'
-import product from 'src/store/apps/products'
+import products from 'src/store/apps/products'
 
 export const store = configureStore({
   reducer: {
     user,
-    product,
+    products,
     chat,
     email,
     invoice,

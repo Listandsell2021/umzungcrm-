@@ -6,7 +6,7 @@ import axios from 'axios'
 
 
 // ** Fetch Users
-export const fetchData = createAsyncThunk('appProduct/fetchData', async params => {
+export const fetchData = createAsyncThunk('appProducts/fetchData', async params => {
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getProductsData', {
     params
   })
@@ -57,7 +57,7 @@ export const addProducts = createAsyncThunk('product/addProducts', async (data, 
 
   return response.data
 })
-export const adduser = createAsyncThunk('appProduct/adduser', async (data, { getState, dispatch }) => {
+export const adduser = createAsyncThunk('appProducts/adduser', async (data, { getState, dispatch }) => {
 
   var datas={"collection":"Products"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
@@ -92,7 +92,7 @@ export const adduser = createAsyncThunk('appProduct/adduser', async (data, { get
 
   return response.data
 })
-export const updateProducts = createAsyncThunk('appProduct/addProducts', async (data, { getState, dispatch }) => {
+export const updateProducts = createAsyncThunk('appProducts/addProducts', async (data, { getState, dispatch }) => {
 
  
  
@@ -122,7 +122,7 @@ export const updateProducts = createAsyncThunk('appProduct/addProducts', async (
 })
 
 // ** Delete User
-export const deleteUser = createAsyncThunk('appProduct/deleteUser', async (p_id, { getState, dispatch }) => {
+export const deleteUser = createAsyncThunk('appProducts/deleteUser', async (p_id, { getState, dispatch }) => {
    console.log("tesy")
   console.log(p_id)
  
@@ -134,8 +134,8 @@ export const deleteUser = createAsyncThunk('appProduct/deleteUser', async (p_id,
   return response.data 
 })
 
-export const appProductSlice = createSlice({
-  name: 'appProduct',
+export const appProductsSlice = createSlice({
+  name: 'appProducts',
   initialState: {
     data: [],
     total: 1,
@@ -153,4 +153,4 @@ export const appProductSlice = createSlice({
   }
 })
 
-export default appProductSlice.reducer
+export default appProductsSlice.reducer

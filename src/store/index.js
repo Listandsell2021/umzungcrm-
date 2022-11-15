@@ -13,7 +13,7 @@ import products from 'src/store/apps/products'
 
 export const store = configureStore({
   reducer: {
-    user,
+    createSlice,
     products,
     chat,
     email,

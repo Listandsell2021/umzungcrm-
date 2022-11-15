@@ -426,7 +426,7 @@ const UserList = () => {
 
   // ** Hooks
   const dispatch = useDispatch()
-  const store = useSelector(state => state.user)
+  const store = useSelector(state => state.products)
   useEffect(() => {
     dispatch(
       fetchData({

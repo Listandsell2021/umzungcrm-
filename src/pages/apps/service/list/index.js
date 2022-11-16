@@ -56,7 +56,7 @@ import { getInitials } from 'src/@core/utils/get-initials'
 // ** Actions Imports
 import { fetchData, deleteUser } from 'src/store/apps/service'
 
-import { updateService } from 'src/store/apps/service'
+import { updateServices } from 'src/store/apps/service'
 
 // ** Custom Components Imports
 import TableHeader from 'src/views/apps/service/list/TableHeader'
@@ -175,7 +175,7 @@ const [avatar, setavatar] = useState(row.avatar)
    "status":status
   }
     
-    dispatch(updateService({ ...data }))
+    dispatch(updateServices({ ...data }))
     handleEditClose()
   }
   return (

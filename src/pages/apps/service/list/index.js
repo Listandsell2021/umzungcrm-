@@ -174,7 +174,7 @@ const [avatar, setavatar] = useState(row.avatar)
    "desc":desc,
    "status":status
   }
-    
+    console.log(data)
     dispatch(updateServices({ ...data }))
     handleEditClose()
   }

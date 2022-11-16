@@ -34,12 +34,13 @@ export const addService = createAsyncThunk('appService/addService', async (data,
    "s_id":"s"+parseInt(response1.data)+1,
    "tittle":data.tittle,
    "price":data.price,
-   "service_type":"fixed price",
+   "service_type":data.pricetype,
    "avatar":"/images/avatars/bed.png",
-   "a_id":"a1","price_per_smeter":"0",
-   "des ":"test service details",
-   "desc":"test service details",
-   "status":"active"}
+   "a_id":"a1",
+   "des ":data.desc,
+   "desc":data.desc,
+   "status":data.status
+  }
    
     
 

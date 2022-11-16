@@ -87,7 +87,7 @@ const SidebarAddUser = props => {
 
   const onSubmit = data => {
     
-    dispatch(addService({ ...data, role, currentPlan: "basic" }))
+   dispatch(addService({ ...data, status:status, currentPlan: "basic",pricetype:pricetype }))
     toggle()
     reset()
   }
@@ -197,7 +197,7 @@ const SidebarAddUser = props => {
               id='status'
               label='status'
               labelId='status'
-              onChange={e => setPlan(e.target.value)}
+              onChange={e => setStatus(e.target.value)}
               inputProps={{ placeholder: 'Status' }}
             >
               <MenuItem value='active'>Active</MenuItem>

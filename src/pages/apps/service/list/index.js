@@ -314,7 +314,7 @@ const columns = [
        console.log("test row")
       console.log(row)
       const { s_id, tittle, price } = row
-      sets_id(s_id)
+      
       var p_idnew=String(s_id).substring(1);
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

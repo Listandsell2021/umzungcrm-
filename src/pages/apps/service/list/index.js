@@ -364,23 +364,7 @@ const columns = [
       )
     }
   },
-  {
-    flex: 0.15,
-    field: 'price_per_smeter',
-    minWidth: 50,
-    maxWidth:150,
-    headerName: 'price_per_smeter',
-    renderCell: ({ row }) => {
-      return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {userRoleObj[row.role]}
-          <Typography noWrap sx={{ color: 'text.secondary', textTransform: 'capitalize' }}>
-            {row.price_per_smeter}
-          </Typography>
-        </Box>
-      )
-    }
-  },
+  
   
   
 

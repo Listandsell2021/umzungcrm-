@@ -197,60 +197,9 @@ const SidebarAddUser = props => {
             />
             {errors.desc && <FormHelperText sx={{ color: 'error.main' }}>{errors.desc.message}</FormHelperText>}
           </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
-            <Controller
-              name='PRICE_PER_SMETER'
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { value, onChange } }) => (
-                <TextField
-                type='number'
-                  value={value}
-                  label='PRICE_PER_SMETER'
-                  onChange={onChange}
-                  placeholder='PRICE_PER_SMETER'
-                  error={Boolean(errors.breath)}
-                />
-              )}
-            />
-            {errors.PRICE_PER_SMETER && <FormHelperText sx={{ color: 'error.main' }}>{errors.PRICE_PER_SMETER.message}</FormHelperText>}
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
-            <Controller
-              name='height'
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { value, onChange } }) => (
-                <TextField
-                type='number'
-                  value={value}
-                  label='height'
-                  onChange={onChange}
-                  placeholder='height'
-                  error={Boolean(errors.height)}
-                />
-              )}
-            />
-            {errors.height && <FormHelperText sx={{ color: 'error.main' }}>{errors.height.message}</FormHelperText>}
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
-            <Controller
-              name='cubic_meter'
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { value, onChange } }) => (
-                <TextField
-                  type='number'
-                  value={value}
-                  label='cubic_meter'
-                  onChange={onChange}
-                  placeholder='cubic_meter'
-                  error={Boolean(errors.cubic_meter)}
-                />
-              )}
-            />
-            {errors.cubic_meter && <FormHelperText sx={{ color: 'error.main' }}>{errors.cubic_meter.message}</FormHelperText>}
-          </FormControl>
+         
+          
+         
           
           <FormControl fullWidth sx={{ mb: 6 }}>
             <InputLabel id='plan-select'>status</InputLabel>

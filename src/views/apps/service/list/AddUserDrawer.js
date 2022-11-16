@@ -49,29 +49,17 @@ const Header = styled(Box)(({ theme }) => ({
 const schema = yup.object().shape({
   price: yup.string().required(),
   desc: yup.string().required(),
-  title: yup.string().required(),
-  PRICE_PER_SMETER: yup
-    .number()
-    
-    .min(1, obj => showErrors('PRICE_PER_SMETER', obj.value.length, obj.min))
-    .required(),
-  height: yup
-    .number()
-    .min(1, obj => showErrors('Height', obj.value.length, obj.min))
-    .required(),
-  cubic_meter: yup
-    .number()
-    .min(1, obj => showErrors('Cubic Meter', obj.value.length, obj.min))
-    .required()
+  title: yup.string().required()
+  
+  
+  
 })
 
 const defaultValues = {
   title: '',
   price: '',
   desc: '',
-  PRICE_PER_SMETER: '',
-  height: '',
-  cubic_meter: ''
+  
 }
 
 const SidebarAddUser = props => {
@@ -99,7 +87,7 @@ const SidebarAddUser = props => {
 
   const onSubmit = data => {
     
-    dispatch(addProducts({ ...data, role, currentPlan: "basic" }))
+    dispatch(addService({ ...data, role, currentPlan: "basic" }))
     toggle()
     reset()
   }
@@ -137,7 +125,7 @@ const SidebarAddUser = props => {
                   value={value}
                   label='Title'
                   onChange={onChange}
-                  placeholder='Products Title'
+                  placeholder='Service Title'
                   error={Boolean(errors.title)}
                 />
               )}

@@ -8,9 +8,9 @@ export default async function handler(req, res) {
   const todos = await db.collection("Services").update({"s_id" : datanew.s_id},{$set: {"sa_id":datanew.sa_id,
   "a_id":datanew.a_id,
   "tittle":datanew.tittle,
-  "descriptions ":datanew.desc,
+  "desc ":datanew.desc,
   "price":datanew.price,
-  "service_type":datanew.pricetype,
+  "service_type":datanew.service_type,
   "avatar":"/images/avatars/4.png",
   "status":datanew.status}});
   

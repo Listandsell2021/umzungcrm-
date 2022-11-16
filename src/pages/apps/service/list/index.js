@@ -167,7 +167,7 @@ const [avatar, setavatar] = useState(row.avatar)
    "s_id":s_id,
    "tittle":tittle,
    "price":price,
-   "service_type":pricetype,
+   "service_type":service_type,
    "avatar":"/images/avatars/bed.png",
    "a_id":"a1",
    "des ":desc,

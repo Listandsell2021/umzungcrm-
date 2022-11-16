@@ -117,7 +117,7 @@ const SidebarAddUser = props => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='tittle'
+              name='title'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (
@@ -168,7 +168,7 @@ const SidebarAddUser = props => {
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='Description'
+              name='desc'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (

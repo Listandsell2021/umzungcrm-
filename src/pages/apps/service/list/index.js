@@ -220,8 +220,8 @@ const [avatar, setavatar] = useState(row.avatar)
                         <InputLabel id='user-view-status-label'>Status</InputLabel>
                         <Select
                           label='Service Type'
-                          value={pricetype}
-                          onChange={e => setpricetype(e.target.value)}
+                          value={service_type}
+                          onChange={e => setservice_type(e.target.value)}
                           id='user-view-status'
                           labelId='user-view-status-label'
                         >
@@ -231,9 +231,7 @@ const [avatar, setavatar] = useState(row.avatar)
                         </Select>
                       </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField fullWidth  label='Service Type' value={service_type} onChange={e => setservice_type(e.target.value)}/>
-                    </Grid>
+                   
                    
                     <Grid item xs={12} sm={6}>
                       <TextField   type='number' fullWidth label='Service Breath' value={price_per_smeter} onChange={e => setprice_per_smeter(e.target.value)}/>

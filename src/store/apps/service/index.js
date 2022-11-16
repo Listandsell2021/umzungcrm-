@@ -32,7 +32,7 @@ export const addService = createAsyncThunk('appService/addService', async (data,
   
      var datanew={"sa_id":"sa1",
    "s_id":"s"+parseInt(response1.data)+1,
-   "tittle":data.tittle,
+   "tittle":data.title,
    "price":data.price,
    "service_type":data.pricetype,
    "avatar":"/images/avatars/bed.png",
@@ -59,22 +59,19 @@ export const updateServices = createAsyncThunk('appService/addUser', async (data
 
  
  
-    var datanew={
-            "a_id":"a1",
-            "sa_id":"s1",
-            "tittle":data.tittle,
-              "descriptions ":"test2 desc",
-              "price":data.price,
-            "length":data.length,
-         "breath":data.breath,
-    "height":data.height,
-    "cubic_meter":data.cubic_meter,
-"p_id":data.p_id,
-"avatar":"/images/avatars/4.png",
-"status":data.status}
+    var datanew={"sa_id":"sa1",
+   "s_id":data.s_id,
+   "tittle":data.tittle,
+   "price":data.price,
+   "service_type":data.pricetype,
+   "avatar":"/images/avatars/bed.png",
+   "a_id":"a1",
+   "des ":data.desc,
+   "desc":data.desc,
+   "status":data.status
+  }
 
-
-  console.log(datanew)
+  
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateService', {
     datanew
   })

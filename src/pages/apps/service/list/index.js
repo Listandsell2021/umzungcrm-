@@ -135,12 +135,12 @@ const RowOptions = ({ s_id,row }) => {
 const [tittle, settittle] = useState(row.tittle)
 const [desc, setdesc] = useState(row.desc)
 const [price, setprice] = useState(parseInt(row.price))
-const [length, setlength] = useState(parseInt(""))
+
 const [breath, setbreath] = useState(parseInt(""))
 const [service_type, setservice_type] = useState(row.service_type)
 const [price_per_smeter, setprice_per_smeter] = useState(parseInt(row.price_per_smeter))
 const [status, setstatus] = useState(row.status)
-
+ const [pricetype, setpricetype] = useState(row.price_per_smeter)
 const [avatar, setavatar] = useState(row.avatar)
   const handleRowOptionsClick = event => {
     setAnchorEl(event.currentTarget)
@@ -151,7 +151,7 @@ const [avatar, setavatar] = useState(row.avatar)
   }
 
   const handleDelete = () => {
-    dispatch(deleteUser(p_id))
+    dispatch(deleteUser(s_id))
     handleRowOptionsClose()
   }
   
@@ -163,21 +163,18 @@ const [avatar, setavatar] = useState(row.avatar)
   const handleEditClose = () => setOpenEdit(false)
   function  updateService()
   { 
-    var data={
-      "a_id":"a1",
-            "sa_id":"s1",
-            "tittle":tittle,
-              "descriptions ":"test2 desc",
-              "price":price,
-            
-          "length":length,
-         "breath":breath,
-    "height":height,
-    "cubic_meter":cubic_meter,
-"p_id":p_id,
-"avatar":"/images/avatars/4.png",
-"status":status
-    }
+    var data={"sa_id":"sa1",
+   "s_id":s_id,
+   "tittle":tittle,
+   "price":price,
+   "service_type":pricetype,
+   "avatar":"/images/avatars/bed.png",
+   "a_id":"a1",
+   "des ":desc,
+   "desc":desc,
+   "status":status
+  }
+    
     dispatch(updateService({ ...data }))
     handleEditClose()
   }
@@ -219,6 +216,22 @@ const [avatar, setavatar] = useState(row.avatar)
                       <TextField fullWidth  label='Description' value={desc} onChange={e => setdesc(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>
+                      <FormControl fullWidth>
+                        <InputLabel id='user-view-status-label'>Status</InputLabel>
+                        <Select
+                          label='Service Type'
+                          value={pricetype}
+                          onChange={e => setpricetype(e.target.value)}
+                          id='user-view-status'
+                          labelId='user-view-status-label'
+                        >
+                          <MenuItem value='fixed price'>Fixed Price</MenuItem>
+                          <MenuItem value='Price Per sq Meter'>Price per sq meter</MenuItem>
+                          
+                        </Select>
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
                       <TextField fullWidth  label='Service Type' value={service_type} onChange={e => setservice_type(e.target.value)}/>
                     </Grid>
                    
@@ -239,7 +252,7 @@ const [avatar, setavatar] = useState(row.avatar)
                         >
                           <MenuItem value='pending'>Pending</MenuItem>
                           <MenuItem value='active'>Active</MenuItem>
-                          <MenuItem value='inactive'>Inactive</MenuItem>
+                          
                         </Select>
                       </FormControl>
                     </Grid>
@@ -301,6 +314,7 @@ const columns = [
        console.log("test row")
       console.log(row)
       const { s_id, tittle, price } = row
+      sets_id(s_id)
       var p_idnew=String(s_id).substring(1);
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

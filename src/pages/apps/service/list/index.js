@@ -217,7 +217,7 @@ const [avatar, setavatar] = useState(row.avatar)
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
-                        <InputLabel id='user-view-status-label'>Status</InputLabel>
+                        <InputLabel id='user-view-status-label'>Service Type</InputLabel>
                         <Select
                           label='Service Type'
                           value={service_type}

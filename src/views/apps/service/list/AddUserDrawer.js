@@ -48,12 +48,12 @@ const Header = styled(Box)(({ theme }) => ({
 
 const schema = yup.object().shape({
   price: yup.string().required(),
-  length: yup.string().required(),
+  desc: yup.string().required(),
   title: yup.string().required(),
-  breath: yup
+  PRICE_PER_SMETER: yup
     .number()
     
-    .min(1, obj => showErrors('Breath', obj.value.length, obj.min))
+    .min(1, obj => showErrors('PRICE_PER_SMETER', obj.value.length, obj.min))
     .required(),
   height: yup
     .number()
@@ -68,8 +68,8 @@ const schema = yup.object().shape({
 const defaultValues = {
   title: '',
   price: '',
-  length: '',
-  breath: '',
+  desc: '',
+  PRICE_PER_SMETER: '',
   height: '',
   cubic_meter: ''
 }
@@ -81,7 +81,7 @@ const SidebarAddUser = props => {
   // ** State
   const [status, setStatus] = useState('active')
   const [role, setRole] = useState('subscriber')
-
+ const [pricetype, setpricetype] = useState('fixed price')
   // ** Hooks
   const dispatch = useDispatch()
 
@@ -129,7 +129,7 @@ const SidebarAddUser = props => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='title'
+              name='tittle'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (
@@ -143,6 +143,22 @@ const SidebarAddUser = props => {
               )}
             />
             {errors.title && <FormHelperText sx={{ color: 'error.main' }}>{errors.title.message}</FormHelperText>}
+          </FormControl>
+             <FormControl fullWidth sx={{ mb: 6 }}>
+            <InputLabel id='plan-select'>SERVICE TYPE</InputLabel>
+            <Select
+              fullWidth
+              value={pricetype}
+              id='service_type'
+              label='service_type'
+              labelId='service_type'
+              onChange={e => setpricetype(e.target.value)}
+              inputProps={{ placeholder: 'service_type' }}
+            >
+              <MenuItem value='fixed price'>Fixed Price</MenuItem>
+              <MenuItem value='Price Per sq Meter'>Price Per sq Meter</MenuItem>
+             
+            </Select>
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -164,40 +180,40 @@ const SidebarAddUser = props => {
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='length'
+              name='Description'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (
                 <TextField
-                 type='number'
+                 
                   
                   value={value}
-                  label='length'
+                  label='desc'
                   onChange={onChange}
-                  placeholder='length'
-                  error={Boolean(errors.length)}
+                  placeholder='desc'
+                  error={Boolean(errors.desc)}
                 />
               )}
             />
-            {errors.length && <FormHelperText sx={{ color: 'error.main' }}>{errors.length.message}</FormHelperText>}
+            {errors.desc && <FormHelperText sx={{ color: 'error.main' }}>{errors.desc.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='breath'
+              name='PRICE_PER_SMETER'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (
                 <TextField
                 type='number'
                   value={value}
-                  label='breath'
+                  label='PRICE_PER_SMETER'
                   onChange={onChange}
-                  placeholder='breath'
+                  placeholder='PRICE_PER_SMETER'
                   error={Boolean(errors.breath)}
                 />
               )}
             />
-            {errors.breath && <FormHelperText sx={{ color: 'error.main' }}>{errors.breath.message}</FormHelperText>}
+            {errors.PRICE_PER_SMETER && <FormHelperText sx={{ color: 'error.main' }}>{errors.PRICE_PER_SMETER.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller

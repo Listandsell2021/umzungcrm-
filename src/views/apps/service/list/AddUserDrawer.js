@@ -26,7 +26,7 @@ import Close from 'mdi-material-ui/Close'
 import { useDispatch } from 'react-redux'
 
 // ** Actions Imports
-import { addProducts } from 'src/store/apps/service'
+import { addService } from 'src/store/apps/service'
 
 const showErrors = (field, valueLen, min) => {
   if (valueLen === 0) {

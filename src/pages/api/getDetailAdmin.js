@@ -14,7 +14,7 @@ export default async function handler(req, res) {
        {
          from: 'Admin',
          localField: 'global_id',
-         foreignField: 'sa_id',
+         foreignField: 'a_id',
          as: 'details'
        }
      }

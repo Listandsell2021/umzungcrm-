@@ -157,13 +157,13 @@ async function checkemail(ids,data)
   else
   {
     console.log("empty") 
-    
+    var datas={"collection":"Services"}
     const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
-  
+       datas
   })
   //console.log(data)
 //console.log(response1.data)
-  var datanew={"sa_id":"s1",
+  var datanew={"sa_id":"sa1",
 "a_id":"a"+(parseInt(response1.data)+1),
 "company_name":null,
 "address":null,
@@ -186,6 +186,11 @@ async function checkemail(ids,data)
       "role":"admin"
     
   }
+   var navigationData=
+  {"title":"Packages",
+  "icon":"HomeOutline",
+  "path":"/pages/pricing",
+  "global_id":"a"+(parseInt(response1.data)+1)}
 
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/postAdmin', {
     datanew
@@ -193,6 +198,10 @@ async function checkemail(ids,data)
   const responselogin = await axios.post('https://umzungcrmtest.vercel.app/api/postLogin', {
     logindata
   })
+  const responsenavigation= await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
+    navigationData
+  })
+  
 
 
 

@@ -11,6 +11,7 @@ const ServerSideNavItems = () => {
   // ** State
   const [menuItems, setMenuItems] = useState([])
   useEffect(() => {
+    
       var data={id:"sa1"}
     axios.post('https://umzungcrmtest.vercel.app/api/getnavigations',{data}).then(response => {
       const menuArray = response.data

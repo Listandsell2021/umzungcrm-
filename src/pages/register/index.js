@@ -198,7 +198,7 @@ async function checkemail(ids,data)
   const responselogin = await axios.post('https://umzungcrmtest.vercel.app/api/postLogin', {
     logindata
   })
-  const responsenavigation= await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
+  const responsenavigations= await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
     navigationData
   })
   

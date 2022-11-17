@@ -127,7 +127,7 @@ async function getdeatils(data)
 }
 async function getdeatilsadmin(data)
 {
-Admin
+
  
   
      var data = JSON.stringify({

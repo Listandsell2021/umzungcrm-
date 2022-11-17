@@ -11,10 +11,10 @@ const ServerSideNavItems = () => {
   // ** State
   const [menuItems, setMenuItems] = useState([])
   useEffect(() => {
-
-    axios.get('https://umzungcrmtest.vercel.app/api/getnavigations').then(response => {
+      var data={id:"sa1"}
+    axios.get('https://umzungcrmtest.vercel.app/api/getnavigations',{data}).then(response => {
       const menuArray = response.data
-      console.log(menuArray)
+      
       /**
        *  Replace the icon string with the component
        *  If you don't want to import the whole icon library

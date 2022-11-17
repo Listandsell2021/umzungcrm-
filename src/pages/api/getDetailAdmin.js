@@ -8,9 +8,9 @@ export default async function handler(req, res) {
 
 
   const theme = await db.collection("Login").aggregate([
-      { €match: { "global_id": id }},
+      { $match: { "global_id": id }},
 
-    { €lookup:
+    { $lookup:
        {
          from: 'Admin',
          localField: 'global_id',

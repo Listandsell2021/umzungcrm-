@@ -45,10 +45,10 @@ export default async function handler(req, res) {
     {
 
       console.log(params.q)
-      ///.*€{params.q}.*/
-      var s=/^`€{params.q}`/
+      ///.*${params.q}.*/
+      var s=/^`${params.q}`/
       console.log(s)
-    todos = await db.collection("Products").find({"tittle":{'€regex': params.q}}).toArray();    
+    todos = await db.collection("Products").find({"tittle":{'$regex': params.q}}).toArray();    
     console.log(todos)
     }
     else

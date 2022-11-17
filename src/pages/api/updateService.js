@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
    const {datanew}=req.body
 
-  const todos = await db.collection("Services").update({"s_id" : datanew.s_id},{€set: {"sa_id":datanew.sa_id,
+  const todos = await db.collection("Services").update({"s_id" : datanew.s_id},{$set: {"sa_id":datanew.sa_id,
   "a_id":datanew.a_id,
   "tittle":datanew.tittle,
   "desc ":datanew.desc,

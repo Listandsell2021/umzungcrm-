@@ -395,6 +395,7 @@ function setdata()
         fullWidth
         color={data?.currentPlan ? 'success' : 'primary'}
         variant={data?.popularPlan ? 'contained' : 'outlined'}
+        onClick={() => setShow(true)}
       >
         {data?.currentPlan ? 'Your Current Plan' : 'Select'}
       </Button>

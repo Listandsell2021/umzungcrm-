@@ -56,7 +56,7 @@ const AutocompleteCreatable = () => {
         if (inputValue !== '' && !isExisting) {
           filtered.push({
             inputValue,
-            title: `Add "${inputValue}"`
+            title: `Add "€{inputValue}"`
           })
         }
 

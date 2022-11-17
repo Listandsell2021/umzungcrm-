@@ -134,7 +134,7 @@ const SidebarLeft = props => {
                   width: '100%',
                   borderRadius: 1,
                   alignItems: 'flex-start',
-                  backgroundColor: theme => (activeCondition ? `${theme.palette.primary.main} !important` : '')
+                  backgroundColor: theme => (activeCondition ? `€{theme.palette.primary.main} !important` : '')
                 }}
               >
                 <ListItemAvatar sx={{ m: 0 }}>
@@ -151,10 +151,10 @@ const SidebarLeft = props => {
                           width: 8,
                           height: 8,
                           borderRadius: '50%',
-                          color: `${statusObj[chat.status]}.main`,
-                          backgroundColor: `${statusObj[chat.status]}.main`,
+                          color: `€{statusObj[chat.status]}.main`,
+                          backgroundColor: `€{statusObj[chat.status]}.main`,
                           boxShadow: theme =>
-                            `0 0 0 2px ${
+                            `0 0 0 2px €{
                               !activeCondition ? theme.palette.background.paper : theme.palette.common.white
                             }`
                         }}
@@ -168,7 +168,7 @@ const SidebarLeft = props => {
                         sx={{
                           width: 40,
                           height: 40,
-                          border: theme => (activeCondition ? `2px solid ${theme.palette.common.white}` : '')
+                          border: theme => (activeCondition ? `2px solid €{theme.palette.common.white}` : '')
                         }}
                       />
                     ) : (
@@ -179,7 +179,7 @@ const SidebarLeft = props => {
                           width: 40,
                           height: 40,
                           fontSize: '1rem',
-                          border: theme => (activeCondition ? `2px solid ${theme.palette.common.white}` : '')
+                          border: theme => (activeCondition ? `2px solid €{theme.palette.common.white}` : '')
                         }}
                       >
                         {getInitials(chat.fullName)}
@@ -268,7 +268,7 @@ const SidebarLeft = props => {
                       py: 2.5,
                       width: '100%',
                       borderRadius: 1,
-                      backgroundColor: theme => (activeCondition ? `${theme.palette.primary.main} !important` : '')
+                      backgroundColor: theme => (activeCondition ? `€{theme.palette.primary.main} !important` : '')
                     }}
                   >
                     <ListItemAvatar sx={{ m: 0 }}>
@@ -279,7 +279,7 @@ const SidebarLeft = props => {
                           sx={{
                             width: 40,
                             height: 40,
-                            border: theme => (activeCondition ? `2px solid ${theme.palette.common.white}` : '')
+                            border: theme => (activeCondition ? `2px solid €{theme.palette.common.white}` : '')
                           }}
                         />
                       ) : (
@@ -290,7 +290,7 @@ const SidebarLeft = props => {
                             width: 40,
                             height: 40,
                             fontSize: '1rem',
-                            border: theme => (activeCondition ? `2px solid ${theme.palette.common.white}` : '')
+                            border: theme => (activeCondition ? `2px solid €{theme.palette.common.white}` : '')
                           }}
                         >
                           {getInitials(contact.fullName)}
@@ -370,7 +370,7 @@ const SidebarLeft = props => {
             py: 3.5,
             display: 'flex',
             alignItems: 'center',
-            borderBottom: theme => `1px solid ${theme.palette.divider}`
+            borderBottom: theme => `1px solid €{theme.palette.divider}`
           }}
         >
           {store && store.userProfile ? (
@@ -389,9 +389,9 @@ const SidebarLeft = props => {
                     width: 8,
                     height: 8,
                     borderRadius: '50%',
-                    color: `${statusObj[userStatus]}.main`,
-                    backgroundColor: `${statusObj[userStatus]}.main`,
-                    boxShadow: theme => `0 0 0 2px ${theme.palette.background.paper}`
+                    color: `€{statusObj[userStatus]}.main`,
+                    backgroundColor: `€{statusObj[userStatus]}.main`,
+                    boxShadow: theme => `0 0 0 2px €{theme.palette.background.paper}`
                   }}
                 />
               }

@@ -28,7 +28,7 @@ import themeConfig from 'src/configs/themeConfig'
 
 const MUITableCell = styled(TableCell)(({ theme }) => ({
   borderBottom: 0,
-  padding: `${theme.spacing(1, 0)} !important`
+  padding: `€{theme.spacing(1, 0)} !important`
 }))
 
 const CalcWrapper = styled(Box)(({ theme }) => ({
@@ -149,7 +149,7 @@ const PreviewCard = ({ data }) => {
                           <Typography variant='h6'>Invoice</Typography>
                         </MUITableCell>
                         <MUITableCell>
-                          <Typography variant='h6'>{`#${data.invoice.id}`}</Typography>
+                          <Typography variant='h6'>{`#€{data.invoice.id}`}</Typography>
                         </MUITableCell>
                       </TableRow>
                       <TableRow>
@@ -274,28 +274,28 @@ const PreviewCard = ({ data }) => {
                   <TableCell>Branding & Promotion</TableCell>
                   <TableCell>48</TableCell>
                   <TableCell>1</TableCell>
-                  <TableCell>$32</TableCell>
+                  <TableCell>€32</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Social Media</TableCell>
                   <TableCell>Social media templates</TableCell>
                   <TableCell>42</TableCell>
                   <TableCell>1</TableCell>
-                  <TableCell>$28</TableCell>
+                  <TableCell>€28</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Web Design</TableCell>
                   <TableCell>Web designing package</TableCell>
                   <TableCell>46</TableCell>
                   <TableCell>1</TableCell>
-                  <TableCell>$24</TableCell>
+                  <TableCell>€24</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>SEO</TableCell>
                   <TableCell>Search engine optimization</TableCell>
                   <TableCell>40</TableCell>
                   <TableCell>1</TableCell>
-                  <TableCell>$22</TableCell>
+                  <TableCell>€22</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -320,13 +320,13 @@ const PreviewCard = ({ data }) => {
                 <CalcWrapper>
                   <Typography variant='body2'>Subtotal:</Typography>
                   <Typography variant='body2' sx={{ color: 'text.primary', letterSpacing: '.25px', fontWeight: 600 }}>
-                    $1800
+                    €1800
                   </Typography>
                 </CalcWrapper>
                 <CalcWrapper>
                   <Typography variant='body2'>Discount:</Typography>
                   <Typography variant='body2' sx={{ color: 'text.primary', letterSpacing: '.25px', fontWeight: 600 }}>
-                    $28
+                    €28
                   </Typography>
                 </CalcWrapper>
                 <CalcWrapper>
@@ -339,7 +339,7 @@ const PreviewCard = ({ data }) => {
                 <CalcWrapper>
                   <Typography variant='body2'>Total:</Typography>
                   <Typography variant='body2' sx={{ color: 'text.primary', letterSpacing: '.25px', fontWeight: 600 }}>
-                    $1690
+                    €1690
                   </Typography>
                 </CalcWrapper>
               </Grid>
@@ -357,13 +357,13 @@ const PreviewCard = ({ data }) => {
         </Box>
         <CardContent>
           <Box sx={{ mt: 0, width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
-            <Link href={`/apps/invoice/print/${data.invoice.id}`} passHref>
+            <Link href={`/apps/invoice/print/€{data.invoice.id}`} passHref>
               <Button sx={{ mr: 4 }} target='_blank' component='a' variant='contained'>
                 Print
               </Button>
             </Link>
 
-            <ReactToPdf scale={0.845} targetRef={PreviewRef} filename={`invoice-${data.invoice.id}.pdf`}>
+            <ReactToPdf scale={0.845} targetRef={PreviewRef} filename={`invoice-€{data.invoice.id}.pdf`}>
               {({ toPdf }) => {
                 return (
                   <Button variant='contained' color='success' onClick={toPdf}>

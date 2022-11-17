@@ -15,7 +15,7 @@ const InputBase = styled(MuiInputBase)(({ theme }) => ({
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    border: theme.palette.mode === 'light' ? '1px solid #ced4da' : `1px solid ${theme.palette.divider}`,
+    border: theme.palette.mode === 'light' ? '1px solid #ced4da' : `1px solid €{theme.palette.divider}`,
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
@@ -30,7 +30,7 @@ const InputBase = styled(MuiInputBase)(({ theme }) => ({
     ].join(','),
     '&:focus': {
       borderColor: theme.palette.primary.main,
-      boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`
+      boxShadow: `€{alpha(theme.palette.primary.main, 0.25)} 0 0 0 0.2rem`
     }
   }
 }))

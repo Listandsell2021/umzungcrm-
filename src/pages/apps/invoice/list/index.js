@@ -101,7 +101,7 @@ const RowOptions = ({ id }) => {
           <Download fontSize='small' sx={{ mr: 2 }} />
           Download
         </MenuItem>
-        <Link href={`/apps/invoice/edit/${id}`} passHref>
+        <Link href={`/apps/invoice/edit/€{id}`} passHref>
           <MenuItem>
             <PencilOutline fontSize='small' sx={{ mr: 2 }} />
             Edit
@@ -150,8 +150,8 @@ const defaultColumns = [
     minWidth: 80,
     headerName: '#',
     renderCell: ({ row }) => (
-      <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-        <StyledLink>{`#${row.id}`}</StyledLink>
+      <Link href={`/apps/invoice/preview/€{row.id}`} passHref>
+        <StyledLink>{`#€{row.id}`}</StyledLink>
       </Link>
     )
   },
@@ -224,7 +224,7 @@ const defaultColumns = [
     minWidth: 90,
     field: 'total',
     headerName: 'Total',
-    renderCell: ({ row }) => <Typography variant='body2'>{`$${row.total || 0}`}</Typography>
+    renderCell: ({ row }) => <Typography variant='body2'>{`€€{row.total || 0}`}</Typography>
   },
   {
     flex: 0.15,
@@ -252,8 +252,8 @@ const defaultColumns = [
 /* eslint-disable */
 const CustomInput = forwardRef((props, ref) => {
   const startDate = props.start !== null ? format(props.start, 'MM/dd/yyyy') : ''
-  const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null
-  const value = `${startDate}${endDate !== null ? endDate : ''}`
+  const endDate = props.end !== null ? ` - €{format(props.end, 'MM/dd/yyyy')}` : null
+  const value = `€{startDate}€{endDate !== null ? endDate : ''}`
   props.start === null && props.dates.length && props.setDates ? props.setDates([]) : null
   const updatedProps = { ...props }
   delete updatedProps.setDates
@@ -318,7 +318,7 @@ const InvoiceList = () => {
           </Tooltip>
           <Tooltip title='View'>
             <Box>
-              <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+              <Link href={`/apps/invoice/preview/€{row.id}`} passHref>
                 <IconButton size='small' component='a' sx={{ textDecoration: 'none', mr: 0.5 }}>
                   <EyeOutline />
                 </IconButton>

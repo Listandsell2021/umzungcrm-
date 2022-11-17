@@ -77,7 +77,7 @@ const Row = props => {
                     <TableCell>Date</TableCell>
                     <TableCell>Customer</TableCell>
                     <TableCell align='right'>Amount</TableCell>
-                    <TableCell align='right'>Total price ($)</TableCell>
+                    <TableCell align='right'>Total price (€)</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

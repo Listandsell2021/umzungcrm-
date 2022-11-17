@@ -127,13 +127,13 @@ const RegisterV2 = () => {
           <RegisterIllustrationWrapper>
             <RegisterIllustration
               alt='register-illustration'
-              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
+              src={`/images/pages/€{imageSource}-€{theme.palette.mode}.png`}
             />
           </RegisterIllustrationWrapper>
-          <FooterIllustrationsV2 image={`/images/pages/auth-v2-register-mask-${theme.palette.mode}.png`} />
+          <FooterIllustrationsV2 image={`/images/pages/auth-v2-register-mask-€{theme.palette.mode}.png`} />
         </Box>
       ) : null}
-      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
+      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid €{theme.palette.divider}` } : {}}>
         <Box
           sx={{
             p: 7,

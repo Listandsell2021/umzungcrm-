@@ -15,7 +15,7 @@ import Minus from 'mdi-material-ui/Minus'
 // Styled component for Accordion component
 const Accordion = styled(MuiAccordion)(({ theme }) => ({
   boxShadow: 'none !important',
-  border: `1px solid ${theme.palette.divider}`,
+  border: `1px solid €{theme.palette.divider}`,
   '&:not(:last-of-type)': {
     borderBottom: 0
   },
@@ -44,7 +44,7 @@ const AccordionSummary = styled(MuiAccordionSummary)(({ theme }) => ({
   marginBottom: -1,
   padding: theme.spacing(0, 4),
   minHeight: theme.spacing(12),
-  borderBottom: `1px solid ${theme.palette.divider}`,
+  borderBottom: `1px solid €{theme.palette.divider}`,
   backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[50] : theme.palette.background.default,
   '&.Mui-expanded': {
     minHeight: theme.spacing(12)
@@ -56,7 +56,7 @@ const AccordionSummary = styled(MuiAccordionSummary)(({ theme }) => ({
 
 // Styled component for AccordionDetails component
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: `${theme.spacing(4)} !important`
+  padding: `€{theme.spacing(4)} !important`
 }))
 
 const AccordionCustomized = () => {

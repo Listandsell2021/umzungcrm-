@@ -28,10 +28,10 @@ const StyledGrid = styled(Grid)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   [theme.breakpoints.down('md')]: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid €{theme.palette.divider}`
   },
   [theme.breakpoints.up('md')]: {
-    borderRight: `1px solid ${theme.palette.divider}`
+    borderRight: `1px solid €{theme.palette.divider}`
   }
 }))
 
@@ -61,8 +61,8 @@ const CardMobile = () => {
           md={7}
           xs={12}
           sx={{
-            pt: theme => ['0 !important', '0 !important', `${theme.spacing(6)} !important`],
-            pl: theme => [`${theme.spacing(6)} !important`, `${theme.spacing(6)} !important`, '0 !important']
+            pt: theme => ['0 !important', '0 !important', `€{theme.spacing(6)} !important`],
+            pl: theme => [`€{theme.spacing(6)} !important`, `€{theme.spacing(6)} !important`, '0 !important']
           }}
         >
           <CardContent>
@@ -75,7 +75,7 @@ const CardMobile = () => {
             <Typography sx={{ mb: 2 }}>
               Price:{' '}
               <Box component='span' sx={{ fontWeight: 600 }}>
-                $899
+                €899
               </Box>
             </Typography>
           </CardContent>

@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     else if(params.q)
     {
 
-    todos = await db.collection("Admin").find({"full_name": `/.*${params.q}.*/`}).toArray();    
+    todos = await db.collection("Admin").find({"full_name": `/.*€{params.q}.*/`}).toArray();    
     }
     else
     {

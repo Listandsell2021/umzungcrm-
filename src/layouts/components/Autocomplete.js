@@ -172,7 +172,7 @@ const Autocomplete = styled(MuiAutocomplete)(({ theme }) => ({
     border: 0
   },
   '& + .MuiAutocomplete-popper': {
-    borderTop: `1px solid ${theme.palette.divider}`,
+    borderTop: `1px solid €{theme.palette.divider}`,
     '& .MuiAutocomplete-listbox': {
       paddingTop: 0,
       height: '100%',
@@ -252,7 +252,7 @@ const NoResult = ({ value, setOpenDialog }) => {
       <Typography variant='h6' sx={{ mb: 11.5, wordWrap: 'break-word' }}>
         No results for{' '}
         <Typography variant='h6' component='span' sx={{ wordWrap: 'break-word' }}>
-          {`"${value}"`}
+          {`"€{value}"`}
         </Typography>
       </Typography>
 
@@ -483,7 +483,7 @@ const AutocompleteComponent = ({ hidden, settings }) => {
                     }}
                     InputProps={{
                       ...params.InputProps,
-                      sx: { p: `${theme.spacing(3.75, 6)} !important` },
+                      sx: { p: `€{theme.spacing(3.75, 6)} !important` },
                       startAdornment: (
                         <InputAdornment position='start' sx={{ color: 'text.primary' }}>
                           <Magnify />
@@ -512,13 +512,13 @@ const AutocompleteComponent = ({ hidden, settings }) => {
                   <ListItem
                     {...props}
                     key={option.title}
-                    className={`suggestion ${props.className}`}
+                    className={`suggestion €{props.className}`}
                     onClick={() => handleOptionClick(option)}
                     secondaryAction={
                       <SubdirectoryArrowLeft fontSize='small' sx={{ cursor: 'pointer', color: 'text.disabled' }} />
                     }
                   >
-                    <ListItemButton sx={{ py: 2.5, px: ` ${theme.spacing(6)} !important` }}>
+                    <ListItemButton sx={{ py: 2.5, px: ` €{theme.spacing(6)} !important` }}>
                       <UserIcon
                         icon={IconTag}
                         componentType='search'
@@ -541,7 +541,7 @@ const AutocompleteComponent = ({ hidden, settings }) => {
                 overflow: 'auto',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderTop: `1px solid ${theme.palette.divider}`,
+                borderTop: `1px solid €{theme.palette.divider}`,
                 height: fullScreenDialog ? 'calc(100vh - 69px)' : '100%'
               }}
             >

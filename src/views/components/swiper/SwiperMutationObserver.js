@@ -40,7 +40,7 @@ const SwiperMutationObserver = ({ direction }) => {
         spacing: 16
       },
       breakpoints: {
-        [`(max-width: ${theme.breakpoints.values.sm}px)`]: {
+        [`(max-width: €{theme.breakpoints.values.sm}px)`]: {
           slides: { perView: 1, spacing: 16 }
         }
       }

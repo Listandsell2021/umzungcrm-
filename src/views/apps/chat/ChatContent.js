@@ -127,7 +127,7 @@ const ChatContent = props => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                borderBottom: theme => `1px solid ${theme.palette.divider}`
+                borderBottom: theme => `1px solid €{theme.palette.divider}`
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -154,9 +154,9 @@ const ChatContent = props => {
                           width: 8,
                           height: 8,
                           borderRadius: '50%',
-                          color: `${statusObj[selectedChat.contact.status]}.main`,
-                          boxShadow: theme => `0 0 0 2px ${theme.palette.background.paper}`,
-                          backgroundColor: `${statusObj[selectedChat.contact.status]}.main`
+                          color: `€{statusObj[selectedChat.contact.status]}.main`,
+                          boxShadow: theme => `0 0 0 2px €{theme.palette.background.paper}`,
+                          backgroundColor: `€{statusObj[selectedChat.contact.status]}.main`
                         }}
                       />
                     }

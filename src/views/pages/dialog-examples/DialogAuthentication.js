@@ -110,12 +110,12 @@ const DialogAuthentication = () => {
                   borderRadius: 1,
                   cursor: 'pointer',
                   border: theme =>
-                    `1px solid ${authType === 'app' ? theme.palette.primary.main : theme.palette.secondary.main}`,
+                    `1px solid €{authType === 'app' ? theme.palette.primary.main : theme.palette.secondary.main}`,
                   ...(authType === 'app'
                     ? { ...bgClasses.primaryLight }
                     : {
                         background: theme =>
-                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), ${theme.palette.secondary.main}`
+                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), €{theme.palette.secondary.main}`
                       })
                 }}
               >
@@ -145,12 +145,12 @@ const DialogAuthentication = () => {
                   borderRadius: 1,
                   cursor: 'pointer',
                   border: theme =>
-                    `1px solid ${authType === 'sms' ? theme.palette.primary.main : theme.palette.secondary.main}`,
+                    `1px solid €{authType === 'sms' ? theme.palette.primary.main : theme.palette.secondary.main}`,
                   ...(authType === 'sms'
                     ? { ...bgClasses.primaryLight }
                     : {
                         background: theme =>
-                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), ${theme.palette.secondary.main}`
+                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), €{theme.palette.secondary.main}`
                       })
                 }}
               >

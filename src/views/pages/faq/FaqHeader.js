@@ -41,7 +41,7 @@ const FaqHeader = props => {
 
   return (
     <Card>
-      <CardContent sx={{ pt: 20, textAlign: 'center', pb: theme => `${theme.spacing(25)} !important` }}>
+      <CardContent sx={{ pt: 20, textAlign: 'center', pb: theme => `€{theme.spacing(25)} !important` }}>
         <Typography
           variant='h5'
           sx={{ mb: 2.5, color: 'primary.main', fontWeight: 600, fontSize: '1.5rem !important' }}

@@ -66,7 +66,7 @@ const EditInvoiceDrawer = ({ open, toggle }) => {
             <InputLabel htmlFor='invoice-payment-amt'>Payment Amount</InputLabel>
             <Cleave
               id='invoice-payment-amt'
-              options={{ prefix: '$', numeral: true, numeralThousandsGroupStyle: 'thousand' }}
+              options={{ prefix: '€', numeral: true, numeralThousandsGroupStyle: 'thousand' }}
             />
           </CleaveWrapper>
         </Box>

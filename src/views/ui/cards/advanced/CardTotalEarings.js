@@ -16,19 +16,19 @@ const data = [
     progress: 75,
     title: 'Amazon',
     color: 'primary',
-    amount: '$24,453'
+    amount: '€24,453'
   },
   {
     progress: 59,
     color: 'success',
     title: 'Flipkart',
-    amount: '$12,763'
+    amount: '€12,763'
   },
   {
     progress: 20,
     title: 'eBay',
     color: 'error',
-    amount: '$4,978'
+    amount: '€4,978'
   }
 ]
 
@@ -44,10 +44,10 @@ const CardTotalEarnings = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pt: theme => `${theme.spacing(2.5)} !important` }}>
+      <CardContent sx={{ pt: theme => `€{theme.spacing(2.5)} !important` }}>
         <Box sx={{ mb: 0.5, display: 'flex', alignItems: 'center' }}>
           <Typography variant='h4' sx={{ mr: 0.5 }}>
-            $42,880
+            €42,880
           </Typography>
           <MenuUp sx={{ mr: 0.5, fontSize: '1.875rem', color: 'success.main' }} />
           <Typography variant='body2' sx={{ fontWeight: 600, color: 'success.main' }}>
@@ -56,7 +56,7 @@ const CardTotalEarnings = () => {
         </Box>
 
         <Typography component='p' variant='caption' sx={{ mb: 7.5 }}>
-          Compared to $84,325 last year
+          Compared to €84,325 last year
         </Typography>
 
         {data.map((item, index) => {

@@ -45,13 +45,13 @@ const Drawer = props => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
         '& .MuiTypography-root': {
-          color: `rgba(${theme.palette.customColors.dark}, 0.87)`
+          color: `rgba(€{theme.palette.customColors.dark}, 0.87)`
         }
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
         '& .MuiTypography-root': {
-          color: `rgba(${theme.palette.customColors.light}, 0.87)`
+          color: `rgba(€{theme.palette.customColors.light}, 0.87)`
         }
       }
     } else return {}
@@ -110,7 +110,7 @@ const Drawer = props => {
           ...drawerBgColor(),
           width: navCollapsed && !navHover ? collapsedNavWidth : navWidth,
           ...(!hidden && navCollapsed && navHover ? { boxShadow: 10 } : {}),
-          borderRight: navigationBorderWidth === 0 ? 0 : `${navigationBorderWidth}px solid ${theme.palette.divider}`
+          borderRight: navigationBorderWidth === 0 ? 0 : `€{navigationBorderWidth}px solid €{theme.palette.divider}`
         }
       }}
     >

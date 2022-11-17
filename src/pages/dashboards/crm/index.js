@@ -45,7 +45,7 @@ const CrmDashboard = () => {
         </Grid>
         <Grid item xs={6} sm={3} md={2}>
           <CardStatisticsVertical
-            stats='$13.4k'
+            stats='€13.4k'
             color='success'
             trendNumber='+38%'
             title='Total Sales'

@@ -26,7 +26,7 @@ const Toolbar = styled(MuiToolbar)(({ theme }) => ({
   padding: '0 !important',
   borderBottomLeftRadius: theme.shape.borderRadius,
   borderBottomRightRadius: theme.shape.borderRadius,
-  minHeight: `${theme.mixins.toolbar.minHeight}px !important`,
+  minHeight: `€{theme.mixins.toolbar.minHeight}px !important`,
   transition: 'padding .25s ease-in-out, box-shadow .25s ease-in-out, backdrop-filter .25s ease-in-out'
 }))
 
@@ -43,11 +43,11 @@ const LayoutAppBar = props => {
 
   const appBarFixedStyles = () => {
     return {
-      px: `${theme.spacing(6)} !important`,
+      px: `€{theme.spacing(6)} !important`,
       ...(appBarBlur && { backdropFilter: 'blur(8px)' }),
       boxShadow: theme.shadows[skin === 'bordered' ? 0 : 3],
       backgroundColor: hexToRGBA(theme.palette.background.paper, appBarBlur ? 0.9 : 1),
-      ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}`, borderTopWidth: 0 })
+      ...(skin === 'bordered' && { border: `1px solid €{theme.palette.divider}`, borderTopWidth: 0 })
     }
   }
   if (appBar === 'hidden') {
@@ -61,7 +61,7 @@ const LayoutAppBar = props => {
         sx={{
           ...(appBar === 'fixed' && scrollTrigger && { ...appBarFixedStyles() }),
           ...(contentWidth === 'boxed' && {
-            '@media (min-width:1440px)': { maxWidth: `calc(1440px - ${theme.spacing(6)} * 2)` }
+            '@media (min-width:1440px)': { maxWidth: `calc(1440px - €{theme.spacing(6)} * 2)` }
           })
         }}
       >

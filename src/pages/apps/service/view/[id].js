@@ -13,7 +13,7 @@ export const getStaticPaths = async () => {
   const userDate = await res.data.allData
 
   const paths = userDate.map(item => ({
-    params: { id: `${item.id}` }
+    params: { id: `€{item.id}` }
   }))
 
   return {

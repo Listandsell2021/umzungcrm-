@@ -72,8 +72,8 @@ const FileUploaderMultiple = () => {
           <Typography className='file-name'>{file.name}</Typography>
           <Typography className='file-size' variant='body2'>
             {Math.round(file.size / 100) / 10 > 1000
-              ? `${(Math.round(file.size / 100) / 10000).toFixed(1)} mb`
-              : `${(Math.round(file.size / 100) / 10).toFixed(1)} kb`}
+              ? `€{(Math.round(file.size / 100) / 10000).toFixed(1)} mb`
+              : `€{(Math.round(file.size / 100) / 10).toFixed(1)} kb`}
           </Typography>
         </div>
       </div>

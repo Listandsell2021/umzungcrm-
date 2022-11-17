@@ -29,16 +29,16 @@ const FormLayouts = () => {
         <Grid item xs={12}>
           <FormLayoutsSeparator />
         </Grid>
-        <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(8)} !important` }}>
+        <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(8)} !important` }}>
           <Typography variant='h6'>Form with Tabs</Typography>
         </Grid>
-        <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(4)} !important` }}>
+        <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(4)} !important` }}>
           <FormLayoutsTabs />
         </Grid>
-        <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(8)} !important` }}>
+        <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(8)} !important` }}>
           <Typography variant='h6'>Collapsible Sections</Typography>
         </Grid>
-        <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(4)} !important` }}>
+        <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(4)} !important` }}>
           <FormLayoutsCollapsible />
         </Grid>
         <Grid item xs={12}>

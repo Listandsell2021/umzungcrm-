@@ -15,17 +15,17 @@ import ChevronDown from 'mdi-material-ui/ChevronDown'
 
 // ** Styled Components
 const CardContent = styled(MuiCardContent)(({ theme }) => ({
-  padding: `${theme.spacing(20, 35)} !important`,
+  padding: `€{theme.spacing(20, 35)} !important`,
   [theme.breakpoints.down('lg')]: {
-    padding: `${theme.spacing(12.5, 20)} !important`
+    padding: `€{theme.spacing(12.5, 20)} !important`
   },
   [theme.breakpoints.down('sm')]: {
-    padding: `${theme.spacing(10, 5)} !important`
+    padding: `€{theme.spacing(10, 5)} !important`
   }
 }))
 
 const Accordion = styled(MuiAccordion)(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
+  border: `1px solid €{theme.palette.divider}`,
   '&:before': {
     height: 0
   },
@@ -51,8 +51,8 @@ const PricingFooter = props => {
         <Accordion key={item.id} elevation={0} expanded={expanded === item.id} onChange={handleChange(item.id)}>
           <AccordionSummary
             expandIcon={<ChevronDown />}
-            id={`pricing-accordion-${item.id}-header`}
-            aria-controls={`pricing-accordion-${item.id}-content`}
+            id={`pricing-accordion-€{item.id}-header`}
+            aria-controls={`pricing-accordion-€{item.id}-content`}
           >
             <Typography>{item.question}</Typography>
           </AccordionSummary>

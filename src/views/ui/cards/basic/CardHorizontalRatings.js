@@ -49,7 +49,7 @@ const CardHorizontalRatings = () => {
     <Card>
       <Grid container spacing={6}>
         <StyledGrid1 item xs={12} md={6} lg={7}>
-          <CardContent sx={{ p: theme => `${theme.spacing(6)} !important` }}>
+          <CardContent sx={{ p: theme => `€{theme.spacing(6)} !important` }}>
             <Typography variant='h6' sx={{ mb: 2 }}>
               Stumptown Roasters
             </Typography>

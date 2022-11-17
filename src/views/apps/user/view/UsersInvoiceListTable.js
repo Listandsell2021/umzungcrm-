@@ -87,7 +87,7 @@ const RowOptions = ({ id }) => {
           <Download fontSize='small' sx={{ mr: 2 }} />
           Download
         </MenuItem>
-        <Link href={`/apps/invoice/edit/${id}`} passHref>
+        <Link href={`/apps/invoice/edit/€{id}`} passHref>
           <MenuItem>
             <PencilOutline fontSize='small' sx={{ mr: 2 }} />
             Edit
@@ -109,8 +109,8 @@ const columns = [
     minWidth: 90,
     headerName: '# ID',
     renderCell: ({ row }) => (
-      <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-        <StyledLink>{`#${row.id}`}</StyledLink>
+      <Link href={`/apps/invoice/preview/€{row.id}`} passHref>
+        <StyledLink>{`#€{row.id}`}</StyledLink>
       </Link>
     )
   },
@@ -156,7 +156,7 @@ const columns = [
     minWidth: 90,
     field: 'total',
     headerName: 'Total',
-    renderCell: ({ row }) => <Typography variant='body2'>${row.total || 0}</Typography>
+    renderCell: ({ row }) => <Typography variant='body2'>€{row.total || 0}</Typography>
   },
   {
     flex: 0.3,
@@ -180,7 +180,7 @@ const columns = [
         </Tooltip>
         <Tooltip title='View'>
           <Box>
-            <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+            <Link href={`/apps/invoice/preview/€{row.id}`} passHref>
               <IconButton size='small' component='a' sx={{ textDecoration: 'none' }}>
                 <EyeOutline />
               </IconButton>

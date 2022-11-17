@@ -32,7 +32,7 @@ const BadgeContentSpan = styled('span')(({ theme }) => ({
   height: 8,
   borderRadius: '50%',
   backgroundColor: theme.palette.success.main,
-  boxShadow: `0 0 0 2px ${theme.palette.background.paper}`
+  boxShadow: `0 0 0 2px €{theme.palette.background.paper}`
 }))
 
 const UserDropdown = props => {

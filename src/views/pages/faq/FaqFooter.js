@@ -17,7 +17,7 @@ const StyledBox1 = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   padding: theme.spacing(6),
   marginRight: theme.spacing(3.125),
-  backgroundColor: `rgba(${theme.palette.customColors.main}, 0.05)`,
+  backgroundColor: `rgba(€{theme.palette.customColors.main}, 0.05)`,
   [theme.breakpoints.down('md')]: {
     marginRight: 0,
     marginBottom: theme.spacing(3.125)
@@ -32,7 +32,7 @@ const StyledBox2 = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   padding: theme.spacing(6),
   marginLeft: theme.spacing(3.125),
-  backgroundColor: `rgba(${theme.palette.customColors.main}, 0.05)`,
+  backgroundColor: `rgba(€{theme.palette.customColors.main}, 0.05)`,
   [theme.breakpoints.down('md')]: {
     marginLeft: 0,
     marginTop: theme.spacing(3.125)
@@ -41,7 +41,7 @@ const StyledBox2 = styled(Box)(({ theme }) => ({
 
 const FaqFooter = () => {
   return (
-    <Box sx={{ mt: theme => `${theme.spacing(12)} !important` }}>
+    <Box sx={{ mt: theme => `€{theme.spacing(12)} !important` }}>
       <Box sx={{ textAlign: 'center' }}>
         <Typography variant='h6' sx={{ mb: 2.5 }}>
           You still have a question?
@@ -56,7 +56,7 @@ const FaqFooter = () => {
           <StyledBox1>
             <Avatar
               variant='rounded'
-              sx={{ height: 42, width: 42, backgroundColor: theme => `rgba(${theme.palette.customColors.main}, 0.08)` }}
+              sx={{ height: 42, width: 42, backgroundColor: theme => `rgba(€{theme.palette.customColors.main}, 0.08)` }}
             >
               <Phone sx={{ color: 'text.primary', fontSize: '1.5rem' }} />
             </Avatar>
@@ -71,7 +71,7 @@ const FaqFooter = () => {
           <StyledBox2>
             <Avatar
               variant='rounded'
-              sx={{ height: 42, width: 42, backgroundColor: theme => `rgba(${theme.palette.customColors.main}, 0.08)` }}
+              sx={{ height: 42, width: 42, backgroundColor: theme => `rgba(€{theme.palette.customColors.main}, 0.08)` }}
             >
               <EmailOutline sx={{ color: 'text.primary', fontSize: '1.5rem' }} />
             </Avatar>

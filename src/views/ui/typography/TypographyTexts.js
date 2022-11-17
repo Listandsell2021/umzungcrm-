@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid'
 
 const DemoGrid = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
-    paddingTop: `${theme.spacing(1)} !important`
+    paddingTop: `€{theme.spacing(1)} !important`
   }
 }))
 

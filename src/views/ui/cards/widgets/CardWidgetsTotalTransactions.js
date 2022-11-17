@@ -35,10 +35,10 @@ const series = [
 // Styled Grid component
 const StyledGrid = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid €{theme.palette.divider}`
   },
   [theme.breakpoints.up('sm')]: {
-    borderRight: `1px solid ${theme.palette.divider}`
+    borderRight: `1px solid €{theme.palette.divider}`
   }
 }))
 
@@ -63,14 +63,14 @@ const CardWidgetsTotalTransactions = () => {
     },
     tooltip: {
       y: {
-        formatter: val => `${Math.abs(val)}`
+        formatter: val => `€{Math.abs(val)}`
       }
     },
     xaxis: {
       position: 'top',
       axisTicks: { show: false },
       axisBorder: { show: false },
-      labels: { formatter: val => `${Math.abs(Number(val))}` },
+      labels: { formatter: val => `€{Math.abs(Number(val))}` },
       categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yaxis: {
@@ -120,7 +120,7 @@ const CardWidgetsTotalTransactions = () => {
         <Grid item xs={12} sm={5}>
           <CardHeader
             title='Report'
-            subheader='Last month transactions $234.40k'
+            subheader='Last month transactions €234.40k'
             subheaderTypographyProps={{ sx: { lineHeight: 1.429 } }}
             titleTypographyProps={{ sx: { letterSpacing: '0.15px' } }}
             action={
@@ -129,7 +129,7 @@ const CardWidgetsTotalTransactions = () => {
               </IconButton>
             }
           />
-          <CardContent sx={{ pt: theme => `${theme.spacing(4)} !important` }}>
+          <CardContent sx={{ pt: theme => `€{theme.spacing(4)} !important` }}>
             <Grid container>
               <Grid
                 item
@@ -138,7 +138,7 @@ const CardWidgetsTotalTransactions = () => {
                   display: 'flex',
                   alignItems: 'center',
                   flexDirection: 'column',
-                  borderRight: theme => `1px solid ${theme.palette.divider}`
+                  borderRight: theme => `1px solid €{theme.palette.divider}`
                 }}
               >
                 <CustomAvatar skin='light' sx={{ mb: 3 }} color='success' variant='rounded'>

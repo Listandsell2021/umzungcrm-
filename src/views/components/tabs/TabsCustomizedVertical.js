@@ -19,7 +19,7 @@ const TabList = styled(MuiTabList)(({ theme }) => ({
   },
   '& .Mui-selected': {
     backgroundColor: theme.palette.primary.main,
-    color: `${theme.palette.common.white} !important`
+    color: `€{theme.palette.common.white} !important`
   },
   '& .MuiTab-root': {
     minHeight: 38,

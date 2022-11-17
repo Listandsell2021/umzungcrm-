@@ -24,10 +24,10 @@ import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 // Styled Grid component
 const StyledGrid = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid €{theme.palette.divider}`
   },
   [theme.breakpoints.up('sm')]: {
-    borderRight: `1px solid ${theme.palette.divider}`
+    borderRight: `1px solid €{theme.palette.divider}`
   }
 }))
 const labels = ['Development Apps', 'UI Design', 'IOS Application', 'Web App Wireframing', 'Prototyping']
@@ -38,36 +38,36 @@ const series = [
       {
         x: 'Catherine',
         y: [
-          new Date(`${new Date().getFullYear()}-01-01`).getTime(),
-          new Date(`${new Date().getFullYear()}-04-02`).getTime()
+          new Date(`€{new Date().getFullYear()}-01-01`).getTime(),
+          new Date(`€{new Date().getFullYear()}-04-02`).getTime()
         ]
       },
       {
         x: 'Janelle',
         y: [
-          new Date(`${new Date().getFullYear()}-02-18`).getTime(),
-          new Date(`${new Date().getFullYear()}-05-30`).getTime()
+          new Date(`€{new Date().getFullYear()}-02-18`).getTime(),
+          new Date(`€{new Date().getFullYear()}-05-30`).getTime()
         ]
       },
       {
         x: 'Wellington',
         y: [
-          new Date(`${new Date().getFullYear()}-02-07`).getTime(),
-          new Date(`${new Date().getFullYear()}-04-31`).getTime()
+          new Date(`€{new Date().getFullYear()}-02-07`).getTime(),
+          new Date(`€{new Date().getFullYear()}-04-31`).getTime()
         ]
       },
       {
         x: 'Blake',
         y: [
-          new Date(`${new Date().getFullYear()}-01-14`).getTime(),
-          new Date(`${new Date().getFullYear()}-06-30`).getTime()
+          new Date(`€{new Date().getFullYear()}-01-14`).getTime(),
+          new Date(`€{new Date().getFullYear()}-06-30`).getTime()
         ]
       },
       {
         x: 'Quinn',
         y: [
-          new Date(`${new Date().getFullYear()}-04-01`).getTime(),
-          new Date(`${new Date().getFullYear()}-07-31`).getTime()
+          new Date(`€{new Date().getFullYear()}-04-01`).getTime(),
+          new Date(`€{new Date().getFullYear()}-07-31`).getTime()
         ]
       }
     ]
@@ -182,7 +182,7 @@ const CardWidgetsProjectTimeline = () => {
               </IconButton>
             }
           />
-          <CardContent sx={{ pt: `${theme.spacing(5)} !important` }}>
+          <CardContent sx={{ pt: `€{theme.spacing(5)} !important` }}>
             <Box sx={{ mb: 7.5, display: 'flex', alignItems: 'center' }}>
               <CustomAvatar skin='light' variant='rounded' sx={{ mr: 3, width: 45, height: 45 }}>
                 <Cellphone />

@@ -48,7 +48,7 @@ const UserViewRight = ({ invoiceData }) => {
         scrollButtons='auto'
         onChange={handleChange}
         aria-label='forced scroll tabs example'
-        sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+        sx={{ borderBottom: theme => `1px solid €{theme.palette.divider}` }}
       >
         <Tab value='overview' label='Overview' icon={<AccountOutline sx={{ fontSize: '18px' }} />} />
         <Tab value='security' label='Security' icon={<LockOutline sx={{ fontSize: '18px' }} />} />

@@ -41,26 +41,26 @@ const tabContentData = {
     {
       status: 'active',
       conversion: '+24',
-      totalRevenue: '$42,857',
+      totalRevenue: '€42,857',
       parameter: 'Email Marketing Campaign'
     },
     {
       conversion: '-12',
       status: 'completed',
-      totalRevenue: '$850',
+      totalRevenue: '€850',
       parameter: 'Google Workspace',
       conversionDifference: 'negative'
     },
     {
       status: 'active',
       conversion: '+24',
-      totalRevenue: '$5,576',
+      totalRevenue: '€5,576',
       parameter: 'Affiliation Program'
     },
     {
       conversion: '0',
       status: 'in-draft',
-      totalRevenue: '$0',
+      totalRevenue: '€0',
       parameter: 'Google AdSense'
     }
   ],
@@ -68,27 +68,27 @@ const tabContentData = {
     {
       status: 'active',
       conversion: '-8',
-      totalRevenue: '$322',
+      totalRevenue: '€322',
       conversionDifference: 'negative',
       parameter: 'Create Audiences in Ads Manager'
     },
     {
       status: 'active',
       conversion: '+19',
-      totalRevenue: '$5,634',
+      totalRevenue: '€5,634',
       parameter: 'Facebook page advertising'
     },
     {
       status: 'expired',
       conversion: '-23',
-      totalRevenue: '$751',
+      totalRevenue: '€751',
       conversionDifference: 'negative',
       parameter: 'Messenger advertising'
     },
     {
       conversion: '+21',
       status: 'completed',
-      totalRevenue: '$3,585',
+      totalRevenue: '€3,585',
       parameter: 'Video campaign'
     }
   ],
@@ -96,26 +96,26 @@ const tabContentData = {
     {
       conversion: '-15',
       status: 'in-draft',
-      totalRevenue: '$599',
+      totalRevenue: '€599',
       conversionDifference: 'negative',
       parameter: 'Create shopping advertising'
     },
     {
       conversion: '+37',
       status: 'completed',
-      totalRevenue: '$1,467',
+      totalRevenue: '€1,467',
       parameter: 'IGTV advertising'
     },
     {
       conversion: '0',
       status: 'in-draft',
-      totalRevenue: '$0',
+      totalRevenue: '€0',
       parameter: 'Collection advertising'
     },
     {
       status: 'active',
       conversion: '+29',
-      totalRevenue: '$4,546',
+      totalRevenue: '€4,546',
       parameter: 'Stories advertising'
     }
   ],
@@ -123,25 +123,25 @@ const tabContentData = {
     {
       conversion: '+2',
       status: 'expired',
-      totalRevenue: '$404',
+      totalRevenue: '€404',
       parameter: 'Interests advertising'
     },
     {
       status: 'active',
       conversion: '+25',
-      totalRevenue: '$399',
+      totalRevenue: '€399',
       parameter: 'Community advertising'
     },
     {
       conversion: '+21',
       status: 'completed',
-      totalRevenue: '$177',
+      totalRevenue: '€177',
       parameter: 'Device advertising'
     },
     {
       status: 'active',
       conversion: '-5',
-      totalRevenue: '$1,139',
+      totalRevenue: '€1,139',
       parameter: 'Campaigning',
       conversionDifference: 'negative'
     }
@@ -153,7 +153,7 @@ const RenderTabContent = ({ data }) => {
     <TableContainer>
       <Table>
         <TableHead>
-          <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `${theme.spacing(2.5)} !important` } }}>
+          <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `€{theme.spacing(2.5)} !important` } }}>
             <TableCell>Parameter</TableCell>
             <TableCell align='right'>Status</TableCell>
             <TableCell align='right'>Conversion</TableCell>
@@ -166,7 +166,7 @@ const RenderTabContent = ({ data }) => {
           {data.map((row, index) => (
             <TableRow
               key={index}
-              sx={{ '& .MuiTableCell-root': { border: 0, py: theme => `${theme.spacing(3)} !important` } }}
+              sx={{ '& .MuiTableCell-root': { border: 0, py: theme => `€{theme.spacing(3)} !important` } }}
             >
               <TableCell>
                 <Typography variant='body2' sx={{ fontWeight: 600, whiteSpace: 'nowrap', color: 'text.primary' }}>
@@ -190,7 +190,7 @@ const RenderTabContent = ({ data }) => {
                     textAlign: 'right',
                     color: row.conversionDifference === 'negative' ? 'error.main' : 'success.main'
                   }}
-                >{`${row.conversion}%`}</Typography>
+                >{`€{row.conversion}%`}</Typography>
               </TableCell>
               <TableCell>
                 <Typography variant='body2' sx={{ fontWeight: 600, textAlign: 'right', color: 'text.primary' }}>
@@ -221,15 +221,15 @@ const AnalyticsTopReferralSources = () => {
         height: 92,
         backgroundColor: 'transparent',
         border: theme =>
-          value === category ? `2px solid ${theme.palette.primary.main}` : `2px dashed ${theme.palette.divider}`
+          value === category ? `2px solid €{theme.palette.primary.main}` : `2px dashed €{theme.palette.divider}`
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
         <img
           width={34}
           height={34}
-          alt={`tabs-${category}`}
-          src={`/images/logos/${category === 'facebook' ? 'facebook-round' : category}.png`}
+          alt={`tabs-€{category}`}
+          src={`/images/logos/€{category === 'facebook' ? 'facebook-round' : category}.png`}
         />
         <Typography variant='body2' sx={{ mt: 2, fontWeight: 600, color: 'text.primary', textTransform: 'capitalize' }}>
           {category}
@@ -278,7 +278,7 @@ const AnalyticsTopReferralSources = () => {
                   height: 92,
                   backgroundColor: 'transparent',
                   border: theme =>
-                    value === 'add' ? `2px solid ${theme.palette.primary.main}` : `2px dashed ${theme.palette.divider}`
+                    value === 'add' ? `2px solid €{theme.palette.primary.main}` : `2px dashed €{theme.palette.divider}`
                 }}
               >
                 <Box

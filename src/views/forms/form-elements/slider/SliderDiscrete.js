@@ -2,7 +2,7 @@
 import Slider from '@mui/material/Slider'
 
 const valuetext = value => {
-  return `${value}°C`
+  return `€{value}°C`
 }
 
 const SliderDiscrete = () => {

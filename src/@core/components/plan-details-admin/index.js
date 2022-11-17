@@ -174,58 +174,58 @@ function setdata()
 {
   var datanew={
     "pricingPlans":
-    [{"imgWidth":{"$numberInt":"100"},
+    [{"imgWidth":{"€numberInt":"100"},
     "title":"BasicTest",
-    "imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"0"},
+    "imgHeight":{"€numberInt":"100"},
+    "monthlyPrice":{"€numberInt":"0"},
     "currentPlan":true,
     "popularPlan":false,
     "subtitle":"A simple start for everyone",
     "imgSrc":"/images/pages/pricing-illustration-1.png",
     "yearlyPlan":
-    {"perMonth":{"$numberInt":"0"},
-    "totalAnnual":{"$numberInt":"0"}},
+    {"perMonth":{"€numberInt":"0"},
+    "totalAnnual":{"€numberInt":"0"}},
     "planBenefits":
     ["100 responses a month",
     "Unlimited forms and surveys",
     "Unlimited fields","Basic form creation tools",
     "Up to 2 subdomains"]},
-    {"imgWidth":{"$numberInt":"100"},
+    {"imgWidth":{"€numberInt":"100"},
     "title":"BasicTest",
-    "imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"0"},
+    "imgHeight":{"€numberInt":"100"},
+    "monthlyPrice":{"€numberInt":"0"},
     "currentPlan":true,
     "popularPlan":false,
     "subtitle":"A simple start for everyone",
     "imgSrc":"/images/pages/pricing-illustration-1.png",
-    "yearlyPlan":{"perMonth":{"$numberInt":"0"},
-    "totalAnnual":{"$numberInt":"0"}},
+    "yearlyPlan":{"perMonth":{"€numberInt":"0"},
+    "totalAnnual":{"€numberInt":"0"}},
     "planBenefits":["100 responses a month",
     "Unlimited forms and surveys",
     "Unlimited fields",
     "Basic form creation tools",
     "Up to 2 subdomains"]},
-    {"imgWidth":{"$numberInt":"100"},
-    "imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"49"},
+    {"imgWidth":{"€numberInt":"100"},
+    "imgHeight":{"€numberInt":"100"},
+    "monthlyPrice":{"€numberInt":"49"},
     "title":"Standard",
     "popularPlan":true,
     "currentPlan":false,
     "subtitle":"For small to medium businesses",
     "imgSrc":"/images/pages/pricing-illustration-2.png",
-    "yearlyPlan":{"perMonth":{"$numberInt":"40"},
-    "totalAnnual":{"$numberInt":"480"}},
+    "yearlyPlan":{"perMonth":{"€numberInt":"40"},
+    "totalAnnual":{"€numberInt":"480"}},
     "planBenefits":["Unlimited responses","Unlimited forms and surveys",
     "Instagram profile page","Google Docs integration","Custom “Thank you” page"]},
-    {"imgWidth":{"$numberInt":"100"},"imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"99"},
+    {"imgWidth":{"€numberInt":"100"},"imgHeight":{"€numberInt":"100"},
+    "monthlyPrice":{"€numberInt":"99"},
     "popularPlan":false,
     "currentPlan":false,
     "title":"Enterprise",
     "subtitle":"Solution for big organizations",
     "imgSrc":"/images/pages/pricing-illustration-3.png",
-    "yearlyPlan":{"perMonth":{"$numberInt":"80"},
-    "totalAnnual":{"$numberInt":"960"}},
+    "yearlyPlan":{"perMonth":{"€numberInt":"80"},
+    "totalAnnual":{"€numberInt":"960"}},
     "planBenefits":["PayPal payments",
     "Logic Jumps","File upload with 5GB storage","Custom domain support","Stripe integration"]}],
     
@@ -246,8 +246,8 @@ function setdata()
       sx={{
         border: theme =>
           !data?.popularPlan
-            ? `1px solid ${theme.palette.divider}`
-            : `1px solid ${hexToRGBA(theme.palette.primary.main, 0.5)}`
+            ? `1px solid €{theme.palette.divider}`
+            : `1px solid €{hexToRGBA(theme.palette.primary.main, 0.5)}`
       }}
     >
        <Dialog
@@ -360,9 +360,9 @@ function setdata()
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <img
           width={data?.imgWidth}
-          src={`${data?.imgSrc}`}
+          src={`€{data?.imgSrc}`}
           height={data?.imgHeight}
-          alt={`${data?.title.toLowerCase()}-plan-img`}
+          alt={`€{data?.title.toLowerCase()}-plan-img`}
         />
       </Box>
       <Box sx={{ textAlign: 'center' }}>
@@ -373,7 +373,7 @@ function setdata()
         <Box sx={{ mt: 5, mb: 10, position: 'relative' }}>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Typography variant='body2' sx={{ mt: 1.6, alignSelf: 'flex-start' }}>
-              $
+              €
             </Typography>
             <Typography variant='h3' sx={{ fontWeight: 500, color: 'primary.main', lineHeight: 1.17 }}>
               {plan === 'monthly' ? data?.monthlyPrice : data?.yearlyPlan.perMonth}
@@ -386,7 +386,7 @@ function setdata()
             <Typography
               variant='body2'
               sx={{ left: 0, right: 0, position: 'absolute' }}
-            >{`USD ${data?.yearlyPlan.totalAnnual}/year`}</Typography>
+            >{`USD €{data?.yearlyPlan.totalAnnual}/year`}</Typography>
           ) : null}
         </Box>
       </Box>
@@ -396,7 +396,7 @@ function setdata()
         color={data?.currentPlan ? 'success' : 'primary'}
         variant={data?.popularPlan ? 'contained' : 'outlined'}
       >
-        {data?.currentPlan ? 'Your Current Plan' : 'Upgrade'}
+        {data?.currentPlan ? 'Your Current Plan' : 'Select'}
       </Button>
     </BoxWrapper>
   )

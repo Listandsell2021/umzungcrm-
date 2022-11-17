@@ -94,7 +94,7 @@ const Calendar = props => {
 
         return [
           // Background Color
-          `bg-${colorName}`
+          `bg-€{colorName}`
         ]
       },
       eventClick({ event: clickedEvent }) {

@@ -21,7 +21,7 @@ const CardUser = () => {
           width: 78,
           height: 78,
           position: 'absolute',
-          border: theme => `5px solid ${theme.palette.common.white}`
+          border: theme => `5px solid €{theme.palette.common.white}`
         }}
       />
       <CardContent>

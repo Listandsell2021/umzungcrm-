@@ -40,14 +40,14 @@ const AnalyticsActivityTimeline = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pt: theme => `${theme.spacing(2.5)} !important` }}>
+      <CardContent sx={{ pt: theme => `€{theme.spacing(2.5)} !important` }}>
         <Timeline sx={{ my: 0, py: 0 }}>
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot color='error' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, overflow: 'hidden', mb: theme => `${theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, overflow: 'hidden', mb: theme => `€{theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 3,
@@ -79,7 +79,7 @@ const AnalyticsActivityTimeline = () => {
               <TimelineDot color='primary' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 3,
@@ -94,7 +94,7 @@ const AnalyticsActivityTimeline = () => {
                   January, 18
                 </Typography>
               </Box>
-              <Typography variant='body2'>Received payment $1,490 for banking ios app</Typography>
+              <Typography variant='body2'>Received payment €1,490 for banking ios app</Typography>
             </TimelineContent>
           </TimelineItem>
 
@@ -103,7 +103,7 @@ const AnalyticsActivityTimeline = () => {
               <TimelineDot color='info' />
               <TimelineConnector sx={{ mb: 4 }} />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 3,

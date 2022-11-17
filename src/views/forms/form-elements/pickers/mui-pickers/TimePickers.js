@@ -17,8 +17,8 @@ const langObj = { fr, ar, en }
 const TimePickers = () => {
   // ** State
   const [basicPicker, setBasicPicker] = useState(new Date())
-  const [minMaxPicker, setMinMaxPicker] = useState(new Date(`${new Date().getFullYear()}-01-01 12:00`))
-  const [oddTimePicker, setOddTimePicker] = useState(new Date(`${new Date().getFullYear()}-01-01 12:00`))
+  const [minMaxPicker, setMinMaxPicker] = useState(new Date(`€{new Date().getFullYear()}-01-01 12:00`))
+  const [oddTimePicker, setOddTimePicker] = useState(new Date(`€{new Date().getFullYear()}-01-01 12:00`))
 
   // ** Hooks
   const { i18n } = useTranslation()

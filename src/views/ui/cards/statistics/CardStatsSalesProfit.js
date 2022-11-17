@@ -149,7 +149,7 @@ const CardStatsSalesProfit = () => {
         </Grid>
       </CardContent>
       <Divider sx={{ my: 0 }} />
-      <CardContent sx={{ py: theme => `${theme.spacing(3)} !important` }}>
+      <CardContent sx={{ py: theme => `€{theme.spacing(3)} !important` }}>
         <Grid container spacing={5}>
           <Grid item xs={6}>
             <ReactApexcharts type='line' height={90} series={seriesProfit} options={optionsProfit} />

@@ -137,7 +137,7 @@ const CardStatisticsWeeklySales = () => {
         subheader={
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant='caption' sx={{ mr: 1.5 }}>
-              Total $23.5k Earning
+              Total €23.5k Earning
             </Typography>
             <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
               +62%
@@ -158,7 +158,7 @@ const CardStatisticsWeeklySales = () => {
                     className={clsx({ active: currentSlide === idx })}
                     onClick={() => instanceRef.current?.moveToIdx(idx)}
                     sx={{
-                      mr: theme => `${theme.spacing(2.5)} !important`,
+                      mr: theme => `€{theme.spacing(2.5)} !important`,
                       '& .MuiBadge-dot': {
                         minWidth: 6,
                         width: '6px !important',

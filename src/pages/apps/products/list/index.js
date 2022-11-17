@@ -93,13 +93,13 @@ const renderClient = row => {
 
   if (row.avatar.length) {
     return (
-      <AvatarWithImageLink href={`/apps/products/view/${row.p_id}`}>
+      <AvatarWithImageLink href={`/apps/products/view/€{row.p_id}`}>
         <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
       </AvatarWithImageLink>
     )
   } else {
     return (
-      <AvatarWithoutImageLink href={`/apps/products/view/${row.p_id}`}>
+      <AvatarWithoutImageLink href={`/apps/products/view/€{row.p_id}`}>
         <CustomAvatar
           skin='light'
           color={row.avatarColor || 'primary'}
@@ -223,10 +223,10 @@ const [avatar, setavatar] = useState(row.avatar)
                       <TextField   type='number' fullWidth label='Product Breath' value={breath} onChange={e => setbreath(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField type='number' fullWidth label='Product Height' value={`${height}`} onChange={e => setheight(e.target.value)}/>
+                      <TextField type='number' fullWidth label='Product Height' value={`€{height}`} onChange={e => setheight(e.target.value)}/>
                     </Grid>
                       <Grid item xs={12} sm={6}>
-                      <TextField type='number' fullWidth label='Product Cubic Meter' value={`${cubic_meter}`} onChange={e => setcubic_meter(e.target.value)}/>
+                      <TextField type='number' fullWidth label='Product Cubic Meter' value={`€{cubic_meter}`} onChange={e => setcubic_meter(e.target.value)}/>
                     </Grid>
                    <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
@@ -305,7 +305,7 @@ const columns = [
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {renderClient(row)}
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-            <Link href={`/apps/products/view/${p_idnew}`} passHref>
+            <Link href={`/apps/products/view/€{p_idnew}`} passHref>
               <Typography
                 noWrap
                 component='a'
@@ -315,7 +315,7 @@ const columns = [
                 {tittle}
               </Typography>
             </Link>
-            <Link href={`/apps/products/view/${p_idnew}`} passHref>
+            <Link href={`/apps/products/view/€{p_idnew}`} passHref>
               <Typography noWrap component='a' variant='caption' sx={{ textDecoration: 'none' }}>
                 {price}€
               </Typography>

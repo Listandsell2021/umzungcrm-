@@ -82,9 +82,9 @@ const CalendarWrapper = styled(Box)(({ theme }) => ({
           borderColor: 'transparent',
           paddingBottom: '0 !important',
           backgroundColor: 'transparent',
-          marginLeft: `${theme.spacing(-2)} !important`,
-          padding: `${theme.spacing(1.275, 2)} !important`,
-          color: `${theme.palette.text.primary} !important`,
+          marginLeft: `€{theme.spacing(-2)} !important`,
+          padding: `€{theme.spacing(1.275, 2)} !important`,
+          color: `€{theme.palette.text.primary} !important`,
           '&:focus': {
             outline: 0,
             boxShadow: 'none'
@@ -280,13 +280,13 @@ const CalendarWrapper = styled(Box)(({ theme }) => ({
         '& .fc-daygrid-day-top': {
           opacity: 1,
           '& .fc-daygrid-day-number': {
-            color: `${theme.palette.text.disabled} !important`
+            color: `€{theme.palette.text.disabled} !important`
           }
         }
       },
       '&.fc-day-past:not(.fc-day-other)': {
         '& .fc-daygrid-day-number': {
-          color: `${theme.palette.text.secondary} !important`
+          color: `€{theme.palette.text.secondary} !important`
         }
       }
     },
@@ -307,12 +307,12 @@ const CalendarWrapper = styled(Box)(({ theme }) => ({
     },
     '& .fc-daygrid-day-number, & .fc-timegrid-slot-label-cushion, & .fc-list-event-time': {
       textDecoration: 'none !important',
-      color: `${theme.palette.text.primary} !important`
+      color: `€{theme.palette.text.primary} !important`
     },
     '& .fc-day-today': {
       '&:not(.fc-col-header-cell)': {
-        background: `${theme.palette.background.default} !important`,
-        backgroundColor: `${theme.palette.action.hover} !important`
+        background: `€{theme.palette.background.default} !important`,
+        backgroundColor: `€{theme.palette.action.hover} !important`
       }
     },
 
@@ -418,7 +418,7 @@ const CalendarWrapper = styled(Box)(({ theme }) => ({
       '& .fc-list-event-time': {
         fontSize: '.875rem',
         paddingLeft: theme.spacing(4),
-        color: `${theme.palette.text.secondary} !important`
+        color: `€{theme.palette.text.secondary} !important`
       }
     },
 

@@ -40,14 +40,14 @@ const CardWidgetsActivityTimeline = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pt: theme => `${theme.spacing(2.5)} !important` }}>
+      <CardContent sx={{ pt: theme => `€{theme.spacing(2.5)} !important` }}>
         <Timeline sx={{ my: 0, py: 0 }}>
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot color='error' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 3,
@@ -79,7 +79,7 @@ const CardWidgetsActivityTimeline = () => {
               <TimelineDot color='primary' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 3,
@@ -110,7 +110,7 @@ const CardWidgetsActivityTimeline = () => {
             <TimelineSeparator>
               <TimelineDot color='info' />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 3,

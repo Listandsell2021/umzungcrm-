@@ -75,7 +75,7 @@ const AnalyticsSalesCountry = () => {
       axisBorder: { show: false },
       categories: ['US', 'IN', 'JA', 'CA', 'AU'],
       labels: {
-        formatter: val => `${Number(val) / 1000}k`
+        formatter: val => `€{Number(val) / 1000}k`
       }
     },
     yaxis: {
@@ -87,7 +87,7 @@ const AnalyticsSalesCountry = () => {
     <Card>
       <CardHeader
         title='Sales Country'
-        subheader='Total $42,580 Sales'
+        subheader='Total €42,580 Sales'
         subheaderTypographyProps={{ sx: { lineHeight: 1.429 } }}
         titleTypographyProps={{ sx: { letterSpacing: '0.15px' } }}
         action={

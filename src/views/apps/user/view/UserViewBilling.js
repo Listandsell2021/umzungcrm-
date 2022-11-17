@@ -179,7 +179,7 @@ const UserViewBilling = () => {
               </Box>
               <Box>
                 <Box sx={{ display: 'flex', mb: 1, alignItems: 'center' }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>$99 Per Month</Typography>
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>€99 Per Month</Typography>
                   <CustomChip
                     skin='light'
                     label='Popular'
@@ -193,7 +193,7 @@ const UserViewBilling = () => {
 
             <Grid item xs={12} md={6} sx={{ mt: [4, 4, 0] }}>
               <Alert icon={false} severity='warning' sx={{ mb: 4 }}>
-                <AlertTitle sx={{ fontWeight: 600, mb: theme => `${theme.spacing(1)} !important` }}>
+                <AlertTitle sx={{ fontWeight: 600, mb: theme => `€{theme.spacing(1)} !important` }}>
                   We need your attention!
                 </AlertTitle>
                 Your plan requires updates
@@ -248,7 +248,7 @@ const UserViewBilling = () => {
               display: 'flex',
               alignItems: 'center',
               flexWrap: ['wrap', 'nowrap'],
-              pt: theme => `${theme.spacing(2)} !important`
+              pt: theme => `€{theme.spacing(2)} !important`
             }}
           >
             <FormControl fullWidth size='small' sx={{ mr: [0, 3], mb: [3, 0] }}>
@@ -259,10 +259,10 @@ const UserViewBilling = () => {
                 id='user-view-plans-select'
                 labelId='user-view-plans-select-label'
               >
-                <MenuItem value='Basic'>Basic - $0/month</MenuItem>
-                <MenuItem value='Standard'>Standard - $99/month</MenuItem>
-                <MenuItem value='Enterprise'>Enterprise - $499/month</MenuItem>
-                <MenuItem value='Company'>Company - $999/month</MenuItem>
+                <MenuItem value='Basic'>Basic - €0/month</MenuItem>
+                <MenuItem value='Standard'>Standard - €99/month</MenuItem>
+                <MenuItem value='Enterprise'>Enterprise - €499/month</MenuItem>
+                <MenuItem value='Company'>Company - €999/month</MenuItem>
               </Select>
             </FormControl>
             <Button variant='contained' sx={{ minWidth: ['100%', 0] }}>
@@ -285,7 +285,7 @@ const UserViewBilling = () => {
               }}
             >
               <Box sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}>
-                <Sup>$</Sup>
+                <Sup>€</Sup>
                 <Typography
                   variant='h3'
                   sx={{
@@ -330,7 +330,7 @@ const UserViewBilling = () => {
                 justifyContent: ['space-between'],
                 alignItems: ['flex-start', 'center'],
                 mb: index !== data.length - 1 ? 4 : undefined,
-                border: theme => `1px solid ${theme.palette.divider}`
+                border: theme => `1px solid €{theme.palette.divider}`
               }}
             >
               <div>

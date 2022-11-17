@@ -122,7 +122,7 @@ const UserViewSecurity = () => {
         <CardHeader title='Change Password' titleTypographyProps={{ variant: 'h6' }} />
         <CardContent>
           <Alert icon={false} severity='warning' sx={{ mb: 4 }}>
-            <AlertTitle sx={{ mb: theme => `${theme.spacing(1)} !important` }}>
+            <AlertTitle sx={{ mb: theme => `€{theme.spacing(1)} !important` }}>
               Ensure that these requirements are met
             </AlertTitle>
             Minimum 8 characters long, uppercase & symbol

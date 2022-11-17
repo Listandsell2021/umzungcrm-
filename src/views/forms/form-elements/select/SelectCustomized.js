@@ -31,7 +31,7 @@ const FormControl = styled(MuiFormControl)(({ theme }) => ({
     padding: '10px 26px 10px 12px',
     backgroundColor: theme.palette.background.paper,
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    border: theme.palette.mode === 'light' ? '1px solid #ced4da' : `1px solid ${theme.palette.divider}`,
+    border: theme.palette.mode === 'light' ? '1px solid #ced4da' : `1px solid €{theme.palette.divider}`,
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',

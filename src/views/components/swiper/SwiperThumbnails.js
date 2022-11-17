@@ -52,7 +52,7 @@ const SwiperThumbnails = ({ direction }) => {
         spacing: 8
       },
       breakpoints: {
-        [`(max-width: ${theme.breakpoints.values.sm}px)`]: {
+        [`(max-width: €{theme.breakpoints.values.sm}px)`]: {
           slides: {
             perView: 3,
             spacing: 8

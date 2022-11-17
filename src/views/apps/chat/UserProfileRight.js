@@ -93,9 +93,9 @@ const UserProfileRight = props => {
                         width: 10,
                         height: 10,
                         borderRadius: '50%',
-                        color: `${statusObj[store.selectedChat.contact.status]}.main`,
-                        boxShadow: theme => `0 0 0 2px ${theme.palette.background.paper}`,
-                        backgroundColor: `${statusObj[store.selectedChat.contact.status]}.main`
+                        color: `€{statusObj[store.selectedChat.contact.status]}.main`,
+                        boxShadow: theme => `0 0 0 2px €{theme.palette.background.paper}`,
+                        backgroundColor: `€{statusObj[store.selectedChat.contact.status]}.main`
                       }}
                     />
                   }
@@ -149,7 +149,7 @@ const UserProfileRight = props => {
                       </ListItemIcon>
                       <ListItemText
                         sx={{ textTransform: 'lowercase' }}
-                        secondary={`${store.selectedChat.contact.fullName.replace(/\s/g, '_')}@email.com`}
+                        secondary={`€{store.selectedChat.contact.fullName.replace(/\s/g, '_')}@email.com`}
                       />
                     </ListItem>
                     <ListItem sx={{ px: 2 }}>

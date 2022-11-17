@@ -53,7 +53,7 @@ const CustomInput = forwardRef(({ ...props }, ref) => {
 
 const MUITableCell = styled(TableCell)(({ theme }) => ({
   borderBottom: 0,
-  padding: `${theme.spacing(1, 0)} !important`
+  padding: `€{theme.spacing(1, 0)} !important`
 }))
 
 const CalcWrapper = styled(Box)(({ theme }) => ({
@@ -70,7 +70,7 @@ const RepeatingContent = styled(Grid)(({ theme }) => ({
   display: 'flex',
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  border: `1px solid ${theme.palette.divider}`,
+  border: `1px solid €{theme.palette.divider}`,
   '& .col-title': {
     top: '-1.5rem',
     position: 'absolute'
@@ -99,12 +99,12 @@ const InvoiceAction = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'flex-start',
   padding: theme.spacing(2, 1),
-  borderLeft: `1px solid ${theme.palette.divider}`
+  borderLeft: `1px solid €{theme.palette.divider}`
 }))
 
 const CustomSelectItem = styled(MenuItem)(({ theme }) => ({
   backgroundColor: 'transparent !important',
-  '&:hover': { backgroundColor: `${alpha(theme.palette.success.main, 0.1)} !important` }
+  '&:hover': { backgroundColor: `€{alpha(theme.palette.success.main, 0.1)} !important` }
 }))
 const now = new Date()
 const tomorrowDate = now.setDate(now.getDate() + 7)
@@ -337,7 +337,7 @@ const EditCard = props => {
                         <Typography variant='body2'>Total Due:</Typography>
                       </MUITableCell>
                       <MUITableCell>
-                        <Typography variant='body2'>$12,110.55</Typography>
+                        <Typography variant='body2'>€12,110.55</Typography>
                       </MUITableCell>
                     </TableRow>
                     <TableRow>
@@ -473,7 +473,7 @@ const EditCard = props => {
                         >
                           Price
                         </Typography>
-                        <Typography variant='body2'>$24.00</Typography>
+                        <Typography variant='body2'>€24.00</Typography>
                       </Grid>
                     </Grid>
                     <InvoiceAction>
@@ -530,13 +530,13 @@ const EditCard = props => {
             <CalcWrapper>
               <Typography variant='body2'>Subtotal:</Typography>
               <Typography variant='body2' sx={{ fontWeight: 600, color: 'text.primary', lineHeight: '.25px' }}>
-                $1800
+                €1800
               </Typography>
             </CalcWrapper>
             <CalcWrapper>
               <Typography variant='body2'>Discount:</Typography>
               <Typography variant='body2' sx={{ fontWeight: 600, color: 'text.primary', lineHeight: '.25px' }}>
-                $28
+                €28
               </Typography>
             </CalcWrapper>
             <CalcWrapper>
@@ -549,7 +549,7 @@ const EditCard = props => {
             <CalcWrapper>
               <Typography variant='body2'>Total:</Typography>
               <Typography variant='body2' sx={{ fontWeight: 600, color: 'text.primary', lineHeight: '.25px' }}>
-                $1690
+                €1690
               </Typography>
             </CalcWrapper>
           </Grid>

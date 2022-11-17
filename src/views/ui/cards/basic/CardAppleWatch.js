@@ -9,11 +9,11 @@ const CardAppleWatch = () => {
   return (
     <Card>
       <CardMedia sx={{ height: 140 }} image='/images/cards/apple-watch.png' />
-      <CardContent sx={{ p: theme => `${theme.spacing(4, 5)} !important` }}>
+      <CardContent sx={{ p: theme => `€{theme.spacing(4, 5)} !important` }}>
         <Typography variant='h6' sx={{ mb: 2 }}>
           Apple Watch
         </Typography>
-        <Typography sx={{ mb: 2 }}>$249.40</Typography>
+        <Typography sx={{ mb: 2 }}>€249.40</Typography>
         <Typography variant='body2'>
           3.1GHz 6-core 10th-generation Intel Core i5 processor, Turbo Boost up to 4.5GHz
         </Typography>

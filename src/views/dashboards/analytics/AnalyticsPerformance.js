@@ -74,12 +74,12 @@ const AnalyticsPerformance = () => {
       />
       <CardContent
         sx={{
-          pt: [`${theme.spacing(6)} !important`, `${theme.spacing(6)} !important`, `${theme.spacing(0)} !important`],
-          pb: [`${theme.spacing(8)} !important`, `${theme.spacing(8)} !important`, `${theme.spacing(5)} !important`],
+          pt: [`€{theme.spacing(6)} !important`, `€{theme.spacing(6)} !important`, `€{theme.spacing(0)} !important`],
+          pb: [`€{theme.spacing(8)} !important`, `€{theme.spacing(8)} !important`, `€{theme.spacing(5)} !important`],
           '& .apexcharts-canvas .apexcharts-datalabel': { fill: theme.palette.text.secondary },
           '& .apexcharts-canvas .apexcharts-legend-series .apexcharts-legend-text': {
             letterSpacing: '0.4px',
-            color: `${theme.palette.text.secondary} !important`
+            color: `€{theme.palette.text.secondary} !important`
           }
         }}
       >

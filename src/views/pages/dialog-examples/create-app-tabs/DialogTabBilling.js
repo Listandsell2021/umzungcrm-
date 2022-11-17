@@ -44,7 +44,7 @@ const TabBilling = () => {
 
   return (
     <Grid container spacing={6}>
-      <Grid item xs={12} sx={{ pt: theme => ['0 !important', `${theme.spacing(6)} !important`] }}>
+      <Grid item xs={12} sx={{ pt: theme => ['0 !important', `€{theme.spacing(6)} !important`] }}>
         <CardWrapper sx={{ '& .rccs': { m: '0 auto', display: { xs: 'none', sm: 'block' } } }}>
           <Cards cvc={cvc} focused={focus} expiry={expiry} name={name} number={cardNumber} />
         </CardWrapper>

@@ -64,7 +64,7 @@ const Slides = () => {
             </Typography>
             <Box sx={{ mb: 4, display: 'flex', alignItems: 'center' }}>
               <Typography variant='caption' sx={{ mr: 1.5, color: 'common.white' }}>
-                Total $23.5k Earning
+                Total €23.5k Earning
               </Typography>
               <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
                 +62%
@@ -201,10 +201,10 @@ const EcommerceWeeklySalesBg = () => {
                     instanceRef.current?.moveToIdx(idx)
                   }}
                   sx={{
-                    mr: theme => `${theme.spacing(2.5)} !important`,
+                    mr: theme => `€{theme.spacing(2.5)} !important`,
                     '&.active': {
                       '& .MuiBadge-dot': {
-                        backgroundColor: theme => `${theme.palette.common.white} !important`
+                        backgroundColor: theme => `€{theme.palette.common.white} !important`
                       }
                     },
                     '& .MuiBadge-dot': {

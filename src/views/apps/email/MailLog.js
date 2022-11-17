@@ -203,7 +203,7 @@ const MailLog = props => {
             dispatch(handleSelectAllMail(false))
           }}
         >
-          <Circle sx={{ mr: 2, fontSize: '0.75rem', color: `${value}.main` }} />
+          <Circle sx={{ mr: 2, fontSize: '0.75rem', color: `€{value}.main` }} />
           <Typography sx={{ textTransform: 'capitalize' }}>{key}</Typography>
         </MenuItem>
       )
@@ -267,7 +267,7 @@ const MailLog = props => {
 
   const renderMailLabels = arr => {
     return arr.map((label, index) => {
-      return <Circle key={index} sx={{ mr: 3.5, fontSize: '0.625rem', color: `${labelColors[label]}.main` }} />
+      return <Circle key={index} sx={{ mr: 3.5, fontSize: '0.625rem', color: `€{labelColors[label]}.main` }} />
     })
   }
 

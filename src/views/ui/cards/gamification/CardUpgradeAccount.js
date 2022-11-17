@@ -28,7 +28,7 @@ const CardUpgradeAccount = () => {
           Add 15 team members
         </Typography>
         <Typography variant='h5' sx={{ fontWeight: 600, color: 'primary.main' }}>
-          $199
+          €199
         </Typography>
         <Typography variant='body2' sx={{ mb: 4 }}>
           40% OFF 😍

@@ -10,8 +10,8 @@ const DataGrid = theme => {
           }
         },
         toolbarContainer: {
-          paddingRight: `${theme.spacing(5)} !important`,
-          paddingLeft: `${theme.spacing(3.25)} !important`
+          paddingRight: `€{theme.spacing(5)} !important`,
+          paddingLeft: `€{theme.spacing(3.25)} !important`
         },
         columnHeaders: {
           maxHeight: '54px !important',
@@ -93,7 +93,7 @@ const DataGrid = theme => {
         },
         footerContainer: {
           minHeight: '50px !important',
-          borderTop: `1px solid ${theme.palette.divider}`,
+          borderTop: `1px solid €{theme.palette.divider}`,
           '& .MuiTablePagination-toolbar': {
             minHeight: '50px !important'
           },

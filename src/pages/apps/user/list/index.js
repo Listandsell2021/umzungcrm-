@@ -78,13 +78,13 @@ const renderClient = row => {
 
   if (row.avatar.length) {
     return (
-      <AvatarWithImageLink href={`/apps/user/view/${row.a_id}`}>
+      <AvatarWithImageLink href={`/apps/user/view/€{row.a_id}`}>
         <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
       </AvatarWithImageLink>
     )
   } else {
     return (
-      <AvatarWithoutImageLink href={`/apps/user/view/${row.id}`}>
+      <AvatarWithoutImageLink href={`/apps/user/view/€{row.id}`}>
         <CustomAvatar
           skin='light'
           color={row.avatarColor || 'primary'}
@@ -149,7 +149,7 @@ const RowOptions = ({ a_id }) => {
         PaperProps={{ style: { minWidth: '8rem' } }}
       >
         <MenuItem sx={{ p: 0 }}>
-          <Link href={`/apps/user/view/${a_id}`} passHref>
+          <Link href={`/apps/user/view/€{a_id}`} passHref>
             <MenuItemLink>
               <EyeOutline fontSize='small' sx={{ mr: 2 }} />
               View
@@ -183,7 +183,7 @@ const columns = [
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {renderClient(row)}
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-            <Link href={`/apps/user/view/${a_idnew}`} passHref>
+            <Link href={`/apps/user/view/€{a_idnew}`} passHref>
               <Typography
                 noWrap
                 component='a'
@@ -193,7 +193,7 @@ const columns = [
                 {full_name}
               </Typography>
             </Link>
-            <Link href={`/apps/user/view/${a_idnew}`} passHref>
+            <Link href={`/apps/user/view/€{a_idnew}`} passHref>
               <Typography noWrap component='a' variant='caption' sx={{ textDecoration: 'none' }}>
                 @{username}
               </Typography>

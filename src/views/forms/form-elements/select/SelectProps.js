@@ -73,7 +73,7 @@ const SelectProps = () => {
           label='Age'
           defaultValue=''
           id='demo-simple-select-error'
-          renderValue={value => `⚠️  - ${value}`}
+          renderValue={value => `⚠️  - €{value}`}
           labelId='demo-simple-select-error-label'
         >
           <MenuItem value=''>

@@ -16,9 +16,9 @@ const CrmTotalGrowth = () => {
     legend: { show: false },
     stroke: { width: 5, colors: [theme.palette.background.paper] },
     colors: [theme.palette.primary.main, theme.palette.success.main, theme.palette.secondary.main],
-    labels: [`${new Date().getFullYear()}`, `${new Date().getFullYear() - 1}`, `${new Date().getFullYear() - 2}`],
+    labels: [`€{new Date().getFullYear()}`, `€{new Date().getFullYear() - 1}`, `€{new Date().getFullYear() - 2}`],
     tooltip: {
-      y: { formatter: val => `${val}%` }
+      y: { formatter: val => `€{val}%` }
     },
     dataLabels: {
       enabled: false
@@ -42,13 +42,13 @@ const CrmTotalGrowth = () => {
               label: '',
               show: true,
               formatter(val) {
-                return typeof val === 'string' ? `${val}%` : '12%'
+                return typeof val === 'string' ? `€{val}%` : '12%'
               }
             },
             value: {
               offsetY: 6,
               formatter(val) {
-                return `${val}%`
+                return `€{val}%`
               }
             }
           }
@@ -70,7 +70,7 @@ const CrmTotalGrowth = () => {
       >
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
           <Typography variant='h6' sx={{ mr: 1.5 }}>
-            $27.9k
+            €27.9k
           </Typography>
           <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
             +16%

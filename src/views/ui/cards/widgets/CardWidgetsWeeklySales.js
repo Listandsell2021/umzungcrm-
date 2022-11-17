@@ -130,7 +130,7 @@ const CardWidgetsWeeklySales = () => {
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant='caption'>Net Income</Typography>
-                <Typography sx={{ fontWeight: 600 }}>$438.5k</Typography>
+                <Typography sx={{ fontWeight: 600 }}>€438.5k</Typography>
               </Box>
             </Box>
           </Grid>
@@ -141,7 +141,7 @@ const CardWidgetsWeeklySales = () => {
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant='caption'>Expense</Typography>
-                <Typography sx={{ fontWeight: 600 }}>$22.4k</Typography>
+                <Typography sx={{ fontWeight: 600 }}>€22.4k</Typography>
               </Box>
             </Box>
           </Grid>

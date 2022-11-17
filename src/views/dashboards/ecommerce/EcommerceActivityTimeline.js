@@ -40,14 +40,14 @@ const EcommerceActivityTimeline = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pt: theme => `${theme.spacing(2.5)} !important` }}>
+      <CardContent sx={{ pt: theme => `€{theme.spacing(2.5)} !important` }}>
         <Timeline sx={{ my: 0, py: 0 }}>
           <TimelineItem>
             <TimelineSeparator>
               <TimelineDot color='error' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(3)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(3)} !important` }}>
               <Box
                 sx={{
                   mb: 3,
@@ -79,7 +79,7 @@ const EcommerceActivityTimeline = () => {
               <TimelineDot color='primary' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(3)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(3)} !important` }}>
               <Box
                 sx={{
                   mb: 3,
@@ -111,7 +111,7 @@ const EcommerceActivityTimeline = () => {
               <TimelineDot color='info' />
               <TimelineConnector sx={{ mb: 3 }} />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(0.5)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(0.5)} !important` }}>
               <Box
                 sx={{
                   mb: 3,

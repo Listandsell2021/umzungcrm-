@@ -27,7 +27,7 @@ const Form = styled('form')(({ theme }) => ({
   maxWidth: 400,
   padding: theme.spacing(12),
   borderRadius: theme.shape.borderRadius,
-  border: `1px solid ${theme.palette.divider}`
+  border: `1px solid €{theme.palette.divider}`
 }))
 
 const FormLayoutsAlignment = () => {

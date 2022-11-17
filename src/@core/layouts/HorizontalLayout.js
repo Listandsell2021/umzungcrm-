@@ -33,7 +33,7 @@ const HorizontalLayoutWrapper = styled('div')({
 
 const Toolbar = styled(MuiToolbar)(({ theme }) => ({
   width: '100%',
-  padding: `${theme.spacing(0, 6)} !important`,
+  padding: `€{theme.spacing(0, 6)} !important`,
   [theme.breakpoints.down('sm')]: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(4)
@@ -82,7 +82,7 @@ const HorizontalLayout = props => {
           justifyContent: 'center',
           ...(appBar === 'static' && { zIndex: 13 }),
           backgroundColor: theme => theme.palette.background.paper,
-          ...(skin === 'bordered' && { borderBottom: theme => `1px solid ${theme.palette.divider}` }),
+          ...(skin === 'bordered' && { borderBottom: theme => `1px solid €{theme.palette.divider}` }),
           transition: 'border-bottom 0.2s ease-in-out, backdrop-filter .25s ease-in-out, box-shadow .25s ease-in-out',
           ...(appBar === 'fixed'
             ? appBarBlur && {
@@ -96,7 +96,7 @@ const HorizontalLayout = props => {
           className='layout-navbar'
           sx={{
             width: '100%',
-            ...(navHidden ? {} : { borderBottom: theme => `1px solid ${theme.palette.divider}` })
+            ...(navHidden ? {} : { borderBottom: theme => `1px solid €{theme.palette.divider}` })
           }}
         >
           <Toolbar
@@ -104,7 +104,7 @@ const HorizontalLayout = props => {
             sx={{
               mx: 'auto',
               ...(contentWidth === 'boxed' && { '@media (min-width:1440px)': { maxWidth: 1440 } }),
-              minHeight: theme => `${theme.mixins.toolbar.minHeight - 1}px !important`
+              minHeight: theme => `€{theme.mixins.toolbar.minHeight - 1}px !important`
             }}
           >
             <AppBarContent {...props} hidden={hidden} settings={settings} saveSettings={saveSettings} />
@@ -118,7 +118,7 @@ const HorizontalLayout = props => {
               sx={{
                 mx: 'auto',
                 ...(contentWidth === 'boxed' && { '@media (min-width:1440px)': { maxWidth: 1440 } }),
-                minHeight: theme => `${theme.mixins.toolbar.minHeight - (skin === 'bordered' ? 1 : 0)}px !important`
+                minHeight: theme => `€{theme.mixins.toolbar.minHeight - (skin === 'bordered' ? 1 : 0)}px !important`
               }}
             >
               {(userHorizontalNavMenuContent && userHorizontalNavMenuContent(props)) || <Navigation {...props} />}

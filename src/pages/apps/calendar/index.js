@@ -67,7 +67,7 @@ const AppCalendar = () => {
       className='app-calendar'
       sx={{
         boxShadow: skin === 'bordered' ? 0 : 6,
-        ...(skin === 'bordered' && { border: theme => `1px solid ${theme.palette.divider}` })
+        ...(skin === 'bordered' && { border: theme => `1px solid €{theme.palette.divider}` })
       }}
     >
       <SidebarLeft

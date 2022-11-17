@@ -26,7 +26,7 @@ const ApexDonutChart = () => {
     dataLabels: {
       enabled: true,
       formatter(val) {
-        return `${parseInt(val, 10)}%`
+        return `€{parseInt(val, 10)}%`
       }
     },
     plotOptions: {
@@ -42,7 +42,7 @@ const ApexDonutChart = () => {
               fontSize: '1rem',
               fontFamily: 'Montserrat',
               formatter(val) {
-                return `${parseInt(val, 10)}`
+                return `€{parseInt(val, 10)}`
               }
             },
             total: {

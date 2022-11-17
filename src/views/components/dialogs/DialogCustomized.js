@@ -52,7 +52,7 @@ const DialogCustomized = () => {
             chocolate bar chocolate marzipan candy fruitcake jujubes.
           </Typography>
         </DialogContent>
-        <DialogActions sx={{ p: theme => `${theme.spacing(3)} !important` }}>
+        <DialogActions sx={{ p: theme => `€{theme.spacing(3)} !important` }}>
           <Button onClick={handleClose}>Save changes</Button>
         </DialogActions>
       </Dialog>

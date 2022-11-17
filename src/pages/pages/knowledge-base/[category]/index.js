@@ -85,7 +85,7 @@ const KnowledgeBaseCategory = ({ apiData }) => {
   const renderQuestions = item => {
     return item.questions.map((obj, index) => {
       return (
-        <Anchor passHref key={index} href={`/pages/knowledge-base/${category}/${obj.slug}`}>
+        <Anchor passHref key={index} href={`/pages/knowledge-base/€{category}/€{obj.slug}`}>
           <StyledLink>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <CircleOutline sx={{ mr: 2.5, fontSize: '0.875rem', color: 'text.secondary' }} />
@@ -108,11 +108,11 @@ const KnowledgeBaseCategory = ({ apiData }) => {
               <Card>
                 <StyledCardContent>
                   <IconTag
-                    sx={{ mr: 2.5, fontSize: '1.5rem', ...(item.iconColor ? { color: `${item.iconColor}.main` } : {}) }}
+                    sx={{ mr: 2.5, fontSize: '1.5rem', ...(item.iconColor ? { color: `€{item.iconColor}.main` } : {}) }}
                   />
-                  <Typography variant='h6'>{`${item.title} (${item.questions.length})`}</Typography>
+                  <Typography variant='h6'>{`€{item.title} (€{item.questions.length})`}</Typography>
                 </StyledCardContent>
-                <CardContent sx={{ pt: theme => `${theme.spacing(5)} !important` }}>
+                <CardContent sx={{ pt: theme => `€{theme.spacing(5)} !important` }}>
                   {renderQuestions(item)}
                 </CardContent>
               </Card>
@@ -160,7 +160,7 @@ export const getStaticPaths = async () => {
   const data = await res.data
 
   const paths = data.map(item => ({
-    params: { category: `${item.category}` }
+    params: { category: `€{item.category}` }
   }))
 
   return {

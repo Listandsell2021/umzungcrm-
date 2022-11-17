@@ -40,7 +40,7 @@ const Menu = styled(MuiMenu)(({ theme }) => ({
 const MenuItem = styled(MuiMenuItem)(({ theme }) => ({
   paddingTop: theme.spacing(3),
   paddingBottom: theme.spacing(3),
-  borderBottom: `1px solid ${theme.palette.divider}`
+  borderBottom: `1px solid €{theme.palette.divider}`
 }))
 
 const styles = {
@@ -212,7 +212,7 @@ const NotificationDropdown = props => {
         </ScrollWrapper>
         <MenuItem
           disableRipple
-          sx={{ py: 3.5, borderBottom: 0, borderTop: theme => `1px solid ${theme.palette.divider}` }}
+          sx={{ py: 3.5, borderBottom: 0, borderTop: theme => `1px solid €{theme.palette.divider}` }}
         >
           <Button fullWidth variant='contained' onClick={handleDropdownClose}>
             Read All Notifications

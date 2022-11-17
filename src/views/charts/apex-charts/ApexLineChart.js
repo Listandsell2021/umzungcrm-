@@ -45,7 +45,7 @@ const ApexLineChart = () => {
     tooltip: {
       custom(data) {
         return `<div class='bar-chart'>
-          <span>${data.series[data.seriesIndex][data.dataPointIndex]}%</span>
+          <span>€{data.series[data.seriesIndex][data.dataPointIndex]}%</span>
         </div>`
       }
     },
@@ -92,7 +92,7 @@ const ApexLineChart = () => {
         action={
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant='h6' sx={{ mr: 5 }}>
-              $221,267
+              €221,267
             </Typography>
             <CustomChip
               skin='light'

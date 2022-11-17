@@ -26,7 +26,7 @@ import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 
 const data = [
   {
-    amount: '$845k',
+    amount: '€845k',
     trendAmount: 82,
     color: 'primary',
     title: 'Google Analytics',
@@ -34,7 +34,7 @@ const data = [
   },
   {
     trendAmount: 52,
-    amount: '$12.5k',
+    amount: '€12.5k',
     color: 'secondary',
     title: 'Facebook Ads',
     icon: <ChevronDown sx={{ color: 'error.main' }} />
@@ -166,11 +166,11 @@ const CrmExternalLinks = () => {
             {data.map((item, index) => (
               <TableRow
                 key={index}
-                sx={{ '& .MuiTableCell-root': { borderBottomWidth: 0, py: `${theme.spacing(1.125)} !important` } }}
+                sx={{ '& .MuiTableCell-root': { borderBottomWidth: 0, py: `€{theme.spacing(1.125)} !important` } }}
               >
                 <TableCell>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Circle sx={{ mr: 2.25, fontSize: '0.75rem', color: `${theme.palette[item.color].main}` }} />
+                    <Circle sx={{ mr: 2.25, fontSize: '0.75rem', color: `€{theme.palette[item.color].main}` }} />
                     <Typography variant='body2' sx={{ fontWeight: 600, whiteSpace: 'nowrap', color: 'text.primary' }}>
                       {item.title}
                     </Typography>
@@ -184,7 +184,7 @@ const CrmExternalLinks = () => {
                     <Typography
                       variant='body2'
                       sx={{ mr: 2.5, fontWeight: 600, color: 'text.primary' }}
-                    >{`${item.trendAmount}%`}</Typography>
+                    >{`€{item.trendAmount}%`}</Typography>
                     {item.icon}
                   </Box>
                 </TableCell>

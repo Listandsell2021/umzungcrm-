@@ -119,7 +119,7 @@ const AnalyticsWeeklySales = () => {
       <CardContent
         sx={{
           '& .apexcharts-series[rel="2"]': { transform: 'translateY(-8px)' },
-          pt: [`${theme.spacing(0)} !important`, `${theme.spacing(0)} !important`, `${theme.spacing(2.5)} !important`],
+          pt: [`€{theme.spacing(0)} !important`, `€{theme.spacing(0)} !important`, `€{theme.spacing(2.5)} !important`],
           '& .apexcharts-canvas .apexcharts-xaxis-label': { letterSpacing: '0.4px', fill: theme.palette.text.secondary }
         }}
       >
@@ -131,7 +131,7 @@ const AnalyticsWeeklySales = () => {
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant='caption'>Net Income</Typography>
-                <Typography sx={{ fontWeight: 600 }}>$438.5k</Typography>
+                <Typography sx={{ fontWeight: 600 }}>€438.5k</Typography>
               </Box>
             </Box>
           </Grid>
@@ -142,7 +142,7 @@ const AnalyticsWeeklySales = () => {
               </CustomAvatar>
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant='caption'>Expense</Typography>
-                <Typography sx={{ fontWeight: 600 }}>$22.4k</Typography>
+                <Typography sx={{ fontWeight: 600 }}>€22.4k</Typography>
               </Box>
             </Box>
           </Grid>

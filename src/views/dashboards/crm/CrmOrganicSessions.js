@@ -59,12 +59,12 @@ const CrmOrganicSessions = () => {
             },
             value: {
               offsetY: -15,
-              formatter: value => `${value}k`
+              formatter: value => `€{value}k`
             },
             total: {
               show: true,
               label: '2022',
-              formatter: value => `${value.globals.seriesTotals.reduce((total, num) => total + num)}k`
+              formatter: value => `€{value.globals.seriesTotals.reduce((total, num) => total + num)}k`
             }
           }
         }
@@ -87,7 +87,7 @@ const CrmOrganicSessions = () => {
           '& .apexcharts-datalabel-value': { fontWeight: '500 !important', fontSize: '2rem !important' },
           '& .apexcharts-datalabel-label': {
             fontSize: '1rem !important',
-            fill: `${theme.palette.text.secondary} !important`
+            fill: `€{theme.palette.text.secondary} !important`
           }
         }}
       >

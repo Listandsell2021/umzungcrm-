@@ -52,32 +52,32 @@ const tabContentData = {
   mobile: [
     {
       quantity: 2,
-      price: '$849',
-      total: '$1,698',
+      price: '€849',
+      total: '€1,698',
       imgAlt: 'samsung-s22',
       product: 'Samsung s22',
       imgSrc: '/images/cards/samsung-s22.png'
     },
     {
       quantity: 1,
-      price: '$599',
-      total: '$599',
+      price: '€599',
+      total: '€599',
       imgAlt: 'apple-iPhone-13-pro',
       product: 'Apple iPhone 13 Pro',
       imgSrc: '/images/cards/apple-iPhone-13-pro.png'
     },
     {
       quantity: 4,
-      price: '$399',
-      total: '$1,596',
+      price: '€399',
+      total: '€1,596',
       imgAlt: 'oneplus-9-pro',
       product: 'Oneplus 9 Pro',
       imgSrc: '/images/cards/oneplus-9-pro.png'
     },
     {
       quantity: 3,
-      price: '$450',
-      total: '$1,350',
+      price: '€450',
+      total: '€1,350',
       imgAlt: 'google-pixel-6',
       product: 'Google Pixel 6',
       imgSrc: '/images/cards/google-pixel-6.png'
@@ -86,32 +86,32 @@ const tabContentData = {
   desktop: [
     {
       quantity: 2,
-      price: '$849',
-      total: '$1,698',
+      price: '€849',
+      total: '€1,698',
       imgAlt: 'apple-mac-mini',
       product: 'Apple Mac Mini',
       imgSrc: '/images/cards/apple-mac-mini.png'
     },
     {
       quantity: 4,
-      price: '$599',
-      total: '$2,396',
+      price: '€599',
+      total: '€2,396',
       imgAlt: 'hp-envy-x360',
       product: 'Newest HP Envy x360',
       imgSrc: '/images/cards/hp-envy-x360.png'
     },
     {
       quantity: 1,
-      price: '$399',
-      total: '$399',
+      price: '€399',
+      total: '€399',
       imgAlt: 'dell-inspiron-3000',
       product: 'Dell Inspiron 3000',
       imgSrc: '/images/cards/dell-inspiron-3000.png'
     },
     {
       quantity: 3,
-      price: '$450',
-      total: '$1,350',
+      price: '€450',
+      total: '€1,350',
       imgAlt: 'apple-iMac-4k',
       product: 'Apple iMac 4k',
       imgSrc: '/images/cards/apple-iMac-4k.png'
@@ -120,32 +120,32 @@ const tabContentData = {
   console: [
     {
       quantity: 1,
-      price: '$599',
-      total: '$599',
+      price: '€599',
+      total: '€599',
       imgAlt: 'sony-play-station-5',
       product: 'Sony Play Station 5',
       imgSrc: '/images/cards/sony-play-station-5.png'
     },
     {
       quantity: 3,
-      price: '$489',
-      total: '$1,467',
+      price: '€489',
+      total: '€1,467',
       imgAlt: 'xbox-series-x',
       product: 'XBOX Series X',
       imgSrc: '/images/cards/xbox-series-x.png'
     },
     {
       quantity: 4,
-      price: '$335',
-      total: '$1,340',
+      price: '€335',
+      total: '€1,340',
       imgAlt: 'nintendo-switch',
       product: 'Nintendo Switch',
       imgSrc: '/images/cards/nintendo-switch.png'
     },
     {
       quantity: 8,
-      price: '$14',
-      total: '$112',
+      price: '€14',
+      total: '€112',
       imgAlt: 'sup-game-box-400',
       product: 'SUP Game Box 400',
       imgSrc: '/images/cards/sup-game-box-400.png'
@@ -154,32 +154,32 @@ const tabContentData = {
   watch: [
     {
       quantity: 2,
-      price: '$202',
-      total: '$404',
+      price: '€202',
+      total: '€404',
       imgAlt: 'samsung-watch-4',
       product: 'Samsung Watch 4',
       imgSrc: '/images/cards/samsung-watch-4.png'
     },
     {
       quantity: 1,
-      price: '$399',
-      total: '$399',
+      price: '€399',
+      total: '€399',
       imgAlt: 'apple-watch-7',
       product: 'Apple Watch 7',
       imgSrc: '/images/cards/apple-watch-7.png'
     },
     {
       quantity: 3,
-      price: '$59',
-      total: '$177',
+      price: '€59',
+      total: '€177',
       imgAlt: 'amazon-echo-dot',
       product: 'Amazon Echo Dot',
       imgSrc: '/images/cards/amazon-echo-dot.png'
     },
     {
       quantity: 1,
-      price: '$139',
-      total: '$139',
+      price: '€139',
+      total: '€139',
       imgAlt: 'gramin-verve',
       product: 'Gramin Verve',
       imgSrc: '/images/cards/gramin-verve.png'
@@ -192,7 +192,7 @@ const RenderTabContent = ({ data }) => {
     <TableContainer>
       <Table>
         <TableHead>
-          <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `${theme.spacing(2.5)} !important` } }}>
+          <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `€{theme.spacing(2.5)} !important` } }}>
             <TableCell>Image</TableCell>
             <TableCell sx={{ whiteSpace: 'nowrap' }}>Product Name</TableCell>
             <TableCell align='right'>Qty</TableCell>
@@ -207,13 +207,13 @@ const RenderTabContent = ({ data }) => {
               sx={{
                 '& .MuiTableCell-root': {
                   border: 0,
-                  py: theme => `${theme.spacing(1.5)} !important`
+                  py: theme => `€{theme.spacing(1.5)} !important`
                 },
                 '&:first-child .MuiTableCell-body': {
-                  pt: theme => `${theme.spacing(3)} !important`
+                  pt: theme => `€{theme.spacing(3)} !important`
                 },
                 '&:last-child .MuiTableCell-body': {
-                  pb: theme => `${theme.spacing(3)} !important`
+                  pb: theme => `€{theme.spacing(3)} !important`
                 }
               }}
             >
@@ -243,15 +243,15 @@ const CardTopReferralSources = () => {
   const RenderTabAvatar = ({ data }) => (
     <Avatar
       variant='rounded'
-      alt={`tabs-${data.category}`}
-      src={`/images/cards/tabs-${data.category}.png`}
+      alt={`tabs-€{data.category}`}
+      src={`/images/cards/tabs-€{data.category}.png`}
       sx={{
         width: 100,
         height: 92,
         backgroundColor: 'transparent',
         '& img': { width: data.imgWidth, height: data.imgHeight },
         border: theme =>
-          value === data.category ? `2px solid ${theme.palette.primary.main}` : `2px dashed ${theme.palette.divider}`
+          value === data.category ? `2px solid €{theme.palette.primary.main}` : `2px dashed €{theme.palette.divider}`
       }}
     />
   )
@@ -296,7 +296,7 @@ const CardTopReferralSources = () => {
                   height: 92,
                   backgroundColor: 'transparent',
                   border: theme =>
-                    value === 'add' ? `2px solid ${theme.palette.primary.main}` : `2px dashed ${theme.palette.divider}`
+                    value === 'add' ? `2px solid €{theme.palette.primary.main}` : `2px dashed €{theme.palette.divider}`
                 }}
               >
                 <Box

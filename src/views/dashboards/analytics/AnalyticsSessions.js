@@ -73,7 +73,7 @@ const AnalyticsSessions = () => {
       <CardContent>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
           <Typography variant='h6' sx={{ mr: 1.5 }}>
-            $38.5k
+            €38.5k
           </Typography>
           <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
             +62%

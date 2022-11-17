@@ -109,7 +109,7 @@ const TabInfo = () => {
               </RadioGroup>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(7)} !important` }}>
+          <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(7)} !important` }}>
             <Button variant='contained' sx={{ mr: 4 }}>
               Save Changes
             </Button>

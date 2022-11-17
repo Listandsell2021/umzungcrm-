@@ -19,7 +19,7 @@ const ToastThemed = () => {
       style: {
         padding: '16px',
         color: theme.palette.primary.main,
-        border: `1px solid ${theme.palette.primary.main}`
+        border: `1px solid €{theme.palette.primary.main}`
       },
       iconTheme: {
         primary: theme.palette.primary.main,

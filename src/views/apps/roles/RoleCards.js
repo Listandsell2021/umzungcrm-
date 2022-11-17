@@ -89,7 +89,7 @@ const RolesCards = () => {
                 }}
               >
                 {item.avatars.map((img, index) => (
-                  <Avatar key={index} alt={item.title} src={`/images/avatars/${img}`} />
+                  <Avatar key={index} alt={item.title} src={`/images/avatars/€{img}`} />
                 ))}
               </AvatarGroup>
             </Box>
@@ -160,7 +160,7 @@ const RolesCards = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogTitle sx={{ textAlign: 'center' }}>
             <Typography variant='h4' component='span'>
-              {`${dialogTitle} Role`}
+              {`€{dialogTitle} Role`}
             </Typography>
             <Typography variant='body2'>Set Role Permissions</Typography>
           </DialogTitle>
@@ -219,7 +219,7 @@ const RolesCards = () => {
                   {rolesArr.map((i, index) => {
                     return (
                       <TableRow key={index} sx={{ '& .MuiTableCell-root:first-of-type': { pl: 0 } }}>
-                        <TableCell sx={{ fontWeight: 600, color: theme => `${theme.palette.text.primary} !important` }}>
+                        <TableCell sx={{ fontWeight: 600, color: theme => `€{theme.palette.text.primary} !important` }}>
                           {i}
                         </TableCell>
                         <TableCell>

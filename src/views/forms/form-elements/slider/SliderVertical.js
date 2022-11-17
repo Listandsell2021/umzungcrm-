@@ -22,7 +22,7 @@ const marks = [
 ]
 
 const valuetext = value => {
-  return `${value}°C`
+  return `€{value}°C`
 }
 
 const SliderVertical = () => {

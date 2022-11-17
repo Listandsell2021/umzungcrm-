@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Slider from '@mui/material/Slider'
 
 const valuetext = value => {
-  return `${value}°C`
+  return `€{value}°C`
 }
 const minDistance = 10
 

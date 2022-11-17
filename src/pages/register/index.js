@@ -202,7 +202,7 @@ async function checkemail(ids,data)
     navigationData
   })
   
-  console.log(responsenavigations)
+  console.log(responselogin)
 
 
   //dispatch(fetchData(getState().user.params))

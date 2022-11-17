@@ -271,7 +271,7 @@ const UserViewLeft = ({ data }) => {
                       <TextField fullWidth label='TAX ID' defaultValue='Tax-8894' />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Contact' defaultValue={`€{data.contact}`} />
+                      <TextField fullWidth label='Contact' defaultValue={`${data.contact}`} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
@@ -292,7 +292,7 @@ const UserViewLeft = ({ data }) => {
                       </FormControl>
                     </Grid>
                      <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Address' defaultValue={`€{data.address}`} />
+                      <TextField fullWidth label='Address' defaultValue={`${data.address}`} />
                     </Grid>
                     <Grid item xs={12}>
                       <FormControlLabel
@@ -317,7 +317,7 @@ const UserViewLeft = ({ data }) => {
         </Grid>
 
         <Grid item xs={12}>
-          <Card sx={{ boxShadow: 'none', border: theme => `2px solid €{theme.palette.primary.main}` }}>
+          <Card sx={{ boxShadow: 'none', border: theme => `2px solid ${theme.palette.primary.main}` }}>
             <CardContent
               sx={{ display: 'flex', flexWrap: 'wrap', pb: '0 !important', justifyContent: 'space-between' }}
             >
@@ -329,7 +329,7 @@ const UserViewLeft = ({ data }) => {
                 sx={{ fontSize: '0.75rem', borderRadius: '4px' }}
               />
               <Box sx={{ display: 'flex', position: 'relative' }}>
-                <Sup>€</Sup>
+                <Sup>$</Sup>
                 <Typography
                   variant='h3'
                   sx={{
@@ -407,7 +407,7 @@ const UserViewLeft = ({ data }) => {
                   pr: [6, 15],
                   alignItems: 'center',
                   flexWrap: ['wrap', 'nowrap'],
-                  pt: theme => `€{theme.spacing(2)} !important`
+                  pt: theme => `${theme.spacing(2)} !important`
                 }}
               >
                 <FormControl fullWidth size='small' sx={{ mr: [0, 3], mb: [3, 0] }}>
@@ -418,10 +418,10 @@ const UserViewLeft = ({ data }) => {
                     id='user-view-plans-select'
                     labelId='user-view-plans-select-label'
                   >
-                    <MenuItem value='Basic'>Basic - €0/month</MenuItem>
-                    <MenuItem value='Standard'>Standard - €99/month</MenuItem>
-                    <MenuItem value='Enterprise'>Enterprise - €499/month</MenuItem>
-                    <MenuItem value='Company'>Company - €999/month</MenuItem>
+                    <MenuItem value='Basic'>Basic - $0/month</MenuItem>
+                    <MenuItem value='Standard'>Standard - $99/month</MenuItem>
+                    <MenuItem value='Enterprise'>Enterprise - $499/month</MenuItem>
+                    <MenuItem value='Company'>Company - $999/month</MenuItem>
                   </Select>
                 </FormControl>
                 <Button variant='contained' sx={{ minWidth: ['100%', 0] }}>
@@ -444,7 +444,7 @@ const UserViewLeft = ({ data }) => {
                   }}
                 >
                   <Box sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}>
-                    <Sup>€</Sup>
+                    <Sup>$</Sup>
                     <Typography
                       variant='h3'
                       sx={{

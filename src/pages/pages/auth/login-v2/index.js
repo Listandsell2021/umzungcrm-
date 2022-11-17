@@ -126,13 +126,13 @@ const LoginV2 = () => {
           <LoginIllustrationWrapper>
             <LoginIllustration
               alt='login-illustration'
-              src={`/images/pages/€{imageSource}-€{theme.palette.mode}.png`}
+              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
             />
           </LoginIllustrationWrapper>
           <FooterIllustrationsV2 />
         </Box>
       ) : null}
-      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid €{theme.palette.divider}` } : {}}>
+      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
         <Box
           sx={{
             p: 7,
@@ -229,7 +229,7 @@ const LoginV2 = () => {
               </Typography>
             </Box>
             <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h5'>{`Welcome to €{themeConfig.templateName}11! 👋🏻`}</TypographyStyled>
+              <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName}11! 👋🏻`}</TypographyStyled>
               <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>

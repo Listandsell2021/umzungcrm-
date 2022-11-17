@@ -83,23 +83,23 @@ const DefaultPalette = (mode, skin) => {
       A700: '#303030'
     },
     text: {
-      primary: `rgba(€{mainColor}, 0.87)`,
-      secondary: `rgba(€{mainColor}, 0.68)`,
-      disabled: `rgba(€{mainColor}, 0.38)`
+      primary: `rgba(${mainColor}, 0.87)`,
+      secondary: `rgba(${mainColor}, 0.68)`,
+      disabled: `rgba(${mainColor}, 0.38)`
     },
-    divider: `rgba(€{mainColor}, 0.12)`,
+    divider: `rgba(${mainColor}, 0.12)`,
     background: {
       paper: mode === 'light' ? '#FFF' : '#30334E',
       default: defaultBgColor()
     },
     action: {
-      active: `rgba(€{mainColor}, 0.54)`,
-      hover: `rgba(€{mainColor}, 0.05)`,
+      active: `rgba(${mainColor}, 0.54)`,
+      hover: `rgba(${mainColor}, 0.05)`,
       hoverOpacity: 0.05,
-      selected: `rgba(€{mainColor}, 0.08)`,
-      disabled: `rgba(€{mainColor}, 0.26)`,
-      disabledBackground: `rgba(€{mainColor}, 0.12)`,
-      focus: `rgba(€{mainColor}, 0.12)`
+      selected: `rgba(${mainColor}, 0.08)`,
+      disabled: `rgba(${mainColor}, 0.26)`,
+      disabledBackground: `rgba(${mainColor}, 0.12)`,
+      focus: `rgba(${mainColor}, 0.12)`
     }
   }
 }

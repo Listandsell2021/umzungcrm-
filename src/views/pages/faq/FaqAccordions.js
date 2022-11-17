@@ -57,8 +57,8 @@ const FaqAccordions = ({ data }) => {
         <Accordion key={obj.id} expanded={expanded(item.id, obj.id)} onChange={handleChange(item.id, obj.id)}>
           <AccordionSummary
             expandIcon={<ChevronDown />}
-            id={`faq-accordion-€{item.id}-€{obj.id}-header`}
-            aria-controls={`faq-accordion-€{item.id}-€{obj.id}-content`}
+            id={`faq-accordion-${item.id}-${obj.id}-header`}
+            aria-controls={`faq-accordion-${item.id}-${obj.id}-content`}
           >
             <Typography>{obj.question}</Typography>
           </AccordionSummary>
@@ -83,7 +83,7 @@ const FaqAccordions = ({ data }) => {
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Avatar
                       variant='rounded'
-                      sx={{ backgroundColor: theme => `rgba(€{theme.palette.customColors.main}, 0.08)` }}
+                      sx={{ backgroundColor: theme => `rgba(${theme.palette.customColors.main}, 0.08)` }}
                     >
                       <IconTag sx={{ fontSize: '1.375rem' }} />
                     </Avatar>

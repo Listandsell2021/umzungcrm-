@@ -134,13 +134,13 @@ const ResetPasswordV2 = () => {
           <ResetPasswordIllustrationWrapper>
             <ResetPasswordIllustration
               alt='reset-password-illustration'
-              src={`/images/pages/€{imageSource}-€{theme.palette.mode}.png`}
+              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
             />
           </ResetPasswordIllustrationWrapper>
-          <FooterIllustrationsV2 image={`/images/pages/auth-v2-reset-password-mask-€{theme.palette.mode}.png`} />
+          <FooterIllustrationsV2 image={`/images/pages/auth-v2-reset-password-mask-${theme.palette.mode}.png`} />
         </Box>
       ) : null}
-      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid €{theme.palette.divider}` } : {}}>
+      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
         <Box
           sx={{
             p: 7,

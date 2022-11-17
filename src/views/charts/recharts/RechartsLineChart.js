@@ -38,7 +38,7 @@ const CustomTooltip = props => {
   if (active && payload) {
     return (
       <div className='recharts-custom-tooltip'>
-        <span>{`€{payload[0].value}%`}</span>
+        <span>{`${payload[0].value}%`}</span>
       </div>
     )
   }
@@ -63,7 +63,7 @@ const RechartsLineChart = ({ direction }) => {
         action={
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant='h6' sx={{ mr: 5 }}>
-              €221,267
+              $221,267
             </Typography>
             <CustomChip
               skin='light'

@@ -25,7 +25,7 @@ const ButtonGroupSplit = () => {
   const anchorRef = useRef(null)
 
   const handleClick = () => {
-    console.info(`You clicked '€{options[selectedIndex]}'`)
+    console.info(`You clicked '${options[selectedIndex]}'`)
   }
 
   const handleMenuItemClick = (event, index) => {

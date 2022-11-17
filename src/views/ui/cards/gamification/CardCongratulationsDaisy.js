@@ -12,7 +12,7 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 
 // Styled CardContent component
 const CardContent = styled(MuiCardContent)(({ theme }) => ({
-  padding: `€{theme.spacing(7, 7.5)} !important`,
+  padding: `${theme.spacing(7, 7.5)} !important`,
   [theme.breakpoints.down('sm')]: {
     paddingBottom: '0 !important'
   }
@@ -44,7 +44,7 @@ const CardCongratulationsDaisy = () => {
 
   return (
     <Card sx={{ position: 'relative' }}>
-      <CardContent sx={{ p: theme => `€{theme.spacing(7, 7.5)} !important` }}>
+      <CardContent sx={{ p: theme => `${theme.spacing(7, 7.5)} !important` }}>
         <Grid container spacing={6}>
           <Grid item xs={12} sm={6}>
             <Typography variant='h5' sx={{ mb: 4.5 }}>
@@ -61,7 +61,7 @@ const CardCongratulationsDaisy = () => {
             <Button variant='contained'>View Profile</Button>
           </Grid>
           <StyledGrid item xs={12} sm={6}>
-            <Img alt='Congratulations Daisy' src={`/images/cards/illustration-daisy-€{settings.mode}.png`} />
+            <Img alt='Congratulations Daisy' src={`/images/cards/illustration-daisy-${settings.mode}.png`} />
           </StyledGrid>
         </Grid>
       </CardContent>

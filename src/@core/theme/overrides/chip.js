@@ -7,7 +7,7 @@ const Chip = theme => {
       styleOverrides: {
         outlined: {
           '&.MuiChip-colorDefault': {
-            borderColor: `rgba(€{theme.palette.customColors.main}, 0.22)`
+            borderColor: `rgba(${theme.palette.customColors.main}, 0.22)`
           }
         },
         avatar: {

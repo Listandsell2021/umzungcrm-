@@ -41,7 +41,7 @@ const CardActivityTimeline = () => {
               <TimelineDot color='error' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 2.5,
@@ -73,7 +73,7 @@ const CardActivityTimeline = () => {
               <TimelineDot color='primary' />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent sx={{ mt: 0, mb: theme => `€{theme.spacing(2)} !important` }}>
+            <TimelineContent sx={{ mt: 0, mb: theme => `${theme.spacing(2)} !important` }}>
               <Box
                 sx={{
                   mb: 2.5,

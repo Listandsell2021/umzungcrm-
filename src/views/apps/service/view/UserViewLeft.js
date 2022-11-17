@@ -203,7 +203,7 @@ const [status, setstatus] = useState(data.status)
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Price:</Typography>
                   <Typography variant='body2' sx={{ textTransform: 'capitalize' }}>
-                    {data.price}€
+                    {data.price}$
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
@@ -263,7 +263,7 @@ const [status, setstatus] = useState(data.status)
                       <TextField
                         fullWidth
                         value={price}
-                       // InputProps={{ startAdornment: <InputAdornment position='end'>€</InputAdornment> }}
+                       // InputProps={{ startAdornment: <InputAdornment position='end'>$</InputAdornment> }}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -288,14 +288,14 @@ const [status, setstatus] = useState(data.status)
                       <TextField fullWidth label='TAX ID' value={breath} />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Contact' value={`€{height}`} />
+                      <TextField fullWidth label='Contact' value={`${height}`} />
                     </Grid>
                       <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='cubic_meter' value={`€{cubic_meter}`} />
+                      <TextField fullWidth label='cubic_meter' value={`${cubic_meter}`} />
                     </Grid>
                    
                      <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Address' defaultValue={`€{data.address}`} />
+                      <TextField fullWidth label='Address' defaultValue={`${data.address}`} />
                     </Grid>
                    
                   </Grid>
@@ -314,7 +314,7 @@ const [status, setstatus] = useState(data.status)
         </Grid>
 
        {/* <Grid item xs={12}>
-          <Card sx={{ boxShadow: 'none', border: theme => `2px solid €{theme.palette.primary.main}` }}>
+          <Card sx={{ boxShadow: 'none', border: theme => `2px solid ${theme.palette.primary.main}` }}>
             <CardContent
               sx={{ display: 'flex', flexWrap: 'wrap', pb: '0 !important', justifyContent: 'space-between' }}
             >
@@ -326,7 +326,7 @@ const [status, setstatus] = useState(data.status)
                 sx={{ fontSize: '0.75rem', borderRadius: '4px' }}
               />
               <Box sx={{ display: 'flex', position: 'relative' }}>
-                <Sup>€</Sup>
+                <Sup>$</Sup>
                 <Typography
                   variant='h3'
                   sx={{
@@ -404,7 +404,7 @@ const [status, setstatus] = useState(data.status)
                   pr: [6, 15],
                   alignItems: 'center',
                   flexWrap: ['wrap', 'nowrap'],
-                  pt: theme => `€{theme.spacing(2)} !important`
+                  pt: theme => `${theme.spacing(2)} !important`
                 }}
               >
                 <FormControl fullWidth size='small' sx={{ mr: [0, 3], mb: [3, 0] }}>
@@ -415,10 +415,10 @@ const [status, setstatus] = useState(data.status)
                     id='user-view-plans-select'
                     labelId='user-view-plans-select-label'
                   >
-                    <MenuItem value='Basic'>Basic - €0/month</MenuItem>
-                    <MenuItem value='Standard'>Standard - €99/month</MenuItem>
-                    <MenuItem value='Enterprise'>Enterprise - €499/month</MenuItem>
-                    <MenuItem value='Company'>Company - €999/month</MenuItem>
+                    <MenuItem value='Basic'>Basic - $0/month</MenuItem>
+                    <MenuItem value='Standard'>Standard - $99/month</MenuItem>
+                    <MenuItem value='Enterprise'>Enterprise - $499/month</MenuItem>
+                    <MenuItem value='Company'>Company - $999/month</MenuItem>
                   </Select>
                 </FormControl>
                 <Button variant='contained' sx={{ minWidth: ['100%', 0] }}>
@@ -441,7 +441,7 @@ const [status, setstatus] = useState(data.status)
                   }}
                 >
                   <Box sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}>
-                    <Sup>€</Sup>
+                    <Sup>$</Sup>
                     <Typography
                       variant='h3'
                       sx={{

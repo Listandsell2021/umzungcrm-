@@ -23,8 +23,8 @@ const data = [
     subtitle: 'Credit Card',
     imgAlt: 'visa',
     date: '05/Jan',
-    debitAmount: '-€2,820',
-    balance: '€10,450',
+    debitAmount: '-$2,820',
+    balance: '$10,450',
     imgSrc: '/images/cards/logo-visa.png'
   },
   {
@@ -34,8 +34,8 @@ const data = [
     subtitle: 'Debit Card',
     imgAlt: 'mastercard',
     date: '12/Feb',
-    debitAmount: '-€345',
-    balance: '€8,709',
+    debitAmount: '-$345',
+    balance: '$8,709',
     imgSrc: '/images/cards/logo-mastercard.png'
   },
   {
@@ -44,8 +44,8 @@ const data = [
     title: '*9860',
     subtitle: 'ATM Card',
     date: '24/Feb',
-    debitAmount: '-€999',
-    balance: '€25,900',
+    debitAmount: '-$999',
+    balance: '$25,900',
     imgAlt: 'american-express',
     imgSrc: '/images/cards/logo-american-express.png'
   },
@@ -55,8 +55,8 @@ const data = [
     title: '*4300',
     subtitle: 'Credit Card',
     date: '08/Mar',
-    debitAmount: '-€8,453',
-    balance: '€9,233',
+    debitAmount: '-$8,453',
+    balance: '$9,233',
     imgAlt: 'visa',
     imgSrc: '/images/cards/logo-visa.png'
   },
@@ -66,8 +66,8 @@ const data = [
     title: '*5545',
     subtitle: 'Debit Card',
     date: '15/Apr',
-    debitAmount: '-€24',
-    balance: '€500',
+    debitAmount: '-$24',
+    balance: '$500',
     imgAlt: 'mastercard',
     imgSrc: '/images/cards/logo-mastercard.png'
   },
@@ -77,8 +77,8 @@ const data = [
     title: '*4399',
     subtitle: 'Credit Card',
     date: '28/Apr',
-    debitAmount: '-€299',
-    balance: '€1,380',
+    debitAmount: '-$299',
+    balance: '$1,380',
     imgAlt: 'visa',
     imgSrc: '/images/cards/logo-visa.png'
   }
@@ -99,7 +99,7 @@ const CardPaymentHistory = () => {
       <TableContainer>
         <Table>
           <TableHead>
-            <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `€{theme.spacing(2.5)} !important` } }}>
+            <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `${theme.spacing(2.5)} !important` } }}>
               <TableCell>
                 <Typography variant='subtitle2' sx={{ textTransform: 'capitalize' }}>
                   Card
@@ -122,7 +122,7 @@ const CardPaymentHistory = () => {
               return (
                 <TableRow
                   key={index}
-                  sx={{ '& .MuiTableCell-root': { border: 0, py: theme => `€{theme.spacing(3)} !important` } }}
+                  sx={{ '& .MuiTableCell-root': { border: 0, py: theme => `${theme.spacing(3)} !important` } }}
                 >
                   <TableCell>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>

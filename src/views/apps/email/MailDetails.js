@@ -53,7 +53,7 @@ const HiddenReplyBack = styled(Box)(({ theme }) => ({
   borderTopLeftRadius: theme.shape.borderRadius,
   borderTopRightRadius: theme.shape.borderRadius,
   backgroundColor: theme.palette.background.paper,
-  borderColor: `rgba(€{theme.palette.customColors.main}, 0.12)`
+  borderColor: `rgba(${theme.palette.customColors.main}, 0.12)`
 }))
 
 const HiddenReplyFront = styled(Box)(({ theme }) => ({
@@ -69,7 +69,7 @@ const HiddenReplyFront = styled(Box)(({ theme }) => ({
   borderTopLeftRadius: theme.shape.borderRadius,
   borderTopRightRadius: theme.shape.borderRadius,
   backgroundColor: theme.palette.background.paper,
-  borderColor: `rgba(€{theme.palette.customColors.main}, 0.12)`
+  borderColor: `rgba(${theme.palette.customColors.main}, 0.12)`
 }))
 
 const MailCardMenu = () => {
@@ -185,7 +185,7 @@ const MailDetails = props => {
             handleLabelMenuClose()
           }}
         >
-          <Circle sx={{ mr: 2, fontSize: '0.75rem', color: `€{value}.main` }} />
+          <Circle sx={{ mr: 2, fontSize: '0.75rem', color: `${value}.main` }} />
           <Typography sx={{ textTransform: 'capitalize' }}>{key}</Typography>
         </MenuItem>
       )
@@ -273,7 +273,7 @@ const MailDetails = props => {
               px: 2.6,
               py: [2.25, 3],
               backgroundColor: 'background.paper',
-              borderBottom: theme => `1px solid €{theme.palette.divider}`
+              borderBottom: theme => `1px solid ${theme.palette.divider}`
             }}
           >
             <Box sx={{ display: 'flex', alignItems: ['flex-start', 'center'], justifyContent: 'space-between' }}>
@@ -354,7 +354,7 @@ const MailDetails = props => {
             sx={{
               backgroundColor: 'background.paper',
               p: theme => theme.spacing(3, 2, 3, 3),
-              borderBottom: theme => `1px solid €{theme.palette.divider}`
+              borderBottom: theme => `1px solid ${theme.palette.divider}`
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -463,7 +463,7 @@ const MailDetails = props => {
                             width: '100%',
                             borderRadius: 1,
                             backgroundColor: 'background.paper',
-                            border: theme => `1px solid €{theme.palette.divider}`
+                            border: theme => `1px solid ${theme.palette.divider}`
                           }}
                         >
                           <Box sx={{ p: 5 }}>
@@ -553,7 +553,7 @@ const MailDetails = props => {
                     position: 'relative',
                     backgroundColor: 'background.paper',
                     boxShadow: settings.skin === 'bordered' ? 0 : 6,
-                    border: theme => `1px solid €{theme.palette.divider}`
+                    border: theme => `1px solid ${theme.palette.divider}`
                   }}
                 >
                   <Box sx={{ p: 5 }}>

@@ -39,15 +39,15 @@ const Footer = props => {
             backgroundColor: theme => theme.palette.background.paper,
             boxShadow: theme => theme.shadows[skin === 'bordered' ? 0 : 4],
             ...(contentWidth === 'boxed' && {
-              '@media (min-width:1440px)': { maxWidth: theme => `calc(1440px - €{theme.spacing(6)} * 2)` }
+              '@media (min-width:1440px)': { maxWidth: theme => `calc(1440px - ${theme.spacing(6)} * 2)` }
             }),
             ...(skin === 'bordered'
-              ? { border: theme => `1px solid €{theme.palette.divider}`, borderBottomWidth: 0 }
+              ? { border: theme => `1px solid ${theme.palette.divider}`, borderBottomWidth: 0 }
               : {
                   boxShadow: theme =>
-                    `0 -4px 8px -2px rgba(€{
+                    `0 -4px 8px -2px rgba(${
                       theme.palette.mode === 'light' ? theme.palette.customColors.main : '20, 21, 33'
-                    }, €{theme.palette.mode === 'light' ? 0.2 : 0.42})`
+                    }, ${theme.palette.mode === 'light' ? 0.2 : 0.42})`
                 })
           })
         }}

@@ -15,7 +15,7 @@ import ShoppingOutline from 'mdi-material-ui/ShoppingOutline'
 const EcommerceImpressionsOrders = () => {
   return (
     <Card>
-      <CardContent sx={{ py: theme => `€{theme.spacing(6.625)} !important` }}>
+      <CardContent sx={{ py: theme => `${theme.spacing(6.625)} !important` }}>
         <Box sx={{ my: 1.375, display: 'flex', alignItems: 'center' }}>
           <Box sx={{ mr: 6.5, display: 'flex', position: 'relative' }}>
             <CircularProgress
@@ -59,7 +59,7 @@ const EcommerceImpressionsOrders = () => {
         </Box>
       </CardContent>
       <Divider sx={{ my: 0 }} />
-      <CardContent sx={{ py: theme => `€{theme.spacing(6.625)} !important` }}>
+      <CardContent sx={{ py: theme => `${theme.spacing(6.625)} !important` }}>
         <Box sx={{ my: 1.375, display: 'flex', alignItems: 'center' }}>
           <Box sx={{ mr: 6.5, position: 'relative' }}>
             <CircularProgress

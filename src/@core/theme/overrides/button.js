@@ -12,7 +12,7 @@ const Button = theme => {
           fontWeight: 500,
           borderRadius: 8,
           lineHeight: 1.715,
-          padding: `€{theme.spacing(1.75, 3)}`,
+          padding: `${theme.spacing(1.75, 3)}`,
           '&.MuiButton-textPrimary:hover': {
             backgroundColor: hexToRGBA(theme.palette.primary.main, 0.08)
           },
@@ -34,11 +34,11 @@ const Button = theme => {
         },
         contained: {
           boxShadow: theme.shadows[3],
-          padding: `€{theme.spacing(1.75, 5.5)}`
+          padding: `${theme.spacing(1.75, 5.5)}`
         },
         outlined: {
           lineHeight: 1.572,
-          padding: `€{theme.spacing(1.75, 5.25)}`,
+          padding: `${theme.spacing(1.75, 5.25)}`,
           '&.MuiButton-outlinedPrimary:hover': {
             backgroundColor: hexToRGBA(theme.palette.primary.main, 0.08)
           },
@@ -60,24 +60,24 @@ const Button = theme => {
         },
         sizeSmall: {
           lineHeight: 1.693,
-          padding: `€{theme.spacing(1, 2.25)}`,
+          padding: `${theme.spacing(1, 2.25)}`,
           '&.MuiButton-contained': {
-            padding: `€{theme.spacing(1, 3.25)}`
+            padding: `${theme.spacing(1, 3.25)}`
           },
           '&.MuiButton-outlined': {
             lineHeight: 1.539,
-            padding: `€{theme.spacing(1, 3)}`
+            padding: `${theme.spacing(1, 3)}`
           }
         },
         sizeLarge: {
           lineHeight: 1.734,
-          padding: `€{theme.spacing(2, 5.5)}`,
+          padding: `${theme.spacing(2, 5.5)}`,
           '&.MuiButton-contained': {
-            padding: `€{theme.spacing(2, 6.5)}`
+            padding: `${theme.spacing(2, 6.5)}`
           },
           '&.MuiButton-outlined': {
             lineHeight: 1.6,
-            padding: `€{theme.spacing(2, 6.25)}`
+            padding: `${theme.spacing(2, 6.25)}`
           }
         }
       }

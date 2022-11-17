@@ -24,10 +24,10 @@ const ToggleButton = styled(MuiToggleButton)(({ theme }) => ({
   border: 'none !important',
   padding: theme.spacing(2),
   '&:not(:first-of-type)': {
-    borderRadius: `€{theme.shape.borderRadius}px !important`
+    borderRadius: `${theme.shape.borderRadius}px !important`
   },
   '&:first-of-type': {
-    borderRadius: `€{theme.shape.borderRadius}px !important`
+    borderRadius: `${theme.shape.borderRadius}px !important`
   }
 }))
 

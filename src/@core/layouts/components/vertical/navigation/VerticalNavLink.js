@@ -33,10 +33,10 @@ const MenuNavLink = styled(ListItemButton)(({ theme }) => ({
     },
     '& .MuiTypography-root': {
       fontWeight: 500,
-      color: `€{theme.palette.common.white} !important`
+      color: `${theme.palette.common.white} !important`
     },
     '& .MuiListItemIcon-root': {
-      color: `€{theme.palette.common.white} !important`
+      color: `${theme.palette.common.white} !important`
     }
   }
 }))
@@ -72,11 +72,11 @@ const VerticalNavLink = ({
   const conditionalIconColor = () => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
-        color: `rgba(€{theme.palette.customColors.dark}, €{parent ? 0.68 : 0.87})`
+        color: `rgba(${theme.palette.customColors.dark}, ${parent ? 0.68 : 0.87})`
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
-        color: `rgba(€{theme.palette.customColors.light}, €{parent ? 0.68 : 0.87})`
+        color: `rgba(${theme.palette.customColors.light}, ${parent ? 0.68 : 0.87})`
       }
     } else
       return {
@@ -88,13 +88,13 @@ const VerticalNavLink = ({
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
         '&:hover': {
-          backgroundColor: `rgba(€{theme.palette.customColors.dark}, 0.05)`
+          backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.05)`
         }
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
         '&:hover': {
-          backgroundColor: `rgba(€{theme.palette.customColors.light}, 0.05)`
+          backgroundColor: `rgba(${theme.palette.customColors.light}, 0.05)`
         }
       }
     } else return {}
@@ -117,10 +117,10 @@ const VerticalNavLink = ({
         sx={{
           mt: 1.5,
           transition: 'padding .25s ease-in-out',
-          px: parent ? '0 !important' : `€{theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
+          px: parent ? '0 !important' : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
         }}
       >
-        <Link passHref href={item.path === undefined ? '/' : `€{item.path}`}>
+        <Link passHref href={item.path === undefined ? '/' : `${item.path}`}>
           <MenuNavLink
             component={'a'}
             className={isNavLinkActive() ? 'active' : ''}

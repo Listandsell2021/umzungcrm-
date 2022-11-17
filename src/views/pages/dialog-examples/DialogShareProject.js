@@ -199,13 +199,13 @@ const DialogShareProject = () => {
             renderOption={(props, option) => (
               <ListItem {...props}>
                 <ListItemAvatar>
-                  <Avatar src={`/images/avatars/€{option.avatar}`} alt={option.name} sx={{ height: 28, width: 28 }} />
+                  <Avatar src={`/images/avatars/${option.avatar}`} alt={option.name} sx={{ height: 28, width: 28 }} />
                 </ListItemAvatar>
                 <ListItemText primary={option.name} />
               </ListItem>
             )}
           />
-          <Typography variant='h6'>{`€{data.length} Members`}</Typography>
+          <Typography variant='h6'>{`${data.length} Members`}</Typography>
           <List dense sx={{ py: 4 }}>
             {data.map(member => {
               return (
@@ -219,7 +219,7 @@ const DialogShareProject = () => {
                   }}
                 >
                   <ListItemAvatar>
-                    <Avatar src={`/images/avatars/€{member.avatar}`} alt={member.name} />
+                    <Avatar src={`/images/avatars/${member.avatar}`} alt={member.name} />
                   </ListItemAvatar>
                   <ListItemText
                     primary={member.name}
@@ -259,7 +259,7 @@ const DialogShareProject = () => {
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <AccountMultiple sx={{ fontSize: '1.25rem', mr: 2 }} />
               <Typography sx={{ fontWeight: 600, fontSize: '0.875rem' }}>
-                {`Public to €{themeConfig.templateName} - Pixinvent`}
+                {`Public to ${themeConfig.templateName} - Pixinvent`}
               </Typography>
             </Box>
             <Button sx={{ lineHeight: '1.5rem' }}>

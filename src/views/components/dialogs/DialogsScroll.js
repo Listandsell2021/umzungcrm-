@@ -56,7 +56,7 @@ const DialogsScroll = () => {
             )}
           </DialogContentText>
         </DialogContent>
-        <DialogActions sx={{ p: theme => `€{theme.spacing(2.5)} !important` }}>
+        <DialogActions sx={{ p: theme => `${theme.spacing(2.5)} !important` }}>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleClose}>Subscribe</Button>
         </DialogActions>

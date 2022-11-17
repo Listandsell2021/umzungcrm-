@@ -114,7 +114,7 @@ const ChartjsBubbleChart = props => {
         action={
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant='h6' sx={{ mr: 5 }}>
-              €221,267
+              $221,267
             </Typography>
             <CustomChip
               skin='light'

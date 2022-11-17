@@ -83,9 +83,9 @@ const [title,settitle]=useState("")
 
   const svgFillSecondary = () => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
-      return `rgba(€{theme.palette.customColors.dark}, 0.68)`
+      return `rgba(${theme.palette.customColors.dark}, 0.68)`
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
-      return `rgba(€{theme.palette.customColors.light}, 0.68)`
+      return `rgba(${theme.palette.customColors.light}, 0.68)`
     } else {
       return theme.palette.text.secondary
     }
@@ -93,9 +93,9 @@ const [title,settitle]=useState("")
 
   const svgFillDisabled = () => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
-      return `rgba(€{theme.palette.customColors.dark}, 0.38)`
+      return `rgba(${theme.palette.customColors.dark}, 0.38)`
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
-      return `rgba(€{theme.palette.customColors.light}, 0.38)`
+      return `rgba(${theme.palette.customColors.light}, 0.38)`
     } else {
       return theme.palette.text.disabled
     }
@@ -252,7 +252,7 @@ const [title,settitle]=useState("")
               viewBox='0 0 22 22'
               xmlns='http://www.w3.org/2000/svg'
               sx={{
-                transform: `rotate(€{svgRotationDeg()}deg)`,
+                transform: `rotate(${svgRotationDeg()}deg)`,
                 transition: 'transform .25s ease-in-out .35s'
               }}
             >

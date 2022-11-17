@@ -4,7 +4,7 @@ const Autocomplete = (theme, skin) => {
       styleOverrides: {
         paper: {
           boxShadow: theme.shadows[6],
-          ...(skin === 'bordered' && { boxShadow: 'none', border: `1px solid €{theme.palette.divider}` })
+          ...(skin === 'bordered' && { boxShadow: 'none', border: `1px solid ${theme.palette.divider}` })
         }
       }
     }

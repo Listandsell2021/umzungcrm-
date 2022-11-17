@@ -96,11 +96,11 @@ const CardSalesInCountries = () => {
                     key={row.title}
                     sx={{
                       '&:last-of-type td': { border: 0, pb: 0 },
-                      '&:first-of-type td': { borderTop: theme => `1px solid €{theme.palette.divider}` },
+                      '&:first-of-type td': { borderTop: theme => `1px solid ${theme.palette.divider}` },
                       '& .MuiTableCell-root': {
                         '&:last-of-type': { pr: 0 },
                         '&:first-of-type': { pl: 0 },
-                        py: theme => `€{theme.spacing(2.75)} !important`
+                        py: theme => `${theme.spacing(2.75)} !important`
                       }
                     }}
                   >

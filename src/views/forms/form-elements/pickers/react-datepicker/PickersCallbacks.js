@@ -28,8 +28,8 @@ const PickersCallbacks = () => {
           dateFormat='MM/dd/yyyy'
           onChange={date => setDate(date)}
           customInput={<CustomInput label='Open & Closed' />}
-          onCalendarOpen={() => handlePickerCallback(`Selected Date: €{new Date(date || '').toLocaleDateString()}`)}
-          onCalendarClose={() => handlePickerCallback(`Selected Date: €{new Date(date || '').toLocaleDateString()}`)}
+          onCalendarOpen={() => handlePickerCallback(`Selected Date: ${new Date(date || '').toLocaleDateString()}`)}
+          onCalendarClose={() => handlePickerCallback(`Selected Date: ${new Date(date || '').toLocaleDateString()}`)}
         />
       </Box>
       <Box>
@@ -48,7 +48,7 @@ const PickersCallbacks = () => {
           customInput={<CustomInput label='onChange' />}
           onChange={date => {
             setDate(date)
-            handlePickerCallback(`Selected Date: €{new Date(date || '').toLocaleDateString()}`)
+            handlePickerCallback(`Selected Date: ${new Date(date || '').toLocaleDateString()}`)
           }}
         />
       </Box>

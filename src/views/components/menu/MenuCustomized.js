@@ -17,7 +17,7 @@ import InboxArrowDown from 'mdi-material-ui/InboxArrowDown'
 // Styled Menu component
 const Menu = styled(MuiMenu)(({ theme }) => ({
   '& .MuiMenu-paper': {
-    border: `1px solid €{theme.palette.divider}`
+    border: `1px solid ${theme.palette.divider}`
   }
 }))
 

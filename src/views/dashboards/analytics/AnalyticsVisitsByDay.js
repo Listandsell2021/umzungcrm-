@@ -87,7 +87,7 @@ const AnalyticsVisitsByDay = () => {
       <CardContent
         sx={{
           '& .apexcharts-canvas .apexcharts-text': { fill: theme.palette.text.secondary },
-          pt: [`€{theme.spacing(6)} !important`, `€{theme.spacing(6)} !important`, `€{theme.spacing(0)} !important`]
+          pt: [`${theme.spacing(6)} !important`, `${theme.spacing(6)} !important`, `${theme.spacing(0)} !important`]
         }}
       >
         <ReactApexcharts type='bar' height={215} options={options} series={[{ data: [38, 55, 48, 65, 80, 38, 48] }]} />

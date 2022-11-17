@@ -93,13 +93,13 @@ const renderClient = row => {
 
   if (row.avatar.length) {
     return (
-      <AvatarWithImageLink href={`/apps/service/view/€{row.p_id}`}>
+      <AvatarWithImageLink href={`/apps/service/view/${row.p_id}`}>
         <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
       </AvatarWithImageLink>
     )
   } else {
     return (
-      <AvatarWithoutImageLink href={`/apps/service/view/€{row.p_id}`}>
+      <AvatarWithoutImageLink href={`/apps/service/view/${row.p_id}`}>
         <CustomAvatar
           skin='light'
           color={row.avatarColor || 'primary'}
@@ -209,7 +209,7 @@ const [avatar, setavatar] = useState(row.avatar)
                          type='number' 
                           label='Service Price'
                           onChange={e => setprice(e.target.value)}
-                       // InputProps={{ startAdornment: <InputAdornment position='end'>€</InputAdornment> }}
+                       // InputProps={{ startAdornment: <InputAdornment position='end'>$</InputAdornment> }}
                       />
                     </Grid>
                      <Grid item xs={12} sm={12}>
@@ -318,7 +318,7 @@ const columns = [
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {renderClient(row)}
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-            <Link href={`/apps/service/view/€{p_idnew}`} passHref>
+            <Link href={`/apps/service/view/${p_idnew}`} passHref>
               <Typography
                 noWrap
                 component='a'
@@ -328,9 +328,9 @@ const columns = [
                 {tittle}
               </Typography>
             </Link>
-            <Link href={`/apps/service/view/€{p_idnew}`} passHref>
+            <Link href={`/apps/service/view/${p_idnew}`} passHref>
               <Typography noWrap component='a' variant='caption' sx={{ textDecoration: 'none' }}>
-                {price}€
+                {price}$
               </Typography>
             </Link>
           </Box>

@@ -8,7 +8,7 @@ import CustomBadge from 'src/@core/components/mui/badge'
 // Styled component for a wrapper
 const Wrapper = styled('div')(({ theme }) => ({
   '& > *': {
-    marginRight: `€{theme.spacing(6)} !important`
+    marginRight: `${theme.spacing(6)} !important`
   }
 }))
 

@@ -54,7 +54,7 @@ CustomDocument.getInitialProps = async ctx => {
       <style
         key={style.key}
         dangerouslySetInnerHTML={{ __html: style.css }}
-        data-emotion={`€{style.key} €{style.ids.join(' ')}`}
+        data-emotion={`${style.key} ${style.ids.join(' ')}`}
       />
     )
   })

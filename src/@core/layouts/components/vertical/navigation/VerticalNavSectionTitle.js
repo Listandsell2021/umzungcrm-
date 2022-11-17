@@ -34,13 +34,13 @@ const VerticalNavSectionTitle = props => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
         '&, &:before': {
-          borderColor: `rgba(€{theme.palette.customColors.dark}, 0.12)`
+          borderColor: `rgba(${theme.palette.customColors.dark}, 0.12)`
         }
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
         '&, &:before': {
-          borderColor: `rgba(€{theme.palette.customColors.light}, 0.12)`
+          borderColor: `rgba(${theme.palette.customColors.light}, 0.12)`
         }
       }
     } else return {}
@@ -49,11 +49,11 @@ const VerticalNavSectionTitle = props => {
   const conditionalColor = () => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
-        color: `rgba(€{theme.palette.customColors.dark}, 0.38) !important`
+        color: `rgba(${theme.palette.customColors.dark}, 0.38) !important`
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
-        color: `rgba(€{theme.palette.customColors.light}, 0.38) !important`
+        color: `rgba(${theme.palette.customColors.light}, 0.38) !important`
       }
     } else {
       return {

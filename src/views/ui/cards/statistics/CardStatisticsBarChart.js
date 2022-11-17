@@ -76,7 +76,7 @@ const CardStatisticsBarChart = () => {
       <CardContent>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
           <Typography variant='h6' sx={{ mr: 1.5 }}>
-            €42.5k
+            $42.5k
           </Typography>
           <Typography variant='subtitle2' sx={{ color: 'error.main' }}>
             -22%

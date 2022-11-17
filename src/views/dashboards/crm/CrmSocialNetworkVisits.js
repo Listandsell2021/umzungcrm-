@@ -64,7 +64,7 @@ const CrmSocialNetworkVisits = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pb: theme => `€{theme.spacing(6.5)} !important` }}>
+      <CardContent sx={{ pb: theme => `${theme.spacing(6.5)} !important` }}>
         <Box sx={{ mb: 0.5, display: 'flex', alignItems: 'center' }}>
           <Typography variant='h5' sx={{ mr: 0.5 }}>
             28,468

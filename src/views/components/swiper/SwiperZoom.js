@@ -35,8 +35,8 @@ const SwiperZoom = ({ direction }) => {
     const scale = 1 - (scale_size - scale_size * slide.portion)
 
     return {
-      transform: `scale(€{scale})`,
-      WebkitTransform: `scale(€{scale})`
+      transform: `scale(${scale})`,
+      WebkitTransform: `scale(${scale})`
     }
   }
 
@@ -45,7 +45,7 @@ const SwiperZoom = ({ direction }) => {
       {images.map((src, idx) => (
         <Box key={idx} className='keen-slider__slide zoom-out__slide'>
           <Box className='slider-content-wrapper' sx={{ ...scaleStyle(idx) }}>
-            <img src={src} alt={`slider €{idx}`} />
+            <img src={src} alt={`slider ${idx}`} />
           </Box>
         </Box>
       ))}

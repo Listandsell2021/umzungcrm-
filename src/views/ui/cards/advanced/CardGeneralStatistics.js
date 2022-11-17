@@ -26,7 +26,7 @@ const data = [
   {
     title: 'Profit',
     color: 'primary',
-    amount: '€54,234',
+    amount: '$54,234',
     trendNumber: '+85%',
     trend: <ChevronUp sx={{ color: 'success.main' }} />
   },
@@ -58,13 +58,13 @@ const CardGeneralStatistics = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pt: theme => `€{theme.spacing(2.5)} !important` }}>
+      <CardContent sx={{ pt: theme => `${theme.spacing(2.5)} !important` }}>
         <Box sx={{ mb: 5.75, display: 'flex', alignItems: 'center' }}>
           <CustomAvatar skin='light' variant='rounded' sx={{ mr: 4, width: 50, height: 50 }}>
             <CreditCard sx={{ fontSize: '2rem' }} />
           </CustomAvatar>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant='h4'>€89,522</Typography>
+            <Typography variant='h4'>$89,522</Typography>
             <Typography variant='caption'>Last 6 Month Profit</Typography>
           </Box>
         </Box>
@@ -85,13 +85,13 @@ const CardGeneralStatistics = () => {
                       '& .MuiTableCell-root': {
                         '&:last-of-type': { pr: 0 },
                         '&:first-of-type': { pl: 0 },
-                        py: theme => `€{theme.spacing(2.75)} !important`
+                        py: theme => `${theme.spacing(2.75)} !important`
                       }
                     }}
                   >
                     <TableCell>
                       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Circle sx={{ mr: 1.8, fontSize: '1rem', color: `€{row.color}.main` }} />
+                        <Circle sx={{ mr: 1.8, fontSize: '1rem', color: `${row.color}.main` }} />
                         <Typography variant='body2' sx={{ color: 'text.primary' }}>
                           {row.title}
                         </Typography>

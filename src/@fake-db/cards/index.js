@@ -12,7 +12,7 @@ const cardStatsData = {
     },
     {
       icon: 'Poll',
-      stats: '€28.5k',
+      stats: '$28.5k',
       color: 'warning',
       trendNumber: '18.2%',
       title: 'Total Profit'
@@ -26,7 +26,7 @@ const cardStatsData = {
       title: 'New Transactions'
     },
     {
-      stats: '€48.2K',
+      stats: '$48.2K',
       color: 'success',
       icon: 'CurrencyUsd',
       trendNumber: '22.5%',
@@ -43,7 +43,7 @@ const cardStatsData = {
       chipText: 'Last 4 Month'
     },
     {
-      stats: '€89.34k',
+      stats: '$89.34k',
       color: 'warning',
       trend: 'negative',
       trendNumber: '-18%',
@@ -60,7 +60,7 @@ const cardStatsData = {
       title: 'Total Impression'
     },
     {
-      stats: '€13.4k',
+      stats: '$13.4k',
       color: 'success',
       trendNumber: '+38%',
       icon: 'CurrencyUsd',
@@ -69,7 +69,7 @@ const cardStatsData = {
     },
     {
       color: 'error',
-      stats: '€8.16k',
+      stats: '$8.16k',
       trend: 'negative',
       trendNumber: '-16%',
       title: 'Total Expenses',
@@ -77,7 +77,7 @@ const cardStatsData = {
       chipText: 'Last One Month'
     },
     {
-      stats: '€2.55k',
+      stats: '$2.55k',
       color: 'secondary',
       icon: 'TrendingUp',
       trendNumber: '+46%',

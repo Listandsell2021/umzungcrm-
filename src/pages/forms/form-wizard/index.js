@@ -17,7 +17,7 @@ const FormWizard = () => {
       <Grid item xs={12}>
         <StepperLinearWithValidation />
       </Grid>
-      <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(8)} !important` }}>
+      <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(8)} !important` }}>
         <Typography variant='h6'>Alternative Label</Typography>
       </Grid>
       <Grid item xs={12}>

@@ -7,12 +7,12 @@ const Dialog = (theme, skin) => {
       styleOverrides: {
         paper: {
           boxShadow: theme.shadows[skin === 'bordered' ? 0 : 10],
-          ...(skin === 'bordered' && { border: `1px solid €{theme.palette.divider}` }),
+          ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` }),
           '&:not(.MuiDialog-paperFullScreen)': {
             '@media (max-width:599px)': {
               margin: theme.spacing(4),
-              width: `calc(100% - €{theme.spacing(8)})`,
-              maxWidth: `calc(100% - €{theme.spacing(8)}) !important`
+              width: `calc(100% - ${theme.spacing(8)})`,
+              maxWidth: `calc(100% - ${theme.spacing(8)}) !important`
             }
           },
           '& > .MuiList-root': {

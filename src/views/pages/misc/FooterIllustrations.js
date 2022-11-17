@@ -36,7 +36,7 @@ const FooterIllustrations = props => {
     return (
       <Fragment>
         <ShapeImg alt='shape' src={src} />
-        <MaskImg alt='mask' src={`/images/pages/misc-mask-€{theme.palette.mode}.png`} />
+        <MaskImg alt='mask' src={`/images/pages/misc-mask-${theme.palette.mode}.png`} />
       </Fragment>
     )
   } else {

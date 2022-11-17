@@ -19,7 +19,7 @@ const Wrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   '& > *': {
-    marginRight: `€{theme.spacing(6)} !important`
+    marginRight: `${theme.spacing(6)} !important`
   }
 }))
 

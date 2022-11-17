@@ -55,7 +55,7 @@ const CardBasic = () => {
       <Grid item xs={12} sm={6} md={4}>
         <CardSupport />
       </Grid>
-      <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(12)} !important` }}>
+      <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(12)} !important` }}>
         <Typography variant='h5'>Navigation Cards</Typography>
       </Grid>
       <Grid item xs={12} md={6}>
@@ -64,7 +64,7 @@ const CardBasic = () => {
       <Grid item xs={12} md={6}>
         <CardNavigationCenter />
       </Grid>
-      <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(12)} !important` }}>
+      <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(12)} !important` }}>
         <Typography variant='h5'>Solid Cards</Typography>
       </Grid>
       <Grid item xs={12} sm={6} md={4}>

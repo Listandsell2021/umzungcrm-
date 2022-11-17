@@ -61,7 +61,7 @@ const CardPlanUpgrade = () => {
                 width: 40,
                 height: 40,
                 backgroundColor: 'transparent',
-                border: theme => `2px solid €{theme.palette.primary.main}`
+                border: theme => `2px solid ${theme.palette.primary.main}`
               }}
             >
               <StarOutline sx={{ color: 'primary.main' }} />
@@ -94,7 +94,7 @@ const CardPlanUpgrade = () => {
                   variant='body2'
                   sx={{ mt: 0.5, color: 'text.primary', alignSelf: 'flex-start' }}
                 >
-                  €
+                  $
                 </Typography>
                 <Typography variant='h5'>2,199</Typography>
                 <Typography component='sub' variant='body2' sx={{ alignSelf: 'flex-end' }}>

@@ -63,7 +63,7 @@ const ApexChartWrapper = styled('div')(({ theme }) => ({
       filter: 'none',
       fontWeight: 400,
       fill: theme.palette.text.primary,
-      fontFamily: `€{theme.typography.fontFamily} !important`
+      fontFamily: `${theme.typography.fontFamily} !important`
     },
     '& .apexcharts-pie-label': {
       filter: 'none',
@@ -78,11 +78,11 @@ const ApexChartWrapper = styled('div')(({ theme }) => ({
       boxShadow: 'none'
     },
     '& .apexcharts-legend-series': {
-      margin: `€{theme.spacing(0.75, 2)} !important`,
+      margin: `${theme.spacing(0.75, 2)} !important`,
       '& .apexcharts-legend-text': {
         marginLeft: theme.spacing(0.75),
-        color: `€{theme.palette.text.primary} !important`,
-        fontFamily: `€{theme.typography.fontFamily} !important`
+        color: `${theme.palette.text.primary} !important`,
+        fontFamily: `${theme.typography.fontFamily} !important`
       }
     },
     '& .apexcharts-xcrosshairs, & .apexcharts-ycrosshairs, & .apexcharts-gridline': {

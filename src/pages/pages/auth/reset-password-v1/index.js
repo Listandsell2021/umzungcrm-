@@ -82,7 +82,7 @@ const ResetPasswordV1 = () => {
   return (
     <Box className='content-center'>
       <Card sx={{ zIndex: 1 }}>
-        <CardContent sx={{ p: theme => `€{theme.spacing(15.5, 7, 8)} !important` }}>
+        <CardContent sx={{ p: theme => `${theme.spacing(15.5, 7, 8)} !important` }}>
           <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <svg width={47} fill='none' height={26} viewBox='0 0 268 150' xmlns='http://www.w3.org/2000/svg'>
               <rect
@@ -227,7 +227,7 @@ const ResetPasswordV1 = () => {
           </form>
         </CardContent>
       </Card>
-      <FooterIllustrationsV1 image={`/images/pages/auth-v1-reset-password-mask-€{theme.palette.mode}.png`} />
+      <FooterIllustrationsV1 image={`/images/pages/auth-v1-reset-password-mask-${theme.palette.mode}.png`} />
     </Box>
   )
 }

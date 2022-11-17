@@ -18,7 +18,7 @@ const RechartsWrapper = styled('div')(({ theme }) => ({
     border: 'none !important',
     boxShadow: theme.shadows[2],
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: `€{theme.palette.background.paper} !important`
+    backgroundColor: `${theme.palette.background.paper} !important`
   },
   '& .recharts-custom-tooltip': {
     padding: theme.spacing(2.5),
@@ -40,7 +40,7 @@ const RechartsWrapper = styled('div')(({ theme }) => ({
     fill: theme.palette.text.primary
   },
   '& .recharts-tooltip-item': {
-    color: `€{theme.palette.text.primary} !important`
+    color: `${theme.palette.text.primary} !important`
   }
 }))
 

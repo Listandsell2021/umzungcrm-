@@ -128,7 +128,7 @@ const TabBilling = () => {
                       <Cards cvc={cvc} focused={focus} expiry={expiry} name={name} number={cardNumber} />
                     </CardWrapper>
                     <Grid container spacing={6}>
-                      <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(4)} !important` }}>
+                      <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(4)} !important` }}>
                         <TextField
                           fullWidth
                           name='number'
@@ -193,7 +193,7 @@ const TabBilling = () => {
               sx={{
                 p: 5,
                 borderRadius: 1,
-                border: theme => `1px solid €{theme.palette.divider}`
+                border: theme => `1px solid ${theme.palette.divider}`
               }}
             >
               <Typography variant='h6' sx={{ mb: 4, color: 'text.secondary' }}>

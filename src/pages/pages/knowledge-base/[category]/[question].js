@@ -79,9 +79,9 @@ const KnowledgeBaseCategoryQuestion = () => {
         <Card>
           <StyledCardContent>
             <HammerWrench sx={{ mr: 2.5, color: 'primary.main' }} />
-            <Typography variant='h6'>{`Account Settings (€{questions.length})`}</Typography>
+            <Typography variant='h6'>{`Account Settings (${questions.length})`}</Typography>
           </StyledCardContent>
-          <CardContent sx={{ pt: theme => `€{theme.spacing(5)} !important` }}>{renderQuestions()}</CardContent>
+          <CardContent sx={{ pt: theme => `${theme.spacing(5)} !important` }}>{renderQuestions()}</CardContent>
         </Card>
       </Grid>
       <StyledGrid item xs={12} md={8}>
@@ -145,10 +145,10 @@ export const getStaticPaths = async () => {
   const categoryData = await CategoryResponse.data
   const paths = []
   data.forEach(item => {
-    const category = `€{item.category}`
+    const category = `${item.category}`
     categoryData.forEach(categoryItem => {
       categoryItem.questions.forEach(question => {
-        paths.push({ params: { category, question: `€{question.slug}` } })
+        paths.push({ params: { category, question: `${question.slug}` } })
       })
     })
   })

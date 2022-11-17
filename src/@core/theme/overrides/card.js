@@ -4,7 +4,7 @@ const Card = (theme, skin) => {
       styleOverrides: {
         root: {
           boxShadow: skin !== 'bordered' ? theme.shadows[6] : theme.shadows[0],
-          ...(skin === 'bordered' && { border: `1px solid €{theme.palette.divider}` }),
+          ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` }),
           '& .card-more-options': {
             marginTop: theme.spacing(-1),
             marginRight: theme.spacing(-3)

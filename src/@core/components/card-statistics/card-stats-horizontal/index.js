@@ -26,7 +26,7 @@ const CardStatsHorizontal = props => {
 
   return (
     <Card>
-      <CardContent sx={{ py: theme => `€{theme.spacing(4.125)} !important` }}>
+      <CardContent sx={{ py: theme => `${theme.spacing(4.125)} !important` }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Avatar skin='light' color={color} variant='rounded'>
             {icon}

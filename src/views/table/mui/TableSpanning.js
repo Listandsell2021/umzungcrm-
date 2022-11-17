@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer'
 const TAX_RATE = 0.07
 
 const ccyFormat = num => {
-  return `€{num.toFixed(2)}`
+  return `${num.toFixed(2)}`
 }
 
 const priceRow = (qty, unit) => {
@@ -70,7 +70,7 @@ const TableSpanning = () => {
           </TableRow>
           <TableRow>
             <TableCell>Tax</TableCell>
-            <TableCell align='right'>{`€{(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+            <TableCell align='right'>{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
             <TableCell align='right'>{ccyFormat(invoiceTaxes)}</TableCell>
           </TableRow>
           <TableRow>

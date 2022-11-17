@@ -65,7 +65,7 @@ const CardWidgetsPerformanceOverview = () => {
         <Box sx={{ mt: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Circle sx={{ mr: 1.5, fontSize: '0.75rem', color: 'warning.main' }} />
           <Typography variant='body2' sx={{ color: 'text.disabled' }}>
-            Avarage cost per interaction is €5.65
+            Avarage cost per interaction is $5.65
           </Typography>
         </Box>
       </CardContent>

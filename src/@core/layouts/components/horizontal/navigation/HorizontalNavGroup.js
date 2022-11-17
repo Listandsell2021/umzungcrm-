@@ -246,7 +246,7 @@ const HorizontalNavGroup = props => {
                       ? { overflowX: 'visible', maxHeight: 'calc(100vh - 21rem)' }
                       : { maxHeight: 'calc(100vh - 13rem)' }),
                     ...(skin === 'bordered'
-                      ? { boxShadow: theme.shadows[0], border: `1px solid €{theme.palette.divider}` }
+                      ? { boxShadow: theme.shadows[0], border: `1px solid ${theme.palette.divider}` }
                       : { boxShadow: theme.shadows[4] })
                   }}
                 >

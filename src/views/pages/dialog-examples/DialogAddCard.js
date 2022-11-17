@@ -109,7 +109,7 @@ const DialogAddCard = () => {
                 <Cards cvc={cvc} focused={focus} expiry={expiry} name={name} number={cardNumber} />
               </CardWrapper>
             </Grid>
-            <Grid item xs={12} sx={{ pt: theme => `€{theme.spacing(5)} !important` }}>
+            <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(5)} !important` }}>
               <Grid container spacing={6}>
                 <Grid item xs={12} sx={{ mt: 7 }}>
                   <TextField

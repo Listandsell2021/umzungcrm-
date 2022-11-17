@@ -56,7 +56,7 @@ const tabAvatars = [
 const tabContentData = {
   mobile: [
     {
-      revenue: '€12.5k',
+      revenue: '$12.5k',
       conversion: '+24',
       imgAlt: 'samsung-s22',
       status: 'out-of-stock',
@@ -64,7 +64,7 @@ const tabContentData = {
       imgSrc: '/images/cards/samsung-s22.png'
     },
     {
-      revenue: '€45k',
+      revenue: '$45k',
       conversion: '-18',
       status: 'in-stock',
       imgAlt: 'apple-iPhone-13-pro',
@@ -73,7 +73,7 @@ const tabContentData = {
       imgSrc: '/images/cards/apple-iPhone-13-pro.png'
     },
     {
-      revenue: '€98.2k',
+      revenue: '$98.2k',
       conversion: '+55',
       status: 'coming-soon',
       imgAlt: 'oneplus-9-pro',
@@ -83,7 +83,7 @@ const tabContentData = {
   ],
   desktop: [
     {
-      revenue: '€94.6k',
+      revenue: '$94.6k',
       conversion: '+16',
       status: 'in-stock',
       imgAlt: 'apple-mac-mini',
@@ -91,7 +91,7 @@ const tabContentData = {
       imgSrc: '/images/cards/apple-mac-mini.png'
     },
     {
-      revenue: '€76.5k',
+      revenue: '$76.5k',
       conversion: '+27',
       status: 'coming-soon',
       imgAlt: 'hp-envy-x360',
@@ -99,7 +99,7 @@ const tabContentData = {
       imgSrc: '/images/cards/hp-envy-x360.png'
     },
     {
-      revenue: '€69.3k',
+      revenue: '$69.3k',
       conversion: '-9',
       status: 'out-of-stock',
       imgAlt: 'dell-inspiron-3000',
@@ -110,7 +110,7 @@ const tabContentData = {
   ],
   console: [
     {
-      revenue: '€18.6k',
+      revenue: '$18.6k',
       conversion: '+34',
       status: 'coming-soon',
       imgAlt: 'sony-play-station-5',
@@ -118,7 +118,7 @@ const tabContentData = {
       imgSrc: '/images/cards/sony-play-station-5.png'
     },
     {
-      revenue: '€29.7k',
+      revenue: '$29.7k',
       conversion: '-21',
       status: 'out-of-stock',
       imgAlt: 'xbox-series-x',
@@ -127,7 +127,7 @@ const tabContentData = {
       imgSrc: '/images/cards/xbox-series-x.png'
     },
     {
-      revenue: '€10.4k',
+      revenue: '$10.4k',
       conversion: '+38',
       status: 'in-stock',
       imgAlt: 'nintendo-switch',
@@ -142,7 +142,7 @@ const RenderTabContent = ({ data }) => {
     <TableContainer>
       <Table>
         <TableHead>
-          <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `€{theme.spacing(2.5)} !important` } }}>
+          <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `${theme.spacing(2.5)} !important` } }}>
             <TableCell>Image</TableCell>
             <TableCell sx={{ whiteSpace: 'nowrap' }}>Product Name</TableCell>
             <TableCell align='right'>Status</TableCell>
@@ -157,13 +157,13 @@ const RenderTabContent = ({ data }) => {
               sx={{
                 '& .MuiTableCell-root': {
                   border: 0,
-                  py: theme => `€{theme.spacing(1.5)} !important`
+                  py: theme => `${theme.spacing(1.5)} !important`
                 },
                 '&:first-child .MuiTableCell-body': {
-                  pt: theme => `€{theme.spacing(3)} !important`
+                  pt: theme => `${theme.spacing(3)} !important`
                 },
                 '&:last-child .MuiTableCell-body': {
-                  pb: theme => `€{theme.spacing(3)} !important`
+                  pb: theme => `${theme.spacing(3)} !important`
                 }
               }}
             >
@@ -200,7 +200,7 @@ const RenderTabContent = ({ data }) => {
                     textAlign: 'right',
                     color: row.conversionDifference === 'negative' ? 'error.main' : 'success.main'
                   }}
-                >{`€{row.conversion}%`}</Typography>
+                >{`${row.conversion}%`}</Typography>
               </TableCell>
             </TableRow>
           ))}
@@ -221,15 +221,15 @@ const EcommerceSalesOverviewWithTabs = () => {
   const RenderTabAvatar = ({ data }) => (
     <Avatar
       variant='rounded'
-      alt={`tabs-€{data.category}`}
-      src={`/images/cards/tabs-€{data.category}.png`}
+      alt={`tabs-${data.category}`}
+      src={`/images/cards/tabs-${data.category}.png`}
       sx={{
         width: 100,
         height: 92,
         backgroundColor: 'transparent',
         '& img': { width: data.imgWidth, height: data.imgHeight },
         border: theme =>
-          value === data.category ? `2px solid €{theme.palette.primary.main}` : `2px dashed €{theme.palette.divider}`
+          value === data.category ? `2px solid ${theme.palette.primary.main}` : `2px dashed ${theme.palette.divider}`
       }}
     />
   )
@@ -273,7 +273,7 @@ const EcommerceSalesOverviewWithTabs = () => {
                   height: 92,
                   backgroundColor: 'transparent',
                   border: theme =>
-                    value === 'add' ? `2px solid €{theme.palette.primary.main}` : `2px dashed €{theme.palette.divider}`
+                    value === 'add' ? `2px solid ${theme.palette.primary.main}` : `2px dashed ${theme.palette.divider}`
                 }}
               >
                 <Box

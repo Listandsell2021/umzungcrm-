@@ -32,7 +32,7 @@ const SidebarLeft = props => {
               <Checkbox
                 checked={store.selectedCalendars.includes(key)}
                 onChange={() => dispatch(handleCalendarsUpdate(key))}
-                sx={{ color: `€{value}.main`, '&.Mui-checked': { color: `€{value}.main` } }}
+                sx={{ color: `${value}.main`, '&.Mui-checked': { color: `${value}.main` } }}
               />
             }
           />

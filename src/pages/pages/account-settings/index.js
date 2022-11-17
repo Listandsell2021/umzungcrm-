@@ -120,7 +120,7 @@ async function getdeatils(data)
         <TabList
           onChange={handleChange}
           aria-label='account-settings tabs'
-          sx={{ borderBottom: theme => `1px solid €{theme.palette.divider}` }}
+          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
         >
           <Tab
             value='account'

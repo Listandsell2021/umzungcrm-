@@ -256,7 +256,7 @@ const DialogCreateApp = () => {
                   <Typography variant='body2'>Submit to kickstart your project.</Typography>
 
                   <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center' }}>
-                    <img alt='submit-img' src={`/images/pages/create-app-dialog-illustration-€{settings.mode}.png`} />
+                    <img alt='submit-img' src={`/images/pages/create-app-dialog-illustration-${settings.mode}.png`} />
                   </Box>
                 </Box>
                 {renderTabFooter()}

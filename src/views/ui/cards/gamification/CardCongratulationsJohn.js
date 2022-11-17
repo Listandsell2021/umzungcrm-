@@ -37,7 +37,7 @@ const CardCongratulationsJohn = () => {
 
   return (
     <Card sx={{ position: 'relative' }}>
-      <CardContent sx={{ p: theme => `€{theme.spacing(7, 7.5)} !important` }}>
+      <CardContent sx={{ p: theme => `${theme.spacing(7, 7.5)} !important` }}>
         <Grid container spacing={6}>
           <Grid item xs={12} sm={6}>
             <Typography variant='h5' sx={{ mb: 4.5 }}>
@@ -60,7 +60,7 @@ const CardCongratulationsJohn = () => {
             <Button variant='contained'>View Profile</Button>
           </Grid>
           <StyledGrid item xs={12} sm={6}>
-            <Img alt='Congratulations John' src={`/images/cards/illustration-john-€{settings.mode}.png`} />
+            <Img alt='Congratulations John' src={`/images/cards/illustration-john-${settings.mode}.png`} />
           </StyledGrid>
         </Grid>
       </CardContent>

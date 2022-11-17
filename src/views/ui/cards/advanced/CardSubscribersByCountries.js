@@ -83,7 +83,7 @@ const CardSubscribersByCountries = () => {
       <TableContainer>
         <Table>
           <TableHead>
-            <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `€{theme.spacing(2.5)} !important` } }}>
+            <TableRow sx={{ '& .MuiTableCell-root': { py: theme => `${theme.spacing(2.5)} !important` } }}>
               <TableCell>
                 <Typography variant='subtitle2' sx={{ textTransform: 'capitalize' }}>
                   Countries
@@ -109,7 +109,7 @@ const CardSubscribersByCountries = () => {
                   sx={{
                     '& .MuiTableCell-root': {
                       border: 0,
-                      py: theme => `€{theme.spacing(3.5)} !important`
+                      py: theme => `${theme.spacing(3.5)} !important`
                     }
                   }}
                 >

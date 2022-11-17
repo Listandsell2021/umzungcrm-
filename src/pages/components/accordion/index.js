@@ -27,7 +27,7 @@ const Accordion = () => {
           sx={{
             boxShadow: 'none',
             backgroundColor: 'transparent',
-            border: theme => `1px solid €{theme.palette.divider}`
+            border: theme => `1px solid ${theme.palette.divider}`
           }}
         >
           <Typography sx={{ mb: 4 }}>
@@ -47,7 +47,7 @@ const Accordion = () => {
           sx={{
             boxShadow: 'none',
             backgroundColor: 'transparent',
-            border: theme => `1px solid €{theme.palette.divider}`
+            border: theme => `1px solid ${theme.palette.divider}`
           }}
         >
           <Typography sx={{ mb: 4 }}>
@@ -66,7 +66,7 @@ const Accordion = () => {
           sx={{
             boxShadow: 'none',
             backgroundColor: 'transparent',
-            border: theme => `1px solid €{theme.palette.divider}`
+            border: theme => `1px solid ${theme.palette.divider}`
           }}
         >
           <Typography sx={{ mb: 4 }}>
@@ -85,7 +85,7 @@ const Accordion = () => {
           sx={{
             boxShadow: 'none',
             backgroundColor: 'transparent',
-            border: theme => `1px solid €{theme.palette.divider}`
+            border: theme => `1px solid ${theme.palette.divider}`
           }}
         >
           <Typography sx={{ mb: 4 }}>

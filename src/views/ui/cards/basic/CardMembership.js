@@ -17,7 +17,7 @@ import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
 // Styled Box component
 const StyledBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
-    borderRight: `1px solid €{theme.palette.divider}`
+    borderRight: `1px solid ${theme.palette.divider}`
   }
 }))
 
@@ -26,7 +26,7 @@ const CardMembership = () => {
     <Card>
       <Grid container spacing={6}>
         <Grid item xs={12} sm={7}>
-          <CardContent sx={{ p: theme => `€{theme.spacing(3.25, 5.75, 6.25)} !important` }}>
+          <CardContent sx={{ p: theme => `${theme.spacing(3.25, 5.75, 6.25)} !important` }}>
             <Typography variant='h6' sx={{ mb: 2 }}>
               Lifetime Membership
             </Typography>
@@ -81,7 +81,7 @@ const CardMembership = () => {
           >
             <Box>
               <Box sx={{ mb: 2, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                <Typography variant='h6'>€</Typography>
+                <Typography variant='h6'>$</Typography>
                 <Typography variant='h3' sx={{ lineHeight: 0.9334, fontSize: '3.75rem !important' }}>
                   899
                 </Typography>

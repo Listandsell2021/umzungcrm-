@@ -141,7 +141,7 @@ const TimelineRight = () => {
               <Typography variant='subtitle2' sx={{ fontWeight: 600 }}>
                 Price
               </Typography>
-              <Typography variant='caption'>€375.00</Typography>
+              <Typography variant='caption'>$375.00</Typography>
             </Box>
             <Box>
               <Typography variant='subtitle2' sx={{ fontWeight: 600 }}>

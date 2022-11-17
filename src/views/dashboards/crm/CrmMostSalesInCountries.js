@@ -70,7 +70,7 @@ const CrmMostSalesInCountries = () => {
           </IconButton>
         }
       />
-      <CardContent sx={{ pb: theme => `€{theme.spacing(1.75)} !important` }}>
+      <CardContent sx={{ pb: theme => `${theme.spacing(1.75)} !important` }}>
         <Box sx={{ mb: 5, display: 'flex', flexDirection: 'column' }}>
           <Box sx={{ mb: 1.25, display: 'flex', alignItems: 'center' }}>
             <Typography variant='h3' sx={{ mr: 3.5 }}>
@@ -96,11 +96,11 @@ const CrmMostSalesInCountries = () => {
                     key={row.title}
                     sx={{
                       '&:last-of-type td': { border: 0, pb: 0 },
-                      '&:first-of-type td': { borderTop: theme => `1px solid €{theme.palette.divider}` },
+                      '&:first-of-type td': { borderTop: theme => `1px solid ${theme.palette.divider}` },
                       '& .MuiTableCell-root': {
                         '&:last-of-type': { pr: 0 },
                         '&:first-of-type': { pl: 0 },
-                        py: theme => `€{theme.spacing(2.75)} !important`
+                        py: theme => `${theme.spacing(2.75)} !important`
                       }
                     }}
                   >

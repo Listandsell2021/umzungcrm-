@@ -165,11 +165,11 @@ const VerticalNavGroup = props => {
   const conditionalIconColor = () => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
-        color: `rgba(€{theme.palette.customColors.dark}, €{parent && item.children ? 0.68 : 0.87})`
+        color: `rgba(${theme.palette.customColors.dark}, ${parent && item.children ? 0.68 : 0.87})`
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
-        color: `rgba(€{theme.palette.customColors.light}, €{parent && item.children ? 0.68 : 0.87})`
+        color: `rgba(${theme.palette.customColors.light}, ${parent && item.children ? 0.68 : 0.87})`
       }
     } else
       return {
@@ -180,11 +180,11 @@ const VerticalNavGroup = props => {
   const conditionalArrowIconColor = () => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
-        color: `rgba(€{theme.palette.customColors.dark}, 0.68)`
+        color: `rgba(${theme.palette.customColors.dark}, 0.68)`
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
-        color: `rgba(€{theme.palette.customColors.light}, 0.68)`
+        color: `rgba(${theme.palette.customColors.light}, 0.68)`
       }
     } else return {}
   }
@@ -193,24 +193,24 @@ const VerticalNavGroup = props => {
     if (skin === 'semi-dark' && theme.palette.mode === 'light') {
       return {
         '&:hover': {
-          backgroundColor: `rgba(€{theme.palette.customColors.dark}, 0.05)`
+          backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.05)`
         },
         '&.Mui-selected': {
-          backgroundColor: `rgba(€{theme.palette.customColors.dark}, 0.08)`,
+          backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.08)`,
           '&:hover': {
-            backgroundColor: `rgba(€{theme.palette.customColors.dark}, 0.08)`
+            backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.08)`
           }
         }
       }
     } else if (skin === 'semi-dark' && theme.palette.mode === 'dark') {
       return {
         '&:hover': {
-          backgroundColor: `rgba(€{theme.palette.customColors.light}, 0.05)`
+          backgroundColor: `rgba(${theme.palette.customColors.light}, 0.05)`
         },
         '&.Mui-selected': {
-          backgroundColor: `rgba(€{theme.palette.customColors.light}, 0.08)`,
+          backgroundColor: `rgba(${theme.palette.customColors.light}, 0.08)`,
           '&:hover': {
-            backgroundColor: `rgba(€{theme.palette.customColors.light}, 0.08)`
+            backgroundColor: `rgba(${theme.palette.customColors.light}, 0.08)`
           }
         }
       }
@@ -240,7 +240,7 @@ const VerticalNavGroup = props => {
             px:
               parent && item.children
                 ? '0 !important'
-                : `€{theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
+                : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
           }}
         >
           <ListItemButton

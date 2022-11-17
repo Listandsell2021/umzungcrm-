@@ -208,7 +208,7 @@ const ComposePopup = props => {
         right: mdAbove ? '1.5rem' : '1rem',
         bottom: '1.5rem',
         display: 'block',
-        zIndex: theme => `€{theme.zIndex.drawer} + 1`,
+        zIndex: theme => `${theme.zIndex.drawer} + 1`,
         '& .MuiDrawer-paper': {
           borderRadius: 1,
           position: 'static',
@@ -223,7 +223,7 @@ const ComposePopup = props => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          backgroundColor: theme => `rgba(€{theme.palette.customColors.main}, 0.08)`
+          backgroundColor: theme => `rgba(${theme.palette.customColors.main}, 0.08)`
         }}
       >
         <Typography sx={{ fontWeight: 600, color: 'text.secondary' }}>Compose Mail</Typography>
@@ -243,7 +243,7 @@ const ComposePopup = props => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: theme => `1px solid €{theme.palette.divider}`
+          borderBottom: theme => `1px solid ${theme.palette.divider}`
         }}
       >
         <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
@@ -302,7 +302,7 @@ const ComposePopup = props => {
             px: 4,
             display: 'flex',
             alignItems: 'center',
-            borderBottom: theme => `1px solid €{theme.palette.divider}`
+            borderBottom: theme => `1px solid ${theme.palette.divider}`
           }}
         >
           <Box>
@@ -328,7 +328,7 @@ const ComposePopup = props => {
             px: 4,
             display: 'flex',
             alignItems: 'center',
-            borderBottom: theme => `1px solid €{theme.palette.divider}`
+            borderBottom: theme => `1px solid ${theme.palette.divider}`
           }}
         >
           <Box>
@@ -353,7 +353,7 @@ const ComposePopup = props => {
           px: 4,
           display: 'flex',
           alignItems: 'center',
-          borderBottom: theme => `1px solid €{theme.palette.divider}`
+          borderBottom: theme => `1px solid ${theme.palette.divider}`
         }}
       >
         <Box>
@@ -409,7 +409,7 @@ const ComposePopup = props => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderTop: theme => `1px solid €{theme.palette.divider}`
+          borderTop: theme => `1px solid ${theme.palette.divider}`
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

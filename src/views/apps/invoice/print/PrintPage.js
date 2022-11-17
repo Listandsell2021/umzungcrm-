@@ -34,7 +34,7 @@ const CalcWrapper = styled(Box)(({ theme }) => ({
 
 const MUITableCell = styled(TableCell)(({ theme }) => ({
   borderBottom: 0,
-  padding: `€{theme.spacing(1, 0)} !important`
+  padding: `${theme.spacing(1, 0)} !important`
 }))
 
 const InvoicePrint = ({ id }) => {
@@ -158,7 +158,7 @@ const InvoicePrint = ({ id }) => {
           <Grid item xs={4}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { sm: 'flex-end', xs: 'flex-start' } }}>
               <Typography variant='h6' sx={{ mb: 2 }}>
-                {`Invoice #€{invoice.id}`}
+                {`Invoice #${invoice.id}`}
               </Typography>
               <Box sx={{ mb: 2, display: 'flex' }}>
                 <Typography variant='body2' sx={{ mr: 3 }}>
@@ -252,28 +252,28 @@ const InvoicePrint = ({ id }) => {
               <TableCell>Branding & Promotion</TableCell>
               <TableCell>48</TableCell>
               <TableCell>1</TableCell>
-              <TableCell>€32</TableCell>
+              <TableCell>$32</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Social Media</TableCell>
               <TableCell>Social media templates</TableCell>
               <TableCell>42</TableCell>
               <TableCell>1</TableCell>
-              <TableCell>€28</TableCell>
+              <TableCell>$28</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Web Design</TableCell>
               <TableCell>Web designing package</TableCell>
               <TableCell>46</TableCell>
               <TableCell>1</TableCell>
-              <TableCell>€24</TableCell>
+              <TableCell>$24</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>SEO</TableCell>
               <TableCell>Search engine optimization</TableCell>
               <TableCell>40</TableCell>
               <TableCell>1</TableCell>
-              <TableCell>€22</TableCell>
+              <TableCell>$22</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -293,13 +293,13 @@ const InvoicePrint = ({ id }) => {
             <CalcWrapper>
               <Typography variant='body2'>Subtotal:</Typography>
               <Typography variant='body2' sx={{ fontWeight: 600 }}>
-                €1800
+                $1800
               </Typography>
             </CalcWrapper>
             <CalcWrapper>
               <Typography variant='body2'>Discount:</Typography>
               <Typography variant='body2' sx={{ fontWeight: 600 }}>
-                €28
+                $28
               </Typography>
             </CalcWrapper>
             <CalcWrapper>
@@ -312,7 +312,7 @@ const InvoicePrint = ({ id }) => {
             <CalcWrapper>
               <Typography variant='body2'>Total:</Typography>
               <Typography variant='body2' sx={{ fontWeight: 600 }}>
-                €1690
+                $1690
               </Typography>
             </CalcWrapper>
           </Grid>

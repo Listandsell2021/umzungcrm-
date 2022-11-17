@@ -1,3 +1,3 @@
 export default {
-  spacing: factor => `€{0.25 * factor}rem`
+  spacing: factor => `${0.25 * factor}rem`
 }

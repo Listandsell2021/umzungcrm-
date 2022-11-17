@@ -71,59 +71,59 @@ const ApexCandlestickChart = () => {
     {
       data: [
         {
-          x: `7/12/€{new Date().getFullYear()}`,
+          x: `7/12/${new Date().getFullYear()}`,
           y: [150, 170, 50, 100]
         },
         {
-          x: `8/12/€{new Date().getFullYear()}`,
+          x: `8/12/${new Date().getFullYear()}`,
           y: [200, 400, 170, 330]
         },
         {
-          x: `9/12/€{new Date().getFullYear()}`,
+          x: `9/12/${new Date().getFullYear()}`,
           y: [330, 340, 250, 280]
         },
         {
-          x: `10/12/€{new Date().getFullYear()}`,
+          x: `10/12/${new Date().getFullYear()}`,
           y: [300, 330, 200, 320]
         },
         {
-          x: `11/12/€{new Date().getFullYear()}`,
+          x: `11/12/${new Date().getFullYear()}`,
           y: [320, 450, 280, 350]
         },
         {
-          x: `12/12/€{new Date().getFullYear()}`,
+          x: `12/12/${new Date().getFullYear()}`,
           y: [300, 350, 80, 250]
         },
         {
-          x: `13/12/€{new Date().getFullYear()}`,
+          x: `13/12/${new Date().getFullYear()}`,
           y: [200, 330, 170, 300]
         },
         {
-          x: `14/12/€{new Date().getFullYear()}`,
+          x: `14/12/${new Date().getFullYear()}`,
           y: [200, 220, 70, 130]
         },
         {
-          x: `15/12/€{new Date().getFullYear()}`,
+          x: `15/12/${new Date().getFullYear()}`,
           y: [220, 270, 180, 250]
         },
         {
-          x: `16/12/€{new Date().getFullYear()}`,
+          x: `16/12/${new Date().getFullYear()}`,
           y: [200, 250, 80, 100]
         },
         {
-          x: `17/12/€{new Date().getFullYear()}`,
+          x: `17/12/${new Date().getFullYear()}`,
           y: [150, 170, 50, 120]
         },
         {
-          x: `18/12/€{new Date().getFullYear()}`,
+          x: `18/12/${new Date().getFullYear()}`,
           y: [110, 450, 10, 420]
         },
         {
-          x: `19/12/€{new Date().getFullYear()}`,
+          x: `19/12/${new Date().getFullYear()}`,
           y: [400, 480, 300, 320]
         },
         {
-          x: `20/12/€{new Date().getFullYear()}`,
+          x: `20/12/${new Date().getFullYear()}`,
           y: [380, 480, 350, 450]
         }
       ]
@@ -132,8 +132,8 @@ const ApexCandlestickChart = () => {
 
   const CustomInput = forwardRef((props, ref) => {
     const startDate = format(props.start, 'MM/dd/yyyy')
-    const endDate = props.end !== null ? ` - €{format(props.end, 'MM/dd/yyyy')}` : null
-    const value = `€{startDate}€{endDate !== null ? endDate : ''}`
+    const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null
+    const value = `${startDate}${endDate !== null ? endDate : ''}`
 
     return (
       <TextField
@@ -167,7 +167,7 @@ const ApexCandlestickChart = () => {
     <Card>
       <CardHeader
         title='Stocks Prices'
-        subheader='€50,863.98'
+        subheader='$50,863.98'
         titleTypographyProps={{ variant: 'h6' }}
         subheaderTypographyProps={{ variant: 'caption' }}
         sx={{

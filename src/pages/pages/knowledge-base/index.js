@@ -58,10 +58,10 @@ const KnowledgeBase = ({ apiData }) => {
       return data.map((item, index) => (
         <Grid item xs={12} sm={6} md={4} key={index}>
           <Card>
-            <Link passHref href={`/pages/knowledge-base/[category]`} as={`/pages/knowledge-base/€{item.category}`}>
+            <Link passHref href={`/pages/knowledge-base/[category]`} as={`/pages/knowledge-base/${item.category}`}>
               <StyledLink>
                 <StyledBox>
-                  <img src={item.imgSrc} alt={`knowledge-base-€{item.category}`} />
+                  <img src={item.imgSrc} alt={`knowledge-base-${item.category}`} />
                 </StyledBox>
                 <CardContent sx={{ pt: 4, textAlign: 'center' }}>
                   <Typography variant='h6' sx={{ mb: 3 }}>

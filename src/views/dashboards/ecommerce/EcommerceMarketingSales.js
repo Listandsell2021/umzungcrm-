@@ -162,7 +162,7 @@ const EcommerceMarketingSales = () => {
                       instanceRef.current?.moveToIdx(idx)
                     }}
                     sx={{
-                      mr: theme => `€{theme.spacing(2.5)} !important`,
+                      mr: theme => `${theme.spacing(2.5)} !important`,
                       '& .MuiBadge-dot': {
                         height: '6px !important',
                         width: '6px !important',

@@ -196,7 +196,7 @@ const FormLayoutsCollapsible = () => {
             <Box sx={{ width: '100%' }}>
               <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between' }}>
                 <Typography sx={{ fontWeight: 600 }}>Express</Typography>
-                <Typography sx={{ fontWeight: 700 }}>€5.00</Typography>
+                <Typography sx={{ fontWeight: 700 }}>$5.00</Typography>
               </Box>
               <Typography variant='body2'>Friday, 15 Nov - Sunday, 17 Nov</Typography>
             </Box>
@@ -215,7 +215,7 @@ const FormLayoutsCollapsible = () => {
             <Box sx={{ width: '100%' }}>
               <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between' }}>
                 <Typography sx={{ fontWeight: 600 }}>Overnight</Typography>
-                <Typography sx={{ fontWeight: 700 }}>€10.00</Typography>
+                <Typography sx={{ fontWeight: 700 }}>$10.00</Typography>
               </Box>
               <Typography variant='body2'>Friday, 15 Nov - Saturday, 16 Nov</Typography>
             </Box>

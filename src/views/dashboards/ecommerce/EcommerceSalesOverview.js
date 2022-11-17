@@ -26,7 +26,7 @@ const salesData = [
   },
   {
     icon: <Poll />,
-    stats: '€28.5k',
+    stats: '$28.5k',
     color: 'warning',
     title: 'Total Profit'
   },

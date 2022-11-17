@@ -17,7 +17,7 @@ const data = [
   {
     imgWidth: 22,
     imgHeight: 22,
-    chipText: '€6,500',
+    chipText: '$6,500',
     title: '3D Illustration',
     imgAlt: '3d-illustration',
     subtitle: 'Blender Illustration',
@@ -26,7 +26,7 @@ const data = [
   {
     imgWidth: 33,
     imgHeight: 22,
-    chipText: '€4,290',
+    chipText: '$4,290',
     subtitle: 'Figma UI Kit',
     title: 'Finance App Design',
     imgAlt: 'finance-app-design',
@@ -37,14 +37,14 @@ const data = [
     imgHeight: 22,
     title: '4 Square',
     imgAlt: '4-square',
-    chipText: '€44,500',
+    chipText: '$44,500',
     subtitle: 'Android Application',
     src: '/images/cards/4-square.png'
   },
   {
     imgWidth: 19,
     imgHeight: 22,
-    chipText: '€12,690',
+    chipText: '$12,690',
     title: 'Delta Web App',
     imgAlt: 'delta-web-app',
     subtitle: 'React Dashboard',
@@ -53,7 +53,7 @@ const data = [
   {
     imgWidth: 23,
     imgHeight: 22,
-    chipText: '€10,850',
+    chipText: '$10,850',
     subtitle: 'Vue + Laravel',
     title: 'eCommerce Website',
     imgAlt: 'ecommerce-website',

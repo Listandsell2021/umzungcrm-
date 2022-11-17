@@ -31,7 +31,7 @@ const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
       opacity: 1,
       borderRadius: 13,
       backgroundColor: theme.palette.mode === 'dark' ? theme.palette.action.selected : theme.palette.grey[50],
-      border: `1px solid €{theme.palette.grey[400]}`,
+      border: `1px solid ${theme.palette.grey[400]}`,
       transition: theme.transitions.create(['background-color', 'border'])
     }
   }

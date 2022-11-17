@@ -87,7 +87,7 @@ const FormLayoutsTabs = () => {
           variant='scrollable'
           scrollButtons={false}
           onChange={handleTabsChange}
-          sx={{ borderBottom: theme => `1px solid €{theme.palette.divider}` }}
+          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
         >
           <Tab value='personal-info' label='Personal Info' />
           <Tab value='account-details' label='Account Details' />

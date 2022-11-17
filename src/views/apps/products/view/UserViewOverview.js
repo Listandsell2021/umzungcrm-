@@ -141,7 +141,7 @@ const UserViewOverview = ({ invoiceData }) => {
                 <TableRow hover key={index} sx={{ '&:last-of-type td': { border: 0 } }}>
                   <TableCell>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Img src={item.img} alt={`project-€{index + 1}`} />
+                      <Img src={item.img} alt={`project-${index + 1}`} />
                       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography variant='subtitle2' sx={{ color: 'text.primary' }}>
                           {item.projectTitle}

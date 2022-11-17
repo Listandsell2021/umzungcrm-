@@ -56,10 +56,10 @@ const AppChat = () => {
   const handleUserProfileRightSidebarToggle = () => setUserProfileRightOpen(!userProfileRightOpen)
 
   const calculateAppHeight = () => {
-    return `(€{
+    return `(${
       (appBar === 'hidden' ? 0 : theme.mixins.toolbar.minHeight) * (layout === 'horizontal' && !navHidden ? 2 : 1) +
       (footer === 'hidden' ? 0 : 56)
-    }px + €{theme.spacing(6)} * 2)`
+    }px + ${theme.spacing(6)} * 2)`
   }
 
   return (
@@ -73,8 +73,8 @@ const AppChat = () => {
         position: 'relative',
         backgroundColor: 'background.paper',
         boxShadow: skin === 'bordered' ? 0 : 6,
-        height: `calc(100vh - €{calculateAppHeight()})`,
-        ...(skin === 'bordered' && { border: `1px solid €{theme.palette.divider}` })
+        height: `calc(100vh - ${calculateAppHeight()})`,
+        ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` })
       }}
     >
       <SidebarLeft

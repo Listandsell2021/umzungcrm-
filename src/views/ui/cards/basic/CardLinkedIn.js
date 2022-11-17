@@ -13,7 +13,7 @@ import ShareVariant from 'mdi-material-ui/ShareVariant'
 const CardLinkedIn = () => {
   return (
     <Card sx={{ border: 0, boxShadow: 0, color: 'common.white', backgroundColor: '#007BB6' }}>
-      <CardContent sx={{ p: theme => `€{theme.spacing(3.25, 5, 4.5)} !important` }}>
+      <CardContent sx={{ p: theme => `${theme.spacing(3.25, 5, 4.5)} !important` }}>
         <Typography variant='h6' sx={{ display: 'flex', mr: 2.75, alignItems: 'center', color: 'common.white' }}>
           <Linkedin sx={{ mr: 2.5 }} />
           LinkedIn Card

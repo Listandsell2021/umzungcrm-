@@ -52,7 +52,7 @@ const AnalyticsOverview = () => {
       <CardContent sx={{ '& .apexcharts-canvas .apexcharts-text': { fontWeight: 600, fontSize: '1rem' } }}>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
           <Typography variant='h6' sx={{ mr: 1.5 }}>
-            €67.1k
+            $67.1k
           </Typography>
           <Typography variant='subtitle2' sx={{ color: 'success.main' }}>
             +49%

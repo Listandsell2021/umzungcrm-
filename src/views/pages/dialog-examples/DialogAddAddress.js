@@ -88,12 +88,12 @@ const DialogAddAddress = () => {
                   borderRadius: 1,
                   cursor: 'pointer',
                   border: theme =>
-                    `1px solid €{addressType === 'home' ? theme.palette.primary.main : theme.palette.secondary.main}`,
+                    `1px solid ${addressType === 'home' ? theme.palette.primary.main : theme.palette.secondary.main}`,
                   ...(addressType === 'home'
                     ? { ...bgClasses.primaryLight }
                     : {
                         background: theme =>
-                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), €{theme.palette.secondary.main}`
+                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), ${theme.palette.secondary.main}`
                       })
                 }}
               >
@@ -117,12 +117,12 @@ const DialogAddAddress = () => {
                   borderRadius: 1,
                   cursor: 'pointer',
                   border: theme =>
-                    `1px solid €{addressType === 'office' ? theme.palette.primary.main : theme.palette.secondary.main}`,
+                    `1px solid ${addressType === 'office' ? theme.palette.primary.main : theme.palette.secondary.main}`,
                   ...(addressType === 'office'
                     ? { ...bgClasses.primaryLight }
                     : {
                         background: theme =>
-                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), €{theme.palette.secondary.main}`
+                          `linear-gradient(0deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), ${theme.palette.secondary.main}`
                       })
                 }}
               >

@@ -12,9 +12,9 @@ const ReactHotToast = styled(Box)(({ theme }) => {
 
   return {
     '& > div': {
-      left: `€{theme.spacing(6)} !important`,
-      right: `€{theme.spacing(6)} !important`,
-      bottom: `€{theme.spacing(6)} !important`,
+      left: `${theme.spacing(6)} !important`,
+      right: `${theme.spacing(6)} !important`,
+      bottom: `${theme.spacing(6)} !important`,
       top: layout === 'horizontal' && !navHidden ? '139px !important' : '75px !important'
     },
     '& .react-hot-toast': {

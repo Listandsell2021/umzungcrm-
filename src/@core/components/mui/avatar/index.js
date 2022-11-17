@@ -19,14 +19,14 @@ const Avatar = forwardRef((props, ref) => {
   const getAvatarStyles = (skin, skinColor) => {
     let avatarStyles
     if (skin === 'light') {
-      avatarStyles = { ...bgColors[`€{skinColor}Light`] }
+      avatarStyles = { ...bgColors[`${skinColor}Light`] }
     } else if (skin === 'light-static') {
       avatarStyles = {
-        color: bgColors[`€{skinColor}Light`].color,
+        color: bgColors[`${skinColor}Light`].color,
         backgroundColor: lighten(theme.palette[skinColor].main, 0.88)
       }
     } else {
-      avatarStyles = { ...bgColors[`€{skinColor}Filled`] }
+      avatarStyles = { ...bgColors[`${skinColor}Filled`] }
     }
 
     return avatarStyles

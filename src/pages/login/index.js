@@ -258,13 +258,13 @@ const utf8 = require('utf8');
           <LoginIllustrationWrapper>
             <LoginIllustration
               alt='login-illustration'
-              src={`/images/pages/€{imageSource}-€{theme.palette.mode}.png`}
+              src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
             />
           </LoginIllustrationWrapper>
           <FooterIllustrationsV2 />
         </Box>
       ) : null}
-      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid €{theme.palette.divider}` } : {}}>
+      <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
         <Box
           sx={{
             p: 7,
@@ -288,7 +288,7 @@ const utf8 = require('utf8');
             >
              
           
-             <img width={90} height={90} src={`data:image/svg+xml;utf8,€{encodeURIComponent(logo)}`} />
+             <img width={90} height={90} src={`data:image/svg+xml;utf8,${encodeURIComponent(logo)}`} />
                
             
              <Typography variant='h6' sx={{ ml: 2, lineHeight: 1, fontWeight: 700, fontSize: '1.5rem !important' }}>
@@ -296,7 +296,7 @@ const utf8 = require('utf8');
               </Typography>
             </Box>
             <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h5'>{`Welcome to €{title}! 👋🏻`}</TypographyStyled>
+              <TypographyStyled variant='h5'>{`Welcome to ${title}! 👋🏻`}</TypographyStyled>
               <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
             </Box>
             <Alert icon={false} sx={{ py: 3, mb: 6, ...bgClasses.primaryLight, '& .MuiAlert-message': { p: 0 } }}>

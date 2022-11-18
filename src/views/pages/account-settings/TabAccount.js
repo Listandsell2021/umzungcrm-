@@ -140,7 +140,7 @@ async function getdeatils(data)
 useEffect(()=>{
 
 
- 
+     
           getdeatils("sa1").then(res=>
             {
             
@@ -218,7 +218,7 @@ useEffect(()=>{
           <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Status</InputLabel>
-              <Select label='Status' value={Status}>
+              <Select label='Status' value={Status} disabled>
                 <MenuItem value='Active'>Active</MenuItem>
                 <MenuItem value='Inactive'>Inactive</MenuItem>
                 <MenuItem value='pending'>Pending</MenuItem>

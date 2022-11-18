@@ -15,9 +15,9 @@ console.log(datanew)
         "token":datanew.token,
         "date_registered":datanew.date_registered,
         "avatar":datanew.avatar,
-        "contact":datanew.phone,
-        "currentPlan":datanew.cplan,
-        "full_name":datanew.fullName,
+        "contact":datanew.contact,
+        "currentPlan":datanew.currentPlan,
+        "full_name":datanew.full_name,
         "role":datanew.role,
         "status":datanew.status,
         "email":datanew.email,
@@ -26,3 +26,4 @@ console.log(datanew)
   res.status(200).json(todos);
   //await db.close();
 }
+  

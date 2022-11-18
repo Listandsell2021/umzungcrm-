@@ -42,6 +42,7 @@ import DialogActions from '@mui/material/DialogActions'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Select from '@mui/material/Select'
 
+import Divider from '@mui/material/Divider'
 // ** Icons Imports
 import Close from 'mdi-material-ui/Close'
 // ** Third Party Imports

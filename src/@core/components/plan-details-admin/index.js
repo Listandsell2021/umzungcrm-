@@ -151,9 +151,7 @@ const handleChangeTitle = e => {
   const handleChangename = e => {
     setname(e.target.value)
   }
-const handleChangelastname= e => {
-    setlastname(e.target.value)
-  }
+
   const handleChangeemail= e => {
     setemail(e.target.value)
   }
@@ -307,9 +305,7 @@ function setdata()
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={name}  onChange={handleChangename} label='Full Name' placeholder='John' />
             </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth value={lastname}  onChange={handleChangelastname} label='Last Name ' placeholder='Doe' />
-            </Grid>
+            
             <Grid item sm={6} xs={12}>
               <TextField
                 fullWidth

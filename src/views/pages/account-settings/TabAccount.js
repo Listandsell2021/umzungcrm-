@@ -143,7 +143,7 @@ useEffect(()=>{
  
           getdeatils("sa1").then(res=>
             {
-              
+            
              var details=res[0].details
              //console.log(res[0])
              var email=res[0].email
@@ -208,7 +208,7 @@ useEffect(()=>{
               <InputLabel>Role</InputLabel>
               <Select label='Role' value={Role}>
                 <MenuItem value='admin'>Admin</MenuItem>
-                <MenuItem value='author'>Author</MenuItem>
+                <MenuItem value='superadmin'>SuperAdmin</MenuItem>
                 <MenuItem value='editor'>Editor</MenuItem>
                 <MenuItem value='maintainer'>Maintainer</MenuItem>
                 <MenuItem value='subscriber'>Subscriber</MenuItem>

@@ -275,8 +275,8 @@ useEffect(()=>{
             <FormControl fullWidth>
               <InputLabel>Status</InputLabel>
               <Select label='Status' value={Status} disabled>
-                <MenuItem value='Active'>Active</MenuItem>
-                <MenuItem value='Inactive'>Inactive</MenuItem>
+                <MenuItem value='active'>Active</MenuItem>
+                <MenuItem value='inactive'>Inactive</MenuItem>
                 <MenuItem value='pending'>Pending</MenuItem>
               </Select>
             </FormControl>

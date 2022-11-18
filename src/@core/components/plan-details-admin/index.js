@@ -344,7 +344,7 @@ function setdata()
             </Typography>
             <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
           </Box>
-          <Typography variant='h4' sx={{ mb: 3, lineHeight: '1rem' }}>
+          <Typography variant='body2' >
               Plan Details
             </Typography>
           <Grid container spacing={6}>
@@ -354,7 +354,7 @@ function setdata()
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={monthlyPrice}  onChange={handleChangePlanPrice}  label='Plan Price' placeholder='Doe' />
             </Grid>
-            <Typography variant='h4' sx={{ mb: 3, lineHeight: '1rem' }}>
+            <Typography variant='body2' >
             Billing details
             </Typography>
             <Grid item sm={6} xs={12}>
@@ -386,7 +386,7 @@ function setdata()
               <TextField fullWidth label='Address' placeholder='123 weitb' onChange={handleChangeaddress} value={address} />
             </Grid>
              
-             <Typography variant='h4' sx={{ mb: 3, lineHeight: '1rem' }}>
+             <Typography variant='body2' >
                     Payment method
             </Typography>
      <FormControl>

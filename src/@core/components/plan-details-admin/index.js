@@ -244,7 +244,7 @@ const BpCheckedIcon = styled(BpIcon)({
       </Box>
     ))
   }
-function setdata()
+async function setdata()
 {
   
 var storedData = window.localStorage.getItem('userData')
@@ -269,7 +269,7 @@ var storedData = window.localStorage.getItem('userData')
 const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdmin', {
     data
   })
-  console.log(response.data)
+  console.log(response)
 
 }
   return (

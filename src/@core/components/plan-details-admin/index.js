@@ -98,9 +98,7 @@ const handleChangePerMonthPriceUYearly= e => {
   const handleChangeAnnualPrice = e => {
     settotalAnnual(e.target.value)
   }
-  const handleChangeBenifits1 = e => {
-    setplanBenefits1(e.target.value)
-  }
+  
     const handleChangeBenifits2 = e => {
     setplanBenefits2(e.target.value)
   }
@@ -169,12 +167,8 @@ const handleChangeTitle = e => {
   const handleChangeAnnualPrice = e => {
     settotalAnnual(e.target.value)
   }
-  const handleChangeBenifits1 = e => {
-    setplanBenefits1(e.target.value)
-  }
-    const handleChangeBenifits2 = e => {
-    setplanBenefits2(e.target.value)
-  }
+  
+   
     const handleChangeBenifits3 = e => {
     setplanBenefits3(e.target.value)
   }
@@ -330,12 +324,8 @@ function setdata()
             <Grid item xs={12}>
               <TextField fullWidth label='Address' placeholder='123 weitb' onChange={handleChangeaddress} value={address} />
             </Grid>
-             <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Plan Benifits 1' placeholder='1.Benifits'  onChange={handleChangeBenifits1} value={planBenefits1} />
-            </Grid>
-             <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Plan Benifits 2' placeholder='2.Benifits'  onChange={handleChangeBenifits2} value={planBenefits2} />
-            </Grid>
+             
+             
              <Grid item sm={6} xs={12}>
               <TextField fullWidth label='Plan Benifits 3' placeholder='3.Benifits' onChange={handleChangeBenifits3} value={planBenefits3} />
             </Grid>

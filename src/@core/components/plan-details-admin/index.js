@@ -250,7 +250,7 @@ async function setdata()
 var storedData = window.localStorage.getItem('userData')
       storedData=JSON.parse(storedData)
       
-  var data={
+  var datanew={
         "sa_id":"sa1",
         "a_id":storedData.id,
         "address":address,
@@ -267,7 +267,7 @@ var storedData = window.localStorage.getItem('userData')
 
   
 const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdmin', {
-    data
+    datanew
   })
   console.log(response)
 

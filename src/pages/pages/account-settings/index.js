@@ -204,7 +204,7 @@ useEffect(()=>{
               </Box>
             }
           />
-          {status=="inactive" &&
+          {!status=="inactive" &&
           <><Tab
               value='security'
               label={<Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -226,6 +226,8 @@ useEffect(()=>{
               </Box>
             }
           />
+          {!status=="inactive" &&
+           <>
           <Tab
             value='notifications'
             label={
@@ -234,18 +236,18 @@ useEffect(()=>{
                 <TabName>Notifications</TabName>
               </Box>
             }
-          />
+          /></>}
         </TabList>
 
         <TabPanel sx={{ p: 0 }} value='account'>
           <TabAccount />
         </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='security'>
-          <TabSecurity />
-        </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='info'>
-          <TabInfo />
-        </TabPanel>
+      {!status=="inactive" &&
+           <><></><TabPanel sx={{ p: 0 }} value='security'>
+            <TabSecurity />
+          </TabPanel><TabPanel sx={{ p: 0 }} value='info'>
+              <TabInfo />
+            </TabPanel></>}
         <TabPanel sx={{ p: 0 }} value='billing'>
           <TabBilling />
         </TabPanel>

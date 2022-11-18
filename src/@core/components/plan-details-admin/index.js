@@ -223,6 +223,7 @@ const BpCheckedIcon = styled(BpIcon)({
   }
 })
   const BpRadio = props => {
+    console.log(props)
   return (
     <Radio
       {...props}
@@ -353,9 +354,7 @@ function setdata()
                 1. Plan Details
               </Typography>
             </Grid>
-          <Typography variant='body2' >
-              
-            </Typography>
+          
           <Grid container spacing={6}>
             <Grid item sm={6} xs={12}>
               <TextField fullWidth label='Plan Title' placeholder='Basic' onChange={handleChangeTitle} value={title} />
@@ -410,12 +409,11 @@ function setdata()
             </Grid>
              
      <FormControl>
-      <FormLabel component='legend'>Gender</FormLabel>
-      <RadioGroup row defaultValue='female' aria-label='gender' name='customized-radios'>
-        <FormControlLabel value='female' control={<BpRadio />} label='Female' />
-        <FormControlLabel value='male' control={<BpRadio />} label='Male' />
-        <FormControlLabel value='other' control={<BpRadio />} label='Other' />
-        <FormControlLabel value='disabled' disabled control={<BpRadio />} label='Disabled' />
+      
+      <RadioGroup row defaultValue='offline' aria-label='payment' name='customized-radios'>
+        <FormControlLabel value='offline' control={<BpRadio />} label='Offline' />
+        
+        <FormControlLabel value='card' disabled control={<BpRadio />} label='Card' />
       </RadioGroup>
     </FormControl>
              

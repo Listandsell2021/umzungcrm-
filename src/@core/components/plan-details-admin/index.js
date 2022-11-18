@@ -20,6 +20,9 @@ import CustomChip from 'src/@core/components/mui/chip'
 import { useState,forwardRef,useEffect } from 'react'
 
 
+import FormLabel from '@mui/material/FormLabel'
+import RadioGroup from '@mui/material/RadioGroup'
+import Radio from '@mui/material/Radio'
 
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
@@ -178,6 +181,18 @@ const handleChangeTitle = e => {
   const handleChangeBenifits5 = e => {
     setplanBenefits5(e.target.value)
   }
+  const BpRadio = props => {
+  return (
+    <Radio
+      {...props}
+      disableRipple
+      color='default'
+      icon={<BpIcon />}
+      checkedIcon={<BpCheckedIcon />}
+      sx={{ '&:hover': { backgroundColor: 'transparent' } }}
+    />
+  )
+}
   const renderFeatures = () => {
     return data?.planBenefits.map((item, index) => (
       <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
@@ -289,6 +304,9 @@ function setdata()
             </Typography>
             <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
           </Box>
+          <Typography variant='h4' sx={{ mb: 3, lineHeight: '1rem' }}>
+              Plan Details
+            </Typography>
           <Grid container spacing={6}>
             <Grid item sm={6} xs={12}>
               <TextField fullWidth label='Plan Title' placeholder='Basic' onChange={handleChangeTitle} value={title} />
@@ -296,6 +314,9 @@ function setdata()
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={monthlyPrice}  onChange={handleChangePlanPrice}  label='Plan Price' placeholder='Doe' />
             </Grid>
+            <Typography variant='h4' sx={{ mb: 3, lineHeight: '1rem' }}>
+            Billing details
+            </Typography>
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={name}  onChange={handleChangename} label='Full Name' placeholder='John' />
             </Grid>
@@ -325,16 +346,18 @@ function setdata()
               <TextField fullWidth label='Address' placeholder='123 weitb' onChange={handleChangeaddress} value={address} />
             </Grid>
              
-             
-             <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Plan Benifits 3' placeholder='3.Benifits' onChange={handleChangeBenifits3} value={planBenefits3} />
-            </Grid>
-             <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Plan Benifits 4' placeholder='4.Benifits' onChange={handleChangeBenifits4} value={planBenefits4} />
-            </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Plan Benifits 5' placeholder='5.Benifits' onChange={handleChangeBenifits5} value={planBenefits5} />
-            </Grid>
+             <Typography variant='h4' sx={{ mb: 3, lineHeight: '1rem' }}>
+                    Payment method
+            </Typography>
+     <FormControl>
+      <FormLabel component='legend'>Gender</FormLabel>
+      <RadioGroup row defaultValue='female' aria-label='gender' name='customized-radios'>
+        <FormControlLabel value='female' control={<BpRadio />} label='Female' />
+        <FormControlLabel value='male' control={<BpRadio />} label='Male' />
+        <FormControlLabel value='other' control={<BpRadio />} label='Other' />
+        <FormControlLabel value='disabled' disabled control={<BpRadio />} label='Disabled' />
+      </RadioGroup>
+    </FormControl>
              
         
             

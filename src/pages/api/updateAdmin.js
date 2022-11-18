@@ -11,6 +11,7 @@ console.log(datanew)
         {
         "sa_id":datanew.sa_id,
         "a_id":datanew.a_id,
+        "company_name":datanew.company_name,
         "address":datanew.address,
         "token":datanew.token,
         "date_registered":datanew.date_registered,

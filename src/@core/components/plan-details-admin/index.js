@@ -121,7 +121,7 @@ const PlanDetails = props => {
   const [title, settitle] = useState(data?.title)
   const [monthlyPrice,setmonthlyPrice] = useState(data?.monthlyPrice)
 
-
+  const [company_name,setcompany_name] = useState("")
 
   const [name,setname] = useState("")
   
@@ -164,6 +164,10 @@ const handleChangeTitle = e => {
   const handleChangeaddress= e => {
     setaddress(e.target.value)
   }
+  const handleChangecompany_name = e => {
+    setcompany_name(e.target.value)
+  }
+  
 
   
   const handleChangeStatus = e => {
@@ -253,6 +257,7 @@ var storedData = window.localStorage.getItem('userData')
   var datanew={
         "sa_id":"sa1",
         "a_id":storedData.id,
+        "company_name":company_name,
         "address":address,
         "token":"123333",
         "date_registered":"211515",
@@ -353,6 +358,16 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
                 placeholder='+491234488727'
                 value={phone}
                 onChange={handleChangephone}
+              />
+            </Grid>
+               <Grid item sm={6} xs={12}>
+              <TextField
+                fullWidth
+
+                label='Umzung '
+                placeholder='Umzung'
+                value={company_name}
+                onChange={handleChangecompany_name}
               />
             </Grid>
             

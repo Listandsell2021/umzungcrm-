@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     {$set: 
         {
         "sa_id":datanew.sa_id,
-        "a_id":datanew.id,
+        "a_id":datanew.a_id,
         "address":datanew.address,
         "token":datanew.token,
         "date_registered":datanew.date_registered,

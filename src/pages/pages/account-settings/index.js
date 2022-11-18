@@ -47,7 +47,15 @@ const TabName = styled('span')(({ theme }) => ({
 const AccountSettings = () => {
   // ** State
   const [value, setValue] = useState('account')
-
+  const [status, setstatus] = useState('')
+     
+      useEffect(() => {
+      var storedData = window.localStorage.getItem('userData')
+      storedData=JSON.parse(storedData)
+      
+        
+      },)
+      
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
@@ -83,7 +91,7 @@ async function checklogin(data)
    return login;
    
 }
-async function getdeatils(data)
+async function getdeatilssuperadmin(data)
 {
 
  
@@ -114,6 +122,71 @@ async function getdeatils(data)
    return details;
    
 }
+async function getdeatilsadmin(data)
+{
+
+ 
+  
+     var data = JSON.stringify({
+      "id": data,
+     
+    });
+ 
+    var axios = require('axios');
+   
+   
+    var config = {
+      method: 'POST',
+      //url: "https://umzungcrmtest.vercel.app/api/getDetailSuperAdmin"
+      url: " https://umzungcrmtest.vercel.app/api/getDetailAdmin"
+      ,
+      headers: { 
+        'Content-Type': 'application/json',
+      },
+      data : data};
+  
+          var details=await axios(config)
+          details=details.data
+          //console.log(test.data)
+          
+
+   return details;
+   
+}
+useEffect(()=>{
+      var storedData = window.localStorage.getItem('userData')
+      storedData=JSON.parse(storedData)
+      if(storedData.role=="superadmin")
+      {
+         getdeatilssuperadmin(storedData.id).then(res=>
+            {
+            
+             var details=res[0].details
+            
+            
+           setstatus(details[0].status)
+         
+           
+          })
+      }
+      else
+       {
+         getdeatilsadmin(storedData.id).then(res=>
+            {
+            
+             var details=res[0].details
+             
+           setstatus(details[0].status)
+           
+           
+          })  
+
+      }     
+
+     
+         
+        })
+
   return (
     <Card>
       <TabContext value={value}>
@@ -131,24 +204,19 @@ async function getdeatils(data)
               </Box>
             }
           />
-          <Tab
-            value='security'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {status=="inactive" &&
+          <><Tab
+              value='security'
+              label={<Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <LockOpenOutline sx={{ fontSize: '1.125rem' }} />
                 <TabName>Security</TabName>
-              </Box>
-            }
-          />
-          <Tab
-            value='info'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <InformationOutline sx={{ fontSize: '1.125rem' }} />
-                <TabName>Info</TabName>
-              </Box>
-            }
-          />
+              </Box>} /><Tab
+                value='info'
+                label={<Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <InformationOutline sx={{ fontSize: '1.125rem' }} />
+                  <TabName>Info</TabName>
+                </Box>} /></>}
+          
           <Tab
             value='billing'
             label={

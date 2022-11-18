@@ -245,7 +245,7 @@ const BpCheckedIcon = styled(BpIcon)({
   }
 function setdata()
 {
-  var datanew={
+  /*var datanew={
     "pricingPlans":
     [{"imgWidth":{"$numberInt":"100"},
     "title":"BasicTest",
@@ -310,7 +310,8 @@ function setdata()
     "answer":"Sesame snaps tart bonbon tiramisu jelly beans lemon drops bear claw candy gummi bears. Caramels pudding sweet donut tootsie roll gummies macaroon. Lemon drops caramels sesame snaps dessert jujubes. Cupcake chocolate bonbon cake tiramisu. Gummies candy canes ice cream biscuit. Jelly gummies wafer danish chupa chups sugar plum cookie."},
     {"id":"users","question":"Users","answer":"Chocolate sweet roll lemon drops chocolate cake candy canes halvah. Donut fruitcake sweet roll brownie carrot cake cake. Donut jujubes pudding candy macaroon. Gummies gingerbread croissant bonbon. Cookie toffee cupcake cotton candy candy canes dessert cotton candy liquorice. Jelly beans gummi bears toffee chocolate bar chocolate cake."},
     {"id":"advanced-settings","question":"Advanced settings","answer":"Halvah liquorice pastry marshmallow sugar plum. Dessert chocolate pastry gummi bears pastry. Gingerbread bonbon pudding oat cake jujubes pie wafer tart brownie. Soufflé jujubes icing powder liquorice. Sweet donut toffee liquorice dessert dragée. Topping cake danish chupa chups chupa chups gummies. Cotton candy gummies chocolate cake oat cake."}]}
-  console.log(datanew)
+  console.log(datanew)*/
+  
   
 
 }
@@ -342,11 +343,14 @@ function setdata()
           </IconButton>
           <Box sx={{ mb: 8, textAlign: 'center' }}>
             <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
-              Edit User Information
+             Plan 
             </Typography>
-            <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
+            <Typography variant='body2'>Fill information</Typography>
           </Box>
-           <Grid item xs={12}>
+           
+          
+          <Grid container spacing={6}>
+            <Grid item xs={12}>
               <Divider sx={{ mb: 0 }} />
             </Grid>
            <Grid item xs={12}>
@@ -354,8 +358,6 @@ function setdata()
                 1. Plan Details
               </Typography>
             </Grid>
-          
-          <Grid container spacing={6}>
             <Grid item sm={6} xs={12}>
               <TextField fullWidth label='Plan Title' placeholder='Basic' onChange={handleChangeTitle} value={title} />
             </Grid>

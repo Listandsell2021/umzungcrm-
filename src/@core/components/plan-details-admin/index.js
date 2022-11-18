@@ -17,7 +17,7 @@ import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 import CustomChip from 'src/@core/components/mui/chip'
 
 
-import { useState,forwardRef } from 'react'
+import { useState,forwardRef,useEffect } from 'react'
 
 
 
@@ -118,29 +118,53 @@ const PlanDetails = props => {
  const [show, setShow] = useState(false)
   const [title, settitle] = useState(data?.title)
   const [monthlyPrice,setmonthlyPrice] = useState(data?.monthlyPrice)
-  const [subtitle,setsubtitle] = useState(data?.subtitle)
-  const [perMonth,setperMonth] = useState(data?.yearlyPlan.perMonth)
-  const [totalAnnual, settotalAnnual] = useState(data?.yearlyPlan.totalAnnual)
-  const [planBenefits1, setplanBenefits1] = useState(data?.planBenefits[0])
-  const [planBenefits2, setplanBenefits2] = useState(data?.planBenefits[1])
+
+
+
+  const [name,setname] = useState("")
+  
+  const [email, setemail] = useState("")
+  const [phone, setphone] = useState("")
+  const [address, setaddress] = useState("")
   const [planBenefits3, setplanBenefits3] = useState(data?.planBenefits[2])
   const [planBenefits4, setplanBenefits4] = useState(data?.planBenefits[3])
   const [planBenefits5, setplanBenefits5] = useState(data?.planBenefits[4])
   const [status, setStatus] = useState("active")
   const [languages, setLanguages] = useState([])
 
+  useEffect(() => {
+   
+    var storedData = window.localStorage.getItem('userData')
+      storedData=JSON.parse(storedData)
+      setname(storedData.fullName)
+      setemail(storedData.email)
+  
+    
+  })
+  
 const handleChangeTitle = e => {
     settitle(e.target.value)
   }
   const handleChangePlanPrice = e => {
     setmonthlyPrice(e.target.value)
   }
-  const handleChangeSubTitle = e => {
-    setsubtitle(e.target.value)
+  const handleChangename = e => {
+    setname(e.target.value)
   }
-const handleChangePerMonthPriceUYearly= e => {
-    setperMonth(e.target.value)
+const handleChangelastname= e => {
+    setlastname(e.target.value)
   }
+  const handleChangeemail= e => {
+    setemail(e.target.value)
+  }
+   const handleChangephone= e => {
+    setphone(e.target.value)
+  }
+  const handleChangeaddress= e => {
+    setaddress(e.target.value)
+  }
+
+  
   const handleChangeStatus = e => {
     setStatus(e.target.value)
   }
@@ -280,32 +304,35 @@ function setdata()
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={monthlyPrice}  onChange={handleChangePlanPrice}  label='Plan Price' placeholder='Doe' />
             </Grid>
-            <Grid item xs={12}>
-              <TextField fullWidth value={subtitle}  onChange={handleChangeSubTitle} label='Sub Title' placeholder='johnDoe' />
+            <Grid item sm={6} xs={12}>
+              <TextField fullWidth value={name}  onChange={handleChangename} label='Full Name' placeholder='John' />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextField fullWidth value={lastname}  onChange={handleChangelastname} label='Last Name ' placeholder='Doe' />
             </Grid>
             <Grid item sm={6} xs={12}>
               <TextField
                 fullWidth
 
-                label='Per Month Price for yearly'
+                label='email'
                 placeholder='johnDoe@email.com'
-                value={perMonth}
-                onChange={handleChangePerMonthPriceUYearly}
+                value={email}
+                onChange={handleChangeemail}
               />
             </Grid>
             <Grid item sm={6} xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id='status-select'>Status</InputLabel>
-                <Select value={status} fullWidth labelId='status-select'  onChange={handleChangeStatus} label='Status'>
-                  <MenuItem value='Status'>Status</MenuItem>
-                  <MenuItem value='Active'>Active</MenuItem>
-                  <MenuItem value='Inactive'>Inactive</MenuItem>
-                  <MenuItem value='Suspended'>Suspended</MenuItem>
-                </Select>
-              </FormControl>
+              <TextField
+                fullWidth
+
+                label='phone'
+                placeholder='+491234488727'
+                value={phone}
+                onChange={handleChangephone}
+              />
             </Grid>
-            <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Annual price' placeholder='878' onChange={handleChangeAnnualPrice} value={totalAnnual} />
+            
+            <Grid item xs={12}>
+              <TextField fullWidth label='Address' placeholder='123 weitb' onChange={handleChangeaddress} value={address} />
             </Grid>
              <Grid item sm={6} xs={12}>
               <TextField fullWidth label='Plan Benifits 1' placeholder='1.Benifits'  onChange={handleChangeBenifits1} value={planBenefits1} />

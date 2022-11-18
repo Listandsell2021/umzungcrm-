@@ -344,8 +344,16 @@ function setdata()
             </Typography>
             <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
           </Box>
+           <Grid item xs={12}>
+              <Divider sx={{ mb: 0 }} />
+            </Grid>
+           <Grid item xs={12}>
+              <Typography variant='body2' sx={{ fontWeight: 600 }}>
+                1. Plan Details
+              </Typography>
+            </Grid>
           <Typography variant='body2' >
-              Plan Details
+              
             </Typography>
           <Grid container spacing={6}>
             <Grid item sm={6} xs={12}>
@@ -354,9 +362,15 @@ function setdata()
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={monthlyPrice}  onChange={handleChangePlanPrice}  label='Plan Price' placeholder='Doe' />
             </Grid>
-            <Typography variant='body2' >
-            Billing details
-            </Typography>
+             <Grid item xs={12}>
+              <Divider sx={{ mb: 0 }} />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant='body2' sx={{ fontWeight: 600 }}>
+                2.Billing details
+              </Typography>
+            </Grid>
+            
             <Grid item sm={6} xs={12}>
               <TextField fullWidth value={name}  onChange={handleChangename} label='Full Name' placeholder='John' />
             </Grid>
@@ -385,10 +399,15 @@ function setdata()
             <Grid item xs={12}>
               <TextField fullWidth label='Address' placeholder='123 weitb' onChange={handleChangeaddress} value={address} />
             </Grid>
+             <Grid item xs={12}>
+              <Divider sx={{ mb: 0 }} />
+            </Grid>
+              <Grid item xs={12}>
+              <Typography variant='body2' sx={{ fontWeight: 600 }}>
+                3.Payment method
+              </Typography>
+            </Grid>
              
-             <Typography variant='body2' >
-                    Payment method
-            </Typography>
      <FormControl>
       <FormLabel component='legend'>Gender</FormLabel>
       <RadioGroup row defaultValue='female' aria-label='gender' name='customized-radios'>

@@ -6,7 +6,7 @@ export default async function handler(req, res) {
    const {datanew}=req.body
 
   const todos = await db.collection("Admin").update(
-    {"a_id" : datanew.id},
+    {"a_id" : datanew.a_id},
     {$set: 
         {
         "sa_id":storedData.sa_id,

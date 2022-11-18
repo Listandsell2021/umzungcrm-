@@ -126,6 +126,7 @@ const PlanDetails = props => {
   const [name,setname] = useState("")
   
   const [email, setemail] = useState("")
+   const [cplan, setcplan] = useState(data?.title)
   const [phone, setphone] = useState("")
   const [address, setaddress] = useState("")
   const [planBenefits3, setplanBenefits3] = useState(data?.planBenefits[2])
@@ -257,15 +258,18 @@ var storedData = window.localStorage.getItem('userData')
         "date_registered":"211515",
         "avatar":"/images/avatars/4.png",
         "contact":phone,
-        "currentPlan":data?.title,
+        "currentPlan":cplan,
         "full_name":storedData.fullName,
         "role":storedData.role,
-        "status":"pending",
+        "status":"inactive",
         "email":email,
         "username":email}
 
   
-  console.log(data)
+const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdmin', {
+    data
+  })
+  console.log(response.data)
 
 }
   return (

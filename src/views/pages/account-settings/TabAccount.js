@@ -106,7 +106,7 @@ async function checklogin(data)
    return login;
    
 }
-async function getdeatils(data)
+async function getdeatilssuperadmin(data)
 {
 
  
@@ -137,11 +137,43 @@ async function getdeatils(data)
    return details;
    
 }
-useEffect(()=>{
+async function getdeatilsadmin(data)
+{
 
-
+ 
+  
+     var data = JSON.stringify({
+      "id": data,
      
-          getdeatils("sa1").then(res=>
+    });
+ 
+    var axios = require('axios');
+   
+   
+    var config = {
+      method: 'POST',
+      //url: "https://umzungcrmtest.vercel.app/api/getDetailSuperAdmin"
+      url: " https://umzungcrmtest.vercel.app/api/getDetailAdmin"
+      ,
+      headers: { 
+        'Content-Type': 'application/json',
+      },
+      data : data};
+  
+          var details=await axios(config)
+          details=details.data
+          //console.log(test.data)
+          
+
+   return details;
+   
+}
+useEffect(()=>{
+      var storedData = window.localStorage.getItem('userData')
+      storedData=JSON.parse(storedData)
+      if(storedData.role=="superadmin")
+      {
+         getdeatilssuperadmin(storedData.id).then(res=>
             {
             
              var details=res[0].details
@@ -157,6 +189,30 @@ useEffect(()=>{
             //console.log(details[0].status)
            
           })
+      }
+      else
+       {
+         getdeatilsadmin(storedData.id).then(res=>
+            {
+            
+             var details=res[0].details
+             //console.log(res[0])
+             var email=res[0].email
+             var name=details[0].name;
+           //var data={"id":logindata.global_id,"role":logindata.role,"fullName":name.first_name + " "+ name.last_name ,"username":email,"email":email};
+           setName(name.first_name + " "+ name.last_name)
+           setEmail(res[0].email)
+           setRole(res[0].role)
+           setStatus(details[0].status)
+           setCompany(details[0].compnay)
+            //console.log(details[0].status)
+           
+          })  
+
+      }     
+
+     
+         
         })
 
   return (

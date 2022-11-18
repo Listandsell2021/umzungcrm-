@@ -200,7 +200,7 @@ useEffect(()=>{
              var email=res[0].email
              var name=details[0].name;
            //var data={"id":logindata.global_id,"role":logindata.role,"fullName":name.first_name + " "+ name.last_name ,"username":email,"email":email};
-           setName(name.first_name + " "+ name.last_name)
+           setName(storedData.fullName)
            setEmail(res[0].email)
            setRole(res[0].role)
            setStatus(details[0].status)

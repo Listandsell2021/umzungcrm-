@@ -206,7 +206,7 @@ useEffect(()=>{
           <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Role</InputLabel>
-              <Select label='Role' value={Role}>
+              <Select label='Role' value={Role} disabled>
                 <MenuItem value='admin'>Admin</MenuItem>
                 <MenuItem value='superadmin'>SuperAdmin</MenuItem>
                 <MenuItem value='editor'>Editor</MenuItem>

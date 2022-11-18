@@ -263,8 +263,9 @@ var storedData = window.localStorage.getItem('userData')
         "role":storedData.role,
         "status":"inactive",
         "email":email,
-        "username":email}
-
+        "username":email
+    }
+console.log(datanew)
   
 const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdmin', {
     datanew

@@ -141,7 +141,7 @@ useEffect(()=>{
 
 
  
-          getdeatils("s1").then(res=>
+          getdeatils("sa1").then(res=>
             {
               
              var details=res[0].details

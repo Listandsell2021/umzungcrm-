@@ -228,7 +228,7 @@ const BpCheckedIcon = styled(BpIcon)({
   }
 })
   const BpRadio = props => {
-    console.log(props)
+    
   return (
     <Radio
       {...props}
@@ -270,13 +270,16 @@ var storedData = window.localStorage.getItem('userData')
         "email":email,
         "username":email
     }
-console.log(datanew)
+
   
 const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdmin', {
     datanew
   })
-  console.log(response)
-
+  console.log(response.status)
+   if(response.status==200)
+   {
+    
+   }
 }
   return (
     <BoxWrapper

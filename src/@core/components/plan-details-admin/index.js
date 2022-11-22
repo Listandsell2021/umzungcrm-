@@ -298,14 +298,14 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
   })
   console.log(responsedelete)
    
-   var datanavigation={
+   var navigationData={
     "title":"Dashboards",
     "icon":"HomeOutline",
     "path":"/dashboards/crm",
     "global_id":storedData.id
   }
   const responsenavigation = await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
-    datanavigation
+    navigationData
   })
 
  

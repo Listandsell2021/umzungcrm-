@@ -287,7 +287,7 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
    if(response.status==200)
    {
 
-    router.route('/pages/account-settings')
+    router.replace('/pages/account-settings')
    }
 }
   return (

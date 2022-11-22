@@ -101,7 +101,7 @@ const TabBilling = () => {
         <Grid container spacing={6}>
           <Grid item xs={12} md={8} sx={{ mt: 5 }}>
             <Grid container spacing={6}>
-              <Grid item xs={12}>
+             {/* <Grid item xs={12}>
                 <FormControl>
                   <FormLabel sx={{ mb: 1, color: 'text.secondary' }}>Payment Method</FormLabel>
                   <RadioGroup
@@ -120,7 +120,7 @@ const TabBilling = () => {
                     <FormControlLabel value='cod' label='COD/Cheque' control={<Radio />} />
                   </RadioGroup>
                 </FormControl>
-              </Grid>
+  </Grid>*/}
               {paymentMethod === 'card' ? (
                 <Grid item xs={12}>
                   <CreditCardWrapper>

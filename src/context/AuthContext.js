@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
 
   // ** Hooks
   const router = useRouter()
+    
   useEffect(() => {
     const initAuth = async () => {
       setIsInitialized(true)

@@ -13,6 +13,12 @@ import CircleOutline from 'mdi-material-ui/CircleOutline'
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
 
+
+
+import { useRouter } from 'next/router'
+
+
+
 // ** Custom Components Imports
 import CustomChip from 'src/@core/components/mui/chip'
 
@@ -116,7 +122,9 @@ const handleChangePerMonthPriceUYearly= e => {
 const PlanDetails = props => {
   // ** Props
   const { plan, data } = props
-  
+      
+
+const router = useRouter()
  const [show, setShow] = useState(false)
   const [title, settitle] = useState(data?.title)
   const [monthlyPrice,setmonthlyPrice] = useState(data?.monthlyPrice)
@@ -278,7 +286,8 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
   console.log(response.status)
    if(response.status==200)
    {
-    
+
+    router.route('/pages/account-settings')
    }
 }
   return (

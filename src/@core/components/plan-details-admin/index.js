@@ -289,7 +289,7 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
    {
 
    var deletenavigation={
-    "title":"Packages",
+    "tittle":"Packages",
     "global_id":storedData.id
   }
 

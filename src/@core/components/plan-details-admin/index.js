@@ -61,6 +61,7 @@ import PricingHeader from 'src/views/pages/pricing/PricingHeader'
 import PricingFooter from 'src/views/pages/pricing/PricingFooter'
 
 import AccountOutline from 'mdi-material-ui/AccountOutline'
+import SnackbarControlSlideDirection from 'src/views/components/snackbar/SnackbarControlSlideDirection'
 const Transition = forwardRef(function Transition(props, ref) {
   return <Fade ref={ref} {...props} />
 })
@@ -287,7 +288,28 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
    if(response.status==200)
    {
 
-    router.replace('/pages/account-settings')
+   var deletenavigation={
+    "title":"Packages",
+    "global_id":storedData.id
+  }
+
+     const responsedelete = await axios.post('https://umzungcrmtest.vercel.app/api/removeNavigation', {
+    deletenavigation
+  })
+  console.log(responsedelete)
+   
+   var datanavigation={
+    "title":"Dashboards",
+    "icon":"HomeOutline",
+    "path":"/dashboards/crm",
+    "global_id":storedData.id
+  }
+  const responsenavigation = await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
+    datanavigation
+  })
+
+ 
+    //router.replace('/pages/account-settings')
    }
 }
   return (

@@ -275,7 +275,7 @@ var storedData = window.localStorage.getItem('userData')
         "currentPlan":cplan,
         "full_name":storedData.fullName,
         "role":storedData.role,
-        "status":"inactive",
+        "status":"active",   ///change during payment
         "email":email,
         "username":email
     }

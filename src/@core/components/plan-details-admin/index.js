@@ -126,6 +126,8 @@ const PlanDetails = props => {
       
 
 const router = useRouter()
+
+
  const [show, setShow] = useState(false)
   const [title, settitle] = useState(data?.title)
   const [monthlyPrice,setmonthlyPrice] = useState(data?.monthlyPrice)

@@ -30,6 +30,9 @@ import Facebook from 'mdi-material-ui/Facebook'
 import EyeOutline from 'mdi-material-ui/EyeOutline'
 import EyeOffOutline from 'mdi-material-ui/EyeOffOutline'
 
+
+
+import { useRouter } from 'next/router'
 // ** Third Party Imports
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -119,6 +122,7 @@ const Register = () => {
 
   // ** Vars
   const { skin } = settings
+const router = useRouter()
 
   const schema = yup.object().shape({
     password: yup.string().min(5).required(),

@@ -156,7 +156,7 @@ async function checkemail(ids,data)
   }
   else
   {
-    console.log("empty") 
+    
     var datas={"collection":"Admin"}
     const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
        datas
@@ -202,7 +202,7 @@ async function checkemail(ids,data)
     navigationData
   })
   
-  if(responselogin==200)
+  if(responselogin.status==200)
   {
     router.replace('/login')
   }

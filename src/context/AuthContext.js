@@ -198,14 +198,23 @@ async function getdeatilsadmin(data)
              var details=res[0].details
              var email=res[0].email
              var name=details[0].full_name;
-           var data={"id":logindata.global_id,"role":logindata.role,"fullName":name,"username":email,"email":email};
+             var data={"id":logindata.global_id,"role":logindata.role,"fullName":name,"username":email,"email":email};
            
            const returnUrl = router.query.returnUrl
             setUser({ ...data })
             window.localStorage.setItem('userData', JSON.stringify(data))
             window.localStorage.setItem('accessToken','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY2MjQ3NTUwfQ.pAFU9NbNYabwuW5Z1fnzsc1tdRwpFJMMzLTs1Cg1FUg');
-           const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
-            router.replace(redirectURL)
+          console.log(res[0])
+           if(details[0].status=="pending")
+           {
+              router.replace("/pages/pricing")
+           }
+           else
+           {
+             const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
+           router.replace(redirectURL)
+           }
+            
           })
 
 

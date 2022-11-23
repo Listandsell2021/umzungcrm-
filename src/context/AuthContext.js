@@ -207,7 +207,7 @@ async function getdeatilsadmin(data)
           console.log(res[0])
            if(details[0].status=="pending")
            {
-              router.replace("/pages/pricing")
+              router.replace("/plan/")
            }
            else
            {

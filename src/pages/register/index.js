@@ -202,14 +202,15 @@ async function checkemail(ids,data)
     navigationData
   })
   
-  
+  if(responselogin==200)
+  {
+    router.replace('/login')
+  }
 
 
   //dispatch(fetchData(getState().user.params))
   
 
-
-      console.log(response.data)
   }
 
 }

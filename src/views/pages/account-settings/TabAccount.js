@@ -271,7 +271,7 @@ useEffect(()=>{
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+         {Role=="superadmin" && <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Status</InputLabel>
               <Select label='Status' value={Status} disabled>
@@ -280,7 +280,7 @@ useEffect(()=>{
                 <MenuItem value='pending'>Pending</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Grid>} 
           <Grid item xs={12} sm={6}>
             <TextField fullWidth label='Company' placeholder='ABC Pvt. Ltd.' value={Company} />
           </Grid>

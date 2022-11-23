@@ -204,7 +204,7 @@ useEffect(()=>{
            setEmail(res[0].email)
            setRole(res[0].role)
            setStatus(details[0].status)
-           setCompany(details[0].compnay)
+           setCompany(details[0].company_name)
             //console.log(details[0].status)
            
           })  
@@ -271,7 +271,7 @@ useEffect(()=>{
               </Select>
             </FormControl>
           </Grid>
-         {Role=="admin" && <Grid item xs={12} sm={6}>
+         {Role=="superadmin" && <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Status</InputLabel>
               <Select label='Status' value={Status} disabled>

@@ -48,11 +48,11 @@ const AccountSettings = () => {
   // ** State
   const [value, setValue] = useState('account')
   const [status, setstatus] = useState('')
-     
+ const [role, setrole] = useState('')
       useEffect(() => {
       var storedData = window.localStorage.getItem('userData')
       storedData=JSON.parse(storedData)
-      
+      setrole(storedData.role)
         
       },)
       
@@ -217,7 +217,7 @@ useEffect(()=>{
                   <TabName>Info</TabName>
                 </Box>} /></>}
           
-          <Tab
+         {role=="superadmin" &&<Tab
             value='billing'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -225,7 +225,7 @@ useEffect(()=>{
                 <TabName>Billing</TabName>
               </Box>
             }
-          />
+          />} 
           {!status=="inactive" &&
            <>
           <Tab

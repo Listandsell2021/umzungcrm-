@@ -157,7 +157,7 @@ async function checkemail(ids,data)
   else
   {
     console.log("empty") 
-    var datas={"collection":"Services"}
+    var datas={"collection":"Admin"}
     const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
        datas
   })

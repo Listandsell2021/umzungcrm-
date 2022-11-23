@@ -217,7 +217,7 @@ useEffect(()=>{
                   <TabName>Info</TabName>
                 </Box>} /></>}
           
-         {role=="superadmin" &&<Tab
+         {!role=="superadmin" &&<Tab
             value='billing'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>

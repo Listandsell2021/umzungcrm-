@@ -271,7 +271,7 @@ useEffect(()=>{
               </Select>
             </FormControl>
           </Grid>
-         {Role=="superadmin" && <Grid item xs={12} sm={6}>
+         {!Role=="superadmin" && <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Status</InputLabel>
               <Select label='Status' value={Status} disabled>

@@ -77,14 +77,15 @@ const AvatarWithoutImageLink = styled(Link)(({ theme }) => ({
 const renderClient = row => {
 
   if (row.avatar.length) {
+    var a_idnew=String(row.a_id).substring(1);
     return (
-      <AvatarWithImageLink href={`/apps/user/view/${row.a_id}`}>
+      <AvatarWithImageLink href={`/apps/user/view/${a_idnew}`}>
         <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
       </AvatarWithImageLink>
     )
   } else {
     return (
-      <AvatarWithoutImageLink href={`/apps/user/view/${row.id}`}>
+      <AvatarWithoutImageLink href={`/apps/user/view/${a_idnew}`}>
         <CustomAvatar
           skin='light'
           color={row.avatarColor || 'primary'}
@@ -149,7 +150,7 @@ const RowOptions = ({ a_id }) => {
         PaperProps={{ style: { minWidth: '8rem' } }}
       >
         <MenuItem sx={{ p: 0 }}>
-          <Link href={`/apps/user/view/${a_id}`} passHref>
+          <Link href={`/apps/user/view/${a_idnew}`} passHref>
             <MenuItemLink>
               <EyeOutline fontSize='small' sx={{ mr: 2 }} />
               View

@@ -127,7 +127,7 @@ const UserViewLeft = ({ data }) => {
               />
             </CardContent>
 
-            <CardContent sx={{ my: 1 }}>
+            {/*<CardContent sx={{ my: 1 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Box sx={{ mr: 6, display: 'flex', alignItems: 'center' }}>
                   <CustomAvatar skin='light' variant='rounded' sx={{ mr: 4, width: 44, height: 44 }}>
@@ -138,7 +138,7 @@ const UserViewLeft = ({ data }) => {
                       1.23k
                     </Typography>
                     <Typography variant='body2'>Task Done</Typography>
-                  </Box>
+              </Box>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <CustomAvatar skin='light' variant='rounded' sx={{ mr: 4, width: 44, height: 44 }}>
@@ -152,7 +152,7 @@ const UserViewLeft = ({ data }) => {
                   </Box>
                 </Box>
               </Box>
-            </CardContent>
+            </CardContent>*/}
 
             <CardContent>
               <Typography variant='h6'>Details</Typography>
@@ -194,22 +194,22 @@ const UserViewLeft = ({ data }) => {
                     {data.role}
                   </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
+                {/* <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Tax ID:</Typography>
                   <Typography variant='body2'>Tax-8894</Typography>
-                </Box>
+                </Box> */}
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Contact:</Typography>
-                  <Typography variant='body2'>+1 {data.contact}</Typography>
+                  <Typography variant='body2'> {data.contact}</Typography>
                 </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
+                {/* <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Language:</Typography>
                   <Typography variant='body2'>English</Typography>
-                </Box>
-                <Box sx={{ display: 'flex' }}>
+                </Box> */}
+                {/* <Box sx={{ display: 'flex' }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Country:</Typography>
                   <Typography variant='body2'>{data.country}</Typography>
-                </Box>
+                </Box> */}
               </Box>
             </CardContent>
 

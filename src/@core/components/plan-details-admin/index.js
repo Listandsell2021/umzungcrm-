@@ -309,7 +309,7 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
   })
 
  
-    //router.replace('/pages/account-settings')
+    router.replace('/dashboards/crm')
    }
 }
   return (

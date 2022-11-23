@@ -189,7 +189,7 @@ async function checkemail(ids,data)
    var navigationData=
   {"title":"Packages",
   "icon":"HomeOutline",
-  "path":"/pages/pricing",
+  "path":"/plan/",
   "global_id":"a"+(parseInt(response1.data)+1)}
 
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/postAdmin', {

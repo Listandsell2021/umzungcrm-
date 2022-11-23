@@ -115,7 +115,7 @@ const RowOptions = ({ a_id }) => {
   // ** State
   const [anchorEl, setAnchorEl] = useState(null)
   const rowOptionsOpen = Boolean(anchorEl)
-
+var a_idnew=String(row.a_id).substring(1);
   const handleRowOptionsClick = event => {
     setAnchorEl(event.currentTarget)
   }

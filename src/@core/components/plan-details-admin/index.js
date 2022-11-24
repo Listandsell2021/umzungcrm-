@@ -262,7 +262,7 @@ const BpCheckedIcon = styled(BpIcon)({
 async function setdata()
 {
   const date = new Date()
-var current_date=String(date.getDay())+"/"+String(date.getMonth())+"/"+String(date.getFullYear())
+var current_date=String(date.getDate())+"/"+String(date.getMonth()+1)+"/"+String(date.getFullYear())
 var storedData = window.localStorage.getItem('userData')
       storedData=JSON.parse(storedData)
       
@@ -316,7 +316,7 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
       "sa_id":"sa1",
       "a_id":storedData.id,
       "current_package":"",
-      "package_id":plan_id,
+      "package_id":cplan,
       "package_start":current_date,
       "package_end":"",
       "package_registered":current_date,

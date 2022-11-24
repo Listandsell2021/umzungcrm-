@@ -80,6 +80,9 @@ const UserViewLeft = ({ data }) => {
   // Handle Upgrade Plan dialog
   const handlePlansClickOpen = () => setOpenPlans(true)
   const handlePlansClose = () => setOpenPlans(false)
+useEffect(() => {
+ console.log(data)
+})
 
   const renderUserAvatar = () => {
     if (data) {

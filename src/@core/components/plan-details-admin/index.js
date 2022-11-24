@@ -137,7 +137,7 @@ const router = useRouter()
   const [name,setname] = useState("")
   
   const [email, setemail] = useState("")
-   const [cplan, setcplan] = useState(data?.title)
+   const [cplan, setcplan] = useState(data?.plan_id)
   const [phone, setphone] = useState("")
   const [address, setaddress] = useState("")
   const [planBenefits3, setplanBenefits3] = useState(data?.planBenefits[2])
@@ -261,7 +261,8 @@ const BpCheckedIcon = styled(BpIcon)({
   }
 async function setdata()
 {
-  
+  const date = new Date()
+var current_date=String(date.getDay())+"/"+String(date.getMonth())+"/"+String(date.getFullYear())
 var storedData = window.localStorage.getItem('userData')
       storedData=JSON.parse(storedData)
       
@@ -271,7 +272,7 @@ var storedData = window.localStorage.getItem('userData')
         "company_name":company_name,
         "address":address,
         "token":"123333",
-        "date_registered":"211515",
+        "date_registered":current_date,
         "avatar":"/images/avatars/4.png",
         "contact":phone,
         "currentPlan":cplan,
@@ -308,6 +309,22 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
   }
   const responsenavigation = await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
     navigationData
+  })
+  
+  var postAdminPackage=
+    {
+      "sa_id":"sa1",
+      "a_id":storedData.id,
+      "current_package":"",
+      "package_id":plan_id,
+      "package_start":current_date,
+      "package_end":"",
+      "package_registered":current_date,
+      "status":"active"
+    }
+  
+  const responsePostAdminPackage = await axios.post('https://umzungcrmtest.vercel.app/api/postAdminPackage', {
+    postAdminPackage
   })
 
   

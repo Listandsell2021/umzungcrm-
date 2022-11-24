@@ -114,7 +114,7 @@ useEffect(() => {
             <CardContent sx={{ pt: 15, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
               {renderUserAvatar()}
               <Typography variant='h6' sx={{ mb: 4 }}>
-                {data.fullName}
+                {data.company_name}
               </Typography>
               <CustomChip
                 skin='light'
@@ -161,17 +161,18 @@ useEffect(() => {
               <Typography variant='h6'>Details</Typography>
               <Divider sx={{ mt: 4 }} />
               <Box sx={{ pt: 2, pb: 1 }}>
+                
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
-                    Username:
-                  </Typography>
-                  <Typography variant='body2'>@{data.username}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
-                    Billing Email:
+                    Email:
                   </Typography>
                   <Typography variant='body2'>{data.email}</Typography>
+                </Box>
+                  <Box sx={{ display: 'flex', mb: 2.7 }}>
+                  <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
+                    Address
+                  </Typography>
+                  <Typography variant='body2'>{data.address}</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
@@ -190,6 +191,12 @@ useEffect(() => {
                       textTransform: 'capitalize'
                     }}
                   />
+                </Box>
+                <Box sx={{ display: 'flex', mb: 2.7 }}>
+                  <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
+                    Date Registered
+                  </Typography>
+                  <Typography variant='body2'>{data.date_registered}</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Role:</Typography>

@@ -20,7 +20,8 @@ export const fetchData = createAsyncThunk('appUsers/fetchData', async params => 
    //console.log(params)
   return test
 })
-export const fetchplan = createAsyncThunk('appUsers/fetchplan', async params => {
+export const fetchplan=()=>
+{
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getAdminData', {
     
   })
@@ -28,7 +29,7 @@ export const fetchplan = createAsyncThunk('appUsers/fetchplan', async params => 
 
    //console.log(params)
   return response.data
-})
+}
 // ** Add User
 export const addUser = createAsyncThunk('appUsers/addUser', async (data, { getState, dispatch }) => {
   var datas={"collection":"Admin"}
@@ -86,7 +87,7 @@ export const appUsersSlice = createSlice({
       state.total = action.payload.total
       state.params = action.payload.params
       state.allData = action.payload.allData
-      
+
     })
   }
 })

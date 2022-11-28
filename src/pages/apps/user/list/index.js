@@ -286,7 +286,7 @@ const UserList = () => {
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
   useEffect(() => {
-    console.log(fetchplan)
+    console.log(fetchplan())
     dispatch(
       fetchData({
         role,

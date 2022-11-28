@@ -269,7 +269,7 @@ const columns = [
     sortable: false,
     field: 'actions',
     headerName: 'Actions',
-    renderCell: ({ row }) => <RowOptions id={row.a_id} />
+    renderCell: ({ row }) => <RowOptions a_id={row.a_id} />
   }
 ]
 

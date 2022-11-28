@@ -389,7 +389,7 @@ const UserList = () => {
         <Card>
           <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />
           <DataGrid
-             getRowId={(row) => row.a_id}
+            getRowId={(row) => row.a_id}
             autoHeight
             rows={store.data}
             columns={columns}

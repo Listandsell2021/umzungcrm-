@@ -35,7 +35,7 @@ const CrmDashboard = () => {
         </Grid>
         <Grid item xs={6} sm={3} md={2}>
           <CardStatisticsVertical
-            stats='155k'
+            stats='3'
             color='primary'
             trendNumber='+22%'
             icon={<CartPlus />}

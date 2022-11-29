@@ -285,13 +285,13 @@ const UserList = () => {
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
-  const dataplans=null;
+  const dataplans=[];
 
   useEffect(() => {
     fetchplan().then((value) => {
      console.log(value)
      setdataplan(value)
-     dataplans=value
+     dataplans.push(value)
   var data=value[0]
   data=data.pricingPlans
   
@@ -353,7 +353,7 @@ const UserList = () => {
                     inputProps={{ placeholder: 'Select Role' }}
                   >
                     <MenuItem value=''>Select Role</MenuItem>
-                   {dataplans.map((item)=>{
+                    {dataplans.map((item)=>{
                     <MenuItem value='admin'>Admin</MenuItem>
                     })}
                     <MenuItem value='admin'>Admin</MenuItem>

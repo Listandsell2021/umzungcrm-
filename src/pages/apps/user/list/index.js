@@ -287,7 +287,7 @@ const UserList = () => {
   const store = useSelector(state => state.user)
   useEffect(() => {
    
-    fetchplan.then((value) => {
+    fetchplan().then((value) => {
   console.log(value);
   
 });

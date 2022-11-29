@@ -298,7 +298,7 @@ const UserList = () => {
    console.log(dataplan)
   
 });
-  }, [store])
+  }, [])
   
   useEffect(() => {
    

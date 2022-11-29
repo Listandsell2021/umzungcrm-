@@ -293,7 +293,7 @@ const UserList = () => {
   data=data.pricingPlans
   setdataplan(data)
   console.log(data)
-  console.loglog("state variable")
+  console.log("state variable")
    console.log(dataplan)
   
 });

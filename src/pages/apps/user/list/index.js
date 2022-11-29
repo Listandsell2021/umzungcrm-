@@ -286,8 +286,9 @@ const UserList = () => {
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
   
+
   useEffect(() => {
-   fetchplan().then((value) => {
+    fetchplan().then((value) => {
      console.log(value)
   var data=value[0]
   data=data.pricingPlans
@@ -297,6 +298,10 @@ const UserList = () => {
    console.log(dataplan)
   
 });
+  }, [store])
+  
+  useEffect(() => {
+   
     
     dispatch(
       fetchData({

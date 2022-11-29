@@ -281,20 +281,24 @@ const UserList = () => {
   const [status, setStatus] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [addUserOpen, setAddUserOpen] = useState(false)
-const [dataplan, setdataplan] = useState([])
+const [dataplan, setdataplan] = useState(null)
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
-  useEffect(() => {
-   
-    fetchplan().then((value) => {
+  useEffect(()=>{
+fetchplan().then((value) => {
      console.log(value)
   var data=value[0]
   
-  //setdataplan(data)
-console.log(data.pricingPlans)
+  setdataplan(data.pricingPlans)
+  console.log(data.pricingPlans)
+console.log(dataplan)
   
 });
+  })
+  useEffect(() => {
+   
+    
     dispatch(
       fetchData({
         role,

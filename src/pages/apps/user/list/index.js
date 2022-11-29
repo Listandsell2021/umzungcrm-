@@ -281,7 +281,7 @@ const UserList = () => {
   const [status, setStatus] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [addUserOpen, setAddUserOpen] = useState(false)
-const [dataplan, setdataplan] = useState([])
+const [dataplan, setdataplan] = useState(null)
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
@@ -291,9 +291,9 @@ const [dataplan, setdataplan] = useState([])
      console.log(value)
   var data=value[0]
   
-  setdataplan({ dataplan:[...dataplan,...data.pricingPlans]})
+  setdataplan(data.pricingPlans)
   console.log(data.pricingPlans)
-console.log(dataplan)
+   console.log(dataplan)
   
 });
     
@@ -345,9 +345,9 @@ console.log(dataplan)
                     inputProps={{ placeholder: 'Select Role' }}
                   >
                     <MenuItem value=''>Select Role</MenuItem>
-                    {dataplan.map((item)=>{
+                    {/* {dataplan.map((item)=>{
                     <MenuItem value='admin'>Admin</MenuItem>
-                    })}
+                    })} */}
                     <MenuItem value='admin'>Admin</MenuItem>
                     <MenuItem value='author'>Author</MenuItem>
                     <MenuItem value='editor'>Editor</MenuItem>

@@ -281,14 +281,17 @@ const UserList = () => {
   const [status, setStatus] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [addUserOpen, setAddUserOpen] = useState(false)
-
+const [dataplan, setdataplan] = useState([])
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
   useEffect(() => {
    
     fetchplan().then((value) => {
-  console.log(value);
+     
+  var data=value[0].pricingPlans
+  setdataplan(data)
+
   
 });
     dispatch(
@@ -339,6 +342,9 @@ const UserList = () => {
                     inputProps={{ placeholder: 'Select Role' }}
                   >
                     <MenuItem value=''>Select Role</MenuItem>
+                    {dataplan.map((item)=>{
+                    <MenuItem value='admin'>Admin</MenuItem>
+                    })}
                     <MenuItem value='admin'>Admin</MenuItem>
                     <MenuItem value='author'>Author</MenuItem>
                     <MenuItem value='editor'>Editor</MenuItem>

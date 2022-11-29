@@ -281,7 +281,7 @@ const UserList = () => {
   const [status, setStatus] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [addUserOpen, setAddUserOpen] = useState(false)
-const [dataplan, setdataplan] = useState(null)
+const [dataplan, setdataplan] = useState([])
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)

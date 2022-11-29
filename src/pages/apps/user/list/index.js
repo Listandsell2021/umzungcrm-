@@ -290,13 +290,13 @@ const UserList = () => {
   useEffect(() => {
     fetchplan().then((value) => {
      console.log(value)
+     setdataplan(value)
   var data=value[0]
   data=data.pricingPlans
-  setdataplan(data)
+  
   console.log(data)
   console.log("state variable")
    console.log(dataplan)
-  
 });
   }, [])
   

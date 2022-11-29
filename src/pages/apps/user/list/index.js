@@ -288,7 +288,7 @@ const [dataplan, setdataplan] = useState([])
   useEffect(() => {
    
     fetchplan().then((value) => {
-     
+     console.log(value)
   var data=value[0].pricingPlans
   
   setdataplan(data)

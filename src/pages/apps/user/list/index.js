@@ -353,9 +353,9 @@ const UserList = () => {
                     inputProps={{ placeholder: 'Select Role' }}
                   >
                     <MenuItem value=''>Select Role</MenuItem>
-                    {/* {dataplan.map((item)=>{
+                   {dataplans.map((item)=>{
                     <MenuItem value='admin'>Admin</MenuItem>
-                    })} */}
+                    })}
                     <MenuItem value='admin'>Admin</MenuItem>
                     <MenuItem value='author'>Author</MenuItem>
                     <MenuItem value='editor'>Editor</MenuItem>

@@ -287,21 +287,21 @@ const UserList = () => {
   const store = useSelector(state => state.user)
   const dataplans=[];
 
-  useEffect(() => {
-    fetchplan().then((value) => {
-     console.log(value)
-     setdataplan(value)
+//   useEffect(() => {
+//     fetchplan().then((value) => {
+//      console.log(value)
+//      setdataplan(value)
     
-  var data=value[0]
-  data=data.pricingPlans
+//   var data=value[0]
+//   data=data.pricingPlans
   
-  console.log(data)
-  console.log("state variable")
-   dataplans.push(data)
-  console.log(dataplans)
-   console.log(dataplan)
-});
-  }, [])
+//   console.log(data)
+//   console.log("state variable")
+//    dataplans.push(data)
+//   console.log(dataplans)
+//    console.log(dataplan)
+// });
+//   }, [])
   
   useEffect(() => {
    
@@ -336,7 +336,7 @@ const UserList = () => {
 
   return (
     <Grid container spacing={6}>
-      <Grid item xs={12}>
+      {/*<Grid item xs={12}>
         <Card>
           <CardHeader title='Search Filters' sx={{ pb: 4, '& .MuiCardHeader-title': { letterSpacing: '.15px' } }} />
           <CardContent>
@@ -407,7 +407,7 @@ const UserList = () => {
             </Grid>
           </CardContent>
         </Card>
-      </Grid>
+      </Grid>*/}
       <Grid item xs={12}>
         <Card>
           <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />

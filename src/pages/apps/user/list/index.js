@@ -281,7 +281,7 @@ const UserList = () => {
   const [status, setStatus] = useState('')
   const [pageSize, setPageSize] = useState(10)
   const [addUserOpen, setAddUserOpen] = useState(false)
-const [dataplan, setdataplan] = useState(null)
+  const [dataplan, setdataplan] = useState(null)
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
@@ -290,9 +290,9 @@ const [dataplan, setdataplan] = useState(null)
    fetchplan().then((value) => {
      console.log(value)
   var data=value[0]
-  
-  setdataplan(data.pricingPlans)
-  console.log(data.pricingPlans)
+  data=data.pricingPlans
+  setdataplan(data)
+  console.log(data)
    console.log(dataplan)
   
 });

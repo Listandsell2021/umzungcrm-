@@ -285,8 +285,9 @@ const [dataplan, setdataplan] = useState([])
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
-  useEffect(()=>{
-fetchplan().then((value) => {
+  
+  useEffect(() => {
+   fetchplan().then((value) => {
      console.log(value)
   var data=value[0]
   
@@ -295,9 +296,6 @@ fetchplan().then((value) => {
 console.log(dataplan)
   
 });
-  })
-  useEffect(() => {
-   
     
     dispatch(
       fetchData({

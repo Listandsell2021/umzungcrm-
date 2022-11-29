@@ -291,7 +291,7 @@ const [dataplan, setdataplan] = useState([])
      console.log(value)
   var data=value[0]
   
-  setdataplan(...data.pricingPlans)
+  setdataplan([...data.pricingPlans])
   console.log(data.pricingPlans)
 console.log(dataplan)
   

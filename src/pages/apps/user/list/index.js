@@ -292,7 +292,7 @@ const [dataplan, setdataplan] = useState([])
   var data=value[0]
   
   //setdataplan(data)
-console.log(data)
+console.log(data.pricingPlans)
   
 });
     dispatch(

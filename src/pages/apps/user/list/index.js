@@ -285,17 +285,19 @@ const UserList = () => {
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
-  
+  const dataplans=null;
 
   useEffect(() => {
     fetchplan().then((value) => {
      console.log(value)
      setdataplan(value)
+     dataplans=value
   var data=value[0]
   data=data.pricingPlans
   
   console.log(data)
   console.log("state variable")
+  console.log(dataplans)
    console.log(dataplan)
 });
   }, [])

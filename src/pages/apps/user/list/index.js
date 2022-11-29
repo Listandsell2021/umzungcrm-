@@ -291,12 +291,13 @@ const UserList = () => {
     fetchplan().then((value) => {
      console.log(value)
      setdataplan(value)
-     dataplans.push(value)
+    
   var data=value[0]
   data=data.pricingPlans
   
   console.log(data)
   console.log("state variable")
+   dataplans.push(data)
   console.log(dataplans)
    console.log(dataplan)
 });

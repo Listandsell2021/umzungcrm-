@@ -289,10 +289,10 @@ const [dataplan, setdataplan] = useState([])
    
     fetchplan().then((value) => {
      console.log(value)
-  var data=value[0].pricingPlans
+  var data=value[0]
   
-  setdataplan(data)
-console.log(dataplan)
+  //setdataplan(data)
+console.log(data)
   
 });
     dispatch(

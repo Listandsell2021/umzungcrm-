@@ -41,7 +41,7 @@ import CustomAvatar from 'src/@core/components/mui/avatar'
 import { getInitials } from 'src/@core/utils/get-initials'
 
 // ** Actions Imports
-import { fetchData, deleteUser,fetchplan } from 'src/store/apps/user'
+import { fetchData, deleteUser } from 'src/store/apps/user'
 
 // ** Custom Components Imports
 import TableHeader from 'src/views/apps/user/list/TableHeader'

@@ -24,9 +24,9 @@ const TableHeader = props => {
           onChange={e => handleFilter(e.target.value)}
         />
 
-        <Button sx={{ mb: 2 }} onClick={toggle} variant='contained'>
+        {/* <Button sx={{ mb: 2 }} onClick={toggle} variant='contained'>
           Add User
-        </Button>
+        </Button> */}
       </Box>
     </Box>
   )

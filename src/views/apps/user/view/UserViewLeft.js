@@ -86,10 +86,10 @@ const UserViewLeft = ({ data }) => {
 useEffect(() => {
  console.log(data)
 })
-function  updateUsers()
+async function  updateUsers()
   { 
     
-    var datas={
+    var datanew={
       "sa_id":"sa1",
       "a_id":data.a_id,
      //"company_name":,
@@ -106,9 +106,12 @@ function  updateUsers()
       "username":data.username
     }
     console.log("datas")
-     console.log(datas)
+     console.log(datanew)
       
-    updateUser({ ...datas })
+   const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdminlist', {
+    datanew
+  })
+  console.log(response)
     handleEditClose()
 
 

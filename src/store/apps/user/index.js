@@ -62,25 +62,25 @@ export const addUser = createAsyncThunk('appUsers/addUser', async (data, { getSt
 
   return response.data
 })
-export const updateUser = createAsyncThunk('appProducts/addProducts', async (data, { getState, dispatch }) => {
+export const updateUser = createAsyncThunk('appProducts/addProducts', async (datas, { getState, dispatch }) => {
 
  
  
   var datanew={
      "sa_id":"sa1",
-      "a_id":data.a_id,
+      "a_id":datas.a_id,
      //"company_name":,
-      "address":data.address,
+      "address":datas.address,
       "token":"123333",
       //"date_registered":"24/11/2022",
       //"avatar":"/images/avatars/4.png",
-      "contact":data.contact,
+      "contact":datas.contact,
       //"currentPlan":"plan2",
-      "full_name":data.full_name,
-      "status":data.status,
-      "email":data.email,
+      "full_name":datas.full_name,
+      "status":datas.status,
+      "email":datas.email,
       //"role":"admin",
-      "username":data.username
+      "username":datas.username
     }
 
 

@@ -74,7 +74,8 @@ const UserViewLeft = ({ data }) => {
   // ** States
   const [openEdit, setOpenEdit] = useState(false)
   const [openPlans, setOpenPlans] = useState(false)
-
+ const [datan, setdatan] = useState(data)
+ 
   // Handle Edit dialog
   const handleEditClickOpen = () => setOpenEdit(true)
   const handleEditClose = () => setOpenEdit(false)
@@ -85,10 +86,10 @@ const UserViewLeft = ({ data }) => {
 useEffect(() => {
  console.log(data)
 })
-function  updateUsers(data)
+function  updateUsers()
   { 
-    console.log(data)
-    var data={
+    
+    var datas={
       "sa_id":"sa1",
       "a_id":data.a_id,
      //"company_name":,
@@ -104,7 +105,7 @@ function  updateUsers(data)
       //"role":"admin",
       "username":data.username
     }
-    updateUser({ ...data })
+    updateUser({ ...datas })
     handleEditClose()
 
 
@@ -340,7 +341,7 @@ function  updateUsers(data)
                 </form>
               </DialogContent>
               <DialogActions sx={{ justifyContent: 'center' }}>
-                <Button variant='contained' sx={{ mr: 1 }} onClick={updateUsers(data)}>
+                <Button variant='contained' sx={{ mr: 1 }} onClick={updateUsers}>
                   Submit
                 </Button>
                 <Button variant='outlined' color='secondary' onClick={handleEditClose}>

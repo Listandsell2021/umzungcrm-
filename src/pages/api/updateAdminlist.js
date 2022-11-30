@@ -13,7 +13,7 @@ console.log(datanew)
       "a_id":datanew.a_id,
      //"company_name":,
       "address":datanew.address,
-      "token":"123333",
+      "token":"123333sddss",
       //"date_registered":"24/11/2022",
       //"avatar":"/images/avatars/4.png",
       "contact":dadatanewta.contact,

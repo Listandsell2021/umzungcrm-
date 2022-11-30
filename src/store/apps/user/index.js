@@ -71,7 +71,7 @@ export const updateUser = createAsyncThunk('appProducts/addProducts', async (dat
       "a_id":datas.a_id,
      //"company_name":,
       "address":datas.address,
-      "token":"123333",
+      "token":"123333tdtt",
       //"date_registered":"24/11/2022",
       //"avatar":"/images/avatars/4.png",
       "contact":datas.contact,

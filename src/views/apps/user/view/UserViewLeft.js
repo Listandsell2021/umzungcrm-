@@ -83,26 +83,20 @@ const UserViewLeft = ({ data }) => {
   // Handle Upgrade Plan dialog
   const handlePlansClickOpen = () => setOpenPlans(true)
   const handlePlansClose = () => setOpenPlans(false)
-useEffect(() => {
- console.log(data)
-})
+
 async function  updateUsers()
   { 
     
     var datanew={
       "sa_id":"sa1",
       "a_id":data.a_id,
-     //"company_name":,
+    
       "address":data.address,
       "token":"1233335555555555",
-      //"date_registered":"24/11/2022",
-      //"avatar":"/images/avatars/4.png",
       "contact":data.contact,
-      //"currentPlan":"plan2",
       "full_name":data.full_name,
       "status":data.status,
       "email":data.email,
-      //"role":"admin",
       "username":data.username
     }
     console.log("datas")

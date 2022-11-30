@@ -277,9 +277,9 @@ useEffect(() => {
                         </Select>
                       </FormControl>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    {/*<Grid item xs={12} sm={6}>
                       <TextField fullWidth label='TAX ID' defaultValue='Tax-8894' />
-                    </Grid>
+              </Grid>*/}
                     <Grid item xs={12} sm={6}>
                       <TextField fullWidth label='Contact' defaultValue={`${data.contact}`} />
                     </Grid>
@@ -304,13 +304,13 @@ useEffect(() => {
                      <Grid item xs={12} sm={6}>
                       <TextField fullWidth label='Address' defaultValue={`${data.address}`} />
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <FormControlLabel
                         label='Use as a billing address?'
                         control={<Switch defaultChecked />}
                         sx={{ '& .MuiTypography-root': { fontWeight: 500 } }}
                       />
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </form>
               </DialogContent>

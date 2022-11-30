@@ -87,6 +87,7 @@ useEffect(() => {
 })
 function  updateUsers()
   { 
+    console.log(data)
     var data={
       "sa_id":"sa1",
       "a_id":data.a_id,

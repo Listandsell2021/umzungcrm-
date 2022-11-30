@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       "a_id":datanew.a_id,
       "address":datanew.address,
       "token":"123333sddss",
-      "contact":dadatanewta.contact,
+      "contact":datanew.contact,
       "full_name":datanew.full_name,
       "status":datanew.status,
       "email":datanew.email,

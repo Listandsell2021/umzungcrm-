@@ -27,4 +27,3 @@ console.log(datanew)
   res.status(200).json(todos);
   //await db.close();
 }
-  

@@ -38,6 +38,8 @@ import CustomAvatar from 'src/@core/components/mui/avatar'
 // ** Utils Import
 import { getInitials } from 'src/@core/utils/get-initials'
 
+import { updateUser } from 'src/store/apps/user'
+import data from 'src/@fake-db/components/data'
 // ** Styled <sup> component
 const Sup = styled('sup')(({ theme }) => ({
   top: '0.2rem',
@@ -83,7 +85,29 @@ const UserViewLeft = ({ data }) => {
 useEffect(() => {
  console.log(data)
 })
+function  updateUsers()
+  { 
+    var data={
+      "sa_id":"sa1",
+      "a_id":data.a_id,
+     //"company_name":,
+      "address":data.address,
+      "token":"1233335555555555",
+      //"date_registered":"24/11/2022",
+      //"avatar":"/images/avatars/4.png",
+      "contact":data.contact,
+      //"currentPlan":"plan2",
+      "full_name":data.full_name,
+      "status":data.status,
+      "email":data.email,
+      //"role":"admin",
+      "username":data.username
+    }
+    updateUser({ ...data })
+    handleEditClose()
 
+
+  }
   const renderUserAvatar = () => {
     if (data) {
       if (data.avatar.length) {
@@ -204,10 +228,10 @@ useEffect(() => {
                     {data.role}
                   </Typography>
                 </Box>
-                {/* <Box sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Tax ID:</Typography>
-                  <Typography variant='body2'>Tax-8894</Typography>
-                </Box> */}
+                 <Box sx={{ display: 'flex', mb: 2.7 }}>
+                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Company:</Typography>
+                  <Typography variant='body2'>{data.company_name}</Typography>
+                </Box> 
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Contact:</Typography>
                   <Typography variant='body2'> {data.contact}</Typography>
@@ -283,7 +307,7 @@ useEffect(() => {
                     <Grid item xs={12} sm={6}>
                       <TextField fullWidth label='Contact' defaultValue={`${data.contact}`} />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    {/* <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
                         <InputLabel id='user-view-language-label'>Language</InputLabel>
                         <Select
@@ -300,7 +324,7 @@ useEffect(() => {
                           <MenuItem value='German'>German</MenuItem>
                         </Select>
                       </FormControl>
-                    </Grid>
+                    </Grid> */}
                      <Grid item xs={12} sm={6}>
                       <TextField fullWidth label='Address' defaultValue={`${data.address}`} />
                     </Grid>
@@ -315,7 +339,7 @@ useEffect(() => {
                 </form>
               </DialogContent>
               <DialogActions sx={{ justifyContent: 'center' }}>
-                <Button variant='contained' sx={{ mr: 1 }} onClick={handleEditClose}>
+                <Button variant='contained' sx={{ mr: 1 }} onClick={updateUsers}>
                   Submit
                 </Button>
                 <Button variant='outlined' color='secondary' onClick={handleEditClose}>

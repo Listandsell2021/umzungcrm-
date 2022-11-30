@@ -85,7 +85,7 @@ const UserViewLeft = ({ data }) => {
 useEffect(() => {
  console.log(data)
 })
-function  updateUsers()
+function  updateUsers(data)
   { 
     console.log(data)
     var data={
@@ -340,7 +340,7 @@ function  updateUsers()
                 </form>
               </DialogContent>
               <DialogActions sx={{ justifyContent: 'center' }}>
-                <Button variant='contained' sx={{ mr: 1 }} onClick={updateUsers}>
+                <Button variant='contained' sx={{ mr: 1 }} onClick={updateUsers(data)}>
                   Submit
                 </Button>
                 <Button variant='outlined' color='secondary' onClick={handleEditClose}>

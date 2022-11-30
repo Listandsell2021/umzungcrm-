@@ -105,6 +105,9 @@ function  updateUsers()
       //"role":"admin",
       "username":data.username
     }
+    console.log("datas")
+     console.log(datas)
+      
     updateUser({ ...datas })
     handleEditClose()
 

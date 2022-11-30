@@ -85,9 +85,11 @@ export const updateUser = createAsyncThunk('appProducts/addProducts', async (dat
 
   
   console.log(datanew)
+  console.log("datanew")
  const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdminlist', {
     datanew
   })
+  console.log(response)
   dispatch(fetchData(getState().user.params))
   
 

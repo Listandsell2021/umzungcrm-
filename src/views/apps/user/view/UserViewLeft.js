@@ -74,6 +74,11 @@ const UserViewLeft = ({ data }) => {
   // ** States
   const [openEdit, setOpenEdit] = useState(false)
   const [openPlans, setOpenPlans] = useState(false)
+ const [company_name, setdatan] = useState(data)
+ const [email, setdatan] = useState(data)
+ const [address, setdatan] = useState(data)
+ const [datan, setdatan] = useState(data)
+ const [datan, setdatan] = useState(data)
  const [datan, setdatan] = useState(data)
  
   // Handle Edit dialog

@@ -74,12 +74,13 @@ const UserViewLeft = ({ data }) => {
   // ** States
   const [openEdit, setOpenEdit] = useState(false)
   const [openPlans, setOpenPlans] = useState(false)
- const [company_name, setdatan] = useState(data)
- const [email, setdatan] = useState(data)
- const [address, setdatan] = useState(data)
- const [datan, setdatan] = useState(data)
- const [datan, setdatan] = useState(data)
- const [datan, setdatan] = useState(data)
+ const [company_name, setcompany_name] = useState(data)
+ const [email, setemail] = useState(data.email)
+ const [address, setaddress] = useState(data.address)
+ const [contact, setcontact] = useState(data.contact)
+ const [full_name, setfull_name] = useState(data.full_name)
+ const [username, setusername] = useState(data.username)
+  const [status, setstatus] = useState(data.status)
  
   // Handle Edit dialog
   const handleEditClickOpen = () => setOpenEdit(true)
@@ -89,6 +90,24 @@ const UserViewLeft = ({ data }) => {
   const handlePlansClickOpen = () => setOpenPlans(true)
   const handlePlansClose = () => setOpenPlans(false)
 
+   const handleemail = useCallback(e => {
+    setemail(e.target.value)
+  }, [])
+   const handleaddress = useCallback(e => {
+    setaddress(e.target.value)
+  }, [])
+   const handlecontact = useCallback(e => {
+    setcontact(e.target.value)
+  }, [])
+   const handlefull_name = useCallback(e => {
+    setfull_name(e.target.value)
+  }, [])
+   const handleusername = useCallback(e => {
+    setusername(e.target.value)
+  }, [])
+   const handlestatus = useCallback(e => {
+    setstatus(e.target.value)
+  }, [])
 async function  updateUsers()
   { 
     
@@ -101,7 +120,7 @@ async function  updateUsers()
       "contact":data.contact,
       "full_name":data.full_name,
       "status":data.status,
-      "email":data.email,
+      "full_name":data.email,
       "username":data.username
     }
     console.log("datas")

@@ -120,16 +120,23 @@ const RowOptions = ({ a_id }) => {
   const rowOptionsOpen = Boolean(anchorEl)
   const [plan,setplan]= useState(null)
 
-  useEffect(() => {
+ 
    async function getPackages()
    {
    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackages', {})
-   setplan(response.data)
-   console.log(plan)
-   }
-   getPackages()
+   return response.data
    
-  }, [])
+   }
+   useEffect(() => {
+    
+    var data=getPackages()
+    console.log(data)
+
+   }, [])
+   
+   
+   
+
   
 var a_idnew=String(a_id).substring(1);
   const handleRowOptionsClick = event => {

@@ -120,7 +120,7 @@ const RowOptions = ({ a_id }) => {
   const rowOptionsOpen = Boolean(anchorEl)
   
    const [plan,setplan]= useState(null)
- 
+  
     const getPackages= async()=>
    {
     
@@ -136,6 +136,9 @@ const RowOptions = ({ a_id }) => {
     getPackages().then((data)=>{
        
        console.log(data)
+       setplan(data)
+       console.log("data plan")
+       console.log(plan)
     })
     console.log(getPackages())
     

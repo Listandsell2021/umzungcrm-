@@ -180,16 +180,7 @@ var a_idnew=String(a_id).substring(1);
     </>
   )
 }
- const getPackages= async(data)=>
-   {
-    
-    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
-       id:data
-   })
-   var data=response.data
-   return data[0].title
-   
-   }
+
 const columns = [
   {
     flex: 0.2,
@@ -263,9 +254,29 @@ const columns = [
     headerName: 'Plan',
     field: 'currentPlan',
     renderCell: ({ row }) => {
+        const [plan,setplan]= useState(null)
+  
+    const getPackages= async()=>
+   {
+    
+    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
+       id:row.currentPlan
+   })
+   var data=response.data
+   return data[0].title
+   
+   }
+   
+    
+    getPackages().then((data)=>{
+       
+       
+       setplan(data)
+       
+    })
       return (
         <Typography variant='subtitle1' noWrap sx={{ textTransform: 'capitalize' }}>
-          {getPackages(row.currentPlan)}
+          {plan}
         </Typography>
       )
     }

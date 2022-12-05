@@ -133,7 +133,9 @@ const RowOptions = ({ a_id }) => {
    useEffect(() => {
     
     getPackages().then((data)=>{
-       console.log(data)
+       console.log(data[0].title)
+       setplan(data[0].title)
+       console.log(plan)
     })
     
 

@@ -190,7 +190,7 @@ const UserViewSecurity = () => {
         </CardContent>
       </Card>
 
-      <Card sx={{ mb: 6 }}>
+      {/*<Card sx={{ mb: 6 }}>
         <CardHeader
           title='Two-step verification'
           titleTypographyProps={{ variant: 'h6' }}
@@ -265,9 +265,9 @@ const UserViewSecurity = () => {
             </form>
           </DialogContent>
         </Dialog>
-      </Card>
+      </Card>*/}
 
-      <Card>
+      {/*<Card>
         <CardHeader title='Recent devices' titleTypographyProps={{ variant: 'h6' }} />
 
         <Divider sx={{ m: 0 }} />
@@ -302,7 +302,7 @@ const UserViewSecurity = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </Card>
+              </Card>*/}
     </Fragment>
   )
 }

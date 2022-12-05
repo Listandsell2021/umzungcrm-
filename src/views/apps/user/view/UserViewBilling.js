@@ -307,7 +307,7 @@ const UserViewBilling = () => {
         </Dialog>
       </Card>
 
-      <Card sx={{ mb: 6 }}>
+      {/*<Card sx={{ mb: 6 }}>
         <CardHeader
           title='Payment Methods'
           titleTypographyProps={{ variant: 'h6' }}
@@ -482,9 +482,9 @@ const UserViewBilling = () => {
             </Button>
           </DialogActions>
         </Dialog>
-      </Card>
+      </Card>*/}
 
-      <Card>
+      {/*<Card>
         <CardHeader
           title='Billing Address'
           titleTypographyProps={{ variant: 'h6' }}
@@ -695,7 +695,7 @@ const UserViewBilling = () => {
             </Button>
           </DialogActions>
         </Dialog>
-      </Card>
+      </Card>*/}
     </Fragment>
   )
 }

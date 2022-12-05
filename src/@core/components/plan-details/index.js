@@ -134,20 +134,24 @@ const handleChangeTitle = e => {
     settitle(e.target.value)
   }
   const handleChangePlanPrice = e => {
+    
     setmonthlyPrice(e.target.value)
   }
   const handleChangeSubTitle = e => {
     setsubtitle(e.target.value)
   }
 const handleChangePerMonthPriceUYearly= e => {
+  var monthval=parseInt(e.target.value)
+    
     setperMonth(e.target.value)
+    settotalAnnual(monthval*12)
   }
   const handleChangeStatus = e => {
     setStatus(e.target.value)
   }
   const handleChangeAnnualPrice = e => {
-    var monthval=parseInt(e.target.value)
-    settotalAnnual(monthval*12)
+    
+    settotalAnnual(e.target.value)
   }
   const handleChangeBenifits1 = e => {
     setplanBenefits1(e.target.value)

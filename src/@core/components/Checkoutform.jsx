@@ -116,12 +116,7 @@ export default function CheckoutForm(price) {
 <Link href="/">
 
 <a className="">
-  <Image
-    width={180}
-    height={100}
-    src="/logo/vedi.png"
-    alt="logo"
-  />
+  
 </a>
 </Link>
    

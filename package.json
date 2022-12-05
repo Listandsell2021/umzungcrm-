@@ -56,6 +56,8 @@
     "jsonwebtoken": "8.5.1",
     "keen-slider": "6.6.5",
     "mdi-material-ui": "7.1.0",
+    "micro": "^10.0.1",
+    "micro-cors": "^0.1.1",
     "mongodb": "^4.10.0",
     "next": "12.1.6",
     "nodemailer": "^6.8.0",

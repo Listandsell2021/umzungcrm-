@@ -67,6 +67,7 @@ const Pricing = ({ apiData }) => {
   const [planBenefits2, setplanBenefits2] = useState("")
   const [planBenefits3, setplanBenefits3] = useState("")
   const [planBenefits4, setplanBenefits4] = useState("")
+   const [planBenefits5, setplanBenefits5] = useState("")
   const [status, setStatus] = useState("")
   const [languages, setLanguages] = useState([])
   const handleChange = e => {
@@ -110,7 +111,9 @@ const handleChangePerMonthPriceUYearly= e => {
     const handleChangeBenifits4 = e => {
     setplanBenefits4(e.target.value)
   }
-
+const handleChangeBenifits5 = e => {
+    setplanBenefits5(e.target.value)
+  }
     async function postpackage()
    {
     
@@ -238,7 +241,9 @@ const handleChangePerMonthPriceUYearly= e => {
              <Grid item sm={6} xs={12}>
               <TextField fullWidth label='Plan Benifits 4' placeholder='4.Benifits' onChange={handleChangeBenifits4} value={planBenefits4} />
             </Grid>
-             
+             <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Plan Benifits 5' placeholder='4.Benifits' onChange={handleChangeBenifits5} value={planBenefits4} />
+            </Grid>
         
             
            

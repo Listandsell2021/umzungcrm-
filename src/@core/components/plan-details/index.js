@@ -146,7 +146,8 @@ const handleChangePerMonthPriceUYearly= e => {
     setStatus(e.target.value)
   }
   const handleChangeAnnualPrice = e => {
-    settotalAnnual(e.target.value)
+    var monthval=parseInt(e.target.value)
+    settotalAnnual(monthval*12)
   }
   const handleChangeBenifits1 = e => {
     setplanBenefits1(e.target.value)
@@ -183,7 +184,7 @@ function setdata()
     "imgSrc":"/images/pages/pricing-illustration-1.png",
     "yearlyPlan":
     {"perMonth":parseInt(perMonth),
-    "totalAnnual":parseInt(perMonth*12)
+    "totalAnnual":totalAnnual
     },
     "planBenefits":
     [planBenefits1,

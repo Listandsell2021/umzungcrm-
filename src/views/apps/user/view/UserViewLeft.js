@@ -326,7 +326,7 @@ async function  updateUsers()
                         <InputLabel id='user-view-status-label'>Status</InputLabel>
                         <Select
                           label='Status'
-                          value={data.status}
+                          value={status}
                           id='user-view-status'
                           labelId='user-view-status-label'
                            onChange={e => setstatus(e.target.value)}

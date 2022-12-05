@@ -263,7 +263,7 @@ const columns = [
        id:row.currentPlan
    })
    var data=response.data
-   if(data[0].title)
+   if(data[0].title!="undefined")
    {
     data=data[0].title
    }

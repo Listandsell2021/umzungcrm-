@@ -48,6 +48,14 @@ export default function App() {
     var totals = params.tokenn;
     console.log(totals)
   const decrypted_string = decrypt("salt",String(totals));*/}
+  var regex = /[?&]([^=#]+)=([^&#]*)/g,
+      params = {},
+      match;
+    while ((match = regex.exec(router.asPath))) {
+      params[match[1]] = match[2];
+    }
+   // console.log(params.paymentId);
+    var totals = params.tokenn;
     const decrypted_string=String(totals);
 
   React.useEffect(() => {

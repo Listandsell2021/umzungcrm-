@@ -199,8 +199,11 @@ function setdata()
    "plan_id":plan_id
   }  
   
-  console.log(datanew)
-  
+
+  const response = await axios.post('https://umzungcrmtest.vercel.app/api/updatePackageSuperAdmin', {
+    datanew
+  })
+  console.log(response.status)
 
 }
   return (

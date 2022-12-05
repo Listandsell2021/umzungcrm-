@@ -10,7 +10,7 @@ const PricingPlans = props => {
   const { plan, data } = props
 
   const renderPlan = () => {
-    return data?.pricingPlans.map(item => {
+    return data?.map(item => {
       return (
         <Grid item xs={12} md={4} key={item.title.toLowerCase()}>
           

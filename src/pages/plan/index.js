@@ -212,11 +212,11 @@ const handleChangePerMonthPriceUYearly= e => {
 
 export const getServerSideProps = async () => {
   
-  const res1 = await axios.post('https://umzungcrmtest.vercel.app/api/getPackages')
+  const res1 = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdmin')
   //const apiData = res.data
   var apiData=res1.data
  // console.log(apiData)
-   apiData=apiData[0]
+ 
   //console.log(apiData2[0])
   return {
     props: {

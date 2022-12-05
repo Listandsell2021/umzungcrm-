@@ -115,11 +115,105 @@ const handleChangePerMonthPriceUYearly= e => {
         <PricingPlans plan={plan} data={apiData} />
         
       </CardContent>
-      
+       <CardContents sx={{ textAlign: 'center' }}>
+        <AccountOutline sx={{ mb: 2, fontSize: '2rem' }} />
+        <Typography variant='h6' sx={{ mb: 4 }}>
+          Add Package
+        </Typography>
+        <Typography sx={{ mb: 3 }}>Use this modal to modify the existing user&prime;s current information.</Typography>
+        <Button variant='contained' onClick={() => setShow(true)}>
+          add
+        </Button>
+      </CardContents>
       <PricingCTA />
       {/* <PricingFooter data={apiData} /> */}
       
-       
+       <Dialog
+        fullWidth
+        open={show}
+        maxWidth='md'
+        scroll='body'
+        onClose={() => setShow(false)}
+        TransitionComponent={Transition}
+        onBackdropClick={() => setShow(false)}
+      >
+        <DialogContent sx={{ pb: 6, px: { xs: 8, sm: 15 }, pt: { xs: 8, sm: 12.5 }, position: 'relative' }}>
+          <IconButton
+            size='small'
+            onClick={() => setShow(false)}
+            sx={{ position: 'absolute', right: '1rem', top: '1rem' }}
+          >
+            <Close />
+          </IconButton>
+          <Box sx={{ mb: 8, textAlign: 'center' }}>
+            <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
+              Edit User Information
+            </Typography>
+            <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
+          </Box>
+          <Grid container spacing={6}>
+            <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Plan Title' placeholder='Basic' onChange={handleChangeTitle} value={title} />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextField fullWidth value={monthlyPrice}  onChange={handleChangePlanPrice}  label='Plan Price' placeholder='Doe' />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField fullWidth value={subtitle}  onChange={handleChangeSubTitle} label='Sub Title' placeholder='johnDoe' />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextField
+                fullWidth
+
+                label='Per Month Price for yearly'
+                placeholder='johnDoe@email.com'
+                value={perMonth}
+                onChange={handleChangePerMonthPriceUYearly}
+              />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <FormControl fullWidth>
+                <InputLabel id='status-select'>Status</InputLabel>
+                <Select value={status} fullWidth labelId='status-select'  onChange={handleChangeStatus} label='Status'>
+                  <MenuItem value='Status'>Status</MenuItem>
+                  <MenuItem value='Active'>Active</MenuItem>
+                  <MenuItem value='Inactive'>Inactive</MenuItem>
+                  <MenuItem value='Suspended'>Suspended</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Annual price' placeholder='878' onChange={handleChangeAnnualPrice} value={totalAnnual} />
+            </Grid>
+             <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Plan Benifits 1' placeholder='1.Benifits'  onChange={handleChangeBenifits1} value={planBenefits1} />
+            </Grid>
+             <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Plan Benifits 2' placeholder='2.Benifits'  onChange={handleChangeBenifits2} value={planBenefits2} />
+            </Grid>
+             <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Plan Benifits 3' placeholder='3.Benifits' onChange={handleChangeBenifits3} value={planBenefits3} />
+            </Grid>
+             <Grid item sm={6} xs={12}>
+              <TextField fullWidth label='Plan Benifits 4' placeholder='4.Benifits' onChange={handleChangeBenifits4} value={planBenefits4} />
+            </Grid>
+             
+        
+            
+           
+            
+           
+          </Grid>
+        </DialogContent>
+        <DialogActions sx={{ pb: { xs: 8, sm: 12.5 }, justifyContent: 'center' }}>
+          <Button variant='contained' sx={{ mr: 2 }} onClick={() => setShow(false)}>
+            Submit
+          </Button>
+          <Button variant='outlined' color='secondary' onClick={() => setShow(false)}>
+            Discard
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Card>
   )
 }

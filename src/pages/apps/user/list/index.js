@@ -49,7 +49,7 @@ import { fetchData, deleteUser } from 'src/store/apps/user'
 // ** Custom Components Imports
 import TableHeader from 'src/views/apps/user/list/TableHeader'
 import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
-
+const [plan,setplan]= useState(null)
 // ** Vars
 const userRoleObj = {
   admin: <Laptop sx={{ mr: 2, color: 'error.main' }} />,
@@ -118,7 +118,7 @@ const RowOptions = ({ a_id }) => {
   // ** State
   const [anchorEl, setAnchorEl] = useState(null)
   const rowOptionsOpen = Boolean(anchorEl)
-  const [plan,setplan]= useState(null)
+  
 
  
    async function getPackages()

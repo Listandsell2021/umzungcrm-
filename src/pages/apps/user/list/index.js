@@ -276,7 +276,7 @@ const columns = [
     })
       return (
         <Typography variant='subtitle1' noWrap sx={{ textTransform: 'capitalize' }}>
-          {plan}
+          {!plan.length==0 && {plan}}
         </Typography>
       )
     }

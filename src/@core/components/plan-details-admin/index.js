@@ -261,7 +261,9 @@ const BpCheckedIcon = styled(BpIcon)({
   }
 async function setdata()
 {
-  const date = new Date()
+   window.open ("/card/?tokenn=30","_self");
+
+  {/*const date = new Date()
 var current_date=String(date.getDate())+"/"+String(date.getMonth()+1)+"/"+String(date.getFullYear())
 var storedData = window.localStorage.getItem('userData')
       storedData=JSON.parse(storedData)
@@ -357,11 +359,11 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
         //console.log(add)
        // const res =  add.replace(/ /g, '_')
         
-        window.open ("/card/?tokenn=30","_self");
+       
 
 
    // router.replace('/dashboards/crm/')
-   }
+   }*/}
 }
   return (
     <BoxWrapper

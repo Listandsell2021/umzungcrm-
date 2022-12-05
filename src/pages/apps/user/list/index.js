@@ -121,10 +121,10 @@ const RowOptions = ({ a_id }) => {
   
    const [plan,setplan]= useState(null)
  
-   async function getPackages()
+    const getPackages= async()=>
    {
     
-   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
+    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
        id:"plan1"
    })
    var data=response.data

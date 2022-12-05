@@ -123,7 +123,7 @@ const RowOptions = ({ a_id }) => {
  
    async function getPackages()
    {
-   const response = await axios.post('https://umzungcrmtest.vercel.app/api/Packages_SuperAdmin', {})
+   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdmin', {})
    return response.data
    
    }

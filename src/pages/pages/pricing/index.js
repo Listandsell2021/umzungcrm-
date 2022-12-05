@@ -118,8 +118,11 @@ const handleChangeBenifits5 = e => {
    {
     
      
-      
-    var datanew=
+      var datas={"collection":"Packages_SuperAdmin"}
+    const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
+       datas
+  })
+    var packageData=
     {
     "imgWidth":{"$numberInt":"100"},
      "imgHeight":{"$numberInt":"100"},
@@ -139,16 +142,16 @@ const handleChangeBenifits5 = e => {
     planBenefits3,
     planBenefits4,
     planBenefits5],
-   "plan_id":plan_id
+   "plan_id":"plan"+parseInt(response1)+1
   }  
   console.log(datanew)
 
-  // const response = await axios.post('https://umzungcrmtest.vercel.app/api/updatePackageSuperAdmin', {
-  //   datanew
-  // })
+   const response = await axios.post('https://umzungcrmtest.vercel.app/api/postPackageSuperAdmin', {
+   packageData
+  })
   
-  // console.log(response.status)
-  // window.location.reload(false);
+   console.log(response.status)
+   window.location.reload(false);
   
   }
   
@@ -242,7 +245,7 @@ const handleChangeBenifits5 = e => {
               <TextField fullWidth label='Plan Benifits 4' placeholder='4.Benifits' onChange={handleChangeBenifits4} value={planBenefits4} />
             </Grid>
              <Grid item sm={6} xs={12}>
-              <TextField fullWidth label='Plan Benifits 5' placeholder='4.Benifits' onChange={handleChangeBenifits5} value={planBenefits4} />
+              <TextField fullWidth label='Plan Benifits 5' placeholder='4.Benifits' onChange={handleChangeBenifits5} value={planBenefits5} />
             </Grid>
         
             

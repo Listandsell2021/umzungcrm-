@@ -49,7 +49,7 @@ import { fetchData, deleteUser } from 'src/store/apps/user'
 // ** Custom Components Imports
 import TableHeader from 'src/views/apps/user/list/TableHeader'
 import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
-const [plan,setplan]= useState(null)
+
 // ** Vars
 const userRoleObj = {
   admin: <Laptop sx={{ mr: 2, color: 'error.main' }} />,
@@ -119,7 +119,7 @@ const RowOptions = ({ a_id }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const rowOptionsOpen = Boolean(anchorEl)
   
-
+   const [plan,setplan]= useState(null)
  
    async function getPackages()
    {
@@ -127,16 +127,17 @@ const RowOptions = ({ a_id }) => {
    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
        id:"plan1"
    })
-   return response.data
+   var data=response.data
+   return data[0].title
    
    }
    useEffect(() => {
     
     getPackages().then((data)=>{
-       console.log(data[0].title)
-       setplan(data[0].title)
-       console.log(plan)
+       
+       console.log(data)
     })
+    console.log(getPackages())
     
 
    }, [])

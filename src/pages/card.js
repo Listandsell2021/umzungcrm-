@@ -8,7 +8,7 @@ import { enc } from 'crypto-js';
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
-const stripePromise = loadStripe("pk_live_AYELWMhv1iDbNo9sOjuQLznC00DUp8jtVV");
+const stripePromise = loadStripe("pk_test_51M6x0oLyEBFmpvhwlbFzaHsBI7xg342mF5nObXfWz9GrVNCn3xBDIlhvtlK4T32Ol10Fo2IAgotIjOPufvwpkCNp00zOwLp29u");
 
 export default function App() {
   const [clientSecret, setClientSecret] = React.useState("");

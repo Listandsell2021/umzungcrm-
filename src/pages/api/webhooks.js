@@ -2,9 +2,9 @@ import Stripe from 'stripe';
 import { buffer } from 'micro';
 import Cors from 'micro-cors';
 
-const stripe = new Stripe("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");
+const stripe = new Stripe("sk_test_51M6x0oLyEBFmpvhwhO5OLjuHetzgBGjBZre9dnibPasYwFVPy3O9BAfKBXFlx5z66wO2m6KHDj9nWt4j530HA9EJ00QdWefElq");
 
-const webhookSecret = "whsec_2FSuQ1NvljDEI3dGxY402yZpvvfEA9y3";
+const webhookSecret = "we_1MBagpLyEBFmpvhw5oiTn6za";
 
 // Stripe requires the raw body to construct the event.
 export const config = {

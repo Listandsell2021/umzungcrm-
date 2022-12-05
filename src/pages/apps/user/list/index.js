@@ -263,7 +263,15 @@ const columns = [
        id:row.currentPlan
    })
    var data=response.data
-   return data[0].title
+   if(data[0].title)
+   {
+    data=data[0].title
+   }
+   else
+   {
+    data=""
+   }
+   return data
    
    }
    

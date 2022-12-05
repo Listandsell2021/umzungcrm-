@@ -120,7 +120,7 @@ const handleChangePerMonthPriceUYearly= e => {
         <Typography variant='h6' sx={{ mb: 4 }}>
           Add Package
         </Typography>
-        <Typography sx={{ mb: 3 }}>Use this modal to modify the existing user&prime;s current information.</Typography>
+        <Typography sx={{ mb: 3 }}></Typography>
         <Button variant='contained' onClick={() => setShow(true)}>
           add
         </Button>
@@ -147,9 +147,9 @@ const handleChangePerMonthPriceUYearly= e => {
           </IconButton>
           <Box sx={{ mb: 8, textAlign: 'center' }}>
             <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
-              Edit User Information
+              add Package
             </Typography>
-            <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
+            <Typography variant='body2'>add package</Typography>
           </Box>
           <Grid container spacing={6}>
             <Grid item sm={6} xs={12}>
@@ -166,7 +166,7 @@ const handleChangePerMonthPriceUYearly= e => {
                 fullWidth
 
                 label='Per Month Price for yearly'
-                placeholder='johnDoe@email.com'
+                placeholder=''
                 value={perMonth}
                 onChange={handleChangePerMonthPriceUYearly}
               />

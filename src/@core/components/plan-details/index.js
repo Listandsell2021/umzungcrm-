@@ -117,6 +117,7 @@ const PlanDetails = props => {
   
  const [show, setShow] = useState(false)
   const [title, settitle] = useState(data?.title)
+  const [plan_id, setplan_id] = useState(data?.plan_id)
   const [monthlyPrice,setmonthlyPrice] = useState(data?.monthlyPrice)
   const [subtitle,setsubtitle] = useState(data?.subtitle)
   const [perMonth,setperMonth] = useState(data?.yearlyPlan.perMonth)
@@ -172,71 +173,27 @@ const handleChangePerMonthPriceUYearly= e => {
   }
 function setdata()
 {
-  var datanew={
-    "pricingPlans":
-    [{"imgWidth":{"$numberInt":"100"},
-    "title":"BasicTest",
-    "imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"0"},
-    "currentPlan":true,
-    "popularPlan":false,
-    "subtitle":"A simple start for everyone",
+  var datanew=
+  {
+  
+    
+    "title":title,
+    "monthlyPrice":parseInt(monthlyPrice),
+    "subtitle":subtitle,
     "imgSrc":"/images/pages/pricing-illustration-1.png",
     "yearlyPlan":
-    {"perMonth":{"$numberInt":"0"},
-    "totalAnnual":{"$numberInt":"0"}},
+    {"perMonth":parseInt(perMonth),
+    "totalAnnual":parseInt(perMonth*12)
+    },
     "planBenefits":
-    ["100 responses a month",
-    "Unlimited forms and surveys",
-    "Unlimited fields","Basic form creation tools",
-    "Up to 2 subdomains"]},
-    {"imgWidth":{"$numberInt":"100"},
-    "title":"BasicTest",
-    "imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"0"},
-    "currentPlan":true,
-    "popularPlan":false,
-    "subtitle":"A simple start for everyone",
-    "imgSrc":"/images/pages/pricing-illustration-1.png",
-    "yearlyPlan":{"perMonth":{"$numberInt":"0"},
-    "totalAnnual":{"$numberInt":"0"}},
-    "planBenefits":["100 responses a month",
-    "Unlimited forms and surveys",
-    "Unlimited fields",
-    "Basic form creation tools",
-    "Up to 2 subdomains"]},
-    {"imgWidth":{"$numberInt":"100"},
-    "imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"49"},
-    "title":"Standard",
-    "popularPlan":true,
-    "currentPlan":false,
-    "subtitle":"For small to medium businesses",
-    "imgSrc":"/images/pages/pricing-illustration-2.png",
-    "yearlyPlan":{"perMonth":{"$numberInt":"40"},
-    "totalAnnual":{"$numberInt":"480"}},
-    "planBenefits":["Unlimited responses","Unlimited forms and surveys",
-    "Instagram profile page","Google Docs integration","Custom “Thank you” page"]},
-    {"imgWidth":{"$numberInt":"100"},"imgHeight":{"$numberInt":"100"},
-    "monthlyPrice":{"$numberInt":"99"},
-    "popularPlan":false,
-    "currentPlan":false,
-    "title":"Enterprise",
-    "subtitle":"Solution for big organizations",
-    "imgSrc":"/images/pages/pricing-illustration-3.png",
-    "yearlyPlan":{"perMonth":{"$numberInt":"80"},
-    "totalAnnual":{"$numberInt":"960"}},
-    "planBenefits":["PayPal payments",
-    "Logic Jumps","File upload with 5GB storage","Custom domain support","Stripe integration"]}],
-    
-    
-    
-    "faq":
-    [{"id":"general-settings",
-    "question":"General settings",
-    "answer":"Sesame snaps tart bonbon tiramisu jelly beans lemon drops bear claw candy gummi bears. Caramels pudding sweet donut tootsie roll gummies macaroon. Lemon drops caramels sesame snaps dessert jujubes. Cupcake chocolate bonbon cake tiramisu. Gummies candy canes ice cream biscuit. Jelly gummies wafer danish chupa chups sugar plum cookie."},
-    {"id":"users","question":"Users","answer":"Chocolate sweet roll lemon drops chocolate cake candy canes halvah. Donut fruitcake sweet roll brownie carrot cake cake. Donut jujubes pudding candy macaroon. Gummies gingerbread croissant bonbon. Cookie toffee cupcake cotton candy candy canes dessert cotton candy liquorice. Jelly beans gummi bears toffee chocolate bar chocolate cake."},
-    {"id":"advanced-settings","question":"Advanced settings","answer":"Halvah liquorice pastry marshmallow sugar plum. Dessert chocolate pastry gummi bears pastry. Gingerbread bonbon pudding oat cake jujubes pie wafer tart brownie. Soufflé jujubes icing powder liquorice. Sweet donut toffee liquorice dessert dragée. Topping cake danish chupa chups chupa chups gummies. Cotton candy gummies chocolate cake oat cake."}]}
+    [planBenefits1,
+    planBenefits2,
+    planBenefits3,
+    planBenefits4,
+    planBenefits5],
+   "plan_id":plan_id
+  }  
+  
   console.log(datanew)
   
 
@@ -269,9 +226,9 @@ function setdata()
           </IconButton>
           <Box sx={{ mb: 8, textAlign: 'center' }}>
             <Typography variant='h5' sx={{ mb: 3, lineHeight: '2rem' }}>
-              Edit User Information
+              Edit Package 
             </Typography>
-            <Typography variant='body2'>Updating user details will receive a privacy audit.</Typography>
+            <Typography variant='body2'>Updating package</Typography>
           </Box>
           <Grid container spacing={6}>
             <Grid item sm={6} xs={12}>
@@ -393,13 +350,13 @@ function setdata()
         </Box>
       </Box>
       <BoxFeature>{renderFeatures()}</BoxFeature>
-      <Button
+      {/* <Button
         fullWidth
         color={data?.currentPlan ? 'success' : 'primary'}
         variant={data?.popularPlan ? 'contained' : 'outlined'}
       >
         {data?.currentPlan ? 'Your Current Plan' : 'Upgrade'}
-      </Button>
+      </Button> */}
     </BoxWrapper>
   )
 }

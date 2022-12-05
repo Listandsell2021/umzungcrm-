@@ -129,8 +129,10 @@ const RowOptions = ({ a_id }) => {
    }
    useEffect(() => {
     
-    var data=getPackages()
-    console.log(data)
+    getPackages().then((data)=>{
+       console.log(data)
+    })
+    
 
    }, [])
    

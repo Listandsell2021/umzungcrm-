@@ -9,7 +9,7 @@ import { enc } from 'crypto-js';
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
 const stripePromise = loadStripe("pk_live_AYELWMhv1iDbNo9sOjuQLznC00DUp8jtVV");
-import useCheckoutSubmit from '@hooks/useCheckoutSubmit';
+
 export default function App() {
   const [clientSecret, setClientSecret] = React.useState("");
   

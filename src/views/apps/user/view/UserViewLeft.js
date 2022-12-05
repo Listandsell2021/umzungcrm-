@@ -163,6 +163,39 @@ async function  updateUsers()
     }
   }
   if (data) {
+    onst [plan,setplan]= useState("")
+  
+    const getPackages= async()=>
+   {
+    
+    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
+       id:row.currentPlan
+   })
+   var data=response.data
+  
+   if(data.length==0)
+   {
+    data=""
+   }
+   else
+   {
+    data=data[0]
+   }
+   return data
+   
+   }
+   
+    
+    
+      getPackages().then((data)=>{
+       if(data)
+       {
+        setplan(data)
+       }
+       
+       
+       
+    })
     return (
       <Grid container spacing={6}>
         <Grid item xs={12}>
@@ -403,7 +436,7 @@ async function  updateUsers()
                 skin='light'
                 size='small'
                 color='primary'
-                label='Standard'
+                label={plan.title}
                 sx={{ fontSize: '0.75rem', borderRadius: '4px' }}
               />
               <Box sx={{ display: 'flex', position: 'relative' }}>

@@ -135,7 +135,8 @@ async function  updateUsers()
   })
   console.log(response)
   handleEditClose()
-  //router.replace('/apps/user/view/3/')
+  var a_idnew=String(data.a_id).substring(1);
+  router.replace('/apps/user/view/'+a_idnew+"/")
 
   }
   const renderUserAvatar = () => {

@@ -163,7 +163,7 @@ async function  updateUsers()
     }
   }
   if (data) {
-    onst [plan,setplan]= useState("")
+    const [plan,setplan]= useState("")
   
     const getPackages= async()=>
    {

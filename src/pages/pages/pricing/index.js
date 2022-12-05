@@ -39,6 +39,7 @@ import PricingHeader from 'src/views/pages/pricing/PricingHeader'
 import PricingFooter from 'src/views/pages/pricing/PricingFooter'
 
 import AccountOutline from 'mdi-material-ui/AccountOutline'
+import data from 'src/@fake-db/components/data'
 const Transition = forwardRef(function Transition(props, ref) {
   return <Fade ref={ref} {...props} />
 })
@@ -86,7 +87,10 @@ const handleChangeTitle = e => {
     setsubtitle(e.target.value)
   }
 const handleChangePerMonthPriceUYearly= e => {
+    var monthval=parseInt(e.target.value)
+    
     setperMonth(e.target.value)
+    settotalAnnual(monthval*12)
   }
   const handleChangeStatus = e => {
     setStatus(e.target.value)
@@ -107,6 +111,43 @@ const handleChangePerMonthPriceUYearly= e => {
     setplanBenefits4(e.target.value)
   }
 
+    async function postpackage()
+   {
+    
+     
+      
+    var datanew=
+    {
+    "imgWidth":{"$numberInt":"100"},
+     "imgHeight":{"$numberInt":"100"},
+    "title":title,
+     "popularPlan":false,
+      "currentPlan":false,
+    "monthlyPrice":parseInt(monthlyPrice),
+    "subtitle":subtitle,
+    "imgSrc":"/images/pages/pricing-illustration-1.png",
+    "yearlyPlan":
+    {"perMonth":parseInt(perMonth),
+    "totalAnnual":totalAnnual
+    },
+    "planBenefits":
+    [planBenefits1,
+    planBenefits2,
+    planBenefits3,
+    planBenefits4,
+    planBenefits5],
+   "plan_id":plan_id
+  }  
+  console.log(datanew)
+
+  // const response = await axios.post('https://umzungcrmtest.vercel.app/api/updatePackageSuperAdmin', {
+  //   datanew
+  // })
+  
+  // console.log(response.status)
+  // window.location.reload(false);
+  
+  }
   
   return (
     <Card>
@@ -206,7 +247,7 @@ const handleChangePerMonthPriceUYearly= e => {
           </Grid>
         </DialogContent>
         <DialogActions sx={{ pb: { xs: 8, sm: 12.5 }, justifyContent: 'center' }}>
-          <Button variant='contained' sx={{ mr: 2 }} onClick={() => setShow(false)}>
+          <Button variant='contained' sx={{ mr: 2 }} onClick={() => postpackage()}>
             Submit
           </Button>
           <Button variant='outlined' color='secondary' onClick={() => setShow(false)}>

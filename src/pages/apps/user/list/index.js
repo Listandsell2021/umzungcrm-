@@ -264,13 +264,13 @@ const columns = [
    })
    var data=response.data
    console.log(data)
-   if(data[0].title!="undefined")
+   if(data.length==0)
    {
-    data=data[0].title
+    data=""
    }
    else
    {
-    data=""
+    data=data[0].title
    }
    return data
    

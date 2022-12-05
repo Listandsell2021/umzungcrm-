@@ -123,14 +123,14 @@ const RowOptions = ({ a_id }) => {
  
    async function getPackages()
    {
-   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackages', {})
+   const response = await axios.post('https://umzungcrmtest.vercel.app/api/Packages_SuperAdmin', {})
    return response.data
    
    }
    useEffect(() => {
     
     getPackages().then((data)=>{
-       console.log(data.pricingPlans)
+       console.log(data)
     })
     
 

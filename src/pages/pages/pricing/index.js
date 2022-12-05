@@ -144,7 +144,7 @@ const handleChangeBenifits5 = e => {
     planBenefits5],
    "plan_id":"plan"+parseInt(response1)+1
   }  
-  console.log(datanew)
+  console.log(packageData)
 
    const response = await axios.post('https://umzungcrmtest.vercel.app/api/postPackageSuperAdmin', {
    packageData

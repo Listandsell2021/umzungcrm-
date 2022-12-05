@@ -49,6 +49,7 @@ import { fetchData, deleteUser } from 'src/store/apps/user'
 // ** Custom Components Imports
 import TableHeader from 'src/views/apps/user/list/TableHeader'
 import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
+import { requestToBodyStream } from 'next/dist/server/body-streams'
 
 // ** Vars
 const userRoleObj = {
@@ -189,13 +190,13 @@ const columns = [
     renderCell: ({ row }) => {
     
       const { a_id, full_name, username } = row
-const [plan,setplan]= useState(null)
+      const [plan,setplan]= useState(null)
   
     const getPackages= async()=>
    {
     
     const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
-       id:"plan1"
+       id:row.currentPlan
    })
    var data=response.data
    return data[0].title
@@ -205,13 +206,12 @@ const [plan,setplan]= useState(null)
     
     getPackages().then((data)=>{
        
-       console.log(data)
+       
        setplan(data)
-       console.log("data plan")
-       console.log(plan)
+       
     })
   
-      console.log(getPackages())
+     
       var a_idnew=String(a_id).substring(1);
 
       return (
@@ -275,7 +275,7 @@ const [plan,setplan]= useState(null)
     renderCell: ({ row }) => {
       return (
         <Typography variant='subtitle1' noWrap sx={{ textTransform: 'capitalize' }}>
-          {row.currentPlan}
+          {plan}
         </Typography>
       )
     }

@@ -66,12 +66,12 @@ const UserViewRight = ({ invoiceData }) => {
         <TabPanel sx={{ p: 0 }} value='billing-plan'>
           <UserViewBilling />
         </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='notification'>
+        {/* <TabPanel sx={{ p: 0 }} value='notification'>
           <UserViewNotification />
         </TabPanel>
         <TabPanel sx={{ p: 0 }} value='connection'>
           <UserViewConnection />
-        </TabPanel>
+        </TabPanel> */}
       </Box>
     </TabContext>
   )

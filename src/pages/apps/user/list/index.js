@@ -268,12 +268,14 @@ const columns = [
    }
    
     
-    if(title)
-    {
+    
       getPackages().then((data)=>{
+       if(data)
+       {
+        setplan(data)
+       }
        
        
-       setplan(data)
        
     })
       return (
@@ -281,7 +283,7 @@ const columns = [
           {plan}
         </Typography>
       )
-    }
+    
     
   }
   },

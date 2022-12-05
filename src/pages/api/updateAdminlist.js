@@ -17,7 +17,8 @@ export default async function handler(req, res) {
       "full_name":datanew.full_name,
       "status":datanew.status,
       "email":datanew.email,
-      "username":datanew.username
+      "username":datanew.username,
+      "company_name":datanew.company_name
     }});
   
   res.status(200).json(todos);

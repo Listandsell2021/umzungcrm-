@@ -77,7 +77,7 @@ const UserViewLeft = ({ data }) => {
   // ** States
   const [openEdit, setOpenEdit] = useState(false)
   const [openPlans, setOpenPlans] = useState(false)
- const [company_name, setcompany_name] = useState(data)
+ const [company_name, setcompany_name] = useState(data.company_name)
  const [email, setemail] = useState(data.email)
  const [address, setaddress] = useState(data.address)
  const [contact, setcontact] = useState(data.contact)
@@ -316,7 +316,7 @@ async function  updateUsers()
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth type='email' label='Billing Email' value={email} 
+                      <TextField fullWidth type='email' label='Email' value={email} 
                       onChange={e => setemail(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>

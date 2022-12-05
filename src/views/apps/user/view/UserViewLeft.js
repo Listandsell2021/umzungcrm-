@@ -455,6 +455,9 @@ async function  updateUsers()
                 <Sub>/ month</Sub>
               </Box>
             </CardContent>
+            <CardContent>
+              
+            </CardContent>
 
             {/* <CardContent>
               <Box sx={{ mt: 6, mb: 6 }}>
@@ -556,7 +559,7 @@ async function  updateUsers()
                   }}
                 >
                   <Box sx={{ mr: 3, display: 'flex', ml: 2.4, position: 'relative' }}>
-                    <Sup>$</Sup>
+                    <Sup>€</Sup>
                     <Typography
                       variant='h3'
                       sx={{
@@ -566,7 +569,7 @@ async function  updateUsers()
                         fontSize: '3rem !important'
                       }}
                     >
-                      99
+                    99
                     </Typography>
                     <Sub>/ month</Sub>
                   </Box>

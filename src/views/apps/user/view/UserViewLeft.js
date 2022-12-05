@@ -361,7 +361,7 @@ async function  updateUsers()
                       </FormControl>
                     </Grid> */}
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Company Name' value={ompany_name} 
+                      <TextField fullWidth label='Company Name' value={company_name} 
                        onChange={e => setcompany_name(e.target.value)}/>
 
                     </Grid>

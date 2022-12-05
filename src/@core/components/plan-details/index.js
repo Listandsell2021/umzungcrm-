@@ -342,7 +342,7 @@ async function setdata()
         <Box sx={{ mt: 5, mb: 10, position: 'relative' }}>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Typography variant='body2' sx={{ mt: 1.6, alignSelf: 'flex-start' }}>
-              $
+              €
             </Typography>
             <Typography variant='h3' sx={{ fontWeight: 500, color: 'primary.main', lineHeight: 1.17 }}>
               {plan === 'monthly' ? data?.monthlyPrice : data?.yearlyPlan.perMonth}
@@ -355,7 +355,7 @@ async function setdata()
             <Typography
               variant='body2'
               sx={{ left: 0, right: 0, position: 'absolute' }}
-            >{`USD ${data?.yearlyPlan.totalAnnual}/year`}</Typography>
+            >{`EUR ${data?.yearlyPlan.totalAnnual}/year`}</Typography>
           ) : null}
         </Box>
       </Box>

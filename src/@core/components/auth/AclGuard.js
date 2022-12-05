@@ -24,6 +24,7 @@ const AclGuard = props => {
 
   // ** Hooks
   const auth = useAuth()
+  
   const router = useRouter()
 
   // If guestGuard is true and user is not logged in or its an error page, render the page without checking access

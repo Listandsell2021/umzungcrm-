@@ -1,6 +1,9 @@
 // ** React Imports
 import { useState,useEffect,useCallback } from 'react'
 import axios from 'axios'
+
+  import { useRouter } from 'next/router'
+  
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -81,7 +84,7 @@ const UserViewLeft = ({ data }) => {
  const [full_name, setfull_name] = useState(data.full_name)
  const [username, setusername] = useState(data.username)
   const [status, setstatus] = useState(data.status)
- 
+ const router = useRouter()
   // Handle Edit dialog
   const handleEditClickOpen = () => setOpenEdit(true)
   const handleEditClose = () => setOpenEdit(false)
@@ -115,13 +118,13 @@ async function  updateUsers()
       "sa_id":"sa1",
       "a_id":data.a_id,
     
-      "address":data.address,
+      "address":address,
       "token":"1233335555555555",
-      "contact":data.contact,
-      "full_name":data.full_name,
-      "status":data.status,
-      "full_name":data.email,
-      "username":data.username
+      "contact":contact,
+      "full_name":full_name,
+      "status":status,
+      "full_name":full_name,
+      "username":username
     }
     console.log("datas")
      console.log(datanew)
@@ -130,8 +133,8 @@ async function  updateUsers()
     datanew
   })
   console.log(response)
-    handleEditClose()
-
+  handleEditClose()
+  //router.replace('/apps/user/view/3/')
 
   }
   const renderUserAvatar = () => {

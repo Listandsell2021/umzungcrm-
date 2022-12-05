@@ -254,7 +254,7 @@ const columns = [
     headerName: 'Plan',
     field: 'currentPlan',
     renderCell: ({ row }) => {
-        const [plan,setplan]= useState(null)
+        const [plan,setplan]= useState("")
   
     const getPackages= async()=>
    {
@@ -268,7 +268,9 @@ const columns = [
    }
    
     
-    getPackages().then((data)=>{
+    if(title)
+    {
+      getPackages().then((data)=>{
        
        
        setplan(data)
@@ -280,6 +282,8 @@ const columns = [
         </Typography>
       )
     }
+    
+  }
   },
   {
     flex: 0.1,

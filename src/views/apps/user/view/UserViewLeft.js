@@ -169,7 +169,7 @@ async function  updateUsers()
    {
     
     const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
-       id:row.currentPlan
+       id:data.currentPlan
    })
    var data=response.data
   

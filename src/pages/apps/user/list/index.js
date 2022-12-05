@@ -115,6 +115,14 @@ const RowOptions = ({ a_id }) => {
   // ** State
   const [anchorEl, setAnchorEl] = useState(null)
   const rowOptionsOpen = Boolean(anchorEl)
+  const [plan,setplan]= useState(null)
+
+  useEffect(() => {
+   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackages', {})
+   setplan(response.data)
+   console.log(plan)
+  }, [])
+  
 var a_idnew=String(a_id).substring(1);
   const handleRowOptionsClick = event => {
     setAnchorEl(event.currentTarget)
@@ -196,7 +204,7 @@ const columns = [
             </Link>
             <Link href={`/apps/user/view/${a_idnew}`} passHref>
               <Typography noWrap component='a' variant='caption' sx={{ textDecoration: 'none' }}>
-                @{username}
+                {username}
               </Typography>
             </Link>
           </Box>

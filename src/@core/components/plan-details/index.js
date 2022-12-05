@@ -176,7 +176,7 @@ const handleChangePerMonthPriceUYearly= e => {
       </Box>
     ))
   }
-function setdata()
+async function setdata()
 {
   var datanew=
   {
@@ -203,7 +203,9 @@ function setdata()
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/updatePackageSuperAdmin', {
     datanew
   })
+  
   console.log(response.status)
+  window.location.reload(false);
 
 }
   return (

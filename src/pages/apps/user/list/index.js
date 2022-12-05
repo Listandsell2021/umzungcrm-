@@ -180,11 +180,11 @@ var a_idnew=String(a_id).substring(1);
     </>
   )
 }
- const getPackages= async()=>
+ const getPackages= async(data)=>
    {
     
     const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
-       id:row.currentPlan
+       id:data
    })
    var data=response.data
    return data[0].title
@@ -265,7 +265,7 @@ const columns = [
     renderCell: ({ row }) => {
       return (
         <Typography variant='subtitle1' noWrap sx={{ textTransform: 'capitalize' }}>
-          {getPackages()}
+          {getPackages(row.currentPlan)}
         </Typography>
       )
     }

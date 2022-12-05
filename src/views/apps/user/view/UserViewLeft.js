@@ -441,7 +441,7 @@ async function  updateUsers()
                 sx={{ fontSize: '0.75rem', borderRadius: '4px' }}
               />
               <Box sx={{ display: 'flex', position: 'relative' }}>
-                <Sup>$</Sup>
+                <Sup>€</Sup>
                 <Typography
                   variant='h3'
                   sx={{
@@ -450,13 +450,13 @@ async function  updateUsers()
                     color: 'primary.main'
                   }}
                 >
-                  99
+                  {plan.monthlyPrice}
                 </Typography>
                 <Sub>/ month</Sub>
               </Box>
             </CardContent>
 
-            <CardContent>
+            {/* <CardContent>
               <Box sx={{ mt: 6, mb: 6 }}>
                 <Box sx={{ display: 'flex', mb: 2.5, alignItems: 'center' }}>
                   <Circle sx={{ mr: 2, fontSize: '0.625rem', color: 'grey.300' }} />
@@ -492,7 +492,7 @@ async function  updateUsers()
               <Button variant='contained' sx={{ width: '100%' }} onClick={handlePlansClickOpen}>
                 Upgrade Plan
               </Button>
-            </CardContent>
+            </CardContent> */}
 
             <Dialog
               open={openPlans}

@@ -118,9 +118,14 @@ const RowOptions = ({ a_id }) => {
   const [plan,setplan]= useState(null)
 
   useEffect(() => {
+   async function getPackages()
+   {
    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackages', {})
    setplan(response.data)
    console.log(plan)
+   }
+   getPackages()
+   
   }, [])
   
 var a_idnew=String(a_id).substring(1);

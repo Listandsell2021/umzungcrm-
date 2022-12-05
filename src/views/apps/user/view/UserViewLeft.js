@@ -294,32 +294,36 @@ async function  updateUsers()
               </DialogTitle>
               <DialogContent>
                 <DialogContentText variant='body2' id='user-view-edit-description' sx={{ textAlign: 'center', mb: 7 }}>
-                  Updating user details will receive a privacy audit.
+                  Updating user details.
                 </DialogContentText>
                 <form>
                   <Grid container spacing={6}>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Full Name' defaultValue={data.full_name} />
+                      <TextField fullWidth label='Full Name' value={data.full_name} 
+                      onChange={e => setfull_name(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
                         fullWidth
                         label='Username'
-                        defaultValue={data.username}
-                        InputProps={{ startAdornment: <InputAdornment position='start'>@</InputAdornment> }}
+                        value={data.username}
+                        InputProps={{ startAdornment: <InputAdornment position='start'></InputAdornment> }}
+                         onChange={e => setusername(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth type='email' label='Billing Email' defaultValue={data.email} />
+                      <TextField fullWidth type='email' label='Billing Email' value={data.email} 
+                      onChange={e => setemail(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
                         <InputLabel id='user-view-status-label'>Status</InputLabel>
                         <Select
                           label='Status'
-                          defaultValue={data.status}
+                          value={data.status}
                           id='user-view-status'
                           labelId='user-view-status-label'
+                           onChange={e => setstatus(e.target.value)}
                         >
                           <MenuItem value='pending'>Pending</MenuItem>
                           <MenuItem value='active'>Active</MenuItem>
@@ -331,7 +335,8 @@ async function  updateUsers()
                       <TextField fullWidth label='TAX ID' defaultValue='Tax-8894' />
               </Grid>*/}
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Contact' defaultValue={`${data.contact}`} />
+                      <TextField fullWidth label='Contact' value={`${data.contact}`} 
+                       onChange={e => setcontact(e.target.value)}/>
                     </Grid>
                     {/* <Grid item xs={12} sm={6}>
                       <FormControl fullWidth>
@@ -351,8 +356,15 @@ async function  updateUsers()
                         </Select>
                       </FormControl>
                     </Grid> */}
+                    <Grid item xs={12} sm={6}>
+                      <TextField fullWidth label='Company Name' value={`${data.company_name}`} 
+                       onChange={e => setaddress(e.target.value)}/>
+
+                    </Grid>
                      <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Address' defaultValue={`${data.address}`} />
+                      <TextField fullWidth label='Address' defaultValue={`${data.address}`} 
+                       onChange={e => setaddress(e.target.value)}/>
+
                     </Grid>
                     {/* <Grid item xs={12}>
                       <FormControlLabel

@@ -130,7 +130,7 @@ const RowOptions = ({ a_id }) => {
    useEffect(() => {
     
     getPackages().then((data)=>{
-       console.log(data)
+       console.log(data.pricingPlans)
     })
     
 

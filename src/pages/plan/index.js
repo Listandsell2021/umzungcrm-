@@ -118,7 +118,7 @@ const handleChangePerMonthPriceUYearly= e => {
       </CardContent>
       
       <PricingCTA />
-      <PricingFooter data={apiData} />
+      {/* <PricingFooter data={apiData} /> */}
       
        <Dialog
         fullWidth

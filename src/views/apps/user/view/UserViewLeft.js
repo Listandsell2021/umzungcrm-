@@ -163,6 +163,7 @@ async function  updateUsers()
     }
   }
   if (data) {
+    console.log(data)
     const [plan,setplan]= useState("")
   
     const getPackages= async()=>
@@ -171,26 +172,26 @@ async function  updateUsers()
     const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
        id:data.currentPlan
    })
-   var data=response.data
+   var datas=response.data
   
-   if(data.length==0)
+   if(datas.length==0)
    {
-    data=""
+    datas=""
    }
    else
    {
-    data=data[0]
+    datas=datas[0]
    }
-   return data
+   return datas
    
    }
    
     
     
-      getPackages().then((data)=>{
-       if(data)
+      getPackages().then((datas)=>{
+       if(datas)
        {
-        setplan(data)
+        setplan(datas)
        }
        
        

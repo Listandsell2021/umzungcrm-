@@ -119,31 +119,7 @@ const RowOptions = ({ a_id }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const rowOptionsOpen = Boolean(anchorEl)
   
-   const [plan,setplan]= useState(null)
-  
-    const getPackages= async()=>
-   {
-    
-    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
-       id:"plan1"
-   })
-   var data=response.data
-   return data[0].title
    
-   }
-   useEffect(() => {
-    
-    getPackages().then((data)=>{
-       
-       console.log(data)
-       setplan(data)
-       console.log("data plan")
-       console.log(plan)
-    })
-    console.log(getPackages())
-    
-
-   }, [])
    
    
    
@@ -213,7 +189,31 @@ const columns = [
     renderCell: ({ row }) => {
     
       const { a_id, full_name, username } = row
+const [plan,setplan]= useState(null)
+  
+    const getPackages= async()=>
+   {
+    
+    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdminbyId', {
+       id:"plan1"
+   })
+   var data=response.data
+   return data[0].title
+   
+   }
+   
+    
+    getPackages().then((data)=>{
+       
+       console.log(data)
+       setplan(data)
+       console.log("data plan")
+       console.log(plan)
+    })
+  
+      console.log(getPackages())
       var a_idnew=String(a_id).substring(1);
+
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {renderClient(row)}

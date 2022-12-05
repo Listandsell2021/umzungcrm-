@@ -208,40 +208,8 @@ async function checkemail(ids,data)
   
   if(responselogin.status==200)
   {
-    // const crypt = (salt, text) => {
-    //       //console.log("-----text enyrpt")
-    //       //console.log(text)
-    //       const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
-    //       const byteHex = (n) => ("0" + Number(n).toString(16)).substr(-2);
-    //       const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
-        
-    //       return text
-    //         .split("")
-    //         .map(textToChars)
-    //         .map(applySaltToChar)
-    //         .map(byteHex)
-    //         .join("");
-    //     };
-    
-       // var encrypted_text = crypt("salt", String(total));
-        //var emai=String(data.email)
-        //console.log(emai)
-        //const resemail =  emai.replace('@', '*')
-        
-
-       // localStorage.setItem("paypaladd", String(newaddr))
-        //localStorage.setItem("deliveryoption",liferRef.current)
-        //localStorage.setItem("notepaypal",cust_notes)
-        
-        
-       // var add=String(newaddr)
-        //console.log(add)
-       // const res =  add.replace(/ /g, '_')
-        
-        window.open ("/card/?tokenn=30","_self");
-
-
-    //router.replace('/login')
+   
+    router.replace('/login')
   }
 
 

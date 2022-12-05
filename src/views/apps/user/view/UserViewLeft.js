@@ -123,8 +123,9 @@ async function  updateUsers()
       "contact":contact,
       "full_name":full_name,
       "status":status,
-      "full_name":full_name,
-      "username":username
+      "email":email,
+      "username":username,
+      "company_name":company_name
     }
     console.log("datas")
      console.log(datanew)
@@ -302,7 +303,7 @@ async function  updateUsers()
                 <form>
                   <Grid container spacing={6}>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Full Name' value={data.full_name} 
+                      <TextField fullWidth label='Full Name' value={full_name} 
                       onChange={e => setfull_name(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -315,7 +316,7 @@ async function  updateUsers()
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth type='email' label='Billing Email' value={data.email} 
+                      <TextField fullWidth type='email' label='Billing Email' value={email} 
                       onChange={e => setemail(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -338,7 +339,7 @@ async function  updateUsers()
                       <TextField fullWidth label='TAX ID' defaultValue='Tax-8894' />
               </Grid>*/}
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Contact' value={`${data.contact}`} 
+                      <TextField fullWidth label='Contact' value={contact} 
                        onChange={e => setcontact(e.target.value)}/>
                     </Grid>
                     {/* <Grid item xs={12} sm={6}>
@@ -360,12 +361,12 @@ async function  updateUsers()
                       </FormControl>
                     </Grid> */}
                     <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Company Name' value={`${data.company_name}`} 
-                       onChange={e => setaddress(e.target.value)}/>
+                      <TextField fullWidth label='Company Name' value={ompany_name} 
+                       onChange={e => setcompany_name(e.target.value)}/>
 
                     </Grid>
                      <Grid item xs={12} sm={6}>
-                      <TextField fullWidth label='Address' defaultValue={`${data.address}`} 
+                      <TextField fullWidth label='Address' value={address} 
                        onChange={e => setaddress(e.target.value)}/>
 
                     </Grid>

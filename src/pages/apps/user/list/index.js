@@ -160,14 +160,7 @@ var a_idnew=String(a_id).substring(1);
         }}
         PaperProps={{ style: { minWidth: '8rem' } }}
       >
-        <MenuItem sx={{ p: 0 }}>
-          <Link href={`/apps/user/view/${a_idnew}`} passHref>
-            <MenuItemLink>
-              <EyeOutline fontSize='small' sx={{ mr: 2 }} />
-              View
-            </MenuItemLink>
-          </Link>
-        </MenuItem>
+        
         <MenuItem onClick={handleRowOptionsClose}>
           <PencilOutline fontSize='small' sx={{ mr: 2 }} />
           Edit
@@ -335,6 +328,8 @@ const UserList = () => {
   // ** Hooks
   const dispatch = useDispatch()
   const store = useSelector(state => state.user)
+
+  
   const dataplans=[];
 
 //   useEffect(() => {

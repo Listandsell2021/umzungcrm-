@@ -12,7 +12,7 @@ import ExportVariant from 'mdi-material-ui/ExportVariant'
 
 const TableHeader = props => {
   // ** Props
-  const { plan, handlePlanChange, handleFilter, value } = props
+  const { plan, handlePlanChange, toggle,handleFilter, value } = props
 
   return (
     <Box sx={{ p: 5, pb: 3, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -27,7 +27,10 @@ const TableHeader = props => {
           sx={{ mr: 6, mb: 2 }}
           onChange={e => handleFilter(e.target.value)}
         />
-        <FormControl size='small' sx={{ mb: 2 }}>
+         <Button sx={{ mb: 2 }} onClick={toggle} variant='contained'>
+          Add 
+        </Button> 
+        {/* <FormControl size='small' sx={{ mb: 2 }}>
           <InputLabel id='plan-select'>Select Plan</InputLabel>
           <Select
             size='small'
@@ -44,7 +47,7 @@ const TableHeader = props => {
             <MenuItem value='enterprise'>Enterprise</MenuItem>
             <MenuItem value='team'>Team</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl> */}
       </Box>
     </Box>
   )

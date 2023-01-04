@@ -7,6 +7,8 @@ import axios from 'axios'
 
 // ** Fetch Users
 export const fetchData = createAsyncThunk('appProducts/fetchData', async params => {
+  var storedData = window.localStorage.getItem("userData");
+  storedData = JSON.parse(storedData);
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getProductsData', {
     params
   })
@@ -14,7 +16,8 @@ export const fetchData = createAsyncThunk('appProducts/fetchData', async params 
     "alldata":response.data,
     "params":params,
     "total":1,
-    "users":response.data
+    "products":response.data,
+     
   }
 
    //console.log(params)
@@ -28,34 +31,77 @@ export const addProducts = createAsyncThunk('product/addProducts', async (data, 
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
     datas
   })
-  console.log(data)
-  console.log("test")
-  console.log(response1.data)
-   console.log(data.title)
-    var datanew={
-            "a_id":"a1",
-            "sa_id":"sa1",
-            "tittle":data.title,
-              "descriptions ":"test2 desc",
-              "price":data.price,
-            "size":
-          {"length":data.length,
-         "breath":data.breath,
-    "height":data.height,
-    "cubic_meter":data.cubic_meter},
-"p_id":"p"+parseInt(response1.data)+1,
-"avatar":"/images/avatars/4.png",
-"status":"active"}
-
-
+  var datanew;
+if(data.role=="superadmin")
+{
+datanew = {
+  "a_id": data.admin_id,
+  "sa_id": data.id,
+  "tittle": data.title,
+  "descriptions": "test2 desc",
+  "price": data.price,
+  "size": {
+    "length": data.length,
+    "breath": data.breath,
+    "height": data.height,
+    "cubic_meter": data.cubic_meter,
+  },
+  "p_id": "p" + (parseInt(response1.data) + 1),
+  "avatar": "/images/avatars/4.png",
+  "status": "active"
+};
+}
+else if(data.role=="admin")
+{
+datanew = {
+  "a_id": data.admin_id,
+  "sa_id": data.id,
+  "tittle": data.title,
+  "descriptions": "test2 desc",
+  "price": data.price,
+  "size": {
+    "length": data.length,
+    "breath": data.breath,
+    "height": data.height,
+    "cubic_meter": data.cubic_meter,
+  },
+  "p_id": "p" + (parseInt(response1.data) + 1),
+  "avatar": "/images/avatars/4.png",
+  "status": "active"
   
+};
+}
+else
+{
+  datanew = {
+  "a_id": data.admin_id,
+  "sa_id": data.id,
+  "tittle": data.title,
+  "descriptions": "test2 desc",
+  "price": data.price,
+  "size": {
+    "length": data.length,
+    "breath": data.breath,
+    "height": data.height,
+    "cubic_meter": data.cubic_meter,
+  },
+  "p_id": "p" + (parseInt(response1.data) + 1),
+  "avatar": "/images/avatars/4.png",
+  "status": "active",
+  "role":data.crole
+};
+
+}
+  
+console.log(datanew)
+
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/postProducts', {
     datanew
   })
-  dispatch(fetchData(getState().user.params))
+  dispatch(fetchData(getState().products.params));
   
 
-  return response.data
+return response.data
 })
 export const adduser = createAsyncThunk('appProducts/adduser', async (data, { getState, dispatch }) => {
 
@@ -63,10 +109,6 @@ export const adduser = createAsyncThunk('appProducts/adduser', async (data, { ge
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
     datas
   })
-  console.log(data)
-  console.log("test")
-  console.log(response1.data)
-   console.log(data.title)
     var datanew={
             "a_id":"a1",
             "sa_id":"s1",
@@ -97,7 +139,7 @@ export const updateProducts = createAsyncThunk('appProducts/addProducts', async 
  
  
     var datanew={
-            "a_id":"a1",
+            "a_id":data.a_id,
             "sa_id":"s1",
             "tittle":data.tittle,
               "descriptions ":"test2 desc",
@@ -108,14 +150,17 @@ export const updateProducts = createAsyncThunk('appProducts/addProducts', async 
     "cubic_meter":data.cubic_meter,
 "p_id":data.p_id,
 "avatar":"/images/avatars/4.png",
-"status":data.status}
+"status":data.status,
+"role": data.role,
+"admin_id": data.admin_id
+}
 
 
-  console.log(datanew)
+ 
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateProduct', {
     datanew
   })
-  dispatch(fetchData(getState().user.params))
+  dispatch(fetchData(getState().products.params));
   
 
   return response.data
@@ -123,8 +168,7 @@ export const updateProducts = createAsyncThunk('appProducts/addProducts', async 
 
 // ** Delete User
 export const deleteUser = createAsyncThunk('appProducts/deleteUser', async (p_id, { getState, dispatch }) => {
-   console.log("tesy")
-  console.log(p_id)
+  
  
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/deleteProduct', {
     datanew: p_id
@@ -145,7 +189,7 @@ export const appProductsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
-      state.data = action.payload.users
+      state.data = action.payload.products
       state.total = action.payload.total
       state.params = action.payload.params
       state.allData = action.payload.allData

@@ -166,7 +166,31 @@ async function getdeatilsadmin(data)
           
 
    return details;
+    }
    
+async function getdeatilsmanager(data) {
+  var data = JSON.stringify({
+    id: data,
+  });
+
+  var axios = require("axios");
+
+  var config = {
+    method: "POST",
+    //url: "https://umzungcrmtest.vercel.app/api/getDetailSuperAdmin"
+    url: " https://umzungcrmtest.vercel.app/api/getManagerData",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  var details = await axios(config);
+  details = details.data;
+  //console.log(test.data)
+
+  return details;
+
 }
 useEffect(()=>{
       var storedData = window.localStorage.getItem('userData')
@@ -190,26 +214,38 @@ useEffect(()=>{
            
           })
       }
+      else if (storedData.role == "admin") {
+        getdeatilsadmin(storedData.id).then((res) => {
+          var details = res[0].details;
+          //console.log(res[0])
+          var email = res[0].email;
+          //var name=details[0].name;
+          //var data={"id":logindata.global_id,"role":logindata.role,"fullName":name.first_name + " "+ name.last_name ,"username":email,"email":email};
+          setName(storedData.fullName);
+          setEmail(res[0].email);
+          setRole(res[0].role);
+          setStatus(details[0].status);
+          setCompany(details[0].company_name);
+          //console.log(details[0].status)
+        });
+      } 
       else
-       {
-         getdeatilsadmin(storedData.id).then(res=>
-            {
-            
-             var details=res[0].details
-             //console.log(res[0])
-             var email=res[0].email
-             var name=details[0].name;
-           //var data={"id":logindata.global_id,"role":logindata.role,"fullName":name.first_name + " "+ name.last_name ,"username":email,"email":email};
-           setName(storedData.fullName)
-           setEmail(res[0].email)
-           setRole(res[0].role)
-           setStatus(details[0].status)
-           setCompany(details[0].company_name)
-            //console.log(details[0].status)
-           
-          })  
-
-      }     
+      {
+        getdeatilsmanager(storedData.id).then((res) => {
+          console.log(res)
+          var details = res[0].details;
+          //console.log(res[0])
+          var email = res[0].email;
+          //var name=details[0].name;
+          //var data={"id":logindata.global_id,"role":logindata.role,"fullName":name.first_name + " "+ name.last_name ,"username":email,"email":email};
+          setName(storedData.fullName);
+          setEmail(res[0].email);
+          setRole(res[0].role);
+          setStatus(details[0].status);
+          setCompany(details[0].company_name);
+          //console.log(details[0].status)
+        });
+      }    
 
      
          
@@ -263,7 +299,7 @@ useEffect(()=>{
             <FormControl fullWidth>
               <InputLabel>Role</InputLabel>
               <Select label='Role' value={Role} disabled>
-                <MenuItem value='admin'>Admin</MenuItem>
+                <MenuItem value={Role}>{Role}</MenuItem>
                 <MenuItem value='superadmin'>SuperAdmin</MenuItem>
                 <MenuItem value='editor'>Editor</MenuItem>
                 <MenuItem value='maintainer'>Maintainer</MenuItem>

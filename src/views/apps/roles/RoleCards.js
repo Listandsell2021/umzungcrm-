@@ -73,9 +73,11 @@ const RolesCards = () => {
 
   useEffect(() => {
     async function getdata() {
-      const response = await axios.get(
+      var storedData = window.localStorage.getItem("userData");
+      storedData = JSON.parse(storedData);
+      const response = await axios.post(
         "https://umzungcrmtest.vercel.app/api/getRoleData",
-        {}
+        {"id": storedData.id}
       );
       setcardDatas(response.data);
     }
@@ -163,11 +165,12 @@ const RolesCards = () => {
     ));
 
   async function postRole(data, permissionsArray,dialogTitle) {
-   
+   var storedData = window.localStorage.getItem("userData");
+   storedData = JSON.parse(storedData);
     if (dialogTitle=="Edit")
     {
     
-     var  deleteRole = { "title": data.name };
+     var  deleteRole = { "title": data.name,"global_id":storedData.id};
      console.log(deleteRole);
       const responsedelete = await axios.post(
         "https://umzungcrmtest.vercel.app/api/removeRole",
@@ -179,6 +182,7 @@ const RolesCards = () => {
         var datanew = {
           title: data.name,
           Permissions: permissionsArray,
+          global_id: storedData.id
         };
         console.log(datanew);
         const response = await axios.post(
@@ -198,6 +202,7 @@ const RolesCards = () => {
         var datanew = {
           title: data.name,
           Permissions: permissionsArray,
+          global_id: storedData.id
         };
         console.log(datanew);
         const response = await axios.post(

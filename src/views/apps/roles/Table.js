@@ -157,7 +157,7 @@ var midnew=String(mid).substring(1);
    var datanew=
     {
       
-      "sa_id":"sa1",
+      "global_id":"sa1",
       "m_id":row.m_id,
       "email":email,
       "email_verification":"gjhgf67gsf",
@@ -447,14 +447,17 @@ const [addUserOpen, setAddUserOpen] = useState(false)
   const store = useSelector(state => state.managers)
   useEffect(() => {
    //console.log(store)
+   var storedData = window.localStorage.getItem("userData");
+   storedData = JSON.parse(storedData);
     dispatch(
       fetchData({
-        role: '',
+        role: "",
         q: value,
-        status: '',
-        currentPlan: plan
+        status: "",
+        currentPlan: plan,
+        global_id: storedData.id
       })
-    )
+    );
   }, [dispatch, plan, value])
 
   const handleFilter = useCallback(val => {

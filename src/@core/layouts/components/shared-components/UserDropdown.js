@@ -90,45 +90,65 @@ const UserDropdown = props => {
   return (
     <Fragment>
       <Badge
-        overlap='circular'
+        overlap="circular"
         onClick={handleDropdownOpen}
-        sx={{ ml: 2, cursor: 'pointer' }}
+        sx={{ ml: 2, cursor: "pointer" }}
         badgeContent={<BadgeContentSpan />}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right'
+          vertical: "bottom",
+          horizontal: "right",
         }}
       >
         <Avatar
           alt={name}
           onClick={handleDropdownOpen}
           sx={{ width: 40, height: 40 }}
-          src='/images/avatars/1.png'
+          src="/images/avatars/1.png"
         />
       </Badge>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={() => handleDropdownClose()}
-        sx={{ '& .MuiMenu-paper': { width: 230, mt: 4 } }}
-        anchorOrigin={{ vertical: 'bottom', horizontal: direction === 'ltr' ? 'right' : 'left' }}
-        transformOrigin={{ vertical: 'top', horizontal: direction === 'ltr' ? 'right' : 'left' }}
+        sx={{ "& .MuiMenu-paper": { width: 230, mt: 4 }, zIndex: "tooltip" }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: direction === "ltr" ? "right" : "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: direction === "ltr" ? "right" : "left",
+        }}
       >
         <Box sx={{ pt: 2, pb: 3, px: 4 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
             <Badge
-              overlap='circular'
+              overlap="circular"
               badgeContent={<BadgeContentSpan />}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right'
+                vertical: "bottom",
+                horizontal: "right",
               }}
             >
-              <Avatar alt={name} src='/images/avatars/1.png' sx={{ width: '2.5rem', height: '2.5rem' }} />
+              <Avatar
+                alt={name}
+                src="/images/avatars/1.png"
+                sx={{ width: "2.5rem", height: "2.5rem" }}
+              />
             </Badge>
-            <Box sx={{ display: 'flex', ml: 3, alignItems: 'flex-start', flexDirection: 'column' }}>
+            <Box
+              sx={{
+                display: "flex",
+                ml: 3,
+                alignItems: "flex-start",
+                flexDirection: "column",
+              }}
+            >
               <Typography sx={{ fontWeight: 600 }}>{name}</Typography>
-              <Typography variant='body2' sx={{ fontSize: '0.8rem', color: 'text.disabled' }}>
+              <Typography
+                variant="body2"
+                sx={{ fontSize: "0.8rem", color: "text.disabled" }}
+              >
                 {role}
               </Typography>
             </Box>
@@ -154,7 +174,10 @@ const UserDropdown = props => {
           </Box>
       </MenuItem>*/}
         <Divider />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/pages/account-settings')}>
+        <MenuItem
+          sx={{ p: 0, zIndex: "tooltip" }}
+          onClick={() => handleDropdownClose("/pages/account-settings")}
+        >
           <Box sx={styles}>
             <CogOutline sx={{ mr: 2 }} />
             Settings
@@ -174,12 +197,14 @@ const UserDropdown = props => {
         </MenuItem>
   <Divider />*/}
         <MenuItem sx={{ py: 2 }} onClick={handleLogout}>
-          <LogoutVariant sx={{ mr: 2, fontSize: '1.375rem', color: 'text.secondary' }} />
+          <LogoutVariant
+            sx={{ mr: 2, fontSize: "1.375rem", color: "text.secondary" }}
+          />
           Logout
         </MenuItem>
       </Menu>
     </Fragment>
-  )
+  );
 }
 
 export default UserDropdown

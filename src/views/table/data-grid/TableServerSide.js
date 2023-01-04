@@ -138,7 +138,7 @@ const TableServerSide = () => {
   const fetchTableData = useCallback(
     async (sort, q, column) => {
       await axios
-        .get('/api/table/data', {
+        .get('https://umzungcrmtest.vercel.app/api/table/data', {
           params: {
             q,
             sort,

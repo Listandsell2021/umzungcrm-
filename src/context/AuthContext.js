@@ -251,12 +251,14 @@ async function getdeatilsmanagers(data) {
             var details = res[0].details;
             var email = res[0].email;
             var name = details[0].full_name;
+            var adminid=details[0].global_id;
             var data = {
               id: logindata.global_id,
               role: logindata.role,
               fullName: name,
               username: email,
               email: email,
+              adminid: adminid,
             };
 
             const returnUrl = router.query.returnUrl;

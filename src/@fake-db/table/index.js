@@ -653,7 +653,7 @@ const data = [
     status: 1
   }
 ]
-mock.onGet('/api/table/data').reply(config => {
+mock.onGet('https://umzungcrmtest.vercel.app/api/table/data').reply(config => {
   const { q = '', column = '', sort = '' } = config.params
   const queryLowered = q.toLowerCase()
 

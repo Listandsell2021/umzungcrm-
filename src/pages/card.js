@@ -67,7 +67,7 @@ export default function App() {
      // console.log("Is is route change");
     }
   
-    fetch("/api/create-payment-intent", {
+    fetch("https://umzungcrmtest.vercel.app/api/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(decrypted_string),

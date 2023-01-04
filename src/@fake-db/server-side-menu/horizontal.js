@@ -514,6 +514,6 @@ const navigation = [
     ]
   }
 ]
-mock.onGet('/api/horizontal-nav/data').reply(() => {
+mock.onGet('https://umzungcrmtest.vercel.app/api/horizontal-nav/data').reply(() => {
   return [200, navigation]
 })

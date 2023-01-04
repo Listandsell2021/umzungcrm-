@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
-
+import axios from "axios";
 // ** MUI Imports
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -93,13 +93,13 @@ const renderClient = row => {
 
   if (row.avatar.length) {
     return (
-      <AvatarWithImageLink href={`/apps/products/view/${row.p_id}`}>
+      // <AvatarWithImageLink href={`/apps/products/view/${row.p_id}`}>
         <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
-      </AvatarWithImageLink>
+      // </AvatarWithImageLink>
     )
   } else {
     return (
-      <AvatarWithoutImageLink href={`/apps/products/view/${row.p_id}`}>
+      // <AvatarWithoutImageLink href={`/apps/products/view/${row.p_id}`}>
         <CustomAvatar
           skin='light'
           color={row.avatarColor || 'primary'}
@@ -107,7 +107,7 @@ const renderClient = row => {
         >
           {getInitials(row.fullName ? row.fullName : 'John Doe')}
         </CustomAvatar>
-      </AvatarWithoutImageLink>
+      // </AvatarWithoutImageLink>
     )
   }
 }
@@ -162,20 +162,25 @@ const [avatar, setavatar] = useState(row.avatar)
   const handleEditClose = () => setOpenEdit(false)
   function  updateProduct()
   { 
-    var data={
-      "a_id":"a1",
+     var storedData = window.localStorage.getItem("userData");
+    storedData = JSON.parse(storedData);
+       
+             var data={
+            "a_id":storedData.adminid,
             "sa_id":"s1",
             "tittle":tittle,
               "descriptions ":"test2 desc",
               "price":price,
             
-          "length":length,
-         "breath":breath,
-    "height":height,
-    "cubic_meter":cubic_meter,
-"p_id":p_id,
-"avatar":"/images/avatars/4.png",
-"status":status
+             "length":length,
+             "breath":breath,
+             "height":height,
+             "cubic_meter":cubic_meter,
+              "p_id":p_id,
+              "avatar":"/images/avatars/4.png",
+              "status":status, 
+              "role": storedData.role,
+              "admin_id": storedData.adminid
     }
     dispatch(updateProducts({ ...data }))
     handleEditClose()
@@ -305,7 +310,7 @@ const columns = [
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {renderClient(row)}
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
-            <Link href={`/apps/products/view/${p_idnew}`} passHref>
+            {/* <Link href={`/apps/products/view/${p_idnew}`} passHref> */}
               <Typography
                 noWrap
                 component='a'
@@ -314,12 +319,12 @@ const columns = [
               >
                 {tittle}
               </Typography>
-            </Link>
-            <Link href={`/apps/products/view/${p_idnew}`} passHref>
+            {/* </Link> */}
+            {/* <Link href={`/apps/products/view/${p_idnew}`} passHref> */}
               <Typography noWrap component='a' variant='caption' sx={{ textDecoration: 'none' }}>
-                {price}$
+                {price}€
               </Typography>
-            </Link>
+            {/* </Link> */}
           </Box>
         </Box>
       )
@@ -428,15 +433,37 @@ const UserList = () => {
   const dispatch = useDispatch()
   const store = useSelector(state => state.products)
   useEffect(() => {
+    var storedData = window.localStorage.getItem("userData");
+    storedData = JSON.parse(storedData);
+    
     dispatch(
       fetchData({
         role,
         status,
         q: value,
-        currentPlan: plan
+        currentPlan: plan,
+        global_id: storedData.id,
+        role: storedData.role,
+        admin_id: storedData.adminid
       })
-    )
+    );
   }, [dispatch, plan, role, status, value])
+ {/* useEffect(() => {
+async function getdata()
+{
+    const response = await axios.post(
+   "https://buch-kunstregister.dehttps://umzungcrmtest.vercel.app/api/customers/get?pagination-no=12&page=1& id=9585285517364942&password=password1",
+  {}
+  );
+  console.log(response.data);
+ var d = response.data;
+  d=d.data
+  console.log(d.data[0].products)
+ }
+ getdata()
+
+ }, [])*/
+ }
 
   const handleFilter = useCallback(val => {
    

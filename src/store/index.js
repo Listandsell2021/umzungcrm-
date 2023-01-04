@@ -11,7 +11,8 @@ import permissions from 'src/store/apps/permissions'
 import service from 'src/store/apps/service'
 import products from 'src/store/apps/products'
 import managers from 'src/store/apps/managers'
-
+import adminlead from "src/store/apps/adminleads";
+import adminestimate from "src/store/apps/adminestimate";
 export const store = configureStore({
   reducer: {
     user,
@@ -22,10 +23,12 @@ export const store = configureStore({
     calendar,
     permissions,
     service,
-    managers
+    managers,
+    adminlead,
+    adminestimate
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false
-    })
-})
+      serializableCheck: false,
+    }),
+});

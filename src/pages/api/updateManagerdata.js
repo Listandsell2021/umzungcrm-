@@ -6,11 +6,10 @@ export default async function handler(req, res) {
    const {datanew}=req.body
    
   const todos = await db.collection("Manager").update(
-    {"m_id" : datanew.m_id},
+    {"m_id" : datanew.m_id,"global_id":datanew.global_id},
     {$set: 
         {
-       "sa_id":"sa1",
-      
+       "global_id":datanew.global_id,
       "email":datanew.email,
       "email_verification":"gjhgf67gsf",
       "registered_date":"10/11/2022",

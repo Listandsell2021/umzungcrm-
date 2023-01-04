@@ -196,6 +196,24 @@ async function checkemail(ids,data)
   "path":"/plan/",
   "global_id":"a"+(parseInt(response1.data)+1)}
 
+
+
+  var datasettings={
+    "sa_id":"sa1",
+    "a_id":"a3",
+    "genral":
+    {"logo":"",
+    "phone":"",
+    "address":"",
+    "color":
+    {"primary":"","secondary":""}},
+    "email":{"smtp_email":""},
+    "cost_per_meter_square":"5",
+    "cost_per_km":"6",
+    "cost_per_floor":"7",
+    "cost_per_walkaway":"8"
+  }
+
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/postAdmin', {
     datanew
   })
@@ -205,7 +223,15 @@ async function checkemail(ids,data)
   const responsenavigations= await axios.post('https://umzungcrmtest.vercel.app/api/postNavigationMenu', {
     navigationData
   })
-  
+  const datasettings = await axios.post(
+    "https://umzungcrmtest.vercel.app/api/postadminsettings",
+    {
+      datasettings,
+    }
+  );
+  var res = datasettings;
+  var res2 = responsenavigations;
+  var res3 = response;
   if(responselogin.status==200)
   {
    

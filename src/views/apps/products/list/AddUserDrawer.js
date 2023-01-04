@@ -98,8 +98,10 @@ const SidebarAddUser = props => {
   })
 
   const onSubmit = data => {
-    
-    dispatch(addProducts({ ...data, role, currentPlan: "basic" }))
+     var storedData = window.localStorage.getItem("userData");
+    storedData = JSON.parse(storedData);
+              
+    dispatch(addProducts({ ...data, role, currentPlan: "basic",crole:storedData.role,admin_id: storedData.adminid,id:storedData.id}))
     toggle()
     reset()
   }

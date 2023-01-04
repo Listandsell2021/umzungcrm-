@@ -6,7 +6,8 @@ export default async function handler(req, res) {
   const { deleteRole } = req.body;
 
   const todos = await db.collection("Role").deleteOne({
-    title: deleteRole.title
+    title: deleteRole.title,
+    global_id:deleteRole.global_id
   });
 
   res.status(200).json(todos);

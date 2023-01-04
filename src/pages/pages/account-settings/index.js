@@ -23,6 +23,7 @@ import TabAccount from 'src/views/pages/account-settings/TabAccount'
 import TabBilling from 'src/views/pages/account-settings/TabBilling'
 import TabSecurity from 'src/views/pages/account-settings/TabSecurity'
 import TabNotifications from 'src/views/pages/account-settings/TabNotifications'
+import TabPricing from "src/views/pages/account-settings/TabPricing";
 
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
@@ -153,6 +154,29 @@ async function getdeatilsadmin(data)
    return details;
    
 }
+async function getdeatilsmanager(data) {
+  var data = JSON.stringify({
+    id: data,
+  });
+
+  var axios = require("axios");
+
+  var config = {
+    method: "POST",
+    //url: "https://umzungcrmtest.vercel.app/api/getDetailSuperAdmin"
+    url: " https://umzungcrmtest.vercel.app/api/getManagerData",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  var details = await axios(config);
+  details = details.data;
+  //console.log(test.data)
+
+  return details;
+}
 useEffect(()=>{
       var storedData = window.localStorage.getItem('userData')
       storedData=JSON.parse(storedData)
@@ -169,18 +193,21 @@ useEffect(()=>{
            
           })
       }
-      else
-       {
-         getdeatilsadmin(storedData.id).then(res=>
-            {
-            
-             var details=res[0].details
-             
-           setstatus(details[0].status)
-           
-           
-          })  
+      else if (storedData.role == "admin") {
 
+        getdeatilsadmin(storedData.id).then((res) => {
+          var details = res[0].details;
+
+          setstatus(details[0].status);
+        });
+      }
+      else
+      {
+        getdeatilsmanager(storedData.id).then((res) => {
+          var details = res[0].details;
+
+          setstatus(details[0].status);
+        });
       }     
 
      
@@ -192,71 +219,104 @@ useEffect(()=>{
       <TabContext value={value}>
         <TabList
           onChange={handleChange}
-          aria-label='account-settings tabs'
-          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+          aria-label="account-settings tabs"
+          sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
         >
           <Tab
-            value='account'
+            value="account"
             label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <AccountOutline sx={{ fontSize: '1.125rem' }} />
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <AccountOutline sx={{ fontSize: "1.125rem" }} />
                 <TabName>Account</TabName>
               </Box>
             }
           />
-          {!status=="inactive" &&
-          <><Tab
-              value='security'
-              label={<Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <LockOpenOutline sx={{ fontSize: '1.125rem' }} />
-                <TabName>Security</TabName>
-              </Box>} /><Tab
-                value='info'
-                label={<Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <InformationOutline sx={{ fontSize: '1.125rem' }} />
-                  <TabName>Info</TabName>
-                </Box>} /></>}
-          
-         {!role=="superadmin" &&<Tab
-            value='billing'
+
+           {role == "admin" && (<Tab
+            value="Pricing"
             label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <BookmarkOutline sx={{ fontSize: '1.125rem' }} />
-                <TabName>Billing</TabName>
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <TabName>Pricing</TabName>
               </Box>
             }
-          />} 
-          {!status=="inactive" &&
-           <>
-          <Tab
-            value='notifications'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <BellOutline sx={{ fontSize: '1.125rem' }} />
-                <TabName>Notifications</TabName>
-              </Box>
-            }
-          /></>}
+          />)}
+          {!status == "inactive" && (
+            <>
+              <Tab
+                value="security"
+                label={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <LockOpenOutline sx={{ fontSize: "1.125rem" }} />
+                    <TabName>Security</TabName>
+                  </Box>
+                }
+              />
+              <Tab
+                value="info"
+                label={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <InformationOutline sx={{ fontSize: "1.125rem" }} />
+                    <TabName>Info</TabName>
+                  </Box>
+                }
+              />
+            </>
+          )}
+          {!role == "superadmin" && (
+            <Tab
+              value="billing"
+              label={
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <BookmarkOutline sx={{ fontSize: "1.125rem" }} />
+                  <TabName>Billing</TabName>
+                </Box>
+              }
+            />
+          )}
+          {!status == "inactive" && (
+            <>
+              <Tab
+                value="notifications"
+                label={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <BellOutline sx={{ fontSize: "1.125rem" }} />
+                    <TabName>Notifications</TabName>
+                  </Box>
+                }
+              />
+            </>
+          )}
         </TabList>
 
-        <TabPanel sx={{ p: 0 }} value='account'>
+        <TabPanel sx={{ p: 0 }} value="account">
           <TabAccount />
+          {status}
         </TabPanel>
-      {!status=="inactive" &&
-           <><></><TabPanel sx={{ p: 0 }} value='security'>
-            <TabSecurity />
-          </TabPanel><TabPanel sx={{ p: 0 }} value='info'>
+        
+        {role == "admin" && (<TabPanel sx={{ p: 0 }} value="Pricing">
+          <TabPricing />
+        </TabPanel>)}
+        
+        {!status == "active" && (
+          <>
+            <></>
+            <TabPanel sx={{ p: 0 }} value="security">
+              <TabSecurity />
+            </TabPanel>
+            <TabPanel sx={{ p: 0 }} value="info">
               <TabInfo />
-            </TabPanel></>}
-        <TabPanel sx={{ p: 0 }} value='billing'>
+            </TabPanel>
+          </>
+        )}
+        <TabPanel sx={{ p: 0 }} value="billing">
           <TabBilling />
         </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='notifications'>
+        <TabPanel sx={{ p: 0 }} value="notifications">
           <TabNotifications />
         </TabPanel>
       </TabContext>
     </Card>
-  )
+  );
 }
 
 export default AccountSettings

@@ -12,7 +12,7 @@ export default async function handler(req, res) {
    var todos;
   
    
-   if(params.role && params.currentPlan && params.status)
+   {/*if(params.role && params.currentPlan && params.status)
    {
     todos = await db.collection("Products").find({'role':params.role,'currentPlan:':params.currentPlan,'status':params.status}).toArray();
    }
@@ -40,23 +40,60 @@ export default async function handler(req, res) {
     else if(params.currentPlan)
     {
     todos = await db.collection("Products").find({'currentPlan':params.currentPlan}).toArray();
-    }
-    else if(params.q)
+    }*/}
+    
+    if(params.role=="superadmin")
     {
-
-      console.log(params.q)
-      ///.*${params.q}.*/
-      var s=/^`${params.q}`/
-      console.log(s)
-    todos = await db.collection("Products").find({"tittle":{'$regex': params.q}}).toArray();    
-    console.log(todos)
+      if (params.q) {
+        
+        ///.*${params.q}.*/
+        var s = /^`${params.q}`/;
+        
+        todos = await db
+          .collection("Products")
+          .find({ tittle: { $regex: params.q } })
+          .toArray();
+        console.log(todos);
+      } else {
+        todos = await db.collection("Products").find({}).toArray();
+      }
+    }
+    else if (params.role == "admin")
+    {
+      if (params.q) {
+        
+        ///.*${params.q}.*/
+        var s = /^`${params.q}`/;
+        
+        todos = await db
+          .collection("ProductsAdmins")
+          .find({ "tittle": { $regex: params.q }, "a_id": params.global_id })
+          .toArray();
+        console.log(todos);
+      } else {
+        todos = await db.collection("ProductsAdmins").find({"a_id":params.global_id}).toArray();
+      }
     }
     else
     {
-    todos = await db.collection("Products").find({}).toArray();
+     
+      if (params.q) {
+        ///.*${params.q}.*/
+        var s = /^`${params.q}`/;
+        console.log(s);
+        todos = await db
+          .collection("ProductsAdmins")
+          .find({ "tittle": { $regex: params.q }, "a_id": params.admin_id })
+          .toArray();
+        console.log(todos);
+      } else {
+        todos = await db
+          .collection("ProductsAdmins")
+          .find({ a_id: params.admin_id })
+          .toArray();
+      }
     }
-    
- // const todos = await db.collection("Products").find({'role':params.role,'currentPlan:':params.currentPlan,'status':params.status}).toArray();
-  res.status(200).json(todos);
+      // const todos = await db.collection("Products").find({'role':params.role,'currentPlan:':params.currentPlan,'status':params.status}).toArray();
+      res.status(200).json(todos);
   //await db.close();
 }

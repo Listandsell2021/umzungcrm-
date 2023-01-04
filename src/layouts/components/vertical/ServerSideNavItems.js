@@ -78,7 +78,11 @@ const ServerSideNavItems = () => {
         }
         else
         {
-        const response = await axios.get("https://umzungcrmtest.vercel.app/api/getRoleData", {});
+           var storedData = window.localStorage.getItem("userData");
+       storedData = JSON.parse(storedData);
+        const response = await axios.post("https://umzungcrmtest.vercel.app/api/getRoleData", {
+        "id": storedData.adminid
+        });
 
         var datarole = response.data;
         
@@ -119,7 +123,7 @@ const ServerSideNavItems = () => {
       }
        getrole();
 
-    /*axios.get('/api/vertical-nav/data').then(response => {
+    /*axios.get('https://umzungcrmtest.vercel.app/api/vertical-nav/data').then(response => {
       const menuArray = response.data
 console.log(menuArray)
       /**

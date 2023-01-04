@@ -7,15 +7,18 @@ import axios from 'axios'
 
 // ** Fetch Users
 export const fetchData = createAsyncThunk('appManager/fetchData', async params => {
+  var storedData = window.localStorage.getItem("userData");
+  storedData = JSON.parse(storedData);
   const response = await axios.post('https://umzungcrmtest.vercel.app/api/getManagersData', {
     params
   })
-  var test={
-    "alldata":response.data,
-    "params":params,
-    "total":1,
-    "managers":response.data
-  }
+  var test = {
+    alldata: response.data,
+    params: params,
+    total: 1,
+    managers: response.data,
+    global_id: storedData.id,
+  };
 
    //console.log(test)
   return test
@@ -48,12 +51,14 @@ export const fetchplan=(async params =>
 })
 // ** Add User
 export const addmanager = createAsyncThunk('appManager/addmanager', async (data, { getState, dispatch }) => {
+   var storedData = window.localStorage.getItem("userData");
+   storedData = JSON.parse(storedData);
   var datas={"collection":"Manager"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
     datas
   })
   var datanew={
-    "sa_id":"sa1",
+    "global_id":storedData.id,
     "m_id":"m"+(parseInt(response1.data)+1),
     "email":data.email,
     "email_verification":"gjhgf67gsf",
@@ -87,11 +92,12 @@ export const addmanager = createAsyncThunk('appManager/addmanager', async (data,
 return response.data
 })
 export const updateManager = createAsyncThunk('appManager/updateManager', async (datas, { getState, dispatch }) => {
-
+  var storedData = window.localStorage.getItem("userData");
+  storedData = JSON.parse(storedData);
  
  
   var datanew={
-     "sa_id":"sa1",
+     "global_id":storedData.id,
       "m_id":datas.m_id,
       "email":datas.email,
       "email_verification":"gjhgf67gsf",

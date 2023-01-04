@@ -44,11 +44,11 @@ export default async function handler(req, res) {
     if(params.q)
     {
 
-    todos = await db.collection("Manager").find({"full_name": {'$regex': params.q}}).toArray();    
+    todos = await db.collection("Manager").find({"full_name": {'$regex': params.q},"global_id":params.global_id}).toArray();    
     }
     else
     {
-    todos = await db.collection("Manager").find({}).toArray();
+    todos = await db.collection("Manager").find({"global_id":params.global_id}).toArray();
     }
     
  // const todos = await db.collection("Manager").find({'role':params.role,'currentPlan:':params.currentPlan,'status':params.status}).toArray();

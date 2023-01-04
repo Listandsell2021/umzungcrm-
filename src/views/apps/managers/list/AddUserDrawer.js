@@ -70,7 +70,7 @@ const SidebarAddUser = props => {
 
   // ** State
   const [status, setstatus] = useState('active')
-  const [role, setRole] = useState('Manager')
+  const [role, setRole] = useState('')
    const [roleData, setroleData] = useState([]);
  const [emailerror, setemailerror] = useState('')
   // ** Hooks
@@ -89,11 +89,15 @@ const SidebarAddUser = props => {
   })
   useEffect(() => {
     async function getdata() {
-      const response = await axios.get(
+       var storedData = window.localStorage.getItem("userData");
+       storedData = JSON.parse(storedData);
+        
+      const response = await axios.post(
         "https://umzungcrmtest.vercel.app/api/getRoleData",
-        {}
+        {"id": storedData.id}
       );
-
+      console.log(storedData.id);
+        console.log(response.data);
       setroleData(response.data);
     }
     getdata();

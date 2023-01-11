@@ -12,7 +12,7 @@ export default async function handler(req, res) {
    var todos;
   
    
-   if(params.role && params.currentPlan && params.status)
+   /*if(params.role && params.currentPlan && params.status)
    {
     todos = await db.collection("Services").find({'role':params.role,'currentPlan:':params.currentPlan,'status':params.status}).toArray();
    }
@@ -40,22 +40,25 @@ export default async function handler(req, res) {
     else if(params.currentPlan)
     {
     todos = await db.collection("Services").find({'currentPlan':params.currentPlan}).toArray();
-    }
-    else if(params.q)
+    }*/
+     if(params.q)
     {
 
-      console.log(params.q)
+     
       ///.*${params.q}.*/
       var s=/^`${params.q}`/  
-      console.log(s)
+     
     todos = await db.collection("Services").find({"tittle":{'$regex': params.q}}).toArray();    
-    console.log(todos)
+   
     }
     else
     {
-    todos = await db.collection("Services").find({}).toArray();
+    todos = await db
+      .collection("MovingServicesAdmin")
+      .find({ a_id: params.global_id })
+      .toArray();
     }
-    
+   
  // const todos = await db.collection("Services").find({'role':params.role,'currentPlan:':params.currentPlan,'status':params.status}).toArray();
   res.status(200).json(todos);
   //await db.close();

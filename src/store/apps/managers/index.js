@@ -34,7 +34,7 @@ export const fetchdatabyid = createAsyncThunk('appManager/fetchData', async para
     "managers":response.data
   }
 
-   console.log(test)
+  
   return test
 })
 

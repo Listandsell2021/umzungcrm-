@@ -122,7 +122,7 @@ const LoginPage = ({crm_data,theme_data}) => {
   // ** Database var
   const crm_data_get=JSON.parse(crm_data)
   const theme_data_get=JSON.parse(theme_data)
-  // console.log(theme_data)
+  //
   const [title, settitle] = useState(crm_data_get[0].crm_name)
   const [logo, setlogo] = useState(crm_data_get[0].logo)      
   // ** Hooks
@@ -456,7 +456,7 @@ export async function getServerSideProps() {
   
           var theme_data=await axios(config)
           theme_data=JSON.stringify(theme_data.data)
-        //  console.log(crm_data)
+        // 
         
 
  

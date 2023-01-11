@@ -44,9 +44,9 @@ export default function App() {
     while ((match = regex.exec(router.asPath))) {
       params[match[1]] = match[2];
     }
-   // console.log(params.paymentId);
+   //
     var totals = params.tokenn;
-    console.log(totals)
+   
   const decrypted_string = decrypt("salt",String(totals));*/}
   var regex = /[?&]([^=#]+)=([^&#]*)/g,
       params = {},
@@ -54,7 +54,7 @@ export default function App() {
     while ((match = regex.exec(router.asPath))) {
       params[match[1]] = match[2];
     }
-   // console.log(params.paymentId);
+   //
     var totals = params.tokenn;
     const decrypted_string=String(totals);
 
@@ -64,7 +64,7 @@ export default function App() {
       //console.log("Is fullpage refresh");
       ///router.push('/');
     } else {
-     // console.log("Is is route change");
+     //
     }
   
     fetch("https://umzungcrmtest.vercel.app/api/create-payment-intent", {

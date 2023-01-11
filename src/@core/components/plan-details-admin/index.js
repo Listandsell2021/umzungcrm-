@@ -289,7 +289,7 @@ var storedData = window.localStorage.getItem('userData')
 const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdmin', {
     datanew
   })
-  console.log(response.status)
+ 
    if(response.status==200)
    {
 
@@ -301,7 +301,7 @@ const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAd
      const responsedelete = await axios.post('https://umzungcrmtest.vercel.app/api/removeNavigation', {
     deletenavigation
   })
-  console.log(responsedelete)
+ 
    
    var navigationData={
     "title":"Dashboards",

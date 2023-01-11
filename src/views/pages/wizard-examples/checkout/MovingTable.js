@@ -55,6 +55,7 @@ import Fade from "@mui/material/Fade";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { CustomFooterTotalComponent } from "./customFooter.js";
 
 // ** Third Party Imports
 import Payment from "payment";
@@ -117,52 +118,7 @@ const invoiceStatusObj = {
   },
 };
 
-const RowOptions = ({ id }) => {
-  // ** State
-  const [anchorEl, setAnchorEl] = useState(null);
-  const rowOptionsOpen = Boolean(anchorEl);
 
-  const handleRowOptionsClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleRowOptionsClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <>
-      <IconButton size="small" onClick={handleRowOptionsClick}>
-        <DotsVertical />
-      </IconButton>
-      <Menu
-        keepMounted
-        anchorEl={anchorEl}
-        open={rowOptionsOpen}
-        onClose={handleRowOptionsClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-      >
-        <MenuItem>
-          <Download fontSize="small" sx={{ mr: 2 }} />
-          Download
-        </MenuItem>
-        <Link href={`/apps/invoice/edit/${id}`} passHref>
-          <MenuItem>
-            <PencilOutline fontSize="small" sx={{ mr: 2 }} />
-            Edit
-          </MenuItem>
-        </Link>
-      </Menu>
-    </>
-  );
-};
 
 const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
   // ** State
@@ -170,12 +126,25 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pdata, setpdata] = useState([]);
   const [data, setData] = useState([]);
+    const [total, setTotal] = useState(0);
   const [mlist, setmlist] = useState([]);
   const [refreshdata, setrefreshdata] = useState(true);
+  const [show, setShow] = useState(false);
+    const [dialogType, setdialogType] = useState("add");
   // ** Var
   const open = Boolean(anchorEl);
   const [addUserOpen, setAddUserOpen] = useState(false);
+  const [proname, setproname] = useState("");
+  const [proqty, setproqty] = useState("");
+  const [proid, setproid] = useState("");
+  
+  
+  
+
+
+
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -213,6 +182,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
       headerName: "#Title",
 
       renderCell: ({ row }) => {
+       
         if (row.tittle == "Total") {
           return (
             // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
@@ -350,7 +320,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
           var qty_new = qty(row.ms_id);
 
           if (qty_new.length != 0) {
-            //console.log(row)
+           
             var qty_new = qty(row.ms_id);
             qty_new = qty_new[0].quantity;
             qtysum = qty_new;
@@ -422,6 +392,22 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
         if (row.tittle != "Total") {
           return (
             <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Tooltip title="Edit">
+                <IconButton
+                  size="small"
+                  onClick={() => {
+                    setproid(row.ms_id);
+                    setproname(row.tittle);
+                    var qty_new = qty(row.ms_id);
+                    qty_new = qty_new[0].quantity;
+                    setproqty(qty_new);
+                    setdialogType("edit");
+                    setShow(true);
+                  }}
+                >
+                  <PencilOutline />
+                </IconButton>
+              </Tooltip>
               <Tooltip title="Delete Invoice">
                 <IconButton
                   size="small"
@@ -443,7 +429,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
   async function updateProducts(someArray) {
     var datanew = {
       moving_services_list: someArray,
-      c_id: "c1",
+      c_id: "c" + id,
     };
 
     const response = await axios.post(
@@ -513,6 +499,8 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
           .map((item) => parseInt(item.price))
           .reduce((prev, next) => prev + next);
 
+          //* parseFloat(qty(item.ms_id).quantity); 
+
         var sumQty = mlist
           .map((item) => parseInt(item.quantity))
           .reduce((prev, next) => prev + next);
@@ -530,8 +518,8 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
           
           ms_id: "",
         };
-        setpdata([...filteredX, a]);
-        //console.log(pdata);
+        setpdata([...filteredX]);
+        
       }
     }
   }, [mlist, refreshdata]);
@@ -544,31 +532,31 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
       }
     });
   }
-  const DialogAddCard = () => {
+  function qtynm(id) {
+    var q;
+     mlist.filter((itemY) => {
+      
+      if (itemY.ms_id == id) {
+        q=itemY.quantity
+        return itemY;
+      } else {
+        return null;
+      }
+    });
+    return parseInt(q);
+  }
+  const DialogAddCard = ({ pronamed, proqtyd,proidd }) => {
     // ** States
-    const [name, setName] = useState("");
-    const [show, setShow] = useState(false);
-    const [cvc, setCvc] = useState("");
+    const [proname, setproname] = useState(pronamed);
+  
+    
     const [cardNumber, setCardNumber] = useState("");
-    const [focus, setFocus] = useState();
-    const [expiry, setExpiry] = useState("");
     const handleBlur = () => setFocus(undefined);
 
-    const [pid, setpid] = useState("");
+    const [pid, setpid] = useState(proidd);
     const [pname, setpname] = useState("");
-    const [qty, setqty] = useState("");
-    const handleInputChange = ({ target }) => {
-      if (target.name === "number") {
-        target.value = formatCreditCardNumber(target.value, Payment);
-        setCardNumber(target.value);
-      } else if (target.name === "expiry") {
-        target.value = formatExpirationDate(target.value);
-        setExpiry(target.value);
-      } else if (target.name === "cvc") {
-        target.value = formatCVC(target.value, cardNumber, Payment);
-        setCvc(target.value);
-      }
-    };
+    const [qty, setqty] = useState(proqtyd);
+    
 
     const handleClose = () => {
       setShow(false);
@@ -590,7 +578,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
         mlist.push({ ms_id: pid, quantity: qty });
         var datanew = {
           moving_services_list: mlist,
-          c_id: "c1",
+          c_id: "c" + id,
         };
         const response = await axios.post(
           "https://umzungcrmtest.vercel.app/api/updateAdminLeadMovingMaterails",
@@ -600,14 +588,16 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
         );
         //console.log(response);
         if (response.status == 200) {
+
           setrefreshdata(true);
+          setShow(false)
         }
       } else {
         mlist.splice(objIndex, 1);
         mlist.push({ ms_id: pid, quantity: qty });
         var datanew = {
           moving_services_list: mlist,
-          c_id: "c1",
+          c_id: "c" + id,
         };
         const response = await axios.post(
           "https://umzungcrmtest.vercel.app/api/updateAdminLeadMovingMaterails",
@@ -618,6 +608,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
         //console.log(response);
         if (response.status == 200) {
           setrefreshdata(true);
+        setShow(false);
         }
       }
     }
@@ -629,7 +620,11 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
           sx={{ mb: 3 }}
           aria-expanded={open ? "true" : undefined}
           aria-controls={open ? "user-view-overview-export" : undefined}
-          onClick={() => setShow(true)}
+          onClick={() => {
+            setqty("");
+            setdialogType("add");
+            setShow(true);
+          }}
         >
           Add
         </Button>
@@ -659,9 +654,16 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
                 <Close />
               </IconButton>
               <Box sx={{ mb: 4, textAlign: "center" }}>
-                <Typography variant="h5" sx={{ mb: 3, lineHeight: "2rem" }}>
-                  Add
-                </Typography>
+                {dialogType == "add" ? (
+                  <Typography variant="h5" sx={{ mb: 3, lineHeight: "2rem" }}>
+                    Add
+                  </Typography>
+                ) : (
+                  <Typography variant="h5" sx={{ mb: 3, lineHeight: "2rem" }}>
+                    Edit
+                  </Typography>
+                )}
+
                 <Typography variant="body2"></Typography>
               </Box>
               <Grid container spacing={6}>
@@ -672,29 +674,42 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
                 >
                   <Grid container spacing={6}>
                     <Grid item xs={12} sx={{ mt: 7 }}>
-                      <Autocomplete
-                        sx={{
-                          lineHeight: "32px !important",
-                          letterSpacing: "0.15px !important",
-                          pl: 20,
-                          pr: 20,
-                          pt: 10,
-                        }}
-                        options={movingdata}
-                        onChange={(event, newValue) => {
-                          setpid(newValue.ms_id);
-                        }}
-                        inputValue={pname}
-                        onInputChange={(event, newInputValue) => {
-                          setpname(newInputValue);
-                        }}
-                        filterOptions={filterOptions}
-                        id="autocomplete-custom-filter"
-                        getOptionLabel={(option) => option.tittle}
-                        renderInput={(params) => (
-                          <TextField {...params} label="Add" />
-                        )}
-                      />
+                      {dialogType == "add" ? (
+                        <Autocomplete
+                          sx={{
+                            lineHeight: "32px !important",
+                            letterSpacing: "0.15px !important",
+                            pl: 20,
+                            pr: 20,
+                            pt: 10,
+                          }}
+                          options={movingdata}
+                          onChange={(event, newValue) => {
+                            setpid(newValue.ms_id);
+                          }}
+                          inputValue={pname}
+                          onInputChange={(event, newInputValue) => {
+                            setpname(newInputValue);
+                          }}
+                          filterOptions={filterOptions}
+                          id="autocomplete-custom-filter"
+                          getOptionLabel={(option) => option.tittle}
+                          renderInput={(params) => (
+                            <TextField {...params} label="Add" />
+                          )}
+                        />
+                      ) : (
+                        <TextField
+                          fullWidth
+                          sx={{ mt: 5 }}
+                          value={proname}
+                          disabled
+                          //onBlur={handleBlur}
+                          label="Product Name"
+                          placeholder="Name"
+                          
+                        />
+                      )}
                     </Grid>
                     <Grid item xs={12} sx={{ mt: 2 }}>
                       <TextField
@@ -703,7 +718,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
                         type="number"
                         value={qty}
                         autoComplete="off"
-                        onBlur={handleBlur}
+                        
                         label="Quantity"
                         placeholder="1"
                         onChange={(e) => setqty(e.target.value)}
@@ -736,7 +751,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
   return (
     <Card>
       <CardHeader
-        title="Moving materials List"
+        title="Moving Services List"
         sx={{ "& .MuiCardHeader-action": { m: 0 } }}
         titleTypographyProps={{
           variant: "h6",
@@ -747,28 +762,7 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
         }}
         action={
           <>
-            <DialogAddCard />
-
-            <Button
-              variant="contained"
-              aria-haspopup="true"
-              onClick={handleClick}
-              endIcon={<ChevronDown />}
-              aria-expanded={open ? "true" : undefined}
-              aria-controls={open ? "user-view-overview-export" : undefined}
-            >
-              Exports
-            </Button>
-            <Menu
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              id="user-view-overview-export"
-            >
-              <MenuItem onClick={handleClose}>PDF</MenuItem>
-              <MenuItem onClick={handleClose}>XLSX</MenuItem>
-              <MenuItem onClick={handleClose}>CSV</MenuItem>
-            </Menu>
+            <DialogAddCard pronamed={proname} proqtyd={proqty} proidd={proid} />
           </>
         }
       />
@@ -798,7 +792,21 @@ const InvoiceListTable = ({ invoiceData, movingdata, id }) => {
               return "cold";
             }
           }}
+          componentsProps={{
+            footer: { total },
+          }}
+          components={{
+            Footer: CustomFooterTotalComponent,
+          }}
           disableSelectionOnClick
+          onStateChange={(state) => {
+            var q = qtynm("ms1");
+            const total = pdata
+              .map((item) => item.price * qtynm(item.ms_id))
+              .reduce((a, b) => a + b, 0);
+
+            setTotal(total);
+          }}
           rowsPerPageOptions={[7, 10, 25, 50]}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           sx={{ "& .MuiDataGrid-columnHeaders": { borderRadius: 0 } }}

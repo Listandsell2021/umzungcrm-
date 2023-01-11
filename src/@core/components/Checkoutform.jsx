@@ -53,7 +53,7 @@ export default function CheckoutForm(price) {
     var p=price.price
 
     setnewprice(String(p))
-    console.log(newprice)
+   
   }, []);
  
   const handleSubmit = async (e) => {
@@ -72,7 +72,7 @@ export default function CheckoutForm(price) {
     while ((match = regex.exec(router.asPath))) {
       params[match[1]] = match[2];
     }
-   // console.log(params.paymentId);
+   //
     var pid = params.PayerID;
     var payid = params.paymentId;
     var fname = params.fname;
@@ -87,7 +87,7 @@ export default function CheckoutForm(price) {
     var paypalexp=params.paypalexp;
     var redirect_status=params.redirect_status;
     var add=String(address)
-      console.log(add)
+     
       const res =  add.replace(/ /g, '_')
     const { error } = await stripe.confirmPayment({
       elements,

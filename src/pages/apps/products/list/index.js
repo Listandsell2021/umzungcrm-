@@ -455,10 +455,10 @@ async function getdata()
    "https://buch-kunstregister.dehttps://umzungcrmtest.vercel.app/api/customers/get?pagination-no=12&page=1& id=9585285517364942&password=password1",
   {}
   );
-  console.log(response.data);
+ 
  var d = response.data;
   d=d.data
-  console.log(d.data[0].products)
+ 
  }
  getdata()
 

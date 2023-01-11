@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       }
       else
       {
-        console.log(datanew)
+       
         todos = await db.collection("ProductsAdmins").update(
           { "p_id": datanew.p_id, "a_id": datanew.admin_id },
           {

@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
    const {datas}=req.body;
 
-  console.log(datas.collection); 
+ 
   
    // Send all the todos
 

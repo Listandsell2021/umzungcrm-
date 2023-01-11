@@ -96,8 +96,8 @@ const SidebarAddUser = props => {
         "https://umzungcrmtest.vercel.app/api/getRoleData",
         {"id": storedData.id}
       );
-      console.log(storedData.id);
-        console.log(response.data);
+     
+       
       setroleData(response.data);
     }
     getdata();
@@ -110,7 +110,7 @@ async function setdata(data)
 const response = await axios.post('https://umzungcrmtest.vercel.app/api/getManagerbyemail', {
     email
      })
-  console.log(response.data)
+ 
   if(response.data.length!=0)
   {
       setemailerror("already registred")

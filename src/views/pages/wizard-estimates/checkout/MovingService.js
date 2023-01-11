@@ -56,29 +56,19 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-
-
-
-
-
 // ** Styles Import
 import "react-credit-cards/es/styles-compiled.css";
-
-
-
-
-
 
 const StyledLink = styled("a")(({ theme }) => ({
   textDecoration: "none",
   color: theme.palette.primary.main,
 }));
 
-
-
-
-
-const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
+const MovingMaterial = ({
+  invoiceData,
+  movingservices,id,
+  plist,
+}) => {
   // ** State
   const [pageSize, setPageSize] = useState(7);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -98,11 +88,11 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
         var qty_new;
         var qtysum;
 
-        var qty_new = qty(row.mm_id);
+        var qty_new = qty(row.ms_id);
 
         if (qty_new.length != 0) {
           //console.log(row)
-          var qty_new = qty(row.mm_id);
+          var qty_new = qty(row.ms_id);
           qty_new = qty_new[0].quantity;
           qtysum = qty_new;
         }
@@ -150,7 +140,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
                 variant="caption"
                 sx={{ textDecoration: "none" }}
               >
-                {row.size.length}x{row.size.height}x{row.size.breath}
+                
               </Typography>
               {/* </Link> */}
             </Box>
@@ -198,7 +188,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
       .then((response) => {
         var datas = response.data[0];
         //console.log(datas);
-        setmlist(datas.moving_material_list);
+        setmlist(datas.moving_services_list);
         //setloaddata(true);
         setrefreshdata(false);
       })
@@ -210,14 +200,14 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
   }, [refreshdata]);
 
   useEffect(() => {
-    if (movingdata.length != 0) {
+    if (movingservices.length != 0) {
       if (mlist.length != 0) {
         let yFilter = mlist.map((itemY) => {
-          return itemY.mm_id;
+          return itemY.ms_id;
         });
 
-        let filteredX = movingdata.filter((itemX) =>
-          yFilter.includes(itemX.mm_id)
+        let filteredX = movingservices.filter((itemX) =>
+          yFilter.includes(itemX.ms_id)
         );
 
         setpdata(filteredX);
@@ -226,7 +216,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
   }, [mlist, refreshdata]);
   function qty(id) {
     return mlist.filter((itemY) => {
-      if (itemY.mm_id == id) {
+      if (itemY.ms_id == id) {
         return itemY;
       } else {
         return null;
@@ -238,7 +228,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
     <>
       <DataGrid
         autoHeight
-        getRowId={(row) => row.mm_id}
+        getRowId={(row) => row.ms_id}
         columns={columns}
         rows={pdata}
         pageSize={pageSize}

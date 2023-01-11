@@ -491,7 +491,7 @@ useEffect(() => {
           .map((item) => parseInt(item.quantity))
           .reduce((prev, next) => prev + next);
 
-        console.log(plist);
+       
 
         var a = {
           tittle: "Total",

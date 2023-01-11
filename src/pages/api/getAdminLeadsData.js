@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   //console.log(req.body)
   //const {email,pass}=req.body;
   const { params } = req.body;
-  // console.log(params)
+  //
 
   var todos;
 

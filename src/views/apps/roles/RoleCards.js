@@ -171,7 +171,7 @@ const RolesCards = () => {
     {
     
      var  deleteRole = { "title": data.name,"global_id":storedData.id};
-     console.log(deleteRole);
+    
       const responsedelete = await axios.post(
         "https://umzungcrmtest.vercel.app/api/removeRole",
         {
@@ -184,7 +184,7 @@ const RolesCards = () => {
           Permissions: permissionsArray,
           global_id: storedData.id
         };
-        console.log(datanew);
+       
         const response = await axios.post(
           "https://umzungcrmtest.vercel.app/api/postRole",
           {
@@ -204,7 +204,7 @@ const RolesCards = () => {
           Permissions: permissionsArray,
           global_id: storedData.id
         };
-        console.log(datanew);
+       
         const response = await axios.post(
           "https://umzungcrmtest.vercel.app/api/postRole",
           {
@@ -259,7 +259,7 @@ async function setnavigation(navigationData)
   );
 }
   const onSubmit = (data) => {
-    console.log(dialogTitle);
+   
 
     var storedData = window.localStorage.getItem("userData");
     storedData = JSON.parse(storedData);
@@ -386,7 +386,7 @@ async function setnavigation(navigationData)
     } else {
       var length = cardDatabyName.Permissions.length;
       setValue("name", cardDatabyName.title);
-      console.log(cardDatabyName.Permissions);
+     
       for (let i = 0; i < length; i++) {
         if (cardDatabyName.Permissions[i].title == "Dashboards") {
           setdashboard(true);
@@ -405,10 +405,10 @@ async function setnavigation(navigationData)
         } else if (cardDatabyName.Permissions[i].title == "Service") {
           setService(true);
         } else {
-          console.log("no permissions");
+         
         }
       }
-      console.log("Edit");
+     
     }
   }, [cardDatabyName, open]);
   
@@ -485,7 +485,7 @@ async function setnavigation(navigationData)
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange } }) =>{
-                    console.log(value)
+                   
                     
                     return(
                     <TextField

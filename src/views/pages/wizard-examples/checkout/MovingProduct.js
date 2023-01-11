@@ -55,17 +55,26 @@ import Fade from "@mui/material/Fade";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { CustomFooterTotalComponent } from "./customFooterMaterial.js";
-
+import { CustomFooterTotalComponent } from "./customFooterProducts.js";
 // ** Third Party Imports
 import Payment from "payment";
 import Cards from "react-credit-cards";
 
+// ** Util Import
+import {
+  formatCVC,
+  formatExpirationDate,
+  formatCreditCardNumber,
+} from "src/@core/utils/format";
 
+// ** Styled Component Imports
+import CardWrapper from "src/@core/styles/libs/react-credit-cards";
 
-
+// ** Styles Import
 import "react-credit-cards/es/styles-compiled.css";
 
+import CreditCardOutline from "mdi-material-ui/CreditCardOutline";
+import { PlaylistMinus } from "mdi-material-ui";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Fade ref={ref} {...props} />;
@@ -87,22 +96,59 @@ const Header = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
 }));
 // ** Vars
+const invoiceStatusObj = {
+  Sent: { color: "secondary", icon: <Send sx={{ fontSize: "1.25rem" }} /> },
+  Paid: { color: "success", icon: <Check sx={{ fontSize: "1.25rem" }} /> },
+  Draft: {
+    color: "primary",
+    icon: <ContentSaveOutline sx={{ fontSize: "1.25rem" }} />,
+  },
+  "Partial Payment": {
+    color: "warning",
+    icon: <ChartPie sx={{ fontSize: "1.25rem" }} />,
+  },
+  "Past Due": {
+    color: "error",
+    icon: <InformationOutline sx={{ fontSize: "1.25rem" }} />,
+  },
+  Downloaded: {
+    color: "info",
+    icon: <ArrowDown sx={{ fontSize: "1.25rem" }} />,
+  },
+};
 
-
-const MovingMaterial = ({ invoiceData, movingdata, id }) => {
+const MovingProduct = ({ invoiceData, productdata, id }) => {
   // ** State
   const [pageSize, setPageSize] = useState(7);
   const [qtyproduct, setqtyproduct] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
   const [pdata, setpdata] = useState([]);
   const [data, setData] = useState([]);
-  const [mlist, setmlist] = useState([]);
+  const [plist, setplist] = useState([]);
   const [show, setShow] = useState(false);
   const [prodcutname, setprodcutname] = useState("");
   const [pqty, setpqty] = useState("");
+  const [CheckBoxassembly, setCheckBoxassembly] = useState(false);
+  const [CheckBoxpacking, setCheckBoxpacking] = useState(false);
+  const [CheckBoxunpacking, setCheckBoxunpacking] = useState(false);
+  const [CheckBoxdissasembly, setCheckBoxdissasembly] = useState(false);
+  const [packingValue, setpackingValue] = useState("");
+  const [assemblyValue, setassemblyValue] = useState("");
+  const [unpackingValue, setunpackingValue] = useState("");
+  const [dissasemblyValue, setdissasemblyValue] = useState("");
+
+  const [sumServiceassembly, setsumServiceassembly] = useState(0);
+  const [sumServicepacking, setsumServicepacking] = useState(0);
+  const [sumServiceunpacking, setsumServiceunpacking] = useState(0);
+  const [sumServicdissasembly, setsumServicedissasembly] = useState(0);
+  const [ctotal, setCtotal] = useState(0);
+  const [total, setTotal] = useState(0);
+  
+
+
+  const [sum, setsum] = useState(0);
   const [pname, setpname] = useState("");
-  const [total, setTotal] = useState(0.00);
-   const [ctotal, setCtotal] = useState(0.00);
+
   const [pid, setpid] = useState("");
 
   const [dialogType, setdialogType] = useState("add");
@@ -143,7 +189,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
               variant="subtitle2"
               sx={{ color: "text.primary", textDecoration: "none" }}
             >
-              #{row.mm_id}
+              #{row.p_id}
             </Typography>
             // </Link>
           );
@@ -163,11 +209,11 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
           qty_new = 0;
           qtysum = row.size.qty;
         } else {
-          var qty_new = qty(row.mm_id);
+          var qty_new = qty(row.p_id);
 
           if (qty_new.length != 0) {
             //console.log(row)
-            var qty_new = qty(row.mm_id);
+            var qty_new = qty(row.p_id);
             qty_new = qty_new[0].quantity;
             qtysum = qty_new;
           }
@@ -223,7 +269,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
                   flexDirection: "column",
                 }}
               >
-                {/* <Link href={`/apps/products/view/${mm_idnew}`} passHref> */}
+                {/* <Link href={`/apps/products/view/${p_idnew}`} passHref> */}
                 <Typography
                   noWrap
                   component="a"
@@ -233,7 +279,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
                   {row.tittle}
                 </Typography>
                 {/* </Link> */}
-                {/* <Link href={`/apps/products/view/${mm_idnew}`} passHref> */}
+                {/* <Link href={`/apps/products/view/${p_idnew}`} passHref> */}
                 <Typography
                   noWrap
                   component="a"
@@ -295,7 +341,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
       flex: 0.2,
       field: "totalcubicmeter",
       minWidth: 90,
-      headerName: "Total Cubic meter",
+      headerName: "Total",
       renderCell: ({ row }) => {
         var qty_new;
         var totalcubicsum;
@@ -304,7 +350,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
           var qtysum = row.size.qty;
           totalcubicsum = parseFloat(row.size.cubic_meter) * parseFloat(qtysum);
         } else {
-          var qty_new = qty(row.mm_id);
+          var qty_new = qty(row.p_id);
           if (qty_new.length != 0) {
             qty_new = qty_new[0].quantity;
 
@@ -340,44 +386,41 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
       },
     },
 
-   
     {
       flex: 0.2,
-      field: "Total Price",
+      field: "dissasembly",
       minWidth: 90,
-      headerName: "total Materials price",
+      headerName: "Dissasembly",
       renderCell: ({ row }) => {
-        var sumtotal;
-        var qty_new;
-        var qtysum;
-
-       
+        var value;
         if (row.tittle == "Total") {
-          sumtotal = row.price;
-        }
-        else
-        {
-          var qty_new = qty(row.mm_id);
-
-          if (qty_new.length != 0) {
-            //console.log(row)
-            var qty_new = qty(row.mm_id);
-            qty_new = qty_new[0].quantity;
-            qtysum = qty_new;
+          if (row.sumdissasembly == 0) {
+            value = "";
+            
+          } else {
+            value = row.sumdissasembly + " €";
+            //setsumService(parseFloat(sumService) + parseFloat(row.sumdissasembly));
+            
           }
-          sumtotal = parseFloat(row.price) * parseFloat(qtysum);
+        } else {
+          var check = service(row.p_id);
+          if (check) {
+            if (check[0].product_services_list.dissasembly) {
+              value = row.service_price.dissasembly + " " + "€";
+             
+            } else {
+              setsum(parseFloat(0));
+              value = "--------";
+              
+            }
+          }
         }
 
         if (row.tittle == "Total") {
           return (
             // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
 
-            <Typography
-              color="common.black"
-              sx={{ fontWeight: "bold", fontSize: 19 }}
-            >
-              {sumtotal} €
-            </Typography>
+            <Typography color="common.black">{}</Typography>
             // </Link>
           );
         } else {
@@ -390,13 +433,165 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
               variant="subtitle2"
               sx={{ color: "text.primary", textDecoration: "none" }}
             >
-              {sumtotal} €
+              {value}
             </Typography>
             // </Link>
           );
         }
       },
     },
+    {
+      flex: 0.2,
+      field: "assembly",
+      minWidth: 90,
+      headerName: "Assembly",
+      renderCell: ({ row }) => {
+        var value;
+        if (row.tittle == "Total") {
+          if (row.sumassembly == 0) {
+            value = "";
+          } else {
+            value = row.sumassembly + " €";
+           
+          }
+        } else {
+          var check = service(row.p_id);
+
+          if (check[0].product_services_list.assembly) {
+            value = row.service_price.assembly + " " + "€";
+            
+          } else {
+            value = "--------";
+           
+          }
+        }
+
+        if (row.tittle == "Total") {
+          return (
+            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+
+            <Typography color="common.black">{}</Typography>
+            // </Link>
+          );
+        } else {
+          return (
+            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+
+            <Typography
+              noWrap
+              component="a"
+              variant="subtitle2"
+              sx={{ color: "text.primary", textDecoration: "none" }}
+            >
+              {value}
+            </Typography>
+            // </Link>
+          );
+        }
+      },
+    },
+    {
+      flex: 0.2,
+      field: "packing",
+      minWidth: 90,
+      headerName: "Packing",
+      renderCell: ({ row }) => {
+        var value;
+        if (row.tittle == "Total") {
+          if (row.sumpacking == 0) {
+            value = "";
+          } else {
+            value = row.sumpacking + " €";
+           
+          }
+        } else {
+          var check = service(row.p_id);
+
+          if (check[0].product_services_list.packing) {
+            value = row.service_price.packing + " " + "€";
+            
+          } else {
+            
+            value = "--------";
+          }
+        }
+
+        if (row.tittle == "Total") {
+          return (
+            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+
+          <Typography color="common.black">{}</Typography>
+            // </Link>
+          );
+        } else {
+          return (
+            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+
+            <Typography
+              noWrap
+              component="a"
+              variant="subtitle2"
+              sx={{ color: "text.primary", textDecoration: "none" }}
+            >
+              {value}
+            </Typography>
+            // </Link>
+          );
+        }
+      },
+    },
+    {
+      flex: 0.2,
+      field: "unpacking",
+      minWidth: 90,
+      headerName: "Unpacking",
+      renderCell: ({ row }) => {
+        var value;
+        if (row.tittle == "Total") {
+          if (row.sumunpacking == 0) {
+            value = "";
+          } else {
+            value = row.sumunpacking + " €";
+            
+          }
+        } else {
+          var check = service(row.p_id);
+
+          if (check[0].product_services_list.unpacking) {
+            value = row.service_price.unpacking + " " + "€";
+          
+            
+          } else {
+            value = "--------";
+            
+          }
+        }
+
+        if (row.tittle == "Total") {
+          return (
+            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+
+          <Typography color="common.black">{}</Typography>
+            // </Link>
+          );
+        } else {
+          return (
+            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+
+            <Typography
+              noWrap
+              component="a"
+              variant="subtitle2"
+              sx={{ color: "text.primary", textDecoration: "none" }}
+            >
+              {value}
+            </Typography>
+            // </Link>
+          );
+        }
+      },
+    },
+   
     {
       flex: 0.1,
       minWidth: 130,
@@ -412,17 +607,35 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
                   size="small"
                   onClick={() => {
                     setprodcutname(row.tittle);
-                    var qty_new = qty(row.mm_id);
+                    var qty_new = qty(row.p_id);
                     qty_new = qty_new[0].quantity;
 
                     setpqty(qty_new);
-
-                    setpid(row.mm_id);
+                   
+                    setpid(row.p_id);
                     setpname(row.tittle);
                     setdialogType("edit");
-                    
+                    var check = service(row.p_id);
 
-                   
+                    setCheckBoxassembly(
+                      check[0].product_services_list.assembly
+                    );
+                    setassemblyValue(row.service_price.assembly + " " + "€");
+
+                    setCheckBoxpacking(check[0].product_services_list.packing);
+                    setpackingValue(row.service_price.packing + " " + "€");
+
+                    setCheckBoxdissasembly(
+                      check[0].product_services_list.dissasembly
+                    );
+                    setdissasemblyValue(
+                      row.service_price.dissasembly + " " + "€"
+                    );
+
+                    setCheckBoxunpacking(
+                      check[0].product_services_list.unpacking
+                    );
+                    setunpackingValue(row.service_price.unpacking + " " + "€");
 
                     setShow(true);
                   }}
@@ -450,12 +663,12 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
   ];
   async function updateProducts(someArray) {
     var datanew = {
-      moving_material_list: someArray,
+      product_list: someArray,
       c_id: "c" + id,
     };
 
     const response = await axios.post(
-      "https://umzungcrmtest.vercel.app/api/updateAdminLeadMoving",
+      "https://umzungcrmtest.vercel.app/api/updateAdminLeadProduct",
       {
         datanew,
       }
@@ -468,13 +681,13 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
   const handleDelete = (row) => {
     //console.log("delete");
 
-    //console.log(mlist);
-    let someArray = mlist.filter((p_list) => p_list.mm_id != row.mm_id);
-    //moving_material_list;
+    //console.log(plist);
+    let someArray = plist.filter((p_list) => p_list.p_id != row.p_id);
+    //product_list;
     //console.log(someArray);
     updateProducts(someArray);
 
-    //dispatch(deleteUser(mm_id));
+    //dispatch(deleteUser(p_id));
     //handleRowOptionsClose();
   };
 
@@ -489,7 +702,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
       .then((response) => {
         var datas = response.data[0];
         //console.log(datas);
-        setmlist(datas.moving_material_list);
+        setplist(datas.product_list);
         //setloaddata(true);
         setrefreshdata(false);
       })
@@ -497,18 +710,18 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
         setData(null);
         //setloaddata(false);
       });
-    //console.log(mlist);
+    //console.log(plist);
   }, [refreshdata]);
 
   useEffect(() => {
-    if (movingdata.length != 0) {
-      if (mlist.length != 0) {
-        let yFilter = mlist.map((itemY) => {
-          return itemY.mm_id;
+    if (productdata.length != 0) {
+      if (plist.length != 0) {
+        let yFilter = plist.map((itemY) => {
+          return itemY.p_id;
         });
 
-        let filteredX = movingdata.filter((itemX) =>
-          yFilter.includes(itemX.mm_id)
+        let filteredX = productdata.filter((itemX) =>
+          yFilter.includes(itemX.p_id)
         );
 
         setpdata(filteredX);
@@ -521,7 +734,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
           .map((item) => parseFloat(item.size.cubic_meter))
           .reduce((prev, next) => prev + next);
 
-        var sumQty = mlist
+        var sumQty = plist
           .map((item) => parseInt(item.quantity))
           .reduce((prev, next) => prev + next);
 
@@ -529,7 +742,41 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
           .map((item) => parseInt(item.service_price.dissasembly))
           .reduce((prev, next) => prev + next);*/
 
-        
+        var sumDissasembly = filteredX.reduce(function (sum, current) {
+          if (getserviceCheck(current.p_id, "dissasembly")) {
+            return sum + current.service_price.dissasembly;
+          } else {
+            return sum;
+          }
+        }, 0);
+
+        var sumAssembly = filteredX.reduce(function (sum, current) {
+          if (getserviceCheck(current.p_id, "assembly")) {
+            return sum + current.service_price.assembly;
+          } else {
+            return sum;
+          }
+        }, 0);
+
+        // var sumPacking = filteredX
+        //   .map((item) => parseInt(item.service_price.packing))
+        //   .reduce((prev, next) => prev + next);
+
+        var sumPacking = filteredX.reduce(function (sum, current) {
+          if (getserviceCheck(current.p_id, "packing")) {
+            return sum + current.service_price.packing;
+          } else {
+            return sum;
+          }
+        }, 0);
+
+        var sumUnpacking = filteredX.reduce(function (sum, current) {
+          if (getserviceCheck(current.p_id, "unpacking")) {
+            return sum + current.service_price.unpacking;
+          } else {
+            return sum;
+          }
+        }, 0);
 
         //console.log(sumDissasembly);
 
@@ -539,21 +786,29 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
             length: "0",
             breath: "0",
             height: "0",
-            cubic_meter: parseFloat(sums).toFixed(2),
-            qty: sumQty,
+            cubic_meter: "1",
+            qty: ctotal,
           },
-         
+          sumdissasembly: sumDissasembly,
+          sumassembly: sumAssembly,
+          sumpacking: sumPacking,
+          sumunpacking: sumUnpacking,
 
-          mm_id: "",
+          p_id: "",
         };
+        setsumServicedissasembly(parseFloat(sumDissasembly));
+        setsumServiceassembly(parseFloat(sumAssembly));
+        setsumServicepacking(parseFloat(sumPacking));
+        setsumServiceunpacking(parseFloat(sumUnpacking));
+
         setpdata([...filteredX]);
         //console.log(pdata);
       }
     }
-  }, [mlist, refreshdata]);
+  }, [plist, refreshdata]);
   function qty(id) {
-    return mlist.filter((itemY) => {
-      if (itemY.mm_id == id) {
+    return plist.filter((itemY) => {
+      if (itemY.p_id == id) {
         return itemY;
       } else {
         return null;
@@ -561,10 +816,32 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
     });
   }
 
-  
+  function getserviceCheck(id, service) {
+    var check = plist.filter((itemY, service) => {
+      if (itemY.p_id == id) {
+        var s = itemY;
+
+        return s;
+      } else {
+        return null;
+      }
+    });
+    check = check[0].product_services_list;
+
+    if (service == "assembly") {
+      return check.assembly;
+    } else if (service == "dissasembly") {
+      return check.dissasembly;
+    } else if (service == "packing") {
+      return check.packing;
+    } else if (service == "unpacking") {
+      return check.unpacking;
+    } else {
+    }
+  }
   function service(id) {
-    return mlist.filter((itemY, service) => {
-      if (itemY.mm_id == id) {
+    return plist.filter((itemY, service) => {
+      if (itemY.p_id == id) {
         var s = itemY;
 
         return s;
@@ -575,20 +852,32 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
   }
   function qtynm(id) {
     var q;
-   
-    mlist.filter((itemY) => {
-      if (itemY.mm_id == id) {
+
+    plist.filter((itemY) => {
+ 
+      if (itemY.p_id == id) {
+
         q = itemY.quantity;
+             
         return itemY;
-      } else {
-        return null;
+      }
+       else if(id=="") {
+         q =1;
+        return 0;
       }
     });
     return parseInt(q);
   }
 
   const DialogAddCard = ({
-    
+    CheckBoxassembly,
+    CheckBoxpacking,
+    CheckBoxunpacking,
+    CheckBoxdissasembly,
+    packingValue,
+    assemblyValue,
+    unpackingValue,
+    dissasemblyValue,
     prodcutname,
     pqty,
     pname,
@@ -597,8 +886,20 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
     qtyproduct,
   }) => {
     // ** States
-    
-    
+    const [qtyproductd, setqtyproductd] = useState(qtyproductd);
+    const [CheckBoxassemblyd, setCheckBoxassemblyd] =
+      useState(CheckBoxassembly);
+    const [CheckBoxpackingd, setCheckBoxpackingd] = useState(CheckBoxpacking);
+    const [CheckBoxunpackingd, setCheckBoxunpackingd] =
+      useState(CheckBoxunpacking);
+    const [CheckBoxdissasemblyd, setCheckBoxdissasemblyd] =
+      useState(CheckBoxdissasembly);
+
+    const [packingValued, setpackingValued] = useState(packingValue);
+    const [assemblyValued, setassemblyValued] = useState(assemblyValue);
+    const [unpackingValued, setunpackingValued] = useState(unpackingValue);
+    const [dissasemblyValued, setdissasemblyValued] =
+      useState(dissasemblyValue);
     const [prodcutnamed, setprodcutnamed] = useState(prodcutname);
     const [pqtyd, setpqtyd] = useState(pqty);
     const [pnamed, setpnamed] = useState(pname);
@@ -607,7 +908,21 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
     const [focus, setFocus] = useState(null);
 
     const handleBlur = () => setFocus(undefined);
-    
+    useEffect(() => {
+      if (dialogType == "add") {
+        setCheckBoxassemblyd(false);
+        setassemblyValued("");
+
+        setCheckBoxpackingd(false);
+        setpackingValued("");
+
+        setCheckBoxdissasemblyd(false);
+        setdissasemblyValued("");
+
+        setCheckBoxunpackingd(false);
+        setunpackingValued("");
+      }
+    }, [dialogType]);
 
     const handleClose = () => {
       setShow(false);
@@ -624,19 +939,25 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
       setpqtyd("");
     };
     async function pushproduct(pidd, qtyproductd) {
-      let objIndex = mlist.findIndex((obj) => obj.mm_id == pidd);
+      let objIndex = plist.findIndex((obj) => obj.p_id == pidd);
 
       if (objIndex == -1) {
-        mlist.push({
-          mm_id: pidd,
+        plist.push({
+          p_id: pidd,
           quantity: qtyproductd,
+          product_services_list: {
+            assembly: CheckBoxassemblyd,
+            packing: CheckBoxpackingd,
+            unpacking: CheckBoxunpackingd,
+            dissasembly: CheckBoxdissasemblyd,
+          },
         });
         var datanew = {
-          moving_material_list: mlist,
+          product_list: plist,
           c_id: "c" + id,
         };
         const response = await axios.post(
-          "https://umzungcrmtest.vercel.app/api/updateAdminLeadMoving",
+          "https://umzungcrmtest.vercel.app/api/updateAdminLeadProduct",
           {
             datanew,
           }
@@ -647,19 +968,27 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
           setrefreshdata(true);
         }
       } else {
-        mlist.splice(objIndex, 1);
-
-        mlist.push({
-          mm_id: pidd,
-          quantity: qtyproductd
+        plist.splice(objIndex, 1);
+       
+       
+        plist.push({
+          p_id: pidd,
+          quantity: qtyproductd,
+          product_services_list: {
+            assembly: CheckBoxassemblyd,
+            packing: CheckBoxpackingd,
+            unpacking: CheckBoxunpackingd,
+            dissasembly: CheckBoxdissasemblyd,
+          },
         });
-
+       
+       
         var datanew = {
-          moving_material_list: mlist,
+          product_list: plist,
           c_id: "c" + id,
         };
         const response = await axios.post(
-          "https://umzungcrmtest.vercel.app/api/updateAdminLeadMoving",
+          "https://umzungcrmtest.vercel.app/api/updateAdminLeadProduct",
           {
             datanew,
           }
@@ -673,6 +1002,18 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
         }
       }
     }
+    const handleCheckBoxassembly = (event) => {
+      setCheckBoxassemblyd(event.target.checked);
+    };
+    const handleCheckBoxpacking = (event) => {
+      setCheckBoxpackingd(event.target.checked);
+    };
+    const handleCheckBoxunpacking = (event) => {
+      setCheckBoxunpackingd(event.target.checked);
+    };
+    const handleCheckBoxdissasembly = (event) => {
+      setCheckBoxdissasemblyd(event.target.checked);
+    };
     return (
       <>
         <Button
@@ -687,7 +1028,17 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
             setpnamed("");
             setpqty("");
 
-            
+            setCheckBoxassemblyd(false);
+            setdissasemblyValued("");
+
+            setCheckBoxpackingd(false);
+            setpackingValued("");
+
+            setCheckBoxdissasemblyd(false);
+            setdissasemblyValued("");
+
+            setCheckBoxunpackingd(false);
+            setunpackingValued("");
             setShow(true);
           }}
         >
@@ -750,9 +1101,9 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
                               pr: 20,
                               pt: 10,
                             }}
-                            options={movingdata}
+                            options={productdata}
                             onChange={(event, newValue) => {
-                              setpidd(newValue.mm_id);
+                              setpidd(newValue.p_id);
 
                               setassemblyValued(
                                 newValue.service_price.assembly + " €"
@@ -824,9 +1175,128 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
                       )}
                     </Grid>
                     <Divider variant="middle" sx={{ color: "black" }} />
-                   
-                  
-                    
+                    <Grid item xs={12} sx={{ mt: 4 }}>
+                      <Typography variant="h6" sx={{ mt: 3 }}>
+                        Product Services
+                      </Typography>
+                    </Grid>
+                    <Box sx={{ ml: 10 }}></Box>
+                    <Box
+                      sx={{
+                        display: "grid",
+                        gridAutoColumns: "1fr",
+                        gap: 2,
+                        p: 5,
+
+                        borderRadius: 1,
+                        gridTemplateRows: "auto",
+                        border: (theme) => `1px solid ${theme.palette.divider}`,
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          gridRow: "1",
+                          gridColumn: "span 1",
+
+                          p: 4,
+                        }}
+                      >
+                        <Checkbox
+                          checked={CheckBoxassemblyd}
+                          onChange={handleCheckBoxassembly}
+                        />
+                        <Typography
+                          sx={{ fontWeight: "bold", fontSize: 12 }}
+                          gutterBottom
+                        >
+                          Assembly
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            fontWeight: "bold",
+                            ml: 1,
+                            fontSize: 18,
+                            color: "primary.main",
+                          }}
+                          gutterBottom
+                        >
+                          {assemblyValued}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ gridRow: "1", gridColumn: "2", p: 4 }}>
+                        <Checkbox
+                          checked={CheckBoxunpackingd}
+                          onChange={handleCheckBoxunpacking}
+                        />
+                        <Typography
+                          sx={{ fontWeight: "bold", fontSize: 12 }}
+                          gutterBottom
+                        >
+                          unpacking
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            fontWeight: "bold",
+                            ml: 1,
+                            fontSize: 18,
+                            color: "primary.main",
+                          }}
+                          gutterBottom
+                        >
+                          {unpackingValued}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ gridRow: "1", gridColumn: "3", p: 4 }}>
+                        <Checkbox
+                          checked={CheckBoxpackingd}
+                          onChange={handleCheckBoxpacking}
+                        />
+                        <Typography
+                          sx={{ fontWeight: "bold", fontSize: 12 }}
+                          gutterBottom
+                        >
+                          Packing
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            fontWeight: "bold",
+                            ml: 1,
+                            fontSize: 18,
+                            color: "primary.main",
+                          }}
+                          gutterBottom
+                        >
+                          {packingValued}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ gridRow: "1", gridColumn: "4", p: 4 }}>
+                        <Checkbox
+                          checked={CheckBoxdissasemblyd}
+                          onChange={handleCheckBoxdissasembly}
+                        />
+                        <Typography
+                          sx={{ fontWeight: "bold", fontSize: 12 }}
+                          gutterBottom
+                        >
+                          Dissasembly
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            fontWeight: "bold",
+                            ml: 1,
+                            fontSize: 18,
+                            color: "primary.main",
+                          }}
+                          gutterBottom
+                        >
+                          {dissasemblyValued}
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Grid>
                 </Grid>
               </Grid>
@@ -865,6 +1335,14 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
         action={
           <>
             <DialogAddCard
+              CheckBoxassembly={CheckBoxassembly}
+              CheckBoxpacking={CheckBoxpacking}
+              CheckBoxunpacking={CheckBoxunpacking}
+              CheckBoxdissasembly={CheckBoxdissasembly}
+              packingValue={packingValue}
+              assemblyValue={assemblyValue}
+              unpackingValue={unpackingValue}
+              dissasemblyValue={dissasemblyValue}
               prodcutname={prodcutname}
               pqty={pqty}
               pname={pname}
@@ -892,7 +1370,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
         {" "}
         <DataGrid
           autoHeight
-          getRowId={(row) => row.mm_id}
+          getRowId={(row) => row.p_id}
           columns={columns}
           rows={pdata}
           pageSize={pageSize}
@@ -902,31 +1380,39 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
             }
           }}
           componentsProps={{
-            footer: { total,ctotal },
+            footer: { total, ctotal },
           }}
           components={{
             Footer: CustomFooterTotalComponent,
           }}
-          disableSelectionOnClick
           onStateChange={(state) => {
-      
-            
-            
+            /*pdata.map((item)=>{
+               console.log(
+                  item.p_id,
+                  (parseFloat(item.size.cubic_meter) * parseFloat(qtynm(item.p_id)))
+                );
+                console.log(
+                  item.p_id,
+                  parseInt(qtynm(item.p_id))
+                );
+              })*/
 
+            var sumtotal =
+              parseFloat(sumServicdissasembly) +
+              parseFloat(sumServiceassembly) +
+              parseFloat(sumServicepacking) +
+              parseFloat(sumServiceunpacking);
+
+            setTotal(sumtotal.toFixed(2));
             const ctotal = pdata
               .map(
                 (item) =>
                   parseFloat(item.size.cubic_meter) *
-                  parseFloat(qtynm(item.mm_id))
+                  parseFloat(qtynm(item.p_id))
               )
               .reduce((a, b) => a + b, 0);
 
             setCtotal(ctotal);
-            const total = pdata
-              .map((item) => item.price * qtynm(item.mm_id))
-              .reduce((a, b) => a + b, 0);
-            
-            setTotal(total);
           }}
           rowsPerPageOptions={[7, 10, 25, 50]}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
@@ -937,4 +1423,4 @@ const MovingMaterial = ({ invoiceData, movingdata, id }) => {
   );
 };
 
-export default MovingMaterial;
+export default MovingProduct;

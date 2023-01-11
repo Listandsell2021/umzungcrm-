@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           .collection("Products")
           .find({ tittle: { $regex: params.q } })
           .toArray();
-        console.log(todos);
+       
       } else {
         todos = await db.collection("Products").find({}).toArray();
       }
@@ -69,7 +69,7 @@ export default async function handler(req, res) {
           .collection("ProductsAdmins")
           .find({ "tittle": { $regex: params.q }, "a_id": params.global_id })
           .toArray();
-        console.log(todos);
+       
       } else {
         todos = await db.collection("ProductsAdmins").find({"a_id":params.global_id}).toArray();
       }
@@ -80,12 +80,12 @@ export default async function handler(req, res) {
       if (params.q) {
         ///.*${params.q}.*/
         var s = /^`${params.q}`/;
-        console.log(s);
+       
         todos = await db
           .collection("ProductsAdmins")
           .find({ "tittle": { $regex: params.q }, "a_id": params.admin_id })
           .toArray();
-        console.log(todos);
+       
       } else {
         todos = await db
           .collection("ProductsAdmins")

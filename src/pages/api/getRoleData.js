@@ -9,8 +9,8 @@ export default async function handler(req, res) {
   
   
    // Send all the todos
-     console.log("id")
-      console.log(req.body);
+    
+     
   const theme = await db.collection("Role").find({"global_id": id }).toArray();
    
   res.status(200).json(theme);

@@ -127,13 +127,13 @@ async function  updateUsers()
       "username":username,
       "company_name":company_name
     }
-    console.log("datas")
-     console.log(datanew)
+   
+    
       
    const response = await axios.post('https://umzungcrmtest.vercel.app/api/updateAdminlist', {
     datanew
   })
-  console.log(response)
+ 
   handleEditClose()
   var a_idnew=String(data.a_id).substring(1);
   window.location.reload(false);

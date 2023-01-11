@@ -105,7 +105,7 @@ var datanew = {
  axios
    .post("https://umzungcrmtest.vercel.app/api/updateAdminSettings", { datanew })
    .then((response) => {
-     console.log(response);
+    
    })
    .catch(() => {});
 

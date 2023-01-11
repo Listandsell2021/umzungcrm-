@@ -204,7 +204,7 @@ async function setdata()
     datanew
   })
   
-  console.log(response.status)
+ 
   window.location.reload(false);
 
 }

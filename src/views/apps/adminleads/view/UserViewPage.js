@@ -29,7 +29,7 @@ const UserView = ({ id, invoiceData }) => {
       .post("https://umzungcrmtest.vercel.app/api/getLeadAdminbyid", { ids })
       .then((response) => {
         setData(response.data[0]);
-        console.log(response.data);
+       
         setError(false);
       })
       .catch(() => {

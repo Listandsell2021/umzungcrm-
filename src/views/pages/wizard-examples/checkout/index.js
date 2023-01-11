@@ -26,9 +26,12 @@ import StepPayment from "src/views/pages/wizard-examples/checkout/StepPayment";
 import StepConfirmation from "src/views/pages/wizard-examples/checkout/StepConfirmation";
 import UsersInvoiceListTable from "src/views/apps/adminleads/view/UsersInvoiceListTable";
 import MovingTable from "src/views/pages/wizard-examples/checkout/MovingTable";
-import ProductPricing from "src/views/pages/wizard-examples/checkout/ProductPricing";
-import MovingPricing from "src/views/pages/wizard-examples/checkout/MovingPricing";
+import PricingCalculate from "src/views/pages/wizard-examples/checkout/PricingCalculate";
+
 import MovingMaterial from "src/views/pages/wizard-examples/checkout/MovingMaterial";
+
+import MovingProduct from "src/views/pages/wizard-examples/checkout/MovingProduct";
+
 
 // ** Styled Components
 import StepperWrapper from "src/@core/styles/mui/stepper";
@@ -177,7 +180,7 @@ async function updatedata(datanew)
   axios
     .post("https://umzungcrmtest.vercel.app/api/updatAdminLeadDetails", { datanew })
     .then((response) => {
-      console.log(response.data);
+     
       setrefreshdata(true);
     })
 }
@@ -211,7 +214,7 @@ async function updatedata(datanew)
 
       storedData = JSON.parse(storedData);
       var ids = { id: storedData.id };
-      console.log(data.product_list);
+     
       axios
         .post("https://umzungcrmtest.vercel.app/api/getProductbyAdmin", { ids })
         .then((response) => {
@@ -715,7 +718,7 @@ async function updatedata(datanew)
                   sx={{ mt: 10, width: 110, height: 50 }}
                   onClick={() => {
                     var datanew = {
-                      c_id: "c1",
+                      c_id: "c" + id,
                       from_address: {
                         street_name: fromStreetName,
                         postcode: postcode,
@@ -774,7 +777,7 @@ async function updatedata(datanew)
         );
       case 3:
         return (
-          <UsersInvoiceListTable
+          <MovingProduct
             productdata={productdata}
             plist={data.product_list}
             id={id}
@@ -792,6 +795,7 @@ async function updatedata(datanew)
         return (
           <MovingMaterial
             movingdata={movingdata}
+            productdata={productdata}
             plist={data.product_list}
             id={id}
           />
@@ -799,7 +803,7 @@ async function updatedata(datanew)
       case 6:
         return (
           <>
-            <ProductPricing
+            <PricingCalculate
               productdata={productdata}
               movingdata={movingdata}
               movingservicesdata={movingservicesdata}
@@ -829,11 +833,14 @@ async function updatedata(datanew)
         sx={{
           top: 70,
           position: "sticky",
-          zIndex: "tooltip",
+          //zIndex: "tooltip",
+          zIndex: 1300,
           mb: 7,
+          bgcolor: "white",
         }}
       >
-        <CardContent>
+        
+        <CardContent sx={{ bgcolor: "white" }}>
           <StepperWrapper>
             <Stepper
               activeStep={activeStep}
@@ -858,7 +865,6 @@ async function updatedata(datanew)
             </Stepper>
           </StepperWrapper>
         </CardContent>
-
         <Divider sx={{ m: "0 !important", mt: 0 }} />
       </Card>
       <Card>

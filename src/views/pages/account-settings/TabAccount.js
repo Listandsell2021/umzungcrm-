@@ -232,7 +232,7 @@ useEffect(()=>{
       else
       {
         getdeatilsmanager(storedData.id).then((res) => {
-          console.log(res)
+         
           var details = res[0].details;
           //console.log(res[0])
           var email = res[0].email;

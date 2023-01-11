@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const { ids } = req.body;
   //console.log("test")
-  console.log(ids.id);
+ 
   const todos = await db
     .collection("MovingMaterialsAdmins")
     .find({ a_id: ids.id })

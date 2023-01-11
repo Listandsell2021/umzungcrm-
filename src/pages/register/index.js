@@ -148,11 +148,11 @@ async function checkemail(ids,data)
    const response = await axios.post('https://umzungcrmtest.vercel.app/api/getAdminbyemail', {
     ids
      })
-  console.log(response.data)
+ 
   if(response.data.length!=0)
   {
     
-    console.log("not empty") 
+   
       setError('email', {
            type: 'manual',
           message: "already registred"
@@ -247,7 +247,7 @@ async function checkemail(ids,data)
 }
   const onSubmit = data => {
     
-    console.log(data)
+   
     var ids={email:data.email}
     
     checkemail(ids,data)

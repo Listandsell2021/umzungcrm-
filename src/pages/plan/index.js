@@ -215,7 +215,7 @@ export const getServerSideProps = async () => {
   const res1 = await axios.post('https://umzungcrmtest.vercel.app/api/getPackageSuperAdmin')
   //const apiData = res.data
   var apiData=res1.data
- // console.log(apiData)
+ //
  
   //console.log(apiData2[0])
   return {

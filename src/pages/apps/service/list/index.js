@@ -174,7 +174,7 @@ const [avatar, setavatar] = useState(row.avatar)
    "desc":desc,
    "status":status
   }
-    console.log(data)
+   
     dispatch(updateServices({ ...data }))
     handleEditClose()
   }
@@ -309,8 +309,8 @@ const columns = [
     field: 'tittle',
     headerName: 'Service tittle',
     renderCell: ({ row }) => {
-       console.log("test row")
-      console.log(row)
+      
+     
       const { s_id, tittle, price } = row
       
       var p_idnew=String(s_id).substring(1);
@@ -422,15 +422,19 @@ const UserList = () => {
   const dispatch = useDispatch()
   const store = useSelector(state => state.service)
   useEffect(() => {
-    
+    var storedData = window.localStorage.getItem("userData");
+    storedData = JSON.parse(storedData);
     dispatch(
       fetchData({
-        role,
+        global_id: storedData.id,
+        role: storedData.role,
+
+        admin_id: storedData.adminid,
         status,
         q: value,
-        currentPlan: plan
+        currentPlan: plan,
       })
-    )
+    );
   }, [dispatch, plan, role, status, value])
 
   const handleFilter = useCallback(val => {
@@ -526,7 +530,7 @@ const UserList = () => {
         <Card>
           <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />
           <DataGrid
-             getRowId={(row) => row.s_id}
+             getRowId={(row) => row.ms_id}
             autoHeight
             rows={store.data}
             columns={columns}

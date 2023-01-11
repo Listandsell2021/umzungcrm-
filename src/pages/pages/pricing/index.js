@@ -143,7 +143,7 @@ const Pricing = ({ apiData }) => {
       ],
       plan_id: "plan" + parseInt(response1) + 1,
     };
-    console.log(packageData);
+   
 
     const response = await axios.post(
       "https://umzungcrmtest.vercel.app/api/postPackageSuperAdmin",
@@ -152,7 +152,7 @@ const Pricing = ({ apiData }) => {
       }
     );
 
-    console.log(response.status);
+   
     window.location.reload(false);
   }
 
@@ -385,7 +385,7 @@ export const getServerSideProps = async () => {
   );
   //const apiData = res.data
   var apiData = res1.data;
-  // console.log(apiData)
+  //
   //apiData=apiData[0]
   //console.log(apiData2[0])
   return {

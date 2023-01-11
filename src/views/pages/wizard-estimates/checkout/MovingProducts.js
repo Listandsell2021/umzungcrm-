@@ -56,53 +56,41 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-
-
-
-
-
 // ** Styles Import
 import "react-credit-cards/es/styles-compiled.css";
-
-
-
-
-
 
 const StyledLink = styled("a")(({ theme }) => ({
   textDecoration: "none",
   color: theme.palette.primary.main,
 }));
 
-
-
-
-
-const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
+const MovingProducts = ({ invoiceData, productdata, id, plist }) => {
   // ** State
   const [pageSize, setPageSize] = useState(7);
+  const [cat, setCat] = useState(["Living Room","Kitchen"]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [pdata, setpdata] = useState([]);
 
-  const [mlist, setmlist] = useState([]);
+  const [mproductlist, setmproductlist] = useState([]);
   const [refreshdata, setrefreshdata] = useState(true);
+  const [categoryName, setcategoryName] = useState("");
   // ** Var
-
+   
   const columns = [
     {
       flex: 0,
       field: "qty",
-      minWidth: 50,
+      width: 100,
       headerName: "",
       renderCell: ({ row }) => {
         var qty_new;
         var qtysum;
 
-        var qty_new = qty(row.mm_id);
+        var qty_new = qty(row.p_id);
 
         if (qty_new.length != 0) {
           //console.log(row)
-          var qty_new = qty(row.mm_id);
+          var qty_new = qty(row.p_id);
           qty_new = qty_new[0].quantity;
           qtysum = qty_new;
         }
@@ -114,14 +102,15 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
         );
       },
     },
-
     {
       flex: 0.2,
       field: "title",
-      minWidth: 90,
-      headerName: "#Title",
+
+      headerName: "Tittle",
+      width: 100,
 
       renderCell: ({ row }) => {
+        
         return (
           // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
 
@@ -150,7 +139,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
                 variant="caption"
                 sx={{ textDecoration: "none" }}
               >
-                {row.size.length}x{row.size.height}x{row.size.breath}
+                {row.size.length}x{row.size.height}x{row.size.breath}m
               </Typography>
               {/* </Link> */}
             </Box>
@@ -160,36 +149,122 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
         );
       },
     },
+
     {
       flex: 0.2,
-      field: "desc",
-      minWidth: 90,
-      headerName: "descriptions",
+      field: "dissasembly",
+      width: 100,
+      headerName: "Dissasembly",
 
       renderCell: ({ row }) => {
+        var check = getserviceCheck(row.p_id, "dissasembly");
+        var text;
+        if (check) {
+          text = "ByUmzungCompany";
+        } else {
+          text = "----";
+        }
+
         return (
           // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-          <StyledLink>{row.descriptions}</StyledLink>
+          <StyledLink>{text}</StyledLink>
           // </Link>
         );
       },
     },
     {
       flex: 0.2,
-      field: "by",
-      minWidth: 90,
-      headerName: "",
+      field: "assembly",
+      width: 100,
+      headerName: "Assembly",
 
       renderCell: ({ row }) => {
+        var check = getserviceCheck(row.p_id, "assembly");
+        var text;
+        if (check) {
+          text = "ByUmzungCompany";
+        } else {
+          text = "----";
+        }
+
         return (
           // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-          <StyledLink>ByUmzungCompany</StyledLink>
+          <StyledLink>{text}</StyledLink>
+          // </Link>
+        );
+      },
+    },
+    {
+      flex: 0.2,
+      field: "packing",
+      width: 100,
+      headerName: "Packing",
+
+      renderCell: ({ row }) => {
+        var check = getserviceCheck(row.p_id, "packing");
+        var text;
+        if (check) {
+          text = "ByUmzungCompany";
+        } else {
+          text = "----";
+        }
+
+        return (
+          // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+          <StyledLink>{text}</StyledLink>
+          // </Link>
+        );
+      },
+    },
+    {
+      flex: 0.2,
+      field: "unpacking",
+      width: 100,
+      headerName: "Unpacking",
+
+      renderCell: ({ row }) => {
+        var check = getserviceCheck(row.p_id, "Unpacking");
+        var text;
+        if (check) {
+          text = "ByUmzungCompany";
+        } else {
+          text = "----";
+        }
+
+        return (
+          // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+          <StyledLink>{text}</StyledLink>
           // </Link>
         );
       },
     },
   ];
+function getserviceCheck(id, service) {
+  var check = plist.filter((itemY, service) => {
+    if (itemY.p_id == id) {
+      var s = itemY;
 
+      return s;
+    } else {
+      return null;
+    }
+  });
+  check = check[0].product_services_list;
+
+  if (service == "assembly") {
+    return check.assembly;
+  } else if (service == "dissasembly") {
+    return check.dissasembly;
+  } else if (service == "packing") {
+    return check.packing;
+  } else if (service == "unpacking") {
+    return check.unpacking;
+  } else {
+  }
+}
+function getFilteredList(category) {
+  return pdata.filter((item) => item.category === category);
+}
   useEffect(() => {
     var ids = { id: "c" + id };
 
@@ -198,7 +273,7 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
       .then((response) => {
         var datas = response.data[0];
         //console.log(datas);
-        setmlist(datas.moving_material_list);
+        setmproductlist(datas.product_list);
         //setloaddata(true);
         setrefreshdata(false);
       })
@@ -206,27 +281,27 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
         setData(null);
         //setloaddata(false);
       });
-    //console.log(mlist);
+    //console.log(mproductlist);
   }, [refreshdata]);
 
   useEffect(() => {
-    if (movingdata.length != 0) {
-      if (mlist.length != 0) {
-        let yFilter = mlist.map((itemY) => {
-          return itemY.mm_id;
+    if (productdata.length != 0) {
+      if (mproductlist.length != 0) {
+        let yFilter = mproductlist.map((itemY) => {
+          return itemY.p_id;
         });
 
-        let filteredX = movingdata.filter((itemX) =>
-          yFilter.includes(itemX.mm_id)
+        let filteredX = productdata.filter((itemX) =>
+          yFilter.includes(itemX.p_id)
         );
-
+        
         setpdata(filteredX);
       }
     }
-  }, [mlist, refreshdata]);
+  }, [mproductlist, refreshdata]);
   function qty(id) {
-    return mlist.filter((itemY) => {
-      if (itemY.mm_id == id) {
+    return mproductlist.filter((itemY) => {
+      if (itemY.p_id == id) {
         return itemY;
       } else {
         return null;
@@ -236,22 +311,38 @@ const MovingMaterial = ({ invoiceData, movingdata, id, plist }) => {
 
   return (
     <>
-      <DataGrid
-        autoHeight
-        getRowId={(row) => row.mm_id}
-        columns={columns}
-        rows={pdata}
-        pageSize={pageSize}
-        disableSelectionOnClick
-        hideFooterSelectedRowCount
-        hideFooterPagination
-        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-        sx={{
-          "& .MuiDataGrid-columnHeaders": { borderRadius: 0 },
-        }}
-      />
+      {cat.map(function (item, i) {
+
+        
+        return (
+          <>
+            <Typography
+              noWrap
+              component="a"
+              variant="subtitle2"
+              sx={{ color: "text.primary", textDecoration: "none",fontWeight:"bold" }}
+            >
+              {item}
+            </Typography>
+            <DataGrid
+              autoHeight
+              getRowId={(row) => row.p_id}
+              columns={[...columns]}
+              rows={getFilteredList(item)}
+              pageSize={pageSize}
+              disableSelectionOnClick
+              hideFooterSelectedRowCount
+              hideFooterPagination
+              onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+              sx={{
+                "& .MuiDataGrid-columnHeaders": { borderRadius: 0 },
+              }}
+            />
+          </>
+        );
+      })}
     </>
   );
 };
 
-export default MovingMaterial;
+export default MovingProducts;

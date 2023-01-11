@@ -17,18 +17,19 @@ export const fetchData = createAsyncThunk('appService/fetchData', async params =
     "service":response.data
   }
 
-   console.log(test)
+  
   return test
 })
 
 // ** Add User
 export const addService = createAsyncThunk('appService/addService', async (data, { getState, dispatch }) => {
 
-  var datas={"collection":"Services"}
+ 
+  /*var datas={"collection":"Services"}
   const response1 = await axios.post('https://umzungcrmtest.vercel.app/api/getLastId', {
     datas
   })
-  console.log(data)
+ 
   
      var datanew={"sa_id":"sa1",
    "s_id":"s"+parseInt(response1.data)+1,
@@ -39,16 +40,16 @@ export const addService = createAsyncThunk('appService/addService', async (data,
    "a_id":"a1",
    "des ":data.desc,
    "desc":data.desc,
-   "status":data.status
-  }
+"status":data.status*
+  }*/
    
     
 
 
   
-  const response = await axios.post('https://umzungcrmtest.vercel.app/api/postServices', {
+  /*const response = await axios.post('https://umzungcrmtest.vercel.app/api/postServices', {
     datanew
-  })
+  })*/
   dispatch(fetchData(getState().user.params))
   
 

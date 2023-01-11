@@ -4,6 +4,7 @@ import { useState, useEffect, forwardRef } from "react";
 // ** Next Import
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/router";
 // ** MUI Imports
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -157,8 +158,11 @@ const InvoiceListTable = ({
   const [FloorsTotalPrice, setFloorsTotalPrice] = useState("");
   const [DistanceTotalPrice, setDistanceTotalPrice] = useState("");
   const [discountvalue, setdiscountvalue] = useState(0);
+  const [multiplervalue, setmultiplervalue] = useState(0);
   const [finalprice, setfinalprice] = useState(0);
-
+  const [totalcubicmeter, settotalcubicmeter] = useState(0);
+  const [totalproductservices, settotalproductservices] = useState(0);
+ const router = useRouter();
   // ** Var
   const open = Boolean(anchorEl);
   const [addUserOpen, setAddUserOpen] = useState(false);
@@ -455,21 +459,14 @@ const InvoiceListTable = ({
 
         if (row.tittle == "Total") {
           return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+           
 
             <Typography color="common.black">
               
             </Typography>
-            // </Link>
+          
           );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink></StyledLink>
-            // </Link>
-          );
-        }
+        } 
       },
     },
     {
@@ -501,29 +498,15 @@ const InvoiceListTable = ({
       minWidth: 90,
       headerName: "Total Price",
       renderCell: ({ row }) => {
-        var qty_new;
+      
         var totalcubicsum;
+        
+
         if (row.tittle == "Total") {
-          qty_new = 0;
+        
           var qtysum = row.size.qty;
           totalcubicsum = parseFloat(row.size.cubic_meter) * parseFloat(qtysum);
-          setMovingTotalPrice(
-            parseFloat(totalcubicsum)
-          );
-        } else {
-          var qty_new = qtymoving(row.ms_id);
-          if (qty_new.length != 0) {
-            qty_new = qty_new[0].quantity;
-
-            totalcubicsum =
-              parseFloat(row.size.cubic_meter) * parseFloat(qty_new);
-          }
-          setMovingTotalPrice(
-             parseFloat(totalcubicsum)
-          );
-        }
-
-        if (row.tittle == "Total") {
+          setMovingTotalPrice(parseFloat(totalcubicsum));
           return (
             // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
 
@@ -532,14 +515,7 @@ const InvoiceListTable = ({
             </Typography>
             // </Link>
           );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink>{parseFloat(totalcubicsum).toFixed(2)}€</StyledLink>
-            // </Link>
-          );
-        }
+        } 
       },
     },
   ];
@@ -547,160 +523,16 @@ const InvoiceListTable = ({
   const columnsMaterialsMoving = [
     {
       flex: 0.2,
-      field: "movingempty",
-      minWidth: 90,
-      headerName: "",
-      renderCell: ({ row }) => {
-        /*var qty_new;
-        var totalcubicsum;
-        if (row.tittle == "Total") {
-          qty_new = 0;
-          var qtysum = row.size.qty;
-          totalcubicsum = parseFloat(row.size.cubic_meter) * parseFloat(qtysum);
-        } else {
-          var qty_new = qtymoving(row.mm_id);
-          if (qty_new.length != 0) {
-            qty_new = qty_new[0].quantity;
-
-            totalcubicsum =
-              parseFloat(row.size.cubic_meter) * parseFloat(qty_new);
-          }
-        }
-
-        if (row.tittle == "Total") {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <Typography color="common.black">
-              {totalcubicsum} m<sup style={{ width: 45, height: 40 }}>3</sup>
-            </Typography>
-            // </Link>
-          );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink>
-              {totalcubicsum} m<sup style={{ width: 45, height: 40 }}>3</sup>
-            </StyledLink>
-            // </Link>
-          );
-        }*/
-      },
-    },
-    {
-      flex: 0.2,
-      field: "totalmovingmaterails",
-      minWidth: 90,
-      headerName: "Total Moving Materials ",
-      renderCell: ({ row }) => {
-        if (row.tittle == "Total") {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <Typography color="common.black">{row.qty}</Typography>
-            // </Link>
-          );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink>{row.qty}</StyledLink>
-            // </Link>
-          );
-        }
-      },
-    },
-    {
-      flex: 0.2,
-      field: "setcubicprice",
-      minWidth: 90,
-      headerName: "Total Price",
-      renderCell: ({ row }) => {
-        var qty_new;
-        var totalcubicsum;
-        if (row.tittle == "Total") {
-          qty_new = 0;
-          var qtysum = row.size.qty;
-          totalcubicsum = parseFloat(row.size.cubic_meter) * parseFloat(qtysum);
-          setMovingMaterialTotalPrice(
-            (parseFloat(row.total) * parseFloat(row.qty)).toFixed(2)
-          );
-        } else {
-          var qty_new = qtymoving(row.mm_id);
-          if (qty_new.length != 0) {
-            qty_new = qty_new[0].quantity;
-
-            totalcubicsum =
-              parseFloat(row.size.cubic_meter) * parseFloat(qty_new);
-          }
-          setMovingMaterialTotalPrice(
-            (parseFloat(row.total) * parseFloat(row.qty)).toFixed(2)
-          );
-        }
-
-        if (row.tittle == "Total") {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <Typography color="common.black">
-              {(parseFloat(row.total) * parseFloat(row.qty)).toFixed(2)}€
-            </Typography>
-            // </Link>
-          );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink>
-              {(parseFloat(row.total) * parseFloat(row.qty)).toFixed(2)}€
-            </StyledLink>
-            // </Link>
-          );
-        }
-      },
-    },
-  ];
-  const columns = [
-    {
-      flex: 0.2,
       field: "totalcubicmeter",
       minWidth: 90,
-      headerName: "Total Cubic Meter",
+      headerName: "Total Cubic Meters",
       renderCell: ({ row }) => {
-        var qty_new;
-        var totalcubicsum;
         if (row.tittle == "Total") {
-          qty_new = 0;
-          var qtysum = row.size.qty;
-          totalcubicsum = parseFloat(row.size.cubic_meter) * parseFloat(qtysum);
-        } else {
-          var qty_new = qty(row.p_id);
-          if (qty_new.length != 0) {
-            qty_new = qty_new[0].quantity;
-
-            totalcubicsum =
-              parseFloat(row.size.cubic_meter) * parseFloat(qty_new);
-          }
-        }
-
-        if (row.tittle == "Total") {
+         
           return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
             <Typography color="common.black">
-              {totalcubicsum} m<sup style={{ width: 45, height: 40 }}>3</sup>
+              {row.ctotal} m<sup style={{ width: 45, height: 40 }}>3</sup>
             </Typography>
-            // </Link>
-          );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink>
-              {totalcubicsum} m<sup style={{ width: 45, height: 40 }}>3</sup>
-            </StyledLink>
-            // </Link>
           );
         }
       },
@@ -712,67 +544,193 @@ const InvoiceListTable = ({
       headerName: "Per Cubic Meter Price",
       renderCell: ({ row }) => {
         if (row.tittle == "Total") {
+          return <Typography color="common.black">{cubicprice}€</Typography>;
+        }
+      },
+    },
+    {
+      flex: 0.2,
+      field: "totalcubicmeterprice",
+      minWidth: 90,
+      headerName: "Total Cubic Meters Price",
+      renderCell: ({ row }) => {
+        if (row.tittle == "Total") {
+          
           return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <Typography color="common.black">{cubicprice}€</Typography>
-            // </Link>
-          );
-        } else {
-          return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
-
-            <StyledLink>{cubicprice}€</StyledLink>
-            // </Link>
+            <Typography color="common.black">
+              {parseFloat(cubicprice) * parseFloat(row.ctotal)}€
+            </Typography>
           );
         }
       },
     },
     {
       flex: 0.2,
+      field: "sumproductservice",
+      minWidth: 90,
+      headerName: "Products Services Price",
+      renderCell: ({ row }) => {
+        if (row.tittle == "Total") {
+          
+          return (
+            <Typography color="common.black">
+              {row.total}
+              €
+            </Typography>
+          );
+        }
+      },
+    },
+
+    {
+      flex: 0.4,
       field: "totalprice",
       minWidth: 90,
       headerName: "Total Price",
       renderCell: ({ row }) => {
-        var qty_new;
-        var totalcubicsum;
         if (row.tittle == "Total") {
-          qty_new = 0;
-          var qtysum = row.size.qty;
-          totalcubicsum = parseFloat(row.size.cubic_meter) * parseFloat(qtysum);
-          setProductsTotalPrice(
-            parseFloat(cubicprice) * parseFloat(totalcubicsum)
+          
+          
+          var sum =
+            (parseFloat(cubicprice) *
+            parseFloat(row.ctotal))+(row.total)
+            
+            setMovingMaterialTotalPrice(
+             sum.toFixed(2)
+            );
+          return (
+            <Typography color="common.black">{sum.toFixed(2)}€</Typography>
           );
         } else {
-          var qty_new = qty(row.p_id);
-          if (qty_new.length != 0) {
-            qty_new = qty_new[0].quantity;
-
-            totalcubicsum =
-              parseFloat(row.size.cubic_meter) * parseFloat(qty_new);
-          }
-          setProductsTotalPrice(
-            parseFloat(cubicprice) * parseFloat(totalcubicsum)
+          return (
+            <StyledLink>
+              {(parseFloat(cubicprice) * parseFloat(totalcubicsum)).toFixed(2)}€
+            </StyledLink>
           );
         }
-
+      },
+    },
+  ];
+  const columns = [
+    {
+      flex: 0.2,
+      field: "totalcubicmeter",
+      minWidth: 90,
+      headerName: "Total Cubic Meters",
+      renderCell: ({ row }) => {
         if (row.tittle == "Total") {
+          settotalcubicmeter(row.totalc);
           return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+            
 
             <Typography color="common.black">
-              {(parseFloat(cubicprice) * parseFloat(totalcubicsum)).toFixed(2)}€
+              {row.totalc} m<sup style={{ width: 45, height: 40 }}>3</sup>
             </Typography>
-            // </Link>
+           
+          );
+        } 
+      },
+    },
+    {
+      flex: 0.2,
+      field: "percubicmeterprice",
+      minWidth: 90,
+      headerName: "Per Cubic Meter Price",
+      renderCell: ({ row }) => {
+        if (row.tittle == "Total") {
+          return (
+            
+
+            <Typography color="common.black">{cubicprice}€</Typography>
+           
+          );
+        } 
+      },
+    },
+    {
+      flex: 0.2,
+      field: "totalcubicmeterprice",
+      minWidth: 90,
+      headerName: "Total Cubic Meters Price",
+      renderCell: ({ row }) => {
+        if (row.tittle == "Total") {
+           setProductsTotalPrice(
+             parseFloat(cubicprice) * parseFloat(row.totalc)
+           );
+          return (
+           
+            <Typography color="common.black">
+              {parseFloat(cubicprice) * parseFloat(row.totalc)}€
+            </Typography>
+            
+          );
+        }
+      },
+    },
+    {
+      flex: 0.2,
+      field: "sumproductservice",
+      minWidth: 90,
+      headerName: "Products Services Price",
+      renderCell: ({ row }) => {
+        
+        if (row.tittle == "Total") {
+          settotalproductservices(
+            row.sumdissasembly +
+              row.sumassembly +
+              row.sumpacking +
+              row.sumunpacking
+          );
+          return (
+            
+
+            <Typography color="common.black">
+              {row.sumdissasembly +
+                row.sumassembly +
+                row.sumpacking +
+                row.sumunpacking}
+              €
+            </Typography>
+            
+          );
+        } 
+      },
+    },
+
+    {
+      flex: 0.4,
+      field: "totalprice",
+      minWidth: 90,
+      headerName: "Total Price",
+      renderCell: ({ row }) => {
+        if (row.tittle == "Total") {
+          setProductsTotalPrice(
+            parseFloat(cubicprice) * parseFloat(row.totalc) +
+              (row.sumdissasembly +
+                row.sumassembly +
+                row.sumpacking +
+                row.sumunpacking)
+          );
+          var sum =
+            parseFloat(cubicprice) * parseFloat(row.totalc) +
+            (row.sumdissasembly +
+              row.sumassembly +
+              row.sumpacking +
+              row.sumunpacking);
+          return (
+           
+
+            <Typography color="common.black">{sum.toFixed(2)}€</Typography>
+            
           );
         } else {
           return (
-            // <Link href={`/apps/invoice/preview/${row.id}`} passHref>
+            
 
             <StyledLink>
               {(parseFloat(cubicprice) * parseFloat(totalcubicsum)).toFixed(2)}€
             </StyledLink>
-            // </Link>
+            
           );
         }
       },
@@ -781,7 +739,7 @@ const InvoiceListTable = ({
   async function updateProducts(someArray) {
     var datanew = {
       product_list: someArray,
-      c_id: "c1",
+      c_id: "c" + id,
     };
 
     const response = await axios.post(
@@ -790,7 +748,7 @@ const InvoiceListTable = ({
         datanew,
       }
     );
-    //console.log(response);
+    
     if (response.status == 200) {
       setrefreshdata(true);
     }
@@ -823,7 +781,7 @@ const InvoiceListTable = ({
         setData(null);
         //setloaddata(false);
       });
-    //console.log(plist);
+    
     var storedData = window.localStorage.getItem("userData");
     storedData = JSON.parse(storedData);
     var ids = { id: storedData.id };
@@ -862,7 +820,48 @@ const InvoiceListTable = ({
         var sumQty = plist
           .map((item) => parseFloat(item.quantity))
           .reduce((prev, next) => prev + next);
+           var sumDissasembly = filteredX.reduce(function (sum, current) {
+             if (getserviceCheck(current.p_id, "dissasembly")) {
+               return sum + current.service_price.dissasembly;
+             } else {
+               return sum;
+             }
+           }, 0);
 
+           var sumAssembly = filteredX.reduce(function (sum, current) {
+             if (getserviceCheck(current.p_id, "assembly")) {
+               return sum + current.service_price.assembly;
+             } else {
+               return sum;
+             }
+           }, 0);
+
+           // var sumPacking = filteredX
+           //   .map((item) => parseInt(item.service_price.packing))
+           //   .reduce((prev, next) => prev + next);
+
+           var sumPacking = filteredX.reduce(function (sum, current) {
+             if (getserviceCheck(current.p_id, "packing")) {
+               return sum + current.service_price.packing;
+             } else {
+               return sum;
+             }
+           }, 0);
+
+           var sumUnpacking = filteredX.reduce(function (sum, current) {
+             if (getserviceCheck(current.p_id, "unpacking")) {
+               return sum + current.service_price.unpacking;
+             } else {
+               return sum;
+             }
+           }, 0);
+
+        const ctotal = filteredX
+          .map(
+            (item) =>
+              parseFloat(item.size.cubic_meter) * parseFloat(qtynm(item.p_id))
+          )
+          .reduce((a, b) => a + b, 0);
         var a = {
           tittle: "Total",
           size: {
@@ -872,6 +871,11 @@ const InvoiceListTable = ({
             cubic_meter: sums,
             qty: sumQty,
           },
+          totalc:ctotal,
+          sumdissasembly: parseFloat(sumDissasembly),
+          sumassembly: parseFloat(sumAssembly),
+          sumpacking: parseFloat(sumPacking),
+          sumunpacking: parseFloat(sumUnpacking),
 
           p_id: "",
         };
@@ -908,6 +912,13 @@ const InvoiceListTable = ({
         const encodedfromaddress = encodeURI(fromaddress);
         const encodedtoaddress = encodeURI(toaddress);
 
+
+
+
+
+
+       
+
         /*var axios = require("axios");
 
          var config = {
@@ -924,12 +935,12 @@ const InvoiceListTable = ({
            .then(function (response) {
             var distancemile=response.data.rows[0].elements[0].distance.text;
             distancemile = distancemile.replace("mi", "");
-             //console.log(JSON.stringify(response.data));
+             
              distancemile = parseFloat(distancemile * 1.6);
-             console.log(distancemile.toFixed(2));
+             
            })
            .catch(function (error) {
-             console.log(error);
+        
            });*/
 
         var distancedata = {
@@ -949,10 +960,34 @@ const InvoiceListTable = ({
         };
         setdistancedata([distancedata]);
 
-        //console.log(pdata);
+        
       }
     }
   }, [plist, refreshdata]);
+
+  function getserviceCheck(id, service) {
+    var check = plist.filter((itemY, service) => {
+      if (itemY.p_id == id) {
+        var s = itemY;
+
+        return s;
+      } else {
+        return null;
+      }
+    });
+    check = check[0].product_services_list;
+
+    if (service == "assembly") {
+      return check.assembly;
+    } else if (service == "dissasembly") {
+      return check.dissasembly;
+    } else if (service == "packing") {
+      return check.packing;
+    } else if (service == "unpacking") {
+      return check.unpacking;
+    } else {
+    }
+  }
   function qty(id) {
     return plist.filter((itemY) => {
       if (itemY.p_id == id) {
@@ -961,6 +996,36 @@ const InvoiceListTable = ({
         return null;
       }
     });
+  }
+  function qtynm(id) {
+    var q;
+
+    plist.filter((itemY) => {
+      if (itemY.p_id == id) {
+        q = itemY.quantity;
+
+        return itemY;
+      } else if (id == "") {
+        q = 1;
+        return 0;
+      }
+    });
+    return parseInt(q);
+  }
+  function qtymovings(id) {
+    var q;
+
+    mlist.filter((itemY) => {
+      if (itemY.mm_id == id) {
+        q = itemY.quantity;
+
+        return itemY;
+      } else if (id == "") {
+        q = 1;
+        return 0;
+      }
+    });
+    return parseInt(q);
   }
   useEffect(() => {
     if (movingdata.length != 0) {
@@ -986,6 +1051,20 @@ const InvoiceListTable = ({
         var sumQty = mlist
           .map((item) => parseFloat(item.quantity))
           .reduce((prev, next) => prev + next);
+          const ctotal = filteredX
+            .map(
+              (item) =>
+                parseFloat(item.size.cubic_meter) *
+                parseFloat(qtymovings(item.mm_id))
+            )
+            .reduce((a, b) => a + b, 0);
+
+         
+          const total = filteredX
+            .map((item) => item.price * qtymovings(item.mm_id))
+            .reduce((a, b) => a + b, 0);
+
+          console.log(qtymovings("m1"));
 
         var a = {
           tittle: "Total",
@@ -996,7 +1075,8 @@ const InvoiceListTable = ({
             cubic_meter: sums,
             qty: sumQty,
           },
-          total: sums,
+          total: total,
+          ctotal:ctotal,
           qty: sumQty,
 
           mm_id: "",
@@ -1024,7 +1104,7 @@ const InvoiceListTable = ({
           var sums = filteredX
             .map((item) => item.price)
             .reduce((prev, next) => prev + next);
-
+            console.log(mslist)
           var sumQty = mslist
             .map((item) => parseFloat(item.quantity))
             .reduce((prev, next) => prev + next);
@@ -1046,7 +1126,6 @@ const InvoiceListTable = ({
 
           setmservicesdata([aa]);
 
-          console.log(mservicesdata);
         }
       }
     }
@@ -1071,6 +1150,7 @@ const InvoiceListTable = ({
   function percentage(percent, total) {
     return ((percent / 100) * total).toFixed(2);
   }
+  
   useEffect(() => {
     if (parseInt(discountvalue) > 100) {
       const total =
@@ -1136,7 +1216,75 @@ const InvoiceListTable = ({
     DistanceTotalPrice,
      MovingMaterialTotalPrice
   ]);
-
+//multipler calculation
+  useEffect(() => {
+    if (parseInt(multiplervalue) > 100) {
+      const total =
+        parseFloat(ProductsTotalPrice) +
+        parseFloat(MovingTotalPrice) +
+        parseFloat(FloorsTotalPrice) +
+        parseFloat(DistanceTotalPrice) +
+        parseFloat(MovingMaterialTotalPrice);
+      setfinalprice(total.toFixed(2));
+    }
+    if (multiplervalue > 0) {
+      const total =
+        parseFloat(ProductsTotalPrice) +
+        parseFloat(MovingTotalPrice) +
+        parseFloat(FloorsTotalPrice) +
+        parseFloat(DistanceTotalPrice) +
+        parseFloat(MovingMaterialTotalPrice);
+      const percentResult = percentage(total, multiplervalue);
+      
+      setfinalprice((parseFloat(total) + parseFloat(percentResult)).toFixed(2));
+     
+    } else {
+      const total =
+        parseFloat(ProductsTotalPrice) +
+        parseFloat(MovingTotalPrice) +
+        parseFloat(FloorsTotalPrice) +
+        parseFloat(DistanceTotalPrice) +
+        parseFloat(MovingMaterialTotalPrice);
+      setfinalprice(total.toFixed(2));
+    }
+  }, [multiplervalue]);
+  useEffect(() => {
+    if (multiplervalue > 0) {
+      const total =
+        parseFloat(ProductsTotalPrice) +
+        parseFloat(MovingTotalPrice) +
+        parseFloat(FloorsTotalPrice) +
+        parseFloat(DistanceTotalPrice) +
+        parseFloat(MovingMaterialTotalPrice);
+      const percentResult = percentage(total, multiplervalue);
+   
+          setfinalprice(
+            (parseFloat(total) + parseFloat(percentResult)).toFixed(2)
+          );
+    } else if (parseInt(multiplervalue) > 100) {
+      const total =
+        parseFloat(ProductsTotalPrice) +
+        parseFloat(MovingTotalPrice) +
+        parseFloat(FloorsTotalPrice) +
+        parseFloat(DistanceTotalPrice) +
+        parseFloat(MovingMaterialTotalPrice);
+      setfinalprice(total.toFixed(2));
+    } else {
+      const total =
+        parseFloat(ProductsTotalPrice) +
+        parseFloat(MovingTotalPrice) +
+        parseFloat(FloorsTotalPrice) +
+        parseFloat(MovingMaterialTotalPrice) +
+        parseFloat(DistanceTotalPrice);
+      setfinalprice(total.toFixed(2));
+    }
+  }, [
+    ProductsTotalPrice,
+    MovingTotalPrice,
+    FloorsTotalPrice,
+    MovingMaterialTotalPrice,
+    multiplervalue,
+  ]);
   return (
     <Box>
       <Card sx={{ mb: 9, m: 5 }}>
@@ -1182,6 +1330,9 @@ const InvoiceListTable = ({
             disableSelectionOnClick
             hideFooterSelectedRowCount
             hideFooterPagination
+            disableColumnMenu
+            disableColumnFilter
+            disableColumnSelector
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
             sx={{ "& .MuiDataGrid-columnHeaders": { borderRadius: 0 } }}
           />
@@ -1226,6 +1377,9 @@ const InvoiceListTable = ({
             hideFooterSelectedRowCount
             hideFooterPagination
             disableSelectionOnClick
+            disableColumnMenu
+            disableColumnFilter
+            disableColumnSelector
             rowsPerPageOptions={[]}
             sx={{ "& .MuiDataGrid-columnHeaders": { borderRadius: 0 } }}
           />
@@ -1270,6 +1424,9 @@ const InvoiceListTable = ({
             hideFooterSelectedRowCount
             hideFooterPagination
             disableSelectionOnClick
+            disableColumnMenu
+            disableColumnFilter
+            disableColumnSelector
             rowsPerPageOptions={[]}
             sx={{ "& .MuiDataGrid-columnHeaders": { borderRadius: 0 } }}
           />
@@ -1314,6 +1471,9 @@ const InvoiceListTable = ({
             hideFooterSelectedRowCount
             hideFooterPagination
             disableSelectionOnClick
+            disableColumnMenu
+            disableColumnFilter
+            disableColumnSelector
             rowsPerPageOptions={[]}
             sx={{ "& .MuiDataGrid-columnHeaders": { borderRadius: 0 } }}
           />
@@ -1358,6 +1518,9 @@ const InvoiceListTable = ({
             hideFooterSelectedRowCount
             hideFooterPagination
             disableSelectionOnClick
+            disableColumnMenu
+            disableColumnFilter
+            disableColumnSelector
             rowsPerPageOptions={[]}
             sx={{ "& .MuiDataGrid-columnHeaders": { borderRadius: 0 } }}
           />
@@ -1392,8 +1555,8 @@ const InvoiceListTable = ({
               parseFloat(ProductsTotalPrice) +
               parseFloat(MovingTotalPrice) +
               parseFloat(FloorsTotalPrice) +
-              parseFloat(DistanceTotalPrice)+
-               parseFloat(MovingMaterialTotalPrice)
+              parseFloat(DistanceTotalPrice) +
+              parseFloat(MovingMaterialTotalPrice)
             ).toFixed(2)}
             €
           </Typography>
@@ -1471,10 +1634,28 @@ const InvoiceListTable = ({
               sx={{ ml: 3, mr: 3 }}
               type="number"
               value={finalprice}
+              inputProps={{ style: { fontSize: 20, fontWeight: "bold",color:"primary.main" } }}
+              InputLabelProps={{ style: { fontWeight: "bold" } }}
               size="large"
               label="Final Price"
               placeholder="1"
               onChange={(e) => setfinalprice(e.target.value)}
+              //onFocus={(e) => setFocus(e.target.name)}
+            />
+          </Box>
+          <Box
+            sx={{
+              gridTemplateColumns: "repeat(3, 3fr)",
+            }}
+          >
+            <TextField
+              sx={{ ml: 3, mr: 3 }}
+              type="number"
+              value={multiplervalue}
+              size="small"
+              label="Increase multiplier by %"
+              placeholder="1"
+              onChange={(e) => setmultiplervalue(e.target.value)}
               //onFocus={(e) => setFocus(e.target.name)}
             />
           </Box>
@@ -1489,7 +1670,60 @@ const InvoiceListTable = ({
             mb: 5,
           }}
         >
-          <Button variant="contained" color="success" sx={{ mr: 5 }}>
+          <Button
+            variant="contained"
+            onClick={() => {
+
+
+              var total=(
+              parseFloat(ProductsTotalPrice) +
+              parseFloat(MovingTotalPrice) +
+              parseFloat(FloorsTotalPrice) +
+              parseFloat(DistanceTotalPrice) +
+              parseFloat(MovingMaterialTotalPrice)
+            ).toFixed(2)
+
+              
+              var datanew = {
+                "c_id": "c"+id,
+                "priceby_calculation": total,
+                "priceby_admin": finalprice,
+                "distance_total_price":DistanceTotalPrice,
+                "floors_total_price":FloorsTotalPrice,
+                "moving_material_total_price":MovingMaterialTotalPrice,
+                "moving_total_price":MovingTotalPrice,
+                "products_total_price":ProductsTotalPrice,
+
+                "distance":"1.44",//change from api
+                
+                "total_cubic_meter":totalcubicmeter,
+                "total_product_services_price":totalproductservices
+                //addstatus 
+              };
+              
+              axios
+                .post("https://umzungcrmtest.vercel.app/api/updateAdminLeadPrice", {
+                  datanew,
+                })
+                .then((response) => {
+                  
+                  if (response.status==200) {
+                    router.replace("/apps/adminestimate/view/" + id + "/");
+                  }
+                  //setrefreshdata(true);
+                });
+
+                   
+                
+
+
+
+
+
+            }}
+            color="success"
+            sx={{ mr: 5 }}
+          >
             Convert into Estimates
           </Button>
           <Button variant="contained" color="error" sx={{ ml: 5 }}>

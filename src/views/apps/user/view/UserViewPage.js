@@ -27,7 +27,7 @@ const UserView = ({ id, invoiceData }) => {
     axios.post('https://umzungcrmtest.vercel.app/api/getAdminbyId',{ ids })
       .then(response => {
         setData(response.data[0])
-        console.log(response.data[0])
+       
         setError(false)
       })
       .catch(() => {

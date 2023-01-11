@@ -20,7 +20,7 @@ export const fetchData = createAsyncThunk(
       adminestimate: response.data,
     };
 
-    console.log(response.data);
+   
     return test;
   }
 );
@@ -87,15 +87,15 @@ export const updateUser = createAsyncThunk(
       username: datas.username,
     };
 
-    console.log(datanew);
-    console.log("datanew");
+   
+   
     const response = await axios.post(
       "https://umzungcrmtest.vercel.app/api/updateAdminlist",
       {
         datanew,
       }
     );
-    console.log(response);
+   
     dispatch(fetchData(getState().user.params));
 
     return response.data;

@@ -168,7 +168,7 @@ var midnew=String(mid).substring(1);
       "full_name":full_name,
       "password":password
     }
-    console.log(datanew)
+   
     dispatch(updateManager({ ...datanew }))
     handleEditClose()
   }
@@ -351,12 +351,12 @@ const columns = [
     useEffect(() => {
      if(passwordshow)
       {
-        console.log("true")
+       
         setpassword("****")
       }
       else
       {
-        console.log("false")
+       
         setpassword(row.password)
       }
     }, [passwordshow])

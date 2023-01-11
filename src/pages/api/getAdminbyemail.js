@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
    const {ids}=req.body
    //console.log("test")
-  console.log(ids)
+ 
   const todos = await db.collection("Admin").find({"email":ids.email}).toArray();
    //console.log(todos)
   res.status(200).json(todos);

@@ -49,7 +49,7 @@ const webhookHandler = async (req, res) => {
         const paymentIntent = event.data.object;
        
           `❌ Payment failed: ${paymentIntent.last_payment_error?.message}`
-        );
+      
         break;
       }
       case 'charge.succeeded': {
